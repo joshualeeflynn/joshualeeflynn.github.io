@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECSE 507</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f1f0ea;
+      color: #1d1d1f;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      width: min(900px, calc(100% - 48px));
+      margin: 64px auto;
+    }
+    a { color: #3f6286; }
+    img { max-width: 100%; height: auto; }
+    table { max-width: 100%; border-collapse: collapse; }
+    td, th { padding: .25rem .5rem; vertical-align: top; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>ECSE 507</h1>
+    <!-- wp:paragraph -->
+<p><strong><em>Instructor</em></strong>: Joshua Flynn<br><strong><em>Office Hours</em></strong>: immediately after class or by scheduling<br><strong><em>Office</em></strong>: BURN 1244<br><strong><em>Course Syllabus</em></strong>: This webpage<br><strong><em>Primary Textbook</em></strong>:&nbsp;<em>Convex Optimization</em>, by Boyd &amp; Vendenberghe<br>(Free pdf found <a href="https://web.stanford.edu/~boyd/cvxbook/">here)</a><br><strong>Lecture Notes:</strong> <a href="/ecse-507-lecture-notes/">here</a> <br>(see <a href="/ecse-507-lecture-notes-presentation/">here</a> for version for presenting in class; this is updated first.)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Supplementals</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>(N.B.: hyperlinks may break.)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><span style="text-decoration: underline">Textbooks</span><br>Anderson, Moore: <em>Optimal Control Linear Quadratic Methods</em><br>Balakrishnan, Boyd, Feron, Ghaoui: <em>Linear Matrix Inequalities in System and Control Theory </em>(<a href="https://web.stanford.edu/~boyd/lmibook/lmibook.pdf">pdf</a>)<br>Kirk: <em>Optimal Control Theory: An Introduction</em> (<a href="https://store.doverpublications.com/0486434842.html">link</a>)<br>Sontag: <em>Mathematical Control Theory</em> (<a href="https://link.springer.com/book/10.1007/978-1-4612-0577-7">link</a>)<br><span style="text-decoration: underline">Exercises</span><br>Boyd, Vandenberghe: Additional Exercises for Convex Optimization (link). We'll use the August 27, 2023 version. Please keep an eye out if it is updated.<br><span style="text-decoration: underline">Papers/Surveys</span><br>Baez, Erbele: <em>CATEGORIES IN CONTROL</em> (<a href="https://arxiv.org/pdf/1405.6881.pdf">link</a>, some abstract nonsense)<br>Boyd, Vandenberghe: <em>Semidefinite Programming</em> (<a href="https://web.stanford.edu/~boyd/papers/pdf/semidef_prog.pdf">pdf</a>)<br>Boyd, Kim, Vandenberghe, Hassibi: <em>A tutorial on geometric programming </em>(<a href="https://web.stanford.edu/~boyd/papers/pdf/gp_tutorial.pdf">pdf</a>)<br>Ogura, Kishida, Lam: <em>Geometric Programming for Optimal Positive Linear Systems</em><br>Klinger, Mangasarian: <em>Logarithmic Convexity and Geometric Programming</em><br>Pisinger: <em>The quadratic knapsack problem—a survey</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator {"align":"wide"} -->
+<hr class="wp-block-separator alignwide has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Course Schedule</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Key: <br>CO = <em>Convex Optimization,</em> by Boyd &amp; Vendenberghe<br>AE = <em>Additional Exercises for Convex Optimization</em> (<a href="https://github.com/cvxgrp/cvxbook_additional_exercises/tree/main">link</a>), by Boyd &amp; Vendenberghe</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week 1</strong> (Jan 5)<br>Reading: Start CO Chp 2.<br>Optional reading: CO Chp 1.<br>Assignment 1: CO 2.16, 2.26, 2.35, 3.1, 3.5.<br>Optional: AE 3.79; Classify the convex, affine and conic hulls of three points in the plane.<br>Due: Jan 14.<br></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>2 (Jan 10 &amp; 12)<br>Reading: Finish CO Chp 2, start CO Chp 3.<br>Assignment 2: CO 3.7, 3.11, 3.16(a)&amp;(b), 3.30, 3.36(d).<br>Optional: AE 3.13<br>Due: Jan 21.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week 3</strong> (Jan 17 &amp; 19)<br>Reading: Finish CO Chp 3, start CO Chp 4.<br>Assignment 3: CO 4.6, 4.9, 4.12 (three problems this week.)<br>Optional: CO 4.4, 4.16;<br>Let $latex f:\mathbb{R}^n \to \mathbb{R}&amp;s=2$ be such that $latex \nabla^2 f &amp;s=2$ exists everywhere, but $latex f &amp;s=2$ is not necessarily twice Frechet differentiable. Prove or disprove: $latex f&amp;s=2$ is convex iff $latex z^T \nabla^2 f(x) z \geq 0 &amp;s=2$ for all $latex z \in \mathbb{R}^n&amp;s=2$ and $latex x \in \text{dom}\, f &amp;s=2$. N.B.: there are convex functions where $latex \nabla^2 f &amp;s=2$ is not symmetric everywhere, i.e., $latex \nabla^2 f \notin \boldsymbol{S}^n &amp;s=2$, let alone $latex \boldsymbol{S}_+^n &amp;s=2$.<br>Due: Jan 28.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week 4</strong> (Jan 24 &amp; 26)<br>Reading: Continue reading CO Chp 4.<br>Assignment 4: CO 4.35, 4.39 (for (c), consult CO's A.5.5), 4.43(a)(b)<br>Optional: CO 4.41, AE 4.23<br>Due: Feb 4</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week 5</strong> (Jan 31 &amp; Feb 2)<br>Reading: Finish CO Chp 4 and start CO Chap 5.<br>Assignment 5: CO 5.1, 5.13, 5.14<br>Optional:<br>Due: Feb 11<br><br><strong>Week </strong>6 (Feb 7 &amp; 9)<br>Reading: Finish CO Chap 5<br>Assignment 6: CO 5.26, 5.27, 5.30 (you can use results from A.4.1)<br>Optional: AE 5.14<br>Due: Feb 18<br><br><strong>Week </strong>7 (Feb 14 &amp; 16)<br>Reading: Start CO Chap 9<br>Assignment 6: CO 9.3, 9.5, 9.6<br>Optional: AE 9.1<br>Due: Feb 25</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>8 (Feb 21 &amp; 23)<br>Reading: Continue CO Chap 9<br></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>9 (Feb 28 &amp; Mar 1)<br>Reading: Finish Co Chap 9</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>10 (Mar 6 &amp; 8)<br>Spring Break</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>11 (Mar 13 &amp; 15)<br>Reading: Start CO Chap 10<br>Assignment 7: CO 9.8, 9.11, 10.5<br>Due: March 24</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Week </strong>12 (Mar 20 &amp; 22)<br>Reading: Finish CO Chap 10<br></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator {"align":"wide"} -->
+<hr class="wp-block-separator alignwide has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Course Description</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Electrical Engineering : General introduction to optimization methods including steepest descent, conjugate gradient, Newton algorithms. Generalized matrix inverses and the least squared error problem. Introduction to constrained optimality; convexity and duality; interior point methods. Introduction to dynamic optimization; existence theory, relaxed controls, the Pontryagin Maximum Principle. Sufficiency of the Maximum Principle.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The optimization part of the course will primarily come from Boyd &amp; Vendenberghe's text. The control part may come from Kirk's or the text of Balakrishnan, Boyd, Feron, &amp; Ghaoui.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>To get the most out of the course, it is strongly encouraged that you spend time on the readings and problems. Light reading is expected for some of the assignments (this will usually mean one needs to spend a few minutes learning a definition/example and then applying it to a problem).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Course Roles and Goals</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><em>Goal</em>: students complete the course with a satisfactory degree of understanding of convex optimization and optimal control.<br><em>Readings</em>: To reinforce topics covered in lecture or introduce topics not covered in lecture.<br><em>Lectures</em>: To highlight important parts of the textbooks and prepare students for the assignments or readings.<br><em>Assignments</em>: To provide practice and challenge any latent misunderstandings. Problems may be relevant to reading material not covered in lecture.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Homework</h4>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Submit your solutions on the MyCourses page.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Weekly problem set of 5 mandatory problems and a couple optional problems.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Due dates are indicated in course schedule.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Portion of problem set will be graded on completion (dependent on registration size).</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Final</h4>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Final prompt will be released near end of semester.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>You will have a week or two to complete it.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:separator -->
+<hr class="wp-block-separator has-alpha-channel-opacity" />
+<!-- /wp:separator -->
+
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">Grading</h4>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Homework: 50%<br>Final: 50%</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This course will follow the standard McGill University grading scheme:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"hasFixedLayout":false} -->
+<figure class="wp-block-table"><table><tbody><tr><td>A</td><td>4.0</td><td>85 – 100%</td></tr><tr><td>A-</td><td>3.7</td><td>80 – 84%</td></tr><tr><td>B+</td><td>3.3</td><td>75 – 79%</td></tr><tr><td>B</td><td>3.0</td><td>70 – 74%</td></tr><tr><td>B-</td><td>2.7</td><td>65 – 69%</td></tr><tr><td>C+</td><td>2.3</td><td>60 – 64%</td></tr><tr><td>C</td><td>2.0</td><td>55 – 59%</td></tr><tr><td>D</td><td>1.0</td><td>50 – 54%</td></tr><tr><td>F (Fail)</td><td>0</td><td>0 – 49%</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+  </main>
+</body>
+</html>
