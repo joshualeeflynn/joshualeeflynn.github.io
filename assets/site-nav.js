@@ -17,7 +17,7 @@
       children: [
         {
           id: "18-100a",
-          label: "18.100A",
+          label: "18.100a",
           href: "/#18-100a"
         },
 
@@ -27,17 +27,17 @@
           children: [
             {
               id: "previous-mit",
-              label: "MIT(2)",
+              label: "mit(2)",
               href: "/previous-courses/#mit"
             },
             {
               id: "previous-mcgill",
-              label: "McGill(2)",
+              label: "mcgill(2)",
               href: "/previous-courses/#mcgill"
             },
             {
               id: "previous-uconn",
-              label: "UConn(14)",
+              label: "uconn(14)",
               href: "/previous-courses/#uconn"
             }
           ]
