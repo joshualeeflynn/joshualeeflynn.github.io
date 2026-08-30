@@ -225,3 +225,65 @@ a.active {
 .paper-links {
   margin-top: 4px;
 }
+
+/* Talks */
+.talks-panel {
+  max-width: 780px;
+}
+
+.talk-list {
+  margin: 0;
+  padding-left: 1.6rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.talk-list li {
+  margin: 0 0 14px;
+  padding-left: 4px;
+}
+
+.organized-list li {
+  margin-bottom: 10px;
+}
+
+.talk-list em {
+  color: var(--text);
+}
+
+.talk-list br + em {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+/* Expandable directory labels */
+.branch-label {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: var(--link);
+  font: inherit;
+  cursor: pointer;
+}
+
+.branch-label:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Recursive tree */
+.tree .node {
+  display: block;
+}
+
+.branch-label.active {
+  color: var(--active);
+  font-weight: 600;
+}
+
+/* Keep anchor jumps from landing flush against the top of the viewport. */
+.course-section {
+  scroll-margin-top: 48px;
+}
