@@ -5,6 +5,7 @@
   --tree: #c7c7c2;
   --link: #3f6286;
   --active: #365c50;
+  --content-top-offset: 117px;
 }
 
 * {
@@ -51,7 +52,7 @@ main {
 
 .content-panel {
   max-width: 650px;
-  padding-top: 6px;
+  padding-top: var(--content-top-offset);
 }
 
 .content-panel h2 {
@@ -182,6 +183,10 @@ a.active {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .content-panel {
+    padding-top: 0;
+  }
 }
 
 /* Papers */
@@ -280,4 +285,43 @@ a.active {
 
 .course-section {
   scroll-margin-top: 48px;
+}
+
+/* Filesystem-style course lists */
+.course-tree {
+  font-family:
+    "SFMono-Regular",
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 14px;
+  line-height: 1.75;
+  max-width: 760px;
+}
+
+.course-root {
+  color: var(--text);
+  font-weight: 600;
+  min-height: 1.75em;
+}
+
+.course-row {
+  display: grid;
+  grid-template-columns: 4ch minmax(0, 1fr);
+  align-items: start;
+  min-height: 1.75em;
+}
+
+.course-branch {
+  color: var(--tree);
+  white-space: pre;
+}
+
+.course-entry {
+  min-width: 0;
+}
+
+.course-entry a {
+  color: var(--link);
 }
