@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching — Joshua Flynn</title>
+
+  <link rel="stylesheet" href="/assets/site.css">
+
+  <style>
+    .teaching-panel {
+      max-width: 760px;
+      padding-top: 6px;
+    }
+
+    .teaching-graph {
+      display: block;
+      width: min(500px, 100%);
+      height: auto;
+
+      /* placement only */
+      margin: 36px auto 0;
+      position: relative;
+      left: 24px;
+    }
+
+    .graph-line {
+      stroke: var(--tree);
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .graph-node {
+      cursor: pointer;
+    }
+
+    .graph-node circle {
+      fill: var(--text);
+    }
+
+    @media (max-width: 820px) {
+      .teaching-graph {
+        left: 0;
+        margin-top: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="content-grid">
+
+      <section class="nav-column">
+        <header>
+          <h1>Joshua Flynn</h1>
+          <p class="subtitle">NSF Postdoctoral Fellow</p>
+          <p class="subtitle">MIT, Mathematics</p>
+        </header>
+
+        <nav
+          id="site-tree"
+          class="tree"
+          data-active="teaching"
+          aria-label="Site navigation">
+        </nav>
+      </section>
+
+      <section class="content-panel teaching-panel" aria-label="Teaching graph">
+        <svg
+          class="teaching-graph"
+          viewBox="0 0 500 500"
+          role="img"
+          aria-label="Teaching graph">
+
+          <line class="graph-line" x1="108" y1="62" x2="258" y2="447"></line>
+          <line class="graph-line" x1="108" y1="62" x2="401" y2="369"></line>
+
+          <a class="graph-node" href="/previous-courses/#mcgill" aria-label="McGill">
+            <circle cx="108" cy="62" r="7"></circle>
+          </a>
+
+          <a class="graph-node" href="/previous-courses/#uconn" aria-label="UConn">
+            <circle cx="258" cy="447" r="7"></circle>
+          </a>
+
+          <a class="graph-node" href="/previous-courses/#mit" aria-label="MIT">
+            <circle cx="401" cy="369" r="7"></circle>
+          </a>
+
+        </svg>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="/assets/site-nav.js"></script>
+</body>
+</html>

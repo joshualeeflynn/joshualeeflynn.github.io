@@ -136,10 +136,6 @@ h1 {
   font-weight: 600;
 }
 
-.child {
-  padding-left: 2ch;
-}
-
 .branch {
   color: var(--tree);
 }
@@ -273,7 +269,6 @@ a.active {
   text-underline-offset: 3px;
 }
 
-/* Recursive tree */
 .tree .node {
   display: block;
 }
@@ -283,7 +278,6 @@ a.active {
   font-weight: 600;
 }
 
-/* Keep anchor jumps from landing flush against the top of the viewport. */
 .course-section {
   scroll-margin-top: 48px;
 }

@@ -1,8 +1,4 @@
 (() => {
-  /*
-    The tree is data now. Add arbitrary nested children and the renderer
-    handles indentation, branch glyphs, toggles, and active ancestry.
-  */
   const tree = [
     {
       id: "home",
@@ -13,31 +9,31 @@
     {
       id: "teaching",
       label: "teaching/",
+      href: "/teaching/",
       open: true,
       children: [
         {
           id: "18-100a",
-          label: "18.100a",
+          label: "18.100A",
           href: "/#18-100a"
         },
-
         {
           id: "previous-courses",
           label: "previous_courses/",
           children: [
             {
               id: "previous-mit",
-              label: "mit(2)",
+              label: "MIT(2)",
               href: "/previous-courses/#mit"
             },
             {
               id: "previous-mcgill",
-              label: "mcgill(2)",
+              label: "McGill(2)",
               href: "/previous-courses/#mcgill"
             },
             {
               id: "previous-uconn",
-              label: "uconn(14)",
+              label: "UConn(14)",
               href: "/previous-courses/#uconn"
             }
           ]
@@ -83,17 +79,16 @@
 
   let activeId = nav.dataset.active || "";
 
-  /*
-    On the previous-courses page, an institution hash can identify the
-    specific child node automatically.
-  */
   const hashActive = {
     "#mit": "previous-mit",
     "#mcgill": "previous-mcgill",
     "#uconn": "previous-uconn"
   };
 
-  if (hashActive[window.location.hash]) {
+  if (
+    activeId === "previous-courses" &&
+    hashActive[window.location.hash]
+  ) {
     activeId = hashActive[window.location.hash];
   }
 
@@ -113,10 +108,14 @@
     return span;
   }
 
-  function makeLink(node) {
+  function makeLink(node, extraClass = "") {
     const a = document.createElement("a");
     a.href = node.href;
     a.textContent = node.label;
+
+    if (extraClass) {
+      a.className = extraClass;
+    }
 
     if (node.id === activeId) {
       a.classList.add("active");
@@ -132,7 +131,9 @@
     toggle.setAttribute("aria-expanded", String(isOpen));
     toggle.textContent = isOpen ? "[-]" : "[+]";
 
-    label.setAttribute("aria-expanded", String(isOpen));
+    if (label.tagName === "BUTTON") {
+      label.setAttribute("aria-expanded", String(isOpen));
+    }
   }
 
   function makeDirectoryControls(node, children, startsOpen) {
@@ -140,13 +141,19 @@
     toggle.className = "toggle";
     toggle.type = "button";
 
-    const label = document.createElement("button");
-    label.className = "branch-label";
-    label.type = "button";
-    label.textContent = node.label;
+    let label;
 
-    if (node.id === activeId) {
-      label.classList.add("active");
+    if (node.href) {
+      label = makeLink(node);
+    } else {
+      label = document.createElement("button");
+      label.className = "branch-label";
+      label.type = "button";
+      label.textContent = node.label;
+
+      if (node.id === activeId) {
+        label.classList.add("active");
+      }
     }
 
     function flip() {
@@ -155,7 +162,10 @@
     }
 
     toggle.addEventListener("click", flip);
-    label.addEventListener("click", flip);
+
+    if (!node.href) {
+      label.addEventListener("click", flip);
+    }
 
     setBranchOpen(toggle, label, children, startsOpen);
 
@@ -168,9 +178,6 @@
       row.className = "node";
       row.style.paddingLeft = `${depth * 2}ch`;
 
-      /*
-        Home is the one root node and intentionally has no branch glyph.
-      */
       if (depth === 0 && index === 0 && node.id === "home") {
         row.classList.add("root-node");
         row.appendChild(makeLink(node));
@@ -218,12 +225,11 @@
 
   renderNodes(tree);
 
-  /*
-    If the hash changes while already on /previous-courses/, reload only the
-    nav rendering so the institution highlight follows the selected section.
-  */
   window.addEventListener("hashchange", () => {
-    if (hashActive[window.location.hash]) {
+    if (
+      nav.dataset.active === "previous-courses" &&
+      hashActive[window.location.hash]
+    ) {
       window.location.reload();
     }
   });
