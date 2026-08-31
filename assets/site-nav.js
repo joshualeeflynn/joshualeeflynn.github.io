@@ -9,7 +9,39 @@
     {
       id: "18-100a",
       label: "18.100a/",
-      href: "/18.100a/"
+      href: "/18.100a/",
+      children: [
+        {
+          id: "18-100a-logistics",
+          label: "logistics/",
+          href: "/18.100a/logistics/"
+        },
+        {
+          id: "18-100a-grading",
+          label: "grading/",
+          href: "/18.100a/grading/"
+        },
+        {
+          id: "18-100a-exams",
+          label: "exams/",
+          href: "/18.100a/exams/"
+        },
+        {
+          id: "18-100a-psets",
+          label: "psets/",
+          href: "/18.100a/psets/"
+        },
+        {
+          id: "18-100a-late-policy",
+          label: "late-policy/",
+          href: "/18.100a/late-policy/"
+        },
+        {
+          id: "18-100a-ai-policy",
+          label: "ai-policy/",
+          href: "/18.100a/ai-policy/"
+        }
+      ]
     },
 
     {
@@ -81,6 +113,24 @@
 
   const nav = document.getElementById("site-tree");
   if (!nav) return;
+
+  /*
+    Shared contact line beneath the affiliation.
+  */
+  const header = document.querySelector(".nav-column header");
+
+  if (header && !header.querySelector(".header-email")) {
+    const emailLine = document.createElement("p");
+    emailLine.className = "subtitle header-email";
+
+    const emailLink = document.createElement("a");
+    emailLink.href = "mailto:jlflynn@mit.edu";
+    emailLink.textContent = "jlflynn@mit.edu";
+    emailLink.style.color = "var(--muted)";
+
+    emailLine.appendChild(emailLink);
+    header.appendChild(emailLine);
+  }
 
   const STORAGE_KEY = "site-tree-open-branches";
   const documentCache = new Map();
@@ -198,13 +248,20 @@
           return;
         }
 
+        /*
+          Clicking a directory name may open it, but never closes it.
+          Folding is reserved for the explicit [+]/[-] control.
+        */
         const isOpen = toggle.getAttribute("aria-expanded") === "true";
-        setBranchOpen(node, toggle, label, children, !isOpen);
+
+        if (!isOpen) {
+          setBranchOpen(node, toggle, label, children, true);
+        }
 
         /*
-          If we're already on this directory's page, clicking its label is
-          purely a fold/unfold action. Prevent the browser from reloading the
-          same document.
+          If we're already on this directory's page, there is nothing to
+          navigate to. Prevent a same-page reload while preserving the open
+          state.
         */
         const targetUrl = new URL(node.href, window.location.href);
         const currentUrl = new URL(window.location.href);
@@ -241,7 +298,17 @@
       label.addEventListener("click", flip);
     }
 
-    const startsOpen = openBranches[node.id] === true;
+    /*
+      18.100a/ starts open the first time a visitor sees the tree.
+      Once the visitor explicitly opens or closes it, the persisted state wins.
+      Other branches continue to default closed.
+    */
+    const hasSavedState =
+      Object.prototype.hasOwnProperty.call(openBranches, node.id);
+
+    const startsOpen = hasSavedState
+      ? openBranches[node.id] === true
+      : node.id === "18-100a";
 
     children.hidden = !startsOpen;
     toggle.setAttribute("aria-expanded", String(startsOpen));
