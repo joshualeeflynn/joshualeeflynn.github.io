@@ -7,6 +7,12 @@
     },
 
     {
+      id: "18-100a",
+      label: "18.100a/",
+      href: "/18.100a/"
+    },
+
+    {
       id: "teaching",
       label: "teaching/",
       href: "/teaching/",
@@ -62,7 +68,7 @@
 
     {
       id: "about",
-      label: "about",
+      label: "about/",
       href: "/about/"
     },
 
