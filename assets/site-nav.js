@@ -12,9 +12,9 @@
       href: "/18.100a/",
       children: [
         {
-          id: "18-100a-logistics",
-          label: "logistics/",
-          href: "/18.100a/logistics/"
+          id: "18-100a-course-info",
+          label: "course-info/",
+          href: "/18.100a/course-info/"
         },
         {
           id: "18-100a-grading",
@@ -81,9 +81,9 @@
     },
 
     {
-      id: "events",
-      label: "events/",
-      href: "/events/",
+      id: "activities",
+      label: "activities/",
+      href: "/activities/",
       children: [
         {
           id: "organized",
@@ -94,6 +94,16 @@
           id: "given",
           label: "talks/",
           href: "/given/"
+        },
+        {
+          id: "services",
+          label: "services/",
+          href: "/services/"
+        },
+        {
+          id: "professional-development",
+          label: "professional-development/",
+          href: "/professional-development/"
         }
       ]
     },
