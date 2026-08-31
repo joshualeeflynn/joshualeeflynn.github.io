@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events — Joshua Flynn</title>
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+  .events-panel {
+    max-width: 800px;
+  }
+
+  .events-graph {
+    display: block;
+    width: min(760px, 100%);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .event-node {
+    cursor: pointer;
+  }
+
+  .event-hit {
+    fill: transparent;
+  }
+
+  .event-dot {
+    fill: var(--text);
+  }
+
+  .event-node:hover .event-dot,
+  .event-node:focus .event-dot {
+    fill: var(--active);
+  }
+
+  .event-node:focus {
+    outline: none;
+  }
+
+  .event-row {
+    scroll-margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <div class="content-grid">
+      <section class="nav-column">
+        <header>
+          <h1>Joshua Flynn</h1>
+          <p class="subtitle">NSF Postdoctoral Fellow</p>
+          <p class="subtitle">MIT, Mathematics</p>
+        </header>
+
+        <nav
+          id="site-tree"
+          class="tree"
+          data-active="events"
+          aria-label="Site navigation">
+        </nav>
+      </section>
+
+      <section class="content-panel events-panel" aria-label="Event locations">
+  <svg
+    class="events-graph"
+    viewBox="0 0 760 420"
+    role="img"
+    aria-label="Geographic distribution of in-person academic events">
+    <a class="event-node" href="/organized/#vancouver" aria-label="Vancouver, BC — 1 organized">
+  <title>Vancouver, BC — 1 organized</title>
+  <circle class="event-hit" cx="41.8" cy="40.0" r="13"></circle>
+  <circle class="event-dot" cx="41.8" cy="40.0" r="4.5"></circle>
+</a><a class="event-node" href="/given/#corvallis" aria-label="Corvallis, OR — 1 talk">
+  <title>Corvallis, OR — 1 talk</title>
+  <circle class="event-hit" cx="40.0" cy="126.3" r="13"></circle>
+  <circle class="event-dot" cx="40.0" cy="126.3" r="4.5"></circle>
+</a><a class="event-node" href="/given/#pasadena" aria-label="Pasadena, CA — 1 talk">
+  <title>Pasadena, CA — 1 talk</title>
+  <circle class="event-hit" cx="106.7" cy="316.8" r="13"></circle>
+  <circle class="event-dot" cx="106.7" cy="316.8" r="4.5"></circle>
+</a><a class="event-node" href="/given/#albuquerque" aria-label="Albuquerque, NM — 1 talk">
+  <title>Albuquerque, NM — 1 talk</title>
+  <circle class="event-hit" cx="256.4" cy="299.7" r="13"></circle>
+  <circle class="event-dot" cx="256.4" cy="299.7" r="4.5"></circle>
+</a><a class="event-node" href="/given/#denver" aria-label="Denver, CO — 1 talk">
+  <title>Denver, CO — 1 talk</title>
+  <circle class="event-hit" cx="278.0" cy="214.6" r="13"></circle>
+  <circle class="event-dot" cx="278.0" cy="214.6" r="4.5"></circle>
+</a><a class="event-node" href="/given/#mobile" aria-label="Mobile, AL — 1 talk">
+  <title>Mobile, AL — 1 talk</title>
+  <circle class="event-hit" cx="498.8" cy="380.0" r="13"></circle>
+  <circle class="event-dot" cx="498.8" cy="380.0" r="4.5"></circle>
+</a><a class="event-node" href="/given/#south-bend" aria-label="South Bend, IN — 1 talk">
+  <title>South Bend, IN — 1 talk</title>
+  <circle class="event-hit" cx="522.1" cy="179.1" r="13"></circle>
+  <circle class="event-dot" cx="522.1" cy="179.1" r="4.5"></circle>
+</a><a class="event-node" href="/given/#cincinnati" aria-label="Cincinnati, OH — 1 talk">
+  <title>Cincinnati, OH — 1 talk</title>
+  <circle class="event-hit" cx="544.8" cy="226.2" r="13"></circle>
+  <circle class="event-dot" cx="544.8" cy="226.2" r="4.5"></circle>
+</a><a class="event-node" href="/given/#toronto" aria-label="Toronto, ON — 2 talks">
+  <title>Toronto, ON — 2 talks</title>
+  <circle class="event-hit" cx="611.6" cy="143.0" r="13"></circle>
+  <circle class="event-dot" cx="611.6" cy="143.0" r="4.5"></circle>
+</a><a class="event-node" href="/given/#ottawa" aria-label="Ottawa, ON — 1 talk">
+  <title>Ottawa, ON — 1 talk</title>
+  <circle class="event-hit" cx="659.6" cy="110.6" r="13"></circle>
+  <circle class="event-dot" cx="659.6" cy="110.6" r="4.5"></circle>
+</a><a class="event-node" href="/given/#montreal" aria-label="Montréal, QC — 7 talks, 2 organized sessions">
+  <title>Montréal, QC — 7 talks, 2 organized sessions</title>
+  <circle class="event-hit" cx="687.3" cy="109.2" r="13"></circle>
+  <circle class="event-dot" cx="687.3" cy="109.2" r="4.5"></circle>
+</a><a class="event-node" href="/given/#hartford" aria-label="Hartford, CT — 1 talk, 1 organized">
+  <title>Hartford, CT — 1 talk, 1 organized</title>
+  <circle class="event-hit" cx="699.0" cy="177.5" r="13"></circle>
+  <circle class="event-dot" cx="699.0" cy="177.5" r="4.5"></circle>
+</a><a class="event-node" href="/given/#storrs" aria-label="Storrs, CT — 2 talks">
+  <title>Storrs, CT — 2 talks</title>
+  <circle class="event-hit" cx="704.5" cy="176.7" r="13"></circle>
+  <circle class="event-dot" cx="704.5" cy="176.7" r="4.5"></circle>
+</a><a class="event-node" href="/given/#boston" aria-label="Boston, MA — 3 talks, 2 organized sessions">
+  <title>Boston, MA — 3 talks, 2 organized sessions</title>
+  <circle class="event-hit" cx="720.0" cy="166.6" r="13"></circle>
+  <circle class="event-dot" cx="720.0" cy="166.6" r="4.5"></circle>
+</a>
+  </svg>
+</section>
+    </div>
+  </main>
+
+  <script src="/assets/site-nav.js"></script>
+</body>
+</html>
