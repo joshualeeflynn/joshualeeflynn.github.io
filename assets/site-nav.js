@@ -2,7 +2,7 @@
   const tree = [
     {
       id: "home",
-      label: "home",
+      label: "home/",
       href: "/"
     },
 
@@ -38,7 +38,7 @@
 
     {
       id: "papers",
-      label: "papers",
+      label: "papers/",
       href: "/papers/"
     },
 
