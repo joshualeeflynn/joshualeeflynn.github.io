@@ -92,7 +92,7 @@
         },
         {
           id: "given",
-          label: "given/",
+          label: "talks/",
           href: "/given/"
         }
       ]
