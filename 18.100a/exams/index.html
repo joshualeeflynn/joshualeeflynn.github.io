@@ -5,10 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>18.100a exams — Joshua Flynn</title>
   <link rel="stylesheet" href="/assets/site.css">
+
+  <style>
+    .nested-tree-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.75em;
+    }
+
+    .nested-tree-branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .nested-tree-entry {
+      min-width: 0;
+      color: var(--text);
+    }
+  </style>
 </head>
+
 <body>
   <main>
     <div class="content-grid">
+
       <section class="nav-column">
         <header>
           <h1>Joshua Flynn</h1>
@@ -25,8 +46,81 @@
       </section>
 
       <section class="content-panel">
-        <h2>exams/</h2>
+        <div class="course-tree">
+          <div class="course-root">exams/</div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">├── </span>
+            <span class="nested-tree-entry">exams 1 &amp; 2/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   ├── </span>
+            <span class="nested-tree-entry">in person</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   ├── </span>
+            <span class="nested-tree-entry">closed book</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   └── </span>
+            <span class="nested-tree-entry">4 problems/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│       ├── </span>
+            <span class="nested-tree-entry">3 pset/optional-type problems</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│       └── </span>
+            <span class="nested-tree-entry">1 novel problem</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">└── </span>
+            <span class="nested-tree-entry">final/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">    ├── </span>
+            <span class="nested-tree-entry">in person</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">    ├── </span>
+            <span class="nested-tree-entry">closed book</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">    └── </span>
+            <span class="nested-tree-entry">10 problems/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">        ├── </span>
+            <span class="nested-tree-entry">3 pset/optional-type problems</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">        ├── </span>
+            <span class="nested-tree-entry">1 novel problem</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">        ├── </span>
+            <span class="nested-tree-entry">3 exam 1-type problems</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">        └── </span>
+            <span class="nested-tree-entry">3 exam 2-type problem</span>
+          </div>
+        </div>
       </section>
+
     </div>
   </main>
 

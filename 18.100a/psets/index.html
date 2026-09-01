@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>18.100a psets — Joshua Flynn</title>
   <link rel="stylesheet" href="/assets/site.css">
+
+  <style>
+    .nested-tree-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.75em;
+    }
+
+    .nested-tree-branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .nested-tree-entry {
+      min-width: 0;
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
   <main>
@@ -25,7 +44,49 @@
       </section>
 
       <section class="content-panel">
-        <h2>psets/</h2>
+        <div class="course-tree">
+          <div class="course-root">psets/</div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">├── </span>
+            <span class="nested-tree-entry">weekly</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">├── </span>
+            <span class="nested-tree-entry">5 required problems/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   ├── </span>
+            <span class="nested-tree-entry">2 randomly graded</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   ├── </span>
+            <span class="nested-tree-entry">3 graded for completion</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">│   └── </span>
+            <span class="nested-tree-entry">relevant to exams</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">└── </span>
+            <span class="nested-tree-entry">5 optional problems/</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">    ├── </span>
+            <span class="nested-tree-entry">not graded whatsoever</span>
+          </div>
+
+          <div class="nested-tree-row">
+            <span class="nested-tree-branch">    └── </span>
+            <span class="nested-tree-entry">relevant to exams</span>
+          </div>
+        </div>
       </section>
     </div>
   </main>
