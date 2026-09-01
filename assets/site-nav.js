@@ -17,9 +17,9 @@
           href: "/18.100a/course-info/"
         },
         {
-          id: "18-100a-grading",
-          label: "grading/",
-          href: "/18.100a/grading/"
+          id: "18-100a-grades",
+          label: "grades/",
+          href: "/18.100a/grades/"
         },
         {
           id: "18-100a-exams",
@@ -142,8 +142,17 @@
     header.appendChild(emailLine);
   }
 
-  const STORAGE_KEY = "site-tree-open-branches";
   const documentCache = new Map();
+
+  /*
+    Fold state is intentionally session-only.
+    Clear the legacy persistent key once, then keep state only in memory.
+  */
+  try {
+    localStorage.removeItem("site-tree-open-branches");
+  } catch {
+    /* Ignore unavailable storage. */
+  }
 
   let activeId = nav.dataset.active || "";
   let renderedUrl = new URL(window.location.href);
@@ -156,26 +165,7 @@
     style.dataset.softNavPageStyle = "";
   });
 
-  function readOpenBranches() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return {};
-      const parsed = JSON.parse(raw);
-      return parsed && typeof parsed === "object" ? parsed : {};
-    } catch {
-      return {};
-    }
-  }
-
-  function writeOpenBranches(state) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch {
-      /* Navigation still works if storage is unavailable. */
-    }
-  }
-
-  const openBranches = readOpenBranches();
+  const openBranches = {};
 
   function branchGlyph(index, siblings) {
     return index === siblings.length - 1 ? "└──" : "├──";
@@ -230,7 +220,6 @@
     }
 
     openBranches[node.id] = isOpen;
-    writeOpenBranches(openBranches);
   }
 
   function makeDirectoryControls(node, children) {

@@ -5,125 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>18.100a exams — Joshua Flynn</title>
   <link rel="stylesheet" href="/assets/site.css">
-
   <style>
-    .nested-tree-row {
-      display: flex;
-      align-items: flex-start;
-      min-height: 1.75em;
-    }
-
-    .nested-tree-branch {
-      flex: 0 0 auto;
-      color: var(--tree);
-      white-space: pre;
-    }
-
-    .nested-tree-entry {
-      min-width: 0;
-      color: var(--text);
-    }
+    .nested-tree-row { display:flex; align-items:flex-start; min-height:1.75em; }
+    .nested-tree-branch { flex:0 0 auto; color:var(--tree); white-space:pre; }
+    .nested-tree-entry { min-width:0; color:var(--text); }
+    .nested-tree-text { max-width:60ch; line-height:1.55; padding-bottom:.45em; }
+    .page-tree-check { position:absolute; opacity:0; pointer-events:none; }
+    .page-tree-label { cursor:pointer; color:var(--text); }
+    .page-tree-label:hover { text-decoration:underline; text-underline-offset:3px; }
+    .page-tree-toggle { display:inline-block; width:3ch; margin-right:.7ch; color:var(--muted); }
+    .page-tree-toggle-open { display:none; }
+    .fold-children { display:none; }
+    .page-tree-check:checked + .fold-row .page-tree-toggle-closed { display:none; }
+    .page-tree-check:checked + .fold-row .page-tree-toggle-open { display:inline; }
+    .page-tree-check:checked + .fold-row + .fold-children { display:block; }
   </style>
 </head>
-
 <body>
   <main>
     <div class="content-grid">
-
       <section class="nav-column">
         <header>
           <h1>Joshua Flynn</h1>
           <p class="subtitle">NSF Postdoctoral Fellow</p>
           <p class="subtitle">MIT, Mathematics</p>
         </header>
-
-        <nav
-          id="site-tree"
-          class="tree"
-          data-active="18-100a-exams"
-          aria-label="Site navigation">
-        </nav>
+        <nav id="site-tree" class="tree" data-active="18-100a-exams" aria-label="Site navigation"></nav>
       </section>
 
       <section class="content-panel">
         <div class="course-tree">
           <div class="course-root">exams/</div>
 
-          <div class="nested-tree-row">
+          <input class="page-tree-check" id="midterms-toggle" type="checkbox">
+          <div class="nested-tree-row fold-row">
             <span class="nested-tree-branch">├── </span>
-            <span class="nested-tree-entry">exams 1 &amp; 2/</span>
+            <label class="page-tree-label" for="midterms-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>midterms 1 &amp; 2/</label>
+          </div>
+          <div class="fold-children">
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">in person</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">closed book</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">4 problems/</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 pset-type problems</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry">1 novel problem</span></div>
           </div>
 
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">│   ├── </span>
-            <span class="nested-tree-entry">in person</span>
+          <input class="page-tree-check" id="final-toggle" type="checkbox">
+          <div class="nested-tree-row fold-row">
+            <span class="nested-tree-branch">├── </span>
+            <label class="page-tree-label" for="final-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>final/</label>
+          </div>
+          <div class="fold-children">
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">in person</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">closed book</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">10 problems/</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 pset-type problems</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">1 novel problem</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 midterm 1-type problems</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry">3 midterm 2-type problems</span></div>
           </div>
 
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">│   ├── </span>
-            <span class="nested-tree-entry">closed book</span>
+          <input class="page-tree-check" id="problem-types-toggle" type="checkbox">
+          <div class="nested-tree-row fold-row">
+            <span class="nested-tree-branch">├── </span>
+            <label class="page-tree-label" for="problem-types-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>problem-types/</label>
+          </div>
+          <div class="fold-children">
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">pset-type problems/</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   │   └── </span><span class="nested-tree-entry nested-tree-text">These problems will be or contain as subproblems (e.g., part b) problems which may be found in the psets (including the optional and ungraded problems) or variations thereof. Moreover, only those psets due before the exam and after the preceding exam(s) will be considered.</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">novel problem/</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry nested-tree-text">By a novel problem it is meant a problem not seen in the psets and whose solution depends only on the reading assigned before the exam and after the preceding exam(s).</span></div>
           </div>
 
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">│   └── </span>
-            <span class="nested-tree-entry">4 problems/</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">│       ├── </span>
-            <span class="nested-tree-entry">3 pset/optional-type problems</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">│       └── </span>
-            <span class="nested-tree-entry">1 novel problem</span>
-          </div>
-
-          <div class="nested-tree-row">
+          <input class="page-tree-check" id="grading-policy-toggle" type="checkbox">
+          <div class="nested-tree-row fold-row">
             <span class="nested-tree-branch">└── </span>
-            <span class="nested-tree-entry">final/</span>
+            <label class="page-tree-label" for="grading-policy-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>grading-policy/</label>
+          </div>
+          <div class="fold-children">
+            <div class="nested-tree-row"><span class="nested-tree-branch">    ├── </span><span class="nested-tree-entry">midterms/</span></div>
+            <div class="nested-tree-row"><span class="nested-tree-branch">    └── </span><span class="nested-tree-entry">final/</span></div>
           </div>
 
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">    ├── </span>
-            <span class="nested-tree-entry">in person</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">    ├── </span>
-            <span class="nested-tree-entry">closed book</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">    └── </span>
-            <span class="nested-tree-entry">10 problems/</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">        ├── </span>
-            <span class="nested-tree-entry">3 pset/optional-type problems</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">        ├── </span>
-            <span class="nested-tree-entry">1 novel problem</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">        ├── </span>
-            <span class="nested-tree-entry">3 exam 1-type problems</span>
-          </div>
-
-          <div class="nested-tree-row">
-            <span class="nested-tree-branch">        └── </span>
-            <span class="nested-tree-entry">3 exam 2-type problem</span>
-          </div>
         </div>
       </section>
-
     </div>
   </main>
-
   <script src="/assets/site-nav.js"></script>
 </body>
 </html>
