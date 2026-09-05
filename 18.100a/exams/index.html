@@ -5,92 +5,367 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>18.100a exams — Joshua Flynn</title>
   <link rel="stylesheet" href="/assets/site.css">
+
   <style>
-    .nested-tree-row { display:flex; align-items:flex-start; min-height:1.75em; }
-    .nested-tree-branch { flex:0 0 auto; color:var(--tree); white-space:pre; }
-    .nested-tree-entry { min-width:0; color:var(--text); }
-    .nested-tree-text { max-width:60ch; line-height:1.55; padding-bottom:.45em; }
-    .page-tree-check { position:absolute; opacity:0; pointer-events:none; }
-    .page-tree-label { cursor:pointer; color:var(--text); }
-    .page-tree-label:hover { text-decoration:underline; text-underline-offset:3px; }
-    .page-tree-toggle { display:inline-block; width:3ch; margin-right:.7ch; color:var(--muted); }
-    .page-tree-toggle-open { display:none; }
-    .fold-children { display:none; }
-    .page-tree-check:checked + .fold-row .page-tree-toggle-closed { display:none; }
-    .page-tree-check:checked + .fold-row .page-tree-toggle-open { display:inline; }
-    .page-tree-check:checked + .fold-row + .fold-children { display:block; }
+    .exam-tree-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.75em;
+      font-family:
+        "SFMono-Regular",
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .exam-tree-branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .exam-tree-entry {
+      min-width: 0;
+      color: var(--text);
+    }
+
+    .exam-fold-check {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .exam-fold-toggle {
+      display: inline-block;
+      width: 3ch;
+      margin-right: 0.7ch;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .exam-fold-open,
+    .exam-folder-name-open,
+    .exam-fold-children {
+      display: none;
+    }
+
+    .exam-folder-name {
+      color: var(--text);
+      font: inherit;
+    }
+
+    .exam-folder-name-closed {
+      cursor: pointer;
+    }
+
+    .exam-folder-name-closed:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .exam-fold-check:checked + .exam-folder-row .exam-fold-closed,
+    .exam-fold-check:checked + .exam-folder-row .exam-folder-name-closed {
+      display: none;
+    }
+
+    .exam-fold-check:checked + .exam-folder-row .exam-fold-open,
+    .exam-fold-check:checked + .exam-folder-row .exam-folder-name-open {
+      display: inline;
+    }
+
+    .exam-fold-check:checked + .exam-folder-row + .exam-fold-children {
+      display: block;
+    }
   </style>
 </head>
+
 <body>
   <main>
     <div class="content-grid">
+
       <section class="nav-column">
         <header>
           <h1>Joshua Flynn</h1>
           <p class="subtitle">NSF Postdoctoral Fellow</p>
           <p class="subtitle">MIT, Mathematics</p>
         </header>
-        <nav id="site-tree" class="tree" data-active="18-100a-exams" aria-label="Site navigation"></nav>
+
+        <nav
+          id="site-tree"
+          class="tree"
+          data-active="18-100a-exams"
+          aria-label="Site navigation">
+        </nav>
       </section>
 
       <section class="content-panel">
         <div class="course-tree">
           <div class="course-root">exams/</div>
 
-          <input class="page-tree-check" id="midterms-toggle" type="checkbox">
-          <div class="nested-tree-row fold-row">
-            <span class="nested-tree-branch">├── </span>
-            <label class="page-tree-label" for="midterms-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>midterms 1 &amp; 2/</label>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">├── </span>
+            <span class="exam-tree-entry">overview/</span>
           </div>
-          <div class="fold-children">
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">in person</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">closed book</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">4 problems/</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 pset-type problems</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry">1 novel problem</span></div>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">│   ├── </span>
+            <span class="exam-tree-entry">exam 1 ........................ 25%</span>
           </div>
-
-          <input class="page-tree-check" id="final-toggle" type="checkbox">
-          <div class="nested-tree-row fold-row">
-            <span class="nested-tree-branch">├── </span>
-            <label class="page-tree-label" for="final-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>final/</label>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">│   ├── </span>
+            <span class="exam-tree-entry">exam 2 ........................ 25%</span>
           </div>
-          <div class="fold-children">
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">in person</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">closed book</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">10 problems/</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 pset-type problems</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">1 novel problem</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       ├── </span><span class="nested-tree-entry">3 midterm 1-type problems</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry">3 midterm 2-type problems</span></div>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">│   ├── </span>
+            <span class="exam-tree-entry">exam 3 ........................ 25%</span>
+          </div>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">│   │   └── </span>
+            <span class="exam-tree-entry">administered during the final-exam period</span>
+          </div>
+          <div class="exam-tree-row">
+            <span class="exam-tree-branch">│   └── </span>
+            <span class="exam-tree-entry">all exams are in-person and closed-book</span>
           </div>
 
-          <input class="page-tree-check" id="problem-types-toggle" type="checkbox">
-          <div class="nested-tree-row fold-row">
-            <span class="nested-tree-branch">├── </span>
-            <label class="page-tree-label" for="problem-types-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>problem-types/</label>
-          </div>
-          <div class="fold-children">
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   ├── </span><span class="nested-tree-entry">pset-type problems/</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   │   └── </span><span class="nested-tree-entry nested-tree-text">These problems will be or contain as subproblems (e.g., part b) problems which may be found in the psets (including the optional and ungraded problems) or variations thereof. Moreover, only those psets due before the exam and after the preceding exam(s) will be considered.</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│   └── </span><span class="nested-tree-entry">novel problem/</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">│       └── </span><span class="nested-tree-entry nested-tree-text">By a novel problem it is meant a problem not seen in the psets and whose solution depends only on the reading assigned before the exam and after the preceding exam(s).</span></div>
+
+          <input class="exam-fold-check" id="exam-1-toggle" type="checkbox">
+
+          <div class="exam-tree-row exam-folder-row">
+            <span class="exam-tree-branch">├── </span>
+            <label class="exam-fold-toggle" for="exam-1-toggle">
+              <span class="exam-fold-closed">[+]</span><span class="exam-fold-open">[-]</span>
+            </label>
+            <label class="exam-folder-name exam-folder-name-closed" for="exam-1-toggle">exam-1/</label>
+            <span class="exam-folder-name exam-folder-name-open">exam-1/</span>
           </div>
 
-          <input class="page-tree-check" id="grading-policy-toggle" type="checkbox">
-          <div class="nested-tree-row fold-row">
-            <span class="nested-tree-branch">└── </span>
-            <label class="page-tree-label" for="grading-policy-toggle"><span class="page-tree-toggle"><span class="page-tree-toggle-closed">[+]</span><span class="page-tree-toggle-open">[-]</span></span>grading-policy/</label>
+          <div class="exam-fold-children">
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">date:</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">duration: 90 minutes</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">covers:</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   └── </span>
+              <span class="exam-tree-entry">format: 4 problems</span>
+            </div>
           </div>
-          <div class="fold-children">
-            <div class="nested-tree-row"><span class="nested-tree-branch">    ├── </span><span class="nested-tree-entry">midterms/</span></div>
-            <div class="nested-tree-row"><span class="nested-tree-branch">    └── </span><span class="nested-tree-entry">final/</span></div>
+
+          <input class="exam-fold-check" id="exam-2-toggle" type="checkbox">
+
+          <div class="exam-tree-row exam-folder-row">
+            <span class="exam-tree-branch">├── </span>
+            <label class="exam-fold-toggle" for="exam-2-toggle">
+              <span class="exam-fold-closed">[+]</span><span class="exam-fold-open">[-]</span>
+            </label>
+            <label class="exam-folder-name exam-folder-name-closed" for="exam-2-toggle">exam-2/</label>
+            <span class="exam-folder-name exam-folder-name-open">exam-2/</span>
+          </div>
+
+          <div class="exam-fold-children">
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">date:</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">duration: 90 minutes</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">covers:</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   └── </span>
+              <span class="exam-tree-entry">format: 4 problems</span>
+            </div>
+          </div>
+
+          <input class="exam-fold-check" id="final-exam-toggle" type="checkbox">
+
+          <div class="exam-tree-row exam-folder-row">
+            <span class="exam-tree-branch">├── </span>
+            <label class="exam-fold-toggle" for="final-exam-toggle">
+              <span class="exam-fold-closed">[+]</span><span class="exam-fold-open">[-]</span>
+            </label>
+            <label class="exam-folder-name exam-folder-name-closed" for="final-exam-toggle">final-exam/</label>
+            <span class="exam-folder-name exam-folder-name-open">final-exam/</span>
+          </div>
+
+          <div class="exam-fold-children">
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">date:</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">duration: 3 hours</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">consists of three 4-problem sections</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">required: exam-3/</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   │   ├── </span>
+              <span class="exam-tree-entry">4 problems</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   │   └── </span>
+              <span class="exam-tree-entry">covers material since Exam 2</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">optional: exam-1-reassessment/</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   │   ├── </span>
+              <span class="exam-tree-entry">4 problems</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   │   └── </span>
+              <span class="exam-tree-entry">covers Exam 1 material</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   └── </span>
+              <span class="exam-tree-entry">optional: exam-2-reassessment/</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│       ├── </span>
+              <span class="exam-tree-entry">4 problems</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│       └── </span>
+              <span class="exam-tree-entry">covers Exam 2 material</span>
+            </div>
+          </div>
+
+          <input class="exam-fold-check" id="reassessment-policy-toggle" type="checkbox">
+
+          <div class="exam-tree-row exam-folder-row">
+            <span class="exam-tree-branch">├── </span>
+            <label class="exam-fold-toggle" for="reassessment-policy-toggle">
+              <span class="exam-fold-closed">[+]</span><span class="exam-fold-open">[-]</span>
+            </label>
+            <label class="exam-folder-name exam-folder-name-closed" for="reassessment-policy-toggle">reassessment-policy/</label>
+            <span class="exam-folder-name exam-folder-name-open">reassessment-policy/</span>
+          </div>
+
+          <div class="exam-fold-children">
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">the Exam 1 and Exam 2 reassessments are optional</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">you may attempt either, both, or neither</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">a reassessment can never lower your exam grade</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   ├── </span>
+              <span class="exam-tree-entry">a reassessment may raise an exam grade to at most 77%</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│   └── </span>
+              <span class="exam-tree-entry">recorded exam grade =</span>
+            </div>
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">│       └── </span>
+              <span class="exam-tree-entry">max(original grade, min(reassessment grade, 77))</span>
+            </div>
+          </div>
+
+          <input class="exam-fold-check" id="problem-types-toggle" type="checkbox">
+
+          <div class="exam-tree-row exam-folder-row">
+            <span class="exam-tree-branch">└── </span>
+            <label class="exam-fold-toggle" for="problem-types-toggle">
+              <span class="exam-fold-closed">[+]</span><span class="exam-fold-open">[-]</span>
+            </label>
+            <label class="exam-folder-name exam-folder-name-closed" for="problem-types-toggle">problem-types/</label>
+            <span class="exam-folder-name exam-folder-name-open">problem-types/</span>
+          </div>
+
+          <div class="exam-fold-children">
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    ├── </span>
+              <span class="exam-tree-entry">every 4-problem exam section has the same general structure</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    ├── </span>
+              <span class="exam-tree-entry">problems 1–3: practiced problem types</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    │   ├── </span>
+              <span class="exam-tree-entry">based on problems appearing on psets (including ungraded problems) or quizzes</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    │   ├── </span>
+              <span class="exam-tree-entry">may be variations, extensions, or combinations of problems you have practiced</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    │   ├── </span>
+              <span class="exam-tree-entry">may change the hypotheses, notation, context, or quantities involved</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    │   └── </span>
+              <span class="exam-tree-entry">a numbered problem may contain several related subparts</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">    └── </span>
+              <span class="exam-tree-entry">problem 4: novel problem</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">        ├── </span>
+              <span class="exam-tree-entry">not a problem, or a routine variation of a problem, previously appearing on a pset or quiz</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">        ├── </span>
+              <span class="exam-tree-entry">may require ideas developed in the readings or in class, even if those ideas have not appeared on a pset or quiz</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">        ├── </span>
+              <span class="exam-tree-entry">requires only material from the course</span>
+            </div>
+
+            <div class="exam-tree-row">
+              <span class="exam-tree-branch">        └── </span>
+              <span class="exam-tree-entry">assesses your ability to determine how to apply course ideas in an unfamiliar setting</span>
+            </div>
           </div>
 
         </div>
       </section>
+
     </div>
   </main>
+
   <script src="/assets/site-nav.js"></script>
 </body>
 </html>
