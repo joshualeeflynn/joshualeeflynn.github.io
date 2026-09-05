@@ -32,6 +32,11 @@
           href: "/18.100a/psets/"
         },
         {
+          id: "18-100a-quizzes",
+          label: "quizzes/",
+          href: "/18.100a/quizzes/"
+        },
+        {
           id: "18-100a-late-policy",
           label: "late-policy/",
           href: "/18.100a/late-policy/"
@@ -91,9 +96,9 @@
           href: "/organized/"
         },
         {
-          id: "given",
+          id: "talks",
           label: "talks/",
-          href: "/given/"
+          href: "/talks/"
         },
         {
           id: "services",
