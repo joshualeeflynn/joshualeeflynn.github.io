@@ -42,9 +42,9 @@
           href: "/18.100a/late-policy/"
         },
         {
-          id: "18-100a-ai-policy",
-          label: "ai-policy/",
-          href: "/18.100a/ai-policy/"
+          id: "18-100a-ai-use",
+          label: "ai-use/",
+          href: "/18.100a/ai-use/"
         }
       ]
     },
