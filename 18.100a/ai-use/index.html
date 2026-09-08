@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>18.100a AI use — Joshua Flynn</title>
+  <link rel="stylesheet" href="/assets/site.css">
+
+  <style>
+    .page-fold-check {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .page-folder-row {
+      display: flex;
+      align-items: baseline;
+      min-height: 1.75em;
+      font-family:
+        "SFMono-Regular",
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .page-folder-row .branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .page-folder-toggle {
+      display: inline-block;
+      width: 3ch;
+      margin-right: 0.7ch;
+      color: var(--muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .page-folder-name {
+      color: var(--text);
+      font: inherit;
+    }
+
+    .page-folder-name-closed {
+      cursor: pointer;
+    }
+
+    .page-folder-name-closed:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .page-folder-open-mark,
+    .page-folder-name-open,
+    .page-folder-children {
+      display: none;
+    }
+
+    .ai-policy-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.75em;
+      font-family:
+        "SFMono-Regular",
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .ai-policy-branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .ai-policy-entry {
+      min-width: 0;
+      color: var(--text);
+    }
+
+    .tips-row {
+      display: flex;
+      align-items: flex-start;
+      min-height: 1.75em;
+      font-family:
+        "SFMono-Regular",
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .tips-branch {
+      flex: 0 0 auto;
+      color: var(--tree);
+      white-space: pre;
+    }
+
+    .tips-entry {
+      min-width: 0;
+      color: var(--text);
+    }
+
+    .tips-code {
+      margin: 0.25em 0 0.5em 11.6ch;
+      padding: 10px 12px;
+      background: rgba(0, 0, 0, 0.035);
+      border: 1px solid var(--tree);
+      border-radius: 6px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font:
+        13px/1.55
+        "SFMono-Regular",
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      color: var(--text);
+    }
+
+    .page-fold-check:checked + .page-folder-row .page-folder-closed-mark,
+    .page-fold-check:checked + .page-folder-row .page-folder-name-closed {
+      display: none;
+    }
+
+    .page-fold-check:checked + .page-folder-row .page-folder-open-mark,
+    .page-fold-check:checked + .page-folder-row .page-folder-name-open {
+      display: inline;
+    }
+
+    .page-fold-check:checked + .page-folder-row + .page-folder-children {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="content-grid">
+
+      <section class="nav-column">
+        <header>
+          <h1>Joshua Flynn</h1>
+          <p class="subtitle">NSF Postdoctoral Fellow</p>
+          <p class="subtitle">MIT, Mathematics</p>
+        </header>
+
+        <nav
+          id="site-tree"
+          class="tree"
+          data-active="18-100a-ai-use"
+          aria-label="Site navigation">
+        </nav>
+      </section>
+
+      <section class="content-panel">
+        <div class="course-tree">
+          <div class="course-root">ai-use/</div>
+
+          <input class="page-fold-check" id="ai-policy-toggle" type="checkbox">
+          <div class="page-folder-row">
+            <span class="branch">├──</span>
+            <label class="page-folder-toggle" for="ai-policy-toggle">
+              <span class="page-folder-closed-mark">[+]</span><span class="page-folder-open-mark">[-]</span>
+            </label>
+            <label class="page-folder-name page-folder-name-closed" for="ai-policy-toggle">ai-policy/</label>
+            <span class="page-folder-name page-folder-name-open">ai-policy/</span>
+          </div>
+          <div class="page-folder-children">
+            <div class="ai-policy-row">
+              <span class="ai-policy-branch">│   ├── </span>
+              <span class="ai-policy-entry">exams &amp; quizzes: ai use is not allowed</span>
+            </div>
+
+            <div class="ai-policy-row">
+              <span class="ai-policy-branch">│   ├── </span>
+              <span class="ai-policy-entry">psets: ai use is permitted</span>
+            </div>
+
+            <div class="ai-policy-row">
+              <span class="ai-policy-branch">│   ├── </span>
+              <span class="ai-policy-entry">warning: ai can be used as an interactive solutions manual. simply obtaining or copying a solution will not help you learn the material. if you use ai, you should make a serious effort to understand what the solution says and why it works.</span>
+            </div>
+
+            <div class="ai-policy-row">
+              <span class="ai-policy-branch">│   └── </span>
+              <span class="ai-policy-entry">serious-warning: ai-generated explanations can make it easy to believe that you understand an argument when you do not. if you use ai on psets, you are strongly encouraged to follow the suggestions under tips/</span>
+            </div>
+          </div>
+
+          <input class="page-fold-check" id="tips-toggle" type="checkbox">
+          <div class="page-folder-row">
+            <span class="branch">└──</span>
+            <label class="page-folder-toggle" for="tips-toggle">
+              <span class="page-folder-closed-mark">[+]</span><span class="page-folder-open-mark">[-]</span>
+            </label>
+            <label class="page-folder-name page-folder-name-closed" for="tips-toggle">tips/</label>
+            <span class="page-folder-name page-folder-name-open">tips/</span>
+          </div>
+
+          <div class="page-folder-children">
+            <input class="page-fold-check" id="checking-work-toggle" type="checkbox">
+            <div class="page-folder-row">
+              <span class="branch">    ├──</span>
+              <label class="page-folder-toggle" for="checking-work-toggle">
+                <span class="page-folder-closed-mark">[+]</span><span class="page-folder-open-mark">[-]</span>
+              </label>
+              <label class="page-folder-name page-folder-name-closed" for="checking-work-toggle">checking-work/</label>
+              <span class="page-folder-name page-folder-name-open">checking-work/</span>
+            </div>
+
+            <div class="page-folder-children">
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">use: have ai check your work for mathematical correctness and clarity</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">warning-1: ai can incorrectly identify a valid argument as incorrect or fail to notice an actual error. treat its feedback as feedback, not as an authoritative grading decision.</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">warning-2: if the mathematics is correct but the writing is unclear, ask ai to identify the unclear passage before asking for a rewrite. ai-generated mathematical prose can sound unnatural or use terminology and conventions not used in this course.</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   └── </span>
+                <span class="tips-entry">example-prompt:</span>
+              </div>
+
+              <pre class="tips-code"><code>i am taking mit's 18.100a. i have attached a problem statement and my attempt at a solution. read my solution carefully and check it for mathematical correctness and clarity. if you find a mistake or gap, identify that there is a problem, but do not suggest how to fix it unless i explicitly ask you to do so. if the mathematics is correct but the writing is unclear, identify the unclear passage and explain what makes it unclear before suggesting a rewrite.</code></pre>
+            </div>
+
+            <input class="page-fold-check" id="hints-toggle" type="checkbox">
+            <div class="page-folder-row">
+              <span class="branch">    ├──</span>
+              <label class="page-folder-toggle" for="hints-toggle">
+                <span class="page-folder-closed-mark">[+]</span><span class="page-folder-open-mark">[-]</span>
+              </label>
+              <label class="page-folder-name page-folder-name-closed" for="hints-toggle">hints/</label>
+              <span class="page-folder-name page-folder-name-open">hints/</span>
+            </div>
+
+            <div class="page-folder-children">
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">use: have ai suggest hints when you are stuck on a problem</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">warning-1: hints are very easy to overuse. before asking ai for a hint, make a serious attempt at the problem yourself. consult the relevant lecture notes and textbook sections, try more than one approach when possible, and spend enough time with the problem that you can clearly explain where you are stuck. for a difficult problem, this may easily mean an hour or more. struggling with a problem can be an important part of learning and retention, and you also want to train yourself to find ways around obstacles. asking for hints too quickly works against both goals.</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   ├── </span>
+                <span class="tips-entry">warning-2: ai may accidentally reveal too much of the solution, or it may give a misleading or incorrect hint. treat a hint as a suggestion for what to think about next, not as evidence that a particular approach is correct.</span>
+              </div>
+
+              <div class="tips-row">
+                <span class="tips-branch">    │   └── </span>
+                <span class="tips-entry">example-prompt:</span>
+              </div>
+
+              <pre class="tips-code"><code>i am taking mit's 18.100a. i have attached a problem statement and my attempt at a solution. i am currently stuck and am not sure how to proceed. without revealing the solution, give me one hint about what i should think about next. do not carry out the argument for me. assume that we may use only ideas and material at the level of lebl's basic analysis: introduction to real analysis (https://www.jirka.org/ra/).</code></pre>
+            </div>
+
+            <input class="page-fold-check" id="rubber-ducky-toggle" type="checkbox">
+            <div class="page-folder-row">
+              <span class="branch">    └──</span>
+              <label class="page-folder-toggle" for="rubber-ducky-toggle">
+                <span class="page-folder-closed-mark">[+]</span><span class="page-folder-open-mark">[-]</span>
+              </label>
+              <label class="page-folder-name page-folder-name-closed" for="rubber-ducky-toggle">rubber-ducky/</label>
+              <span class="page-folder-name page-folder-name-open">rubber-ducky/</span>
+            </div>
+
+            <div class="page-folder-children"></div>
+          </div>        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="/assets/site-nav.js"></script>
+</body>
+</html>
