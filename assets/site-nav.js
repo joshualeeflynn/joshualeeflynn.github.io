@@ -17,6 +17,11 @@
           href: "/18.100a/course-info/"
         },
         {
+          id: "18-100a-lectures",
+          label: "lectures/",
+          href: "/18.100a/lectures/"
+        },
+        {
           id: "18-100a-grades",
           label: "grades/",
           href: "/18.100a/grades/"
@@ -371,6 +376,72 @@
   renderNodes(tree);
 
   /*
+    ---------- MathJax for lecture-note pages ----------
+    Pages opt in by putting data-mathjax="true" on their .content-panel.
+    Loading MathJax here, rather than inside the page body, keeps mathematics
+    working when the content panel arrives through soft navigation.
+  */
+
+  let mathJaxPromise = null;
+
+  function panelUsesMathJax(panel) {
+    return panel && panel.dataset.mathjax === "true";
+  }
+
+  function ensureMathJax() {
+    if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+      return Promise.resolve(window.MathJax);
+    }
+
+    if (mathJaxPromise) return mathJaxPromise;
+
+    window.MathJax = window.MathJax || {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    };
+
+    mathJaxPromise = new Promise((resolve, reject) => {
+      const existing = document.getElementById("mathjax-script");
+
+      if (existing) {
+        existing.addEventListener("load", () => resolve(window.MathJax), { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = "mathjax-script";
+      script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
+      script.async = true;
+      script.addEventListener("load", () => resolve(window.MathJax), { once: true });
+      script.addEventListener("error", reject, { once: true });
+      document.head.appendChild(script);
+    });
+
+    return mathJaxPromise;
+  }
+
+  async function typesetMathJax(panel) {
+    if (!panelUsesMathJax(panel)) return;
+
+    try {
+      await ensureMathJax();
+      await window.MathJax.typesetPromise([panel]);
+    } catch {
+      /* Leave the source TeX visible if the CDN is unavailable. */
+    }
+  }
+
+  const initialPanel = document.querySelector(".content-panel");
+  typesetMathJax(initialPanel);
+
+  /*
     ---------- Soft navigation ----------
     Shell pages all contain:
       .content-panel
@@ -525,6 +596,8 @@
 
       currentPanel.replaceWith(importedPanel);
       finishStyleSwap();
+
+      await typesetMathJax(importedPanel);
 
       document.title = nextDocument.title;
 

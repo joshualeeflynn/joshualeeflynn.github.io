@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>18.100a lectures — Joshua Flynn</title>
+  <style>
+    :root {
+      --bg: #f1f0ea;
+      --text: #1d1d1f;
+      --muted: #737377;
+      --tree: #c7c7c2;
+      --link: #3f6286;
+      --active: #365c50;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+    main {
+      width: min(980px, calc(100% - 64px));
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+    .return-line {
+      margin: 0 0 24px;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .return-line a { color: var(--link); text-decoration: none; }
+    .return-line a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .lecture-shell { max-width: 900px; margin: 0 auto; }
+    .lecture-tree {
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      font-size: 17px;
+      line-height: 2;
+      max-width: 900px;
+    }
+    .lecture-root { min-height: 2em; color: var(--text); font-weight: 600; }
+    .lecture-node { margin: 0; padding: 0; }
+    .lecture-node > summary { display: flex; align-items: baseline; min-height: 2em; margin: 0; padding: 0; list-style: none; cursor: pointer; color: var(--link); user-select: none; }
+    .lecture-node > summary::-webkit-details-marker { display: none; }
+    .lecture-node > summary:hover .lecture-label { text-decoration: underline; text-underline-offset: 3px; }
+    .lecture-node[open] > summary { color: var(--active); }
+    .lecture-branch { flex: 0 0 auto; color: var(--tree); white-space: pre; }
+    .lecture-toggle { display: inline-block; flex: 0 0 3ch; width: 3ch; margin-right: 0.7ch; color: var(--muted); }
+    .lecture-toggle::before { content: "[+]"; }
+    .lecture-node[open] > summary .lecture-toggle::before { content: "[-]"; }
+    .lecture-label { min-width: 0; }
+    .lecture-chapter > summary .lecture-label { font-weight: 600; }
+    .lecture-children { padding-left: 2ch; }
+    .lecture-note {
+      margin: 8px 0 28px 7.7ch;
+      padding: 4px 0 4px 22px;
+      border-left: 1px solid var(--tree);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font-size: 19px;
+      line-height: 1.62;
+    }
+    .lecture-note p { margin: 0 0 17px; font-size: inherit; line-height: inherit; }
+    .lecture-note ol, .lecture-note ul { margin: 0 0 17px; padding-left: 30px; font-size: inherit; line-height: inherit; }
+    .lecture-note li { margin: 7px 0; }
+    .lecture-note p:last-child, .lecture-note ol:last-child, .lecture-note ul:last-child { margin-bottom: 0; }
+    .note-heading { margin: 0 0 18px; font-size: 20px; line-height: 1.4; font-weight: 600; }
+    .proof-label, .step-label { font-weight: 600; }
+    .lecture-note h4 { margin: 0 0 16px; font-size: 20px; line-height: 1.4; font-weight: 600; }
+    blockquote { margin: 0 0 18px 0; padding-left: 18px; border-left: 2px solid var(--tree); color: var(--text); font-style: normal; }
+
+    .mapping-diagram {
+      margin: 22px 0 4px;
+      max-width: 760px;
+      overflow-x: auto;
+    }
+
+    .mapping-diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .mapping-diagram .set-outline {
+      fill: rgba(255,255,255,0.28);
+      stroke: var(--tree);
+      stroke-width: 2;
+    }
+
+    .mapping-diagram .set-label {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      fill: var(--text);
+    }
+
+    .mapping-diagram .elem {
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      font-size: 22px;
+      fill: var(--text);
+    }
+
+    .mapping-diagram .elem.muted {
+      fill: var(--muted);
+    }
+
+    .mapping-diagram .map-line {
+      fill: none;
+      stroke: var(--link);
+      stroke-width: 2.4;
+      stroke-linecap: round;
+    }
+
+    .mapping-diagram .muted-map-line {
+      opacity: 0.28;
+    }
+
+    .mapping-diagram .inverse-line {
+      stroke: var(--active);
+    }
+
+    .mapping-diagram .subset-halo {
+      fill: rgba(63, 98, 134, 0.12);
+      stroke: var(--link);
+      stroke-width: 1.8;
+    }
+
+    .mapping-diagram .subset-label {
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      font-size: 20px;
+      font-weight: 600;
+      fill: var(--link);
+    }
+
+    .mapping-diagram .map-caption {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      fill: var(--muted);
+    }
+    mjx-container[jax="CHTML"] { font-size: 108% !important; }
+    mjx-container[jax="CHTML"][display="true"] { margin: 1.05em 0 !important; overflow-x: auto; overflow-y: hidden; padding: 0.12em 0; }
+    @media (min-width: 821px) {
+      .lecture-node[open] { padding-bottom: 45vh; }
+      .presentation-break { height: 45vh; }
+    }
+    @media (max-width: 820px) {
+      main { width: min(100%, calc(100% - 32px)); padding-top: 28px; padding-bottom: 48px; }
+      .return-line { font-size: 13px; margin-bottom: 18px; }
+      .lecture-tree { font-size: 14px; }
+      .lecture-note { margin-left: 3.7ch; padding-left: 14px; font-size: 17px; }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <main>
+    <div class="return-line"><a href="/18.100a/">← return to 18.100a/</a></div>
+    <div class="lecture-shell">
+<div class="lecture-tree">
+          <div class="lecture-root">lectures/</div>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">mathematical-induction/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">statement/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Theorem: Mathematical Induction</div>
+                  <p>Let \(P(n)\) be a statement depending on \(n \in \mathbb{N}\).</p>
+                  <p>Assume:</p>
+                  <ol>
+                    <li><span class="step-label">Base case:</span> \(P(1)\) is true.</li>
+                    <li><span class="step-label">Inductive step:</span> For every \(m\in\mathbb{N}\), if \(P(m)\) is true, then \(P(m+1)\) is true.</li>
+                  </ol>
+                  <p>Then</p>
+                  \[
+                    P(n) \text{ is true for every } n \in \mathbb{N}.
+                  \]
+
+                  <p><strong>Remark.</strong> In the inductive step, \(P(m)\) is called the induction hypothesis.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example application</div>
+                  <p>Let</p>
+                  \[
+                    P(n):\quad 2^n\geq n+1,\qquad n\in\mathbb{N}.
+                  \]
+                  <p><span class="step-label">Base case.</span> Verify \(P(1)\) is true. Indeed \(2^1=2\geq 1+1\).</p>
+                  <p><span class="step-label">Inductive step.</span> Verify \(P(m)\Rightarrow P(m+1)\).</p>
+                  <p>We thus assume the induction hypothesis \(P(m)\) is true, i.e., \(2^m\geq m+1\), and prove \(P(m+1)\).</p>
+                  <p>Observe \(P(m)\) being true implies</p>
+                  \[
+                    2^{m+1}=2\cdot 2^m\geq 2(m+1)\geq m+2.
+                  \]
+                  <p>Thus \(P(m+1)\) is true.</p>
+                  <p><span class="step-label">Conclusion:</span> \(2^n\geq n+1\) for \(n\in\mathbb{N}\), by mathematical induction.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Remark.</span> To prove mathematical induction, we appeal to the well-ordering property of \(\mathbb{N}\) and proof by contradiction.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">well-ordering-property/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>Recall:</p>
+                  \[
+                    \mathbb{N}=\{1,2,3,\ldots\}.
+                  \]
+                  <p>\(\mathbb{N}\) is ordered:</p>
+                  \[
+                    1&lt;2&lt;3&lt;\cdots.
+                  \]
+                  <p><span class="step-label">Well-ordering property.</span> If \(S\subset\mathbb{N}\) is nonempty, then \(S\) has a least element.</p>
+                  <p>That is, there exists \(x\in S\) such that</p>
+                  \[
+                    x\leq y \qquad \text{for every } y\in S.
+                  \]
+                  <p>We take the well-ordering property as an <strong>axiom</strong>: a basic property of \(\mathbb{N}\) that we assume without proof.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">proof-by-contradiction/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>To prove a statement by contradiction:</p>
+                  <ol>
+                    <li>Assume the statement is false.</li>
+                    <li>Derive a contradiction.</li>
+                    <li>Conclude that the original statement is true.</li>
+                  </ol>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <h4>Example</h4>
+                  <p><strong>Theorem.</strong> \(\sqrt{2}\notin\mathbb{Q}\).</p>
+                  <p><strong>Proof.</strong> Suppose, for contradiction, that \(\sqrt{2}=\frac{p}{q}\in\mathbb{Q}\) in lowest terms.</p>
+                  <p>Then \(p^2=2q^2\), so \(p^2\) is even, hence \(p\) is even.</p>
+                  <p>Write \(p=2k\).</p>
+                  <p>Then \(q^2=2k^2\), so \(q^2\) is even, hence \(q\) is even.</p>
+                  <p>Thus \(p\) and \(q\) are both even and therefore divisible by \(2\).</p>
+                  <p>This contradicts that \(\frac{p}{q}\) was in lowest terms.</p>
+                  <p>Therefore \(\sqrt{2}\notin\mathbb{Q}\). \(\square\)</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">proof-of-induction/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>Let</p>
+                  \[
+                    S:=\{n\in\mathbb{N}\mid P(n)\text{ is false}\}.
+                  \]
+                  <p>We want to show</p>
+                  \[
+                    S=\emptyset.
+                  \]
+                  <p>Suppose, for contradiction, that</p>
+                  \[
+                    S\neq\emptyset.
+                  \]
+                  <p><strong>Proof idea:</strong> use the well-ordering property of \(\mathbb{N}\) to show that the smallest member of \(S\) both belongs and does not belong to \(S\), thereby furnishing a contradiction.</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>By the well-ordering property of \(\mathbb{N}\), \(S=\{n\in\mathbb{N}\mid P(n)\text{ is false}\}\) has a least element \(m\).</p>
+                  <p>By the assumption \(P(1)\) is true (i.e., the base case),</p>
+                  \[
+                    m\neq 1,
+                  \]
+                  <p>so</p>
+                  \[
+                    m&gt;1.
+                  \]
+                  <p>In particular \(m-1\in\mathbb N\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>Since \(m\) is the least element of \(S\),</p>
+                  \[
+                    m-1\notin S.
+                  \]
+                  <p>Indeed,</p>
+                  \[
+                    S=\{n\in\mathbb{N}\mid P(n)\text{ is false}\}.
+                  \]
+                  <p>Since \(m-1\notin S\),</p>
+                  \[
+                    P(m-1)\text{ is true}.
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>By the assumption that \(P(n)\Rightarrow P(n+1)\) for every \(n\in\mathbb{N}\) (i.e., the induction step), taking \(n=m-1\),</p>
+                  \[
+                    P(m)\text{ is true}.
+                  \]
+                  <p>Therefore</p>
+                  \[
+                    m\notin S,\qquad S=\{n\in\mathbb N\mid P(n)\text{ is false}\}.
+                  \]
+                  <p>But \(m\in S\). Contradiction.</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>Thus</p>
+                  \[
+                    S=\{n\in\mathbb{N}\mid P(n)\text{ is false}\}=\emptyset.
+                  \]
+                  <p>Therefore</p>
+                  \[
+                    P(n)\text{ is true for every }n\in\mathbb{N}.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">example-1/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example 1: Geometric sum</div>
+                  <p><span class="step-label">Theorem.</span> For \(c\neq 1\) and \(n\in\mathbb{N}\),</p>
+                  \[
+                    1+c+c^2+\cdots+c^n=\frac{1-c^{n+1}}{1-c}.
+                  \]
+
+                  <p><span class="proof-label">Proof.</span> We use induction on \(n\).</p>
+                  <p><span class="step-label">To begin:</span> What is the base case?</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Base case:</span> \(n=1\).</p>
+                  <p>If \(n=1\), then</p>
+                  \[
+                    1+c+\cdots+c^n=1+c,
+                  \]
+                  <p>and</p>
+                  \[
+                    \frac{1-c^{n+1}}{1-c}
+                    =\frac{1-c^2}{1-c}
+                    =\frac{(1-c)(1+c)}{1-c}
+                    =1+c.
+                  \]
+                  <p>Thus the base case holds:</p>
+                  \[
+                    1+c+\cdots+c^n=\frac{1-c^{n+1}}{1-c}\qquad \text{when } n=1.
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Induction hypothesis:</span> Fix an arbitrary \(m\in\mathbb{N}\) and assume the identity holds for \(m\):</p>
+                  \[
+                    1+c+c^2+\cdots+c^m=\frac{1-c^{m+1}}{1-c}.
+                  \]
+                  <p>Need to show the induction hypothesis implies</p>
+                  \[
+                    1+c+c^2+\cdots+c^m+c^{m+1}=\frac{1-c^{m+2}}{1-c}.
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Inductive step:</span></p>
+                  <p>Using the induction hypothesis, we obtain</p>
+                  \[
+                  \begin{aligned}
+                    1+c+c^2+\cdots+c^m+c^{m+1}
+                    &amp;=\textcolor{red}{(1+c+c^2+\cdots+c^m)}+c^{m+1}\\
+                    &amp;=\textcolor{red}{\frac{1-c^{m+1}}{1-c}}+c^{m+1}\\
+                    &amp;=\frac{1-c^{m+1}+c^{m+1}(1-c)}{1-c}\\
+                    &amp;=\frac{1-c^{m+2}}{1-c}.
+                  \end{aligned}
+                  \]
+                  <p>Thus the identity holds for \(m+1\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>Having proved the base case and inductive step, mathematical induction gives</p>
+                  \[
+                    1+c+c^2+\cdots+c^n=\frac{1-c^{n+1}}{1-c}
+                  \]
+                  <p>for every \(n\in\mathbb{N}\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">example-2/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example 2</div>
+                  <p><span class="step-label">Theorem.</span> If \(c\geq -1\), then</p>
+                  \[
+                    (1+c)^n\geq 1+nc
+                  \]
+                  <p>for every \(n\in\mathbb{N}\).</p>
+
+                  <p><span class="proof-label">Proof.</span> We use induction on \(n\).</p>
+                  <p><span class="step-label">To begin:</span> What is the base case?</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Base case:</span> \(n=1\).</p>
+                  <p>If \(n=1\), then</p>
+                  \[
+                    (1+c)^n=1+c,
+                  \]
+                  <p>and</p>
+                  \[
+                    1+nc=1+c.
+                  \]
+                  <p>Thus the base case holds:</p>
+                  \[
+                    (1+c)^n\geq 1+nc\qquad \text{when } n=1.
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Induction hypothesis:</span> Fix an arbitrary \(m\in\mathbb{N}\) and assume the inequality holds for \(m\):</p>
+                  \[
+                    (1+c)^m\geq 1+mc.
+                  \]
+                  <p>Need to show the induction hypothesis implies</p>
+                  \[
+                    (1+c)^{m+1}\geq 1+(m+1)c.
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Inductive step:</span></p>
+                  <p>Since \(c\geq -1\), we have \(1+c\geq 0\). Using the induction hypothesis, we obtain</p>
+                  \[
+                  \begin{aligned}
+                    (1+c)^{m+1}
+                    &amp;=(1+c)^m(1+c)\\
+                    &amp;\geq(1+mc)(1+c)\\
+                    &amp;=1+(m+1)c+mc^2\\
+                    &amp;\geq 1+(m+1)c.
+                  \end{aligned}
+                  \]
+                  <p>Thus the inequality holds for \(m+1\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Having proved the base case and inductive step, mathematical induction gives</p>
+                  \[
+                    (1+c)^n\geq 1+nc
+                  \]
+                  <p>for every \(n\in\mathbb{N}\).</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">cardinality-and-countability/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">fundamental-question/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Fundamental Question</div>
+                  <p>Which sets have “more” elements?</p>
+                  \[
+                    \{1,2,3\},\qquad
+                    \mathbb N,\qquad
+                    \{\text{even integers}\},\qquad
+                    \mathbb Q,\qquad
+                    \mathbb R,\qquad
+                    \mathbb R^3?
+                  \]
+                  <p>Which have the <strong>same number</strong> of elements?</p>
+                  <p>There are many ways to measure the “size” of a set. The most fundamental for our purposes is <strong>cardinality</strong>.</p>
+                  <p><strong>Cardinality</strong> formalizes the idea of comparing the number of elements in two sets.</p>
+                  <p>This section develops this notion of size.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">functions/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>Let \(A\) and \(B\) be sets.</p>
+                  <p>A function</p>
+                  \[
+                    f:A\to B
+                  \]
+                  <p>assigns each \(x\in A\) to a unique element of \(B\), denoted \(f(x)\).</p>
+                  <p>We call \(A\) and \(B\) the <strong>domain</strong> and <strong>codomain</strong> of \(f\), respectively.</p>
+                  <p>We say that <strong>\(x\) is mapped to \(f(x)\)</strong>.</p>
+
+                  <div class="mapping-diagram" aria-label="Mapping diagram for the function f(x)=x^2 from A to B">
+                    <svg viewBox="0 0 760 360" role="img" aria-labelledby="mapping-title mapping-desc">
+                      <title id="mapping-title">Mapping diagram for f(x)=x squared</title>
+                      <desc id="mapping-desc">A equals minus two, minus one, zero, one, two. B equals zero, one, two, three, four, five. The function maps minus two and two to four, minus one and one to one, and zero to zero.</desc>
+                      <defs>
+                        <marker id="arrowhead" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+
+                      <ellipse class="set-outline" cx="150" cy="188" rx="78" ry="126"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="188" rx="92" ry="142"></ellipse>
+
+                      <text class="set-label" x="150" y="38" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="38" text-anchor="middle">B</text>
+
+                      <text class="elem" x="150" y="96" text-anchor="middle">−2</text>
+                      <text class="elem" x="150" y="144" text-anchor="middle">−1</text>
+                      <text class="elem" x="150" y="192" text-anchor="middle">0</text>
+                      <text class="elem" x="150" y="240" text-anchor="middle">1</text>
+                      <text class="elem" x="150" y="288" text-anchor="middle">2</text>
+
+                      <text class="elem" x="610" y="78" text-anchor="middle">5</text>
+                      <text class="elem" x="610" y="122" text-anchor="middle">4</text>
+                      <text class="elem" x="610" y="166" text-anchor="middle">3</text>
+                      <text class="elem" x="610" y="210" text-anchor="middle">2</text>
+                      <text class="elem" x="610" y="254" text-anchor="middle">1</text>
+                      <text class="elem" x="610" y="298" text-anchor="middle">0</text>
+
+                      <path class="map-line" d="M 210 90 C 320 90, 430 122, 552 122" marker-end="url(#arrowhead)"></path>
+                      <path class="map-line" d="M 210 138 C 320 138, 430 252, 552 252" marker-end="url(#arrowhead)"></path>
+                      <path class="map-line" d="M 210 186 C 320 186, 430 296, 552 296" marker-end="url(#arrowhead)"></path>
+                      <path class="map-line" d="M 210 234 C 320 234, 430 252, 552 252" marker-end="url(#arrowhead)"></path>
+                      <path class="map-line" d="M 210 282 C 320 282, 430 122, 552 122" marker-end="url(#arrowhead)"></path>
+                    </svg>
+                  </div>
+
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Remark.</span> In this formalization, we are taking care to view a function as having a specified domain and codomain. In particular, the two functions</p>
+                  \[
+                  \begin{aligned}
+                    f:[0,1]&\to\mathbb{R}, & f(x)&=x^2,\\
+                    g:\mathbb{R}&\to\mathbb{R}, & g(x)&=x^2
+                  \end{aligned}
+                  \]
+                  <p>are not the same function.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Image</div>
+                  <p>Let \(C\subset A\). The image of \(C\) under \(f:A\to B\) is</p>
+                  \[
+                    f(C):=\{y\in B:y=f(x)\text{ for some }x\in C\}.
+                  \]
+                  <p>So \(f(C)\) is the set of outputs obtained from elements of \(C\).</p>
+                  <div class="mapping-diagram" aria-label="Image of a subset under a function">
+                    <svg viewBox="0 0 760 360" role="img" aria-labelledby="image-title image-desc">
+                      <title id="image-title">Image of a subset C under f</title>
+                      <desc id="image-desc">The function maps the set A equals negative 2, negative 1, 0, 1, 2 into B equals 0, 1, 2, 3, 4, 5 by x squared. The subset C consists of negative 2, 0, and 1. Its image f of C consists of 4, 0, and 1.</desc>
+                      <defs>
+                        <marker id="arrowhead-image" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="188" rx="78" ry="126"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="188" rx="92" ry="142"></ellipse>
+                      <text class="set-label" x="150" y="38" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="38" text-anchor="middle">B</text>
+                      <text class="elem muted" x="150" y="96" text-anchor="middle">−2</text>
+                      <text class="elem muted" x="150" y="144" text-anchor="middle">−1</text>
+                      <text class="elem muted" x="150" y="192" text-anchor="middle">0</text>
+                      <text class="elem muted" x="150" y="240" text-anchor="middle">1</text>
+                      <text class="elem muted" x="150" y="288" text-anchor="middle">2</text>
+                      <circle class="subset-halo" cx="150" cy="96" r="18"></circle>
+                      <circle class="subset-halo" cx="150" cy="192" r="18"></circle>
+                      <circle class="subset-halo" cx="150" cy="240" r="18"></circle>
+                      <text class="elem" x="150" y="96" text-anchor="middle">−2</text>
+                      <text class="elem" x="150" y="192" text-anchor="middle">0</text>
+                      <text class="elem" x="150" y="240" text-anchor="middle">1</text>
+                      <text class="subset-label" x="84" y="192" text-anchor="middle">C</text>
+                      <text class="elem muted" x="610" y="78" text-anchor="middle">5</text>
+                      <text class="elem muted" x="610" y="122" text-anchor="middle">4</text>
+                      <text class="elem muted" x="610" y="166" text-anchor="middle">3</text>
+                      <text class="elem muted" x="610" y="210" text-anchor="middle">2</text>
+                      <text class="elem muted" x="610" y="254" text-anchor="middle">1</text>
+                      <text class="elem muted" x="610" y="298" text-anchor="middle">0</text>
+                      <circle class="subset-halo" cx="610" cy="122" r="18"></circle>
+                      <circle class="subset-halo" cx="610" cy="254" r="18"></circle>
+                      <circle class="subset-halo" cx="610" cy="298" r="18"></circle>
+                      <text class="elem" x="610" y="122" text-anchor="middle">4</text>
+                      <text class="elem" x="610" y="254" text-anchor="middle">1</text>
+                      <text class="elem" x="610" y="298" text-anchor="middle">0</text>
+                      <text class="subset-label" x="690" y="192" text-anchor="middle">f(C)</text>
+                      <path class="map-line" d="M 210 94 C 320 94, 430 122, 552 122" marker-end="url(#arrowhead-image)"></path>
+                      <path class="map-line muted-map-line" d="M 210 142 C 320 142, 430 252, 552 252" marker-end="url(#arrowhead-image)"></path>
+                      <path class="map-line" d="M 210 190 C 320 190, 430 298, 552 298" marker-end="url(#arrowhead-image)"></path>
+                      <path class="map-line" d="M 210 238 C 320 238, 430 252, 552 252" marker-end="url(#arrowhead-image)"></path>
+                      <path class="map-line muted-map-line" d="M 210 286 C 320 286, 430 122, 552 122" marker-end="url(#arrowhead-image)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Preimage</div>
+                  <p>Let \(D\subset B\). The <strong>preimage of \(D\)</strong> under \(f:A\to B\) is</p>
+                  \[
+                    f^{-1}(D):=\{x\in A:f(x)\in D\}.
+                  \]
+                  <p>So \(f^{-1}(D)\) is the set of inputs that are mapped into \(D\).</p>
+                  <div class="mapping-diagram" aria-label="Preimage of a subset under a function">
+                    <svg viewBox="0 0 760 360" role="img" aria-labelledby="preimage-title preimage-desc">
+                      <title id="preimage-title">Preimage of a subset D under f</title>
+                      <desc id="preimage-desc">The function maps the set A equals negative 2, negative 1, 0, 1, 2 into B equals 0, 1, 2, 3, 4, 5 by x squared. The subset D consists of 4. Its preimage f inverse of D consists of negative 2 and 2.</desc>
+                      <defs>
+                        <marker id="arrowhead-preimage" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="188" rx="78" ry="126"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="188" rx="92" ry="142"></ellipse>
+                      <text class="set-label" x="150" y="38" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="38" text-anchor="middle">B</text>
+                      <text class="elem muted" x="150" y="96" text-anchor="middle">−2</text>
+                      <text class="elem muted" x="150" y="144" text-anchor="middle">−1</text>
+                      <text class="elem muted" x="150" y="192" text-anchor="middle">0</text>
+                      <text class="elem muted" x="150" y="240" text-anchor="middle">1</text>
+                      <text class="elem muted" x="150" y="288" text-anchor="middle">2</text>
+                      <circle class="subset-halo" cx="150" cy="96" r="18"></circle>
+                      <circle class="subset-halo" cx="150" cy="288" r="18"></circle>
+                      <text class="elem" x="150" y="96" text-anchor="middle">−2</text>
+                      <text class="elem" x="150" y="288" text-anchor="middle">2</text>
+                      <text class="subset-label" x="58" y="192" text-anchor="middle">f⁻¹(D)</text>
+                      <text class="elem muted" x="610" y="78" text-anchor="middle">5</text>
+                      <text class="elem muted" x="610" y="122" text-anchor="middle">4</text>
+                      <text class="elem muted" x="610" y="166" text-anchor="middle">3</text>
+                      <text class="elem muted" x="610" y="210" text-anchor="middle">2</text>
+                      <text class="elem muted" x="610" y="254" text-anchor="middle">1</text>
+                      <text class="elem muted" x="610" y="298" text-anchor="middle">0</text>
+                      <circle class="subset-halo" cx="610" cy="122" r="18"></circle>
+                      <text class="elem" x="610" y="122" text-anchor="middle">4</text>
+                      <text class="subset-label" x="682" y="122" text-anchor="middle">D</text>
+                      <path class="map-line" d="M 210 94 C 320 94, 430 122, 552 122" marker-end="url(#arrowhead-preimage)"></path>
+                      <path class="map-line muted-map-line" d="M 210 142 C 320 142, 430 252, 552 252" marker-end="url(#arrowhead-preimage)"></path>
+                      <path class="map-line muted-map-line" d="M 210 190 C 320 190, 430 298, 552 298" marker-end="url(#arrowhead-preimage)"></path>
+                      <path class="map-line muted-map-line" d="M 210 238 C 320 238, 430 252, 552 252" marker-end="url(#arrowhead-preimage)"></path>
+                      <path class="map-line" d="M 210 286 C 320 286, 430 122, 552 122" marker-end="url(#arrowhead-preimage)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example</div>
+                  <p>Let</p>
+                  \[
+                    A=\{-2,-1,0,1,2\},\qquad B=\{0,1,2,3,4,5\}.
+                  \]
+                  <p>Define \(f:A\to B\) by \(f(x)=x^2\).</p>
+                  <p>Then</p>
+                  \[
+                    f(A)=\{0,1,4\},\qquad f^{-1}(\{2,3\})=\emptyset,\qquad f^{-1}(\{4\})=\{-2,2\}.
+                  \]
+                  
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">injective-surjective-bijective-functions/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>Let \(A\) and \(B\) be sets and let</p>
+                  \[
+                    f:A\to B
+                  \]
+                  <p>be a function.</p>
+                  <p>There are three fundamental types of functions: injections, surjections and bijections.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Injections</div>
+                  <p>\(f\) is <strong>injective</strong> or <strong>one-to-one (1-1)</strong> if</p>
+                  \[
+                    f(x_1)=f(x_2)\implies x_1=x_2.
+                  \]
+                  <div class="mapping-diagram" aria-label="Injective function diagram">
+                    <svg viewBox="0 0 760 300" role="img" aria-labelledby="injective-title injective-desc">
+                      <title id="injective-title">Injective function</title>
+                      <desc id="injective-desc">A has elements one, two, three. B has elements a, b, c, d. The arrows are one to a, two to c, three to d, so distinct inputs have distinct outputs.</desc>
+                      <defs>
+                        <marker id="arrowhead-injective" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="158" rx="78" ry="108"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="158" rx="92" ry="124"></ellipse>
+                      <text class="set-label" x="150" y="34" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="34" text-anchor="middle">B</text>
+                      <text class="elem" x="150" y="100" text-anchor="middle">1</text>
+                      <text class="elem" x="150" y="158" text-anchor="middle">2</text>
+                      <text class="elem" x="150" y="216" text-anchor="middle">3</text>
+                      <text class="elem" x="610" y="82" text-anchor="middle">a</text>
+                      <text class="elem muted" x="610" y="136" text-anchor="middle">b</text>
+                      <text class="elem" x="610" y="190" text-anchor="middle">c</text>
+                      <text class="elem" x="610" y="244" text-anchor="middle">d</text>
+                      <path class="map-line" d="M 210 94 C 320 94, 430 82, 552 82" marker-end="url(#arrowhead-injective)"></path>
+                      <path class="map-line" d="M 210 152 C 320 152, 430 190, 552 190" marker-end="url(#arrowhead-injective)"></path>
+                      <path class="map-line" d="M 210 210 C 320 210, 430 244, 552 244" marker-end="url(#arrowhead-injective)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Surjections</div>
+                  <p>\(f\) is <strong>surjective</strong> or <strong>onto</strong> if</p>
+                  \[
+                    f(A)=B.
+                  \]
+                  <div class="mapping-diagram" aria-label="Surjective function diagram">
+                    <svg viewBox="0 0 760 300" role="img" aria-labelledby="surjective-title surjective-desc">
+                      <title id="surjective-title">Surjective function</title>
+                      <desc id="surjective-desc">A has elements one, two, three, four. B has elements a, b, c. The arrows are one to a, two to b, three to c, four to c, so every element of B is hit.</desc>
+                      <defs>
+                        <marker id="arrowhead-surjective" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="158" rx="78" ry="122"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="158" rx="92" ry="108"></ellipse>
+                      <text class="set-label" x="150" y="34" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="34" text-anchor="middle">B</text>
+                      <text class="elem" x="150" y="84" text-anchor="middle">1</text>
+                      <text class="elem" x="150" y="136" text-anchor="middle">2</text>
+                      <text class="elem" x="150" y="188" text-anchor="middle">3</text>
+                      <text class="elem" x="150" y="240" text-anchor="middle">4</text>
+                      <text class="elem" x="610" y="102" text-anchor="middle">a</text>
+                      <text class="elem" x="610" y="158" text-anchor="middle">b</text>
+                      <text class="elem" x="610" y="214" text-anchor="middle">c</text>
+                      <path class="map-line" d="M 210 78 C 320 78, 430 102, 552 102" marker-end="url(#arrowhead-surjective)"></path>
+                      <path class="map-line" d="M 210 130 C 320 130, 430 158, 552 158" marker-end="url(#arrowhead-surjective)"></path>
+                      <path class="map-line" d="M 210 182 C 320 182, 430 214, 552 214" marker-end="url(#arrowhead-surjective)"></path>
+                      <path class="map-line" d="M 210 234 C 320 234, 430 224, 552 214" marker-end="url(#arrowhead-surjective)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Bijections</div>
+                  <p>\(f\) is <strong>bijective</strong> if it is both injective and surjective.</p>
+                  <div class="mapping-diagram" aria-label="Bijective function diagram">
+                    <svg viewBox="0 0 760 300" role="img" aria-labelledby="bijective-title bijective-desc">
+                      <title id="bijective-title">Bijective function</title>
+                      <desc id="bijective-desc">A has elements one, two, three. B has elements a, b, c. The arrows are one to a, two to b, three to c, so the function is both one to one and onto.</desc>
+                      <defs>
+                        <marker id="arrowhead-bijective" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--link)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="158" rx="78" ry="108"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="158" rx="92" ry="108"></ellipse>
+                      <text class="set-label" x="150" y="34" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="34" text-anchor="middle">B</text>
+                      <text class="elem" x="150" y="100" text-anchor="middle">1</text>
+                      <text class="elem" x="150" y="158" text-anchor="middle">2</text>
+                      <text class="elem" x="150" y="216" text-anchor="middle">3</text>
+                      <text class="elem" x="610" y="100" text-anchor="middle">a</text>
+                      <text class="elem" x="610" y="158" text-anchor="middle">b</text>
+                      <text class="elem" x="610" y="216" text-anchor="middle">c</text>
+                      <path class="map-line" d="M 210 94 C 320 94, 430 100, 552 100" marker-end="url(#arrowhead-bijective)"></path>
+                      <path class="map-line" d="M 210 152 C 320 152, 430 158, 552 158" marker-end="url(#arrowhead-bijective)"></path>
+                      <path class="map-line" d="M 210 210 C 320 210, 430 216, 552 216" marker-end="url(#arrowhead-bijective)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Inverse functions</div>
+                  <p>If \(f:A\to B\) is bijective, then there is an inverse function</p>
+                  \[
+                    f^{-1}:B\to A
+                  \]
+                  <p>which assigns each \(y\in B\) to the unique \(x\in A\) such that</p>
+                  \[
+                    f(x)=y.
+                  \]
+                  <p>Thus,</p>
+                  \[
+                    f\bigl(f^{-1}(y)\bigr)=y.
+                  \]
+                  <div class="mapping-diagram" aria-label="Inverse function diagram">
+                    <svg viewBox="0 0 760 320" role="img" aria-labelledby="inverse-title inverse-desc">
+                      <title id="inverse-title">Inverse function</title>
+                      <desc id="inverse-desc">A and B have three elements. The inverse function maps a to 1, b to 2, and c to 3, reversing the bijection f from A to B.</desc>
+                      <defs>
+                        <marker id="arrowhead-inverse2" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--active)"></path>
+                        </marker>
+                      </defs>
+                      <ellipse class="set-outline" cx="150" cy="168" rx="78" ry="108"></ellipse>
+                      <ellipse class="set-outline" cx="610" cy="168" rx="92" ry="108"></ellipse>
+                      <text class="set-label" x="150" y="34" text-anchor="middle">A</text>
+                      <text class="set-label" x="610" y="34" text-anchor="middle">B</text>
+                      <text class="elem" x="150" y="100" text-anchor="middle">1</text>
+                      <text class="elem" x="150" y="168" text-anchor="middle">2</text>
+                      <text class="elem" x="150" y="236" text-anchor="middle">3</text>
+                      <text class="elem" x="610" y="100" text-anchor="middle">a</text>
+                      <text class="elem" x="610" y="168" text-anchor="middle">b</text>
+                      <text class="elem" x="610" y="236" text-anchor="middle">c</text>
+                      <text class="map-caption" x="380" y="64" text-anchor="middle">f⁻¹ : B → A</text>
+                      <path class="map-line inverse-line" d="M 552 100 C 430 100, 330 100, 210 100" marker-end="url(#arrowhead-inverse2)"></path>
+                      <path class="map-line inverse-line" d="M 552 168 C 430 168, 330 168, 210 168" marker-end="url(#arrowhead-inverse2)"></path>
+                      <path class="map-line inverse-line" d="M 552 236 C 430 236, 330 236, 210 236" marker-end="url(#arrowhead-inverse2)"></path>
+                    </svg>
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Notational Remark</div>
+                  <p>Common notation:</p>
+                  \[
+                  \begin{aligned}
+                    f:A\hookrightarrow B &\qquad \text{injection},\\
+                    f:A\twoheadrightarrow B &\qquad \text{surjection},\\
+                    f:A\xrightarrow{\sim} B &\qquad \text{bijection}.
+                  \end{aligned}
+                  \]
+                  <p><span class="step-label">Warning.</span> In these notes, \(f^{-1}\) denotes the inverse function when it exists. For a set \(D\subset B\), \(f^{-1}(D)\) denotes the preimage of \(D\); if \(f\) is bijective, this is equivalently the image of \(D\) under the inverse map \(f^{-1}:B\to A\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cardinality/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Question</div>
+                  <p>When do two sets have the same <strong>size</strong>?</p>
+                  <p>Cantor's idea: two sets have the same size when we can pair each element of one set with a unique element of the other.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Cardinality</div>
+                  <p>We say sets \(A\) and \(B\) have the <strong>same cardinality</strong> if there exists a bijection</p>
+                  \[
+                    f:A\to B.
+                  \]
+                  <p>We write</p>
+                  \[
+                    |A|=|B|
+                  \]
+                  <p>to indicate that \(A\) and \(B\) have the same cardinality.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Finite Sets</div>
+                  <p>If</p>
+                  \[
+                    |A|=\bigl|\{1,2,\ldots,n\}\bigr|,
+                  \]
+                  <p>then we write</p>
+                  \[
+                    |A|=n
+                  \]
+                  <p>and say that \(A\) is <strong>finite</strong>.</p>
+                  <p>We also define \(\emptyset\) to be finite, with</p>
+                  \[
+                    |\emptyset|=0.
+                  \]
+                  <p>For a finite set \(A\), it is also common to write</p>
+                  \[
+                    \#A
+                  \]
+                  <p>for \(|A|\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Comparing Cardinalities</div>
+                  <p>We write</p>
+                  \[
+                    |A|\leq |B|
+                    \quad\Longleftrightarrow\quad
+                    \text{there exists an injection }f:A\to B.
+                  \]
+                  <p>We write</p>
+                  \[
+                    |A|<|B|
+                    \quad\Longleftrightarrow\quad
+                    |A|\leq |B|\text{ and }|A|\neq |B|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example</div>
+                  <p>Given \(A\subset B\subset\mathbb R\), define the function</p>
+                  \[
+                    f_{A,B}:A\to B,\qquad f_{A,B}(x)=x.
+                  \]
+                  <p>Observe that \(f_{A,B}\) is always injective.</p>
+                  <p>Since</p>
+                  \[
+                    \{1,2,3\}\subset\mathbb N\subset\mathbb Z\subset\mathbb Q\subset\mathbb R,
+                  \]
+                  <p>we may use \(f_{A,B}\) with suitably chosen \(A\) and \(B\) to conclude</p>
+                  \[
+                    |\{1,2,3\}|\leq|\mathbb N|\leq|\mathbb Z|\leq|\mathbb Q|\leq|\mathbb R|.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cantor-schroder-bernstein/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Cantor–Schröder–Bernstein Theorem</div>
+                  <p>If</p>
+                  \[
+                    |A|\leq |B|
+                  \]
+                  <p>and</p>
+                  \[
+                    |B|\leq |A|,
+                  \]
+                  <p>then</p>
+                  \[
+                    |A|=|B|.
+                  \]
+                  <p>Equivalently, if there exists an injection \(f:A\to B\) and an injection \(g:B\to A\), then there exists a bijection between \(A\) and \(B\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Practical Remark</div>
+                  <p>Finding an explicit bijection between two sets may be difficult.</p>
+                  <p>The Cantor–Schröder–Bernstein theorem lets us instead prove that two sets have the same cardinality by finding <strong>an injection in each direction</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example</div>
+                  <p>We claim</p>
+                  \[
+                    |[0,1]|=|(0,1)|.
+                  \]
+                  <p>Since \((0,1)\subset [0,1]\), the inclusion map</p>
+                  \[
+                    f:(0,1)\to[0,1],\qquad f(x)=x,
+                  \]
+                  <p>is injective. Hence</p>
+                  \[
+                    |(0,1)|\leq |[0,1]|.
+                  \]
+                  <p>Conversely, define</p>
+                  \[
+                    g:[0,1]\to(0,1),\qquad g(x)=\frac{x+1}{3}.
+                  \]
+                  <p>Then \(g\) is injective, with</p>
+                  \[
+                    g([0,1])=\left[\frac13,\frac23\right]\subsetneq(0,1).
+                  \]
+                  <p>Hence</p>
+                  \[
+                    |[0,1]|\leq |(0,1)|.
+                  \]
+                  <p>Therefore, by Cantor–Schröder–Bernstein,</p>
+                  \[
+                    |[0,1]|=|(0,1)|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">For comparison: an explicit bijection</div>
+                  <p>One explicit bijection \(h:[0,1]\to(0,1)\) is</p>
+                  \[
+                    h(x)=
+                    \begin{cases}
+                      \frac12, & x=0,\\[2mm]
+                      \frac13, & x=1,\\[2mm]
+                      \frac{1}{n+2}, & x=\frac1n,\quad n\geq 2,\\[2mm]
+                      x, & \text{otherwise}.
+                    \end{cases}
+                  \]
+                  <p>This shifts the sequence</p>
+                  \[
+                    0,\ 1,\ \frac12,\ \frac13,\ \frac14,\ldots
+                  \]
+                  <p>into</p>
+                  \[
+                    \frac12,\ \frac13,\ \frac14,\ \frac15,\ \frac16,\ldots
+                  \]
+                  <p>and fixes every other point.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">countability/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Countably infinite sets</div>
+                  <p>A set \(A\) is <strong>countably infinite</strong> if</p>
+                  \[
+                    |A|=|\mathbb{N}|.
+                  \]
+                  <p>That is, \(A\) is countably infinite if there exists a bijection</p>
+                  \[
+                    f:\mathbb{N}\to A.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Countable and uncountable sets</div>
+                  <p>A set \(A\) is <strong>countable</strong> if it is either</p>
+                  <ul>
+                    <li>finite, or</li>
+                    <li>countably infinite.</li>
+                  </ul>
+                  <p>If \(A\) is not countable, then \(A\) is <strong>uncountable</strong>.</p>
+                  <p>We will see later that \(|\mathbb{N}|&lt;|\mathbb{R}|\); i.e., \(\mathbb{R}\) is uncountable.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Continuum Hypothesis</div>
+                  <p>A natural question is:</p>
+                  <p>Is there a set \(A\) whose cardinality lies strictly between that of \(\mathbb{N}\) and \(\mathbb{R}\)?</p>
+                  <p>That is, can we have</p>
+                  \[
+                    |\mathbb{N}|&lt;|A|&lt;|\mathbb{R}|?
+                  \]
+                  <p>The <strong>Continuum Hypothesis</strong> says that no such set exists.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">examples/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example 1</div>
+                  <p>Show that the set of even positive integers</p>
+                  \[
+                    E:=\{2n:n\in\mathbb N\}
+                  \]
+                  <p>is countably infinite.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Solution</div>
+                  <p>Define</p>
+                  \[
+                    f:\mathbb N\to E,\qquad f(n)=2n.
+                  \]
+                  <p>If \(f(n)=f(m)\), then \(2n=2m\), so \(n=m\). Thus \(f\) is injective.</p>
+                  <p>If \(y\in E\), then \(y=2n=f(n)\) for some \(n\in\mathbb N\). Thus \(f\) is surjective.</p>
+                  <p>Hence \(f\) is a bijection and</p>
+                  \[
+                    |E|=|\mathbb N|.
+                  \]
+                  <p><strong>Remark.</strong> The odd positive integers are countably infinite by the same argument, using \(n\mapsto 2n-1\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example 2</div>
+                  <p>Show that \(\mathbb Z\) is countably infinite.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Solution</div>
+                  <p>Define \(f:\mathbb N\to\mathbb Z\) by</p>
+                  \[
+                    f(2k)=k,\qquad
+                    f(2k-1)=-(k-1),\qquad k\in\mathbb N.
+                  \]
+                  <p>Thus \(f\) enumerates</p>
+                  \[
+                    0,1,-1,2,-2,3,-3,\ldots
+                  \]
+                  <p>and is a bijection. Therefore</p>
+                  \[
+                    |\mathbb Z|=|\mathbb N|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example 3</div>
+                  <p>Show that \(\mathbb N\times\mathbb N\) is countably infinite.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Solution</div>
+                  <p>First, group the pairs in \(\mathbb N\times\mathbb N\) according to the value of \(m+n\):</p>
+                  \[
+                  \begin{aligned}
+                    m+n=2:&\quad (1,1),\\
+                    m+n=3:&\quad (2,1),(1,2),\\
+                    m+n=4:&\quad (3,1),(2,2),(1,3),\\
+                    m+n=5:&\quad (4,1),(3,2),(2,3),(1,4),\\
+                    &\quad \vdots
+                  \end{aligned}
+                  \]
+                  <p>These groups are the <strong>diagonals</strong> of \(\mathbb N\times\mathbb N\). Enumerate the pairs one diagonal at a time, increasing \(n\) within each diagonal:</p>
+                  \[
+                    (1,1)\mapsto1,\quad
+                    (2,1)\mapsto2,\quad
+                    (1,2)\mapsto3,\quad
+                    (3,1)\mapsto4,\quad\ldots
+                  \]
+                  <p>This enumeration is given by the Cantor pairing map \(\pi:\mathbb N\times\mathbb N\to\mathbb N\):</p>
+                  \[
+                    \pi(m,n)
+                    :=\frac{(m+n-2)(m+n-1)}{2}+n.
+                  \]
+                  <p>For a fixed value of \(m+n\), the formula assigns consecutive natural numbers to all pairs in that diagonal. Every pair appears on exactly one diagonal, and every natural number occurs exactly once.</p>
+                  <p>Thus \(\pi\) is a bijection, and therefore</p>
+                  \[
+                    |\mathbb N\times\mathbb N|=|\mathbb N|.
+                  \]
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+    </div>
+  </main>
+</body>
+</html>
