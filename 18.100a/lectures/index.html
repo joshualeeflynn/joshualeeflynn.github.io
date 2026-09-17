@@ -267,6 +267,17 @@
                   <p><strong>Theorem.</strong> \(\sqrt{2}\notin\mathbb{Q}\).</p>
                   <p><strong>Proof.</strong> Suppose, for contradiction, that \(\sqrt{2}=\frac{p}{q}\in\mathbb{Q}\) in lowest terms.</p>
                   <p>Then \(p^2=2q^2\), so \(p^2\) is even, hence \(p\) is even.</p>
+                  <p><strong>Why?</strong> If \(k^2\) is even, then \(k\) is even. There are two standard ways to see this:</p>
+                  <ol>
+                    <li><strong>Euclid's lemma.</strong> Since \(2\mid k^2=k\cdot k\) and \(2\) is prime, Euclid's lemma gives \(2\mid k\). Hence \(k\) is even.</li>
+                    <li><strong>Elementary parity argument.</strong> If \(k\) were odd, then \(k=2m+1\) for some integer \(m\), and
+                      \[
+                        k^2=(2m+1)^2=2(2m^2+2m)+1,
+                      \]
+                      which is odd, a contradiction.
+                    </li>
+                  </ol>
+                  <p>Either argument proves that \(k^2\) even implies \(k\) even. The second simply uses a short contradiction inside the larger proof by contradiction.</p>
                   <p>Write \(p=2k\).</p>
                   <p>Then \(q^2=2k^2\), so \(q^2\) is even, hence \(q\) is even.</p>
                   <p>Thus \(p\) and \(q\) are both even and therefore divisible by \(2\).</p>
@@ -479,7 +490,7 @@
 
           <details class="lecture-node lecture-chapter">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">cardinality-and-countability/</span>
             </summary>
@@ -889,16 +900,15 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <div class="note-heading">Finite Sets</div>
-                  <p>If</p>
+                  <p><strong>Definition.</strong> A set \(A\) is <strong>finite</strong> if \(A=\emptyset\), or if</p>
                   \[
-                    |A|=\bigl|\{1,2,\ldots,n\}\bigr|,
+                    |A|=\bigl|\{1,2,\ldots,n\}\bigr|
                   \]
-                  <p>then we write</p>
+                  <p>for some \(n\in\mathbb{N}\). In the latter case, we write</p>
                   \[
-                    |A|=n
+                    |A|=n.
                   \]
-                  <p>and say that \(A\) is <strong>finite</strong>.</p>
-                  <p>We also define \(\emptyset\) to be finite, with</p>
+                  <p>We write</p>
                   \[
                     |\emptyset|=0.
                   \]
@@ -911,13 +921,13 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <div class="note-heading">Comparing Cardinalities</div>
-                  <p>We write</p>
+                  <p><strong>Definition.</strong> For sets \(A\) and \(B\), define</p>
                   \[
                     |A|\leq |B|
                     \quad\Longleftrightarrow\quad
                     \text{there exists an injection }f:A\to B.
                   \]
-                  <p>We write</p>
+                  <p>Similarly, define</p>
                   \[
                     |A|<|B|
                     \quad\Longleftrightarrow\quad
@@ -1158,6 +1168,627 @@
                   \[
                     |\mathbb N\times\mathbb N|=|\mathbb N|.
                   \]
+                </div>
+              </details>
+            </div>
+          </details>
+
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">size-order-and-completeness/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">power-sets/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Power Sets</div>
+                  <p>If \(A\) is a set, define its <strong>power set</strong> by</p>
+                  \[
+                    \mathcal{P}(A)=\{B:B\subset A\}.
+                  \]
+                  <p>That is, \(\mathcal{P}(A)\) is the set of all subsets of \(A\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Examples</div>
+                  <p>If \(A=\emptyset\), then</p>
+                  \[
+                    \mathcal{P}(A)=\{\emptyset\}.
+                  \]
+
+                  <p>If \(A=\{1\}\), then</p>
+                  \[
+                    \mathcal{P}(A)=\{\emptyset,\{1\}\}.
+                  \]
+
+                  <p>If \(A=\{1,2\}\), then</p>
+                  \[
+                    \mathcal{P}(A)=\{\emptyset,\{1\},\{2\},\{1,2\}\}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>In general, if \(|A|=n\), then</p>
+                  \[
+                    |\mathcal{P}(A)|=2^n.
+                  \]
+                  <p>This is why \(\mathcal{P}(A)\) is called the <strong>power set</strong> of \(A\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Why \(|\mathcal{P}(A)|=2^n\)</div>
+                  <p>We prove this by induction on \(n=|A|\), starting at \(n=1\).</p>
+
+                  <p><span class="step-label">Base case:</span> \(n=1\). If \(|A|=1\), write \(A=\{a\}\). Then</p>
+                  \[
+                    \mathcal{P}(A)=\{\emptyset,\{a\}\},\qquad |\mathcal{P}(A)|=2=2^1.
+                  \]
+                  <p>Thus the statement holds when \(n=1\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Induction hypothesis:</span> Assume that every set \(B\) with \(|B|=n\) satisfies</p>
+                  \[
+                    |\mathcal{P}(B)|=2^n.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Inductive step:</span></p>
+                  <p><strong>Recall.</strong> To establish the inductive step, we assume the statement holds for \(n\) (the induction hypothesis) and use this to prove it holds for \(n+1\).</p>
+                  <p>Let \(|A|=n+1\). Choose \(a\in A\) and set</p>
+                  \[
+                    B=A\setminus\{a\}.
+                  \]
+                  <p>Then \(|B|=n\), so by the induction hypothesis,</p>
+                  \[
+                    |\mathcal{P}(B)|=2^n.
+                  \]
+                  <p>Every subset of \(A\) either does not contain \(a\), or contains \(a\). Hence</p>
+                  \[
+                    \mathcal{P}(A)
+                    =\mathcal{P}(B)\cup\{C\cup\{a\}:C\in\mathcal{P}(B)\}.
+                  \]
+                  <p>These two collections are disjoint and have the same size, namely \(|\mathcal{P}(B)|\). Therefore</p>
+                  \[
+                    |\mathcal{P}(A)|=2|\mathcal{P}(B)|=2\cdot 2^n=2^{n+1}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Conclusion:</span> By mathematical induction,</p>
+                  \[
+                    |\mathcal{P}(A)|=2^{|A|}
+                  \]
+                  <p>for every finite nonempty set \(A\). Together with the case \(A=\emptyset\) above, this proves the formula for every finite set \(A\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cantors-theorem/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Question</div>
+                  <p>So how many cardinalities are there?</p>
+                  <p>We know the finite cardinalities, and</p>
+                  \[
+                    |\mathbb{N}|\leq|\mathbb{R}|.
+                  \]
+                  <p>Are there more?</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Cantor's Theorem</div>
+                  <p><strong>Theorem.</strong> For every set \(A\),</p>
+                  \[
+                    |A|&lt;|\mathcal{P}(A)|.
+                  \]
+
+                  <p><strong>Remark.</strong> Every set has a strictly larger power set. In particular, there is no largest cardinality.</p>
+                  <p>Thus there are <strong>“infinitely many infinities.”</strong></p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Proof.</strong> If \(A=\emptyset\), then</p>
+                  \[
+                    \mathcal{P}(A)=\{\emptyset\},
+                  \]
+                  <p>and hence</p>
+                  \[
+                    |A|=0&lt;1=|\mathcal{P}(A)|.
+                  \]
+                  <p>Assume now that \(A\neq\emptyset\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>The map</p>
+                  \[
+                    A\to\mathcal{P}(A),\qquad x\mapsto\{x\},
+                  \]
+                  <p>is injective, so</p>
+                  \[
+                    |A|\leq|\mathcal{P}(A)|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Suppose, for contradiction, that</p>
+                  \[
+                    |A|=|\mathcal{P}(A)|.
+                  \]
+                  <p><strong>Recall.</strong> The goal is now to derive a mathematical absurdity—that is, a contradiction—from this assumption, and thereby conclude that the assumption is false.</p>
+                  <p>Since we already know \(|A|\leq|\mathcal{P}(A)|\), this would establish</p>
+                  \[
+                    |A|&lt;|\mathcal{P}(A)|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>By the definition of equality of cardinality,</p>
+                  \[
+                    |A|=|\mathcal{P}(A)|
+                  \]
+                  <p>implies that there exists a bijection</p>
+                  \[
+                    g:A\to\mathcal{P}(A).
+                  \]
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Define \(B\in\mathcal{P}(A)\) by</p>
+                  \[
+                    B=\{x\in A:x\notin g(x)\}.
+                  \]
+                  <p>Since \(g:A\to\mathcal{P}(A)\) is surjective and \(B\in\mathcal{P}(A)\),</p>
+                  \[
+                    \exists\, b\in A\text{ such that }g(b)=B.
+                  \]
+                  <p>But,</p>
+                  \[
+                    b\in B
+                    \iff
+                    b\notin g(b).
+                  \]
+                  <p>Since \(g(b)=B\),</p>
+                  \[
+                    b\in B
+                    \iff
+                    b\notin B,
+                  \]
+                  <p>which is impossible. This is the desired contradiction.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>We already proved that</p>
+                  \[
+                    |A|\leq|\mathcal{P}(A)|.
+                  \]
+                  <p>The contradiction shows that</p>
+                  \[
+                    |A|\neq|\mathcal{P}(A)|.
+                  \]
+                  <p>Therefore,</p>
+                  \[
+                    |A|&lt;|\mathcal{P}(A)|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Consequences</div>
+                  <p>Applying Cantor's theorem repeatedly gives</p>
+                  \[
+                    |\mathbb{N}|&lt;|\mathcal{P}(\mathbb{N})|
+                    &lt;|\mathcal{P}(\mathcal{P}(\mathbb{N}))|&lt;\cdots.
+                  \]
+                  <p>Thus there are infinitely many different infinite cardinalities.</p>
+
+                  <p><strong>Question.</strong> How many cardinalities are there? Countably many? Uncountably many? Is this question even well-defined?</p>
+                  <p><strong>Recall.</strong> The continuum hypothesis asks whether there is a cardinality strictly between \(|\mathbb{N}|\) and \(|\mathbb{R}|\). We will later show that</p>
+                  \[
+                    |\mathbb{R}|=|\mathcal{P}(\mathbb{N})|.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">ordered-sets/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Ordered Sets</div>
+                  <p>We now formalize the notion of an <strong>ordering</strong>. In this framework, \(\mathbb{Q}\) lacks an important property, which suggests the need for a larger set, namely \(\mathbb{R}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Ordered Pairs</div>
+                  <p><strong>Definition (Kuratowski).</strong> The <strong>ordered pair</strong> \((a,b)\) is defined by</p>
+                  \[
+                    (a,b)=\{\{a\},\{a,b\}\}.
+                  \]
+                  <p>Then</p>
+                  \[
+                    (a,b)=(c,d)\iff a=c\text{ and }b=d.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Cartesian Products</div>
+                  <p><strong>Definition.</strong> The <strong>Cartesian product</strong> of sets \(A\) and \(B\) is defined by</p>
+                  \[
+                    A\times B=\{(a,b):a\in A,\ b\in B\}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Relations</div>
+                  <p>A <strong>relation</strong> from \(A\) to \(B\) is a subset</p>
+                  \[
+                    R\subset A\times B.
+                  \]
+                  <p>We write</p>
+                  \[
+                    aRb
+                  \]
+                  <p>when</p>
+                  \[
+                    (a,b)\in R.
+                  \]
+                  <p>If \(A=B\), then \(R\) is called a <strong>relation on \(A\)</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Functions</div>
+                  <p>A function</p>
+                  \[
+                    f:A\to B
+                  \]
+                  <p>is a relation</p>
+                  \[
+                    f\subset A\times B
+                  \]
+                  <p>such that for every \(a\in A\), there is exactly one \(b\in B\) with</p>
+                  \[
+                    (a,b)\in f.
+                  \]
+
+                  <p><strong>Notation.</strong> Since a function is a relation,</p>
+                  \[
+                    f(a)=b
+                    \iff
+                    a\,f\,b
+                    \iff
+                    (a,b)\in f.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Orders</div>
+                  <p><strong>Definition.</strong> An <strong>order</strong> \(&lt;\) on \(S\) is a relation on \(S\) such that:</p>
+                  <ol>
+                    <li><strong>Trichotomy:</strong> For every \(x,y\in S\), exactly one of
+                      \[
+                        x&lt;y,\qquad x=y,\qquad y&lt;x
+                      \]
+                      holds.
+                    </li>
+                    <li><strong>Transitivity:</strong> If \(x&lt;y\) and \(y&lt;z\), then
+                      \[
+                        x&lt;z.
+                      \]
+                    </li>
+                  </ol>
+                  <p>The pair \((S,&lt;)\) is called an <strong>ordered set</strong>.</p>
+                  <p><strong>Notation.</strong> We write \(b&gt;a\) to mean \(a&lt;b\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Examples</div>
+                  <p>\((\mathbb{Z},&lt;)\) is an ordered set, where</p>
+                  \[
+                    m&lt;n\iff n-m\in\mathbb{N}.
+                  \]
+
+                  <p>\((\mathbb{Q},&lt;)\) is an ordered set, where</p>
+                  \[
+                    p&lt;q\iff q-p=\frac{m}{n}
+                  \]
+                  <p>for some \(m,n\in\mathbb{N}\).</p>
+
+                  <p>\(\mathbb{Q}\times\mathbb{Q}\) can be ordered using the <strong>lexicographic order</strong>, also called the <strong>dictionary order</strong>:</p>
+                  \[
+                    (q,r)&lt;(s,t)
+                    \iff q&lt;s,\text{ or }q=s\text{ and }r&lt;t.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Non-example</div>
+                  <p>Consider \(\mathcal{P}(\mathbb{N})\). Define a relation \(R\) on \(\mathcal{P}(\mathbb{N})\) by</p>
+                  \[
+                    A\,R\,B\iff A\subsetneq B.
+                  \]
+                  <p>For example, let</p>
+                  \[
+                    A=\{1\},
+                    \qquad
+                    B=\{2\}.
+                  \]
+                  <p>Then neither</p>
+                  \[
+                    A\,R\,B
+                  \]
+                  <p>nor</p>
+                  \[
+                    B\,R\,A
+                  \]
+                  <p>holds. Thus \(R\) fails <strong>trichotomy</strong>, so \(R\) is not an order in the sense defined above.</p>
+                  <p><strong>Note.</strong> \(R\) is, however, a <strong>strict partial order</strong>.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">bounds/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Bounds, Supremum, and Infimum</div>
+                  <p>Let \((S,&lt;)\) be an ordered set and \(E\subset S\).</p>
+                  <p><strong>Definition.</strong> Define the relation \(\leq\) on \(S\) by</p>
+                  \[
+                    x\leq y\iff x&lt;y\text{ or }x=y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Upper and Lower Bounds</div>
+                                    <p><strong>Definition.</strong> \(E\) is <strong>bounded above</strong> if there exists \(b\in S\) such that</p>
+                  \[
+                    x\leq b
+                  \]
+                  <p>for every \(x\in E\). Such a \(b\) is called an <strong>upper bound</strong> of \(E\).</p>
+
+                  <p>Similarly, \(E\) is <strong>bounded below</strong> if there exists \(c\in S\) such that</p>
+                  \[
+                    x\geq c
+                  \]
+                  <p>for every \(x\in E\). Such a \(c\) is called a <strong>lower bound</strong> of \(E\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Supremum and Infimum</div>
+                  <p><strong>Definition.</strong> An element \(b_0\in S\) is the <strong>least upper bound</strong>, or <strong>supremum</strong>, of \(E\) if:</p>
+                  <ol>
+                    <li>\(b_0\) is an upper bound of \(E\).</li>
+                    <li>If \(b\) is any upper bound of \(E\), then \(b_0\leq b\).</li>
+                  </ol>
+                  <p>We write</p>
+                  \[
+                    b_0=\sup E.
+                  \]
+
+                  <p>Similarly, an element \(c_0\in S\) is the <strong>greatest lower bound</strong>, or <strong>infimum</strong>, of \(E\) if:</p>
+                  <ol>
+                    <li>\(c_0\) is a lower bound of \(E\).</li>
+                    <li>If \(c\) is any lower bound of \(E\), then \(c\leq c_0\).</li>
+                  </ol>
+                  <p>We write</p>
+                  \[
+                    c_0=\inf E.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Examples</div>
+                  <p>In \((\mathbb{Z},&lt;)\), if</p>
+                  \[
+                    E=\{-2,-1,0,1,2\},
+                  \]
+                  <p>then</p>
+                  \[
+                    \inf E=-2,\qquad \sup E=2.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>The supremum or infimum need not belong to \(E\). In \((\mathbb{Q},&lt;)\), if</p>
+                  \[
+                    E=\{q\in\mathbb{Q}:0\leq q&lt;1\},
+                  \]
+                  <p>then</p>
+                  \[
+                    \inf E=0\in E,\qquad \sup E=1\notin E.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>A supremum or infimum need not exist. In \((\mathbb{Z},&lt;)\), if</p>
+                  \[
+                    E=\mathbb{N},
+                  \]
+                  <p>then</p>
+                  \[
+                    \inf E=1,
+                  \]
+                  <p>but \(\sup E\) does not exist.</p>
+
+                  <p><strong>Notation.</strong> In this situation, one often writes</p>
+                  \[
+                    \sup E=+\infty
+                  \]
+                  <p>to indicate that \(E\) is unbounded above. Here \(+\infty\notin\mathbb{Z}\), so this is not a supremum in \((\mathbb{Z},&lt;)\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">least-upper-bound-property/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Least Upper Bound Property</div>
+                  <p>Let \((S,&lt;)\) be an ordered set.</p>
+                  <p>We say that \(S\) has the <strong>least upper bound property</strong> if every nonempty set \(E\subset S\) that is bounded above has a supremum in \(S\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example</div>
+                  <p>\((\mathbb{N},&lt;)\) has the least upper bound property.</p>
+                  <p>Let \(E\subset\mathbb{N}\) be nonempty and bounded above. Define the set of upper bounds</p>
+                  \[
+                    U=\{n\in\mathbb{N}:x\leq n\text{ for every }x\in E\}.
+                  \]
+                  <p>Since \(E\) is bounded above, \(U\neq\emptyset\).</p>
+                  <p>By the well-ordering property of \(\mathbb{N}\), \(U\) has a least element \(m\).</p>
+                  <p>Therefore \(m\) is the least upper bound of \(E\), so</p>
+                  \[
+                    m=\sup E.
+                  \]
+                  <p>Thus \((\mathbb{N},&lt;)\) has the least upper bound property.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>We will now show that \((\mathbb{Q},&lt;)\) does <strong>not</strong> have the least upper bound property.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">q-does-not-have-lub-property/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">\(\mathbb{Q}\) Does Not Have the Least Upper Bound Property</div>
+                  <p>We have already proved that</p>
+                  \[
+                    \sqrt{2}\notin\mathbb{Q}.
+                  \]
+                  <p>Let</p>
+                  \[
+                    E=\{q\in\mathbb{Q}:q&gt;0,\ q^2&lt;2\}.
+                  \]
+
+                                    <p>Since \(1\in E\), the set \(E\) is nonempty. Also, \(2\) is an upper bound of \(E\).</p>
+
+                  <p><strong>Theorem.</strong> If \(x=\sup E\) in \(\mathbb{Q}\), then</p>
+                  \[
+                    x^2=2.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Proof.</strong> Since \(1\in E=\{q\in\mathbb{Q}:q&gt;0,\ q^2&lt;2\}\),</p>
+                  \[
+                    x\geq 1.
+                  \]
+
+                  <p>Suppose, for contradiction, that \(x^2&lt;2\).</p>
+                  <p>Set</p>
+                  \[
+                    h=\frac{2-x^2}{2x+1}&gt;0.
+                  \]
+                  <p><strong>Goal.</strong> Prove \(x+h\in E\), contradicting that \(x\) is an upper bound of \(E\).</p>
+                  <p>Since \(x\in\mathbb{Q}\), we have \(h\in\mathbb{Q}\), and hence \(x+h\in\mathbb{Q}\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>Since \(x\geq1\), we also have \(h&lt;1\).</p>
+                  <p>Thus</p>
+                  \[
+                  \begin{aligned}
+                    (x+h)^2
+                    &amp;=x^2+h(2x+h)\\
+                    &amp;&lt;x^2+h(2x+1)\\
+                    &amp;=2.
+                  \end{aligned}
+                  \]
+                  <p>Since \(x+h\in\mathbb{Q}\), \(x+h&gt;0\), and \((x+h)^2&lt;2\), we have \(x+h\in E\).</p>
+                  <p>But \(h&gt;0\) gives \(x+h&gt;x\), contradicting that \(x\) is an upper bound of \(E\).</p>
+                  <p>Therefore</p>
+                  \[
+                    x^2\geq2.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Now suppose, for contradiction, that \(x^2&gt;2\).</p>
+                  <p>Set</p>
+                  \[
+                    h=\frac{x^2-2}{2x}&gt;0.
+                  \]
+                  <p><strong>Goal.</strong> Show that \(x-h\) is an upper bound of \(E\), contradicting that \(x=\sup E\).</p>
+                  <p>Since \(x\in\mathbb{Q}\), we have \(h\in\mathbb{Q}\), and hence \(x-h\in\mathbb{Q}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>We have</p>
+                  \[
+                    x-h=\frac{x^2+2}{2x}&gt;0
+                  \]
+                  <p>and</p>
+                  \[
+                    (x-h)^2=x^2-2xh+h^2=2+h^2&gt;2.
+                  \]
+
+                  <p>Now let \(q\in E\).</p>
+                  <p>Since \(q&gt;0\), \(q^2&lt;2\), and \(x-h&gt;0\), we have</p>
+                  \[
+                    q^2&lt;2&lt;(x-h)^2,
+                  \]
+                  <p>and therefore</p>
+                  \[
+                    q&lt;x-h.
+                  \]
+
+                  <p>Hence \(x-h\) is an upper bound of \(E\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>But \(h&gt;0\) gives \(x-h&lt;x\), contradicting that \(x=\sup E\).</p>
+                  <p>Putting the two contradictions together, we have</p>
+                  \[
+                    x^2\geq2
+                    \qquad\text{and}\qquad
+                    x^2\leq2.
+                  \]
+                  <p>Hence</p>
+                  \[
+                    x^2=2.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Corollary.</strong> \((\mathbb{Q},&lt;)\) does not have the least upper bound property.</p>
+                  <p><strong>Proof.</strong> Let</p>
+                  \[
+                    E=\{q\in\mathbb{Q}:q&gt;0,\ q^2&lt;2\}.
+                  \]
+                  <p>Suppose \(x=\sup E\) for some \(x\in\mathbb{Q}\).</p>
+                  <p>By the previous theorem, \(x^2=2\).</p>
+                  <p>Since \(1\in E\) and \(x=\sup E\) is an upper bound of \(E\), we have \(x\geq1\).</p>
+                  <p>Hence \(x=\sqrt{2}\).</p>
+                  <p>But we have already proved that \(\sqrt{2}\notin\mathbb{Q}\).</p>
+                  <p>Therefore no \(x\in\mathbb{Q}\) can equal \(\sup E\), so \(E\) has no supremum in \(\mathbb{Q}\).</p>
+                  <p>Hence \((\mathbb{Q},&lt;)\) does not have the least upper bound property.</p>
                 </div>
               </details>
             </div>
