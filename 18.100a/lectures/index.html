@@ -71,6 +71,21 @@
     .lecture-note h4 { margin: 0 0 16px; font-size: 20px; line-height: 1.4; font-weight: 600; }
     blockquote { margin: 0 0 18px 0; padding-left: 18px; border-left: 2px solid var(--tree); color: var(--text); font-style: normal; }
 
+    .operation-table {
+      border-collapse: collapse;
+      margin: 10px auto 22px;
+      font-family: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      font-size: 17px;
+    }
+    .operation-table th, .operation-table td {
+      min-width: 3.2em;
+      padding: 7px 12px;
+      border: 1px solid var(--tree);
+      text-align: center;
+      font-weight: 400;
+    }
+    .operation-table th { font-weight: 600; }
+
     .mapping-diagram {
       margin: 22px 0 4px;
       max-width: 760px;
@@ -151,6 +166,45 @@
       .return-line { font-size: 13px; margin-bottom: 18px; }
       .lecture-tree { font-size: 14px; }
       .lecture-note { margin-left: 3.7ch; padding-left: 14px; font-size: 17px; }
+    }
+
+    .logic-graph {
+      position: relative;
+      width: min(820px, 100%);
+      height: 400px;
+      margin: 18px auto 28px;
+    }
+    .logic-graph > svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 10; /* arrows intentionally front-most */
+    }
+    .logic-graph .logic-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      background: var(--bg);
+      z-index: 5;
+      pointer-events: none;
+    }
+    .logic-graph .logic-node.take-box {
+      width: 115px;
+      padding: 12px 14px;
+      border: 1px solid var(--tree);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      text-align: left;
+      line-height: 1.25;
     }
   </style>
   <script>
@@ -319,7 +373,7 @@
                   \]
                   <p>In particular \(m-1\in\mathbb N\).</p>
                   <div class="presentation-break" aria-hidden="true"></div>
-                  <p>Since \(m\) is the least element of \(S\),</p>
+                  <p>Since \(m\) is the least element of \(S\), \(m-1\notin S\), so again \(m-1\leq nx\).</p>
                   \[
                     m-1\notin S.
                   \]
@@ -832,7 +886,7 @@
                     f\bigl(f^{-1}(y)\bigr)=y.
                   \]
                   <div class="mapping-diagram" aria-label="Inverse function diagram">
-                    <svg viewBox="0 0 760 320" role="img" aria-labelledby="inverse-title inverse-desc">
+                    <svg viewBox="0 0 820 320" role="img" aria-labelledby="inverse-title inverse-desc">
                       <title id="inverse-title">Inverse function</title>
                       <desc id="inverse-desc">A and B have three elements. The inverse function maps a to 1, b to 2, and c to 3, reversing the bijection f from A to B.</desc>
                       <defs>
@@ -1176,7 +1230,7 @@
 
           <details class="lecture-node lecture-chapter">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">size-order-and-completeness/</span>
             </summary>
@@ -1796,8 +1850,722 @@
               </details>
             </div>
           </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">characterization-of-the-real-numbers/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">fields/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Goal: Formally Characterize the Real Numbers</div>
+                  <p>Before doing this, we need to formalize its underlying algebraic structure.</p>
+                  <p><strong>Note.</strong> One may formally construct \(\mathbb{R}\), but we will not do that here.</p>
+                  <p>Examples of constructions are <strong>Dedekind cuts</strong> and <strong>Cauchy completion</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Fields</div>
+                  <p>A <strong>field</strong> is a set \(F\) equipped with two binary operations:</p>
+                  \[
+                    +:F\times F\to F,\qquad (x,y)\mapsto x+y,
+                  \]
+                  <p>and</p>
+                  \[
+                    \cdot:F\times F\to F,\qquad (x,y)\mapsto x\cdot y.
+                  \]
+                  <p>satisfying the following axioms of Addition, Multiplication and Distributivity.</p>
+
+                  <p><strong>Remark.</strong> Note that \(F\) does not have to have anything to do with numbers.</p>
+                  <p>What follows is a formalization of “addition” and “multiplication”.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Addition</div>
+                  <p>Let \(x,y,z\in F\).</p>
+                  <p><strong>A1) Closure under addition:</strong></p>
+                  \[
+                    x+y\in F.
+                  \]
+                  <p><strong>A2) Commutativity:</strong></p>
+                  \[
+                    x+y=y+x.
+                  \]
+                  <p><strong>A3) Associativity:</strong></p>
+                  \[
+                    (x+y)+z=x+(y+z).
+                  \]
+                  <p><strong>A4)</strong> There exists \(0\in F\) such that</p>
+                  \[
+                    0+x=x=x+0.
+                  \]
+                  <p>Such an element \(0\) can be shown to be unique and we call it an <strong>additive identity</strong>.</p>
+                  <p><strong>A5)</strong> For every \(x\in F\), there exists \(y\in F\) such that</p>
+                  \[
+                    x+y=0.
+                  \]
+                  <p>Such an element \(y\) can be shown to be unique. We call it an <strong>additive inverse</strong> and write \(-x\) for it.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Multiplication</div>
+                  <p>Let \(x,y,z\in F\).</p>
+                  <p><strong>M1) Closure under multiplication:</strong></p>
+                  \[
+                    x\cdot y\in F.
+                  \]
+                  <p><strong>M2) Commutativity:</strong></p>
+                  \[
+                    x\cdot y=y\cdot x.
+                  \]
+                  <p><strong>M3) Associativity:</strong></p>
+                  \[
+                    (x\cdot y)\cdot z=x\cdot(y\cdot z).
+                  \]
+                  <p><strong>M4)</strong> There exists \(1\in F\setminus\{0\}\) such that</p>
+                  \[
+                    1\cdot x=x=x\cdot 1.
+                  \]
+                  <p>Such an element \(1\) can be shown to be unique and we call it the <strong>multiplicative identity</strong>.</p>
+                  <p><strong>M5)</strong> For every \(x\in F\setminus\{0\}\), there exists \(y\in F\) such that</p>
+                  \[
+                    x\cdot y=1.
+                  \]
+                  <p>Such an element \(y\) can be shown to be unique. We call it a <strong>multiplicative inverse</strong> and we write \(x^{-1}\) for it.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Distributivity</div>
+                  <p>Let \(x,y,z\in F\).</p>
+                  <p><strong>D) Distributivity:</strong></p>
+                  \[
+                    (x+y)z=xz+yz.
+                  \]
+                  <p><strong>Remark.</strong> Distributivity is a compatibility between the two operations \(+\) and \(\cdot\).</p>
+
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">field-examples/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example 1</div>
+                  \[
+                    \mathbb{Z}_2=\{0,1\}.
+                  \]
+                  <p>Addition in \(\mathbb{Z}_2\) is defined by:</p>
+                  <table class="operation-table" aria-label="Addition table for Z 2">
+                    <thead>
+                      <tr><th>+</th><th>0</th><th>1</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th>0</th><td>0</td><td>1</td></tr>
+                      <tr><th>1</th><td>1</td><td>0</td></tr>
+                    </tbody>
+                  </table>
+
+                  <p>Multiplication in \(\mathbb{Z}_2\) is defined by:</p>
+                  <table class="operation-table" aria-label="Multiplication table for Z 2">
+                    <thead>
+                      <tr><th>·</th><th>0</th><th>1</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th>0</th><td>0</td><td>0</td></tr>
+                      <tr><th>1</th><td>0</td><td>1</td></tr>
+                    </tbody>
+                  </table>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example 2</div>
+                  \[
+                    \mathbb{Z}_3=\{0,1,2\}.
+                  \]
+                  <p>Addition in \(\mathbb{Z}_3\) is defined by:</p>
+                  <table class="operation-table" aria-label="Addition table for Z 3">
+                    <thead>
+                      <tr><th>+</th><th>0</th><th>1</th><th>2</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th>0</th><td>0</td><td>1</td><td>2</td></tr>
+                      <tr><th>1</th><td>1</td><td>2</td><td>0</td></tr>
+                      <tr><th>2</th><td>2</td><td>0</td><td>1</td></tr>
+                    </tbody>
+                  </table>
+
+                  <p>Multiplication in \(\mathbb{Z}_3\) is defined by:</p>
+                  <table class="operation-table" aria-label="Multiplication table for Z 3">
+                    <thead>
+                      <tr><th>·</th><th>0</th><th>1</th><th>2</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th>0</th><td>0</td><td>0</td><td>0</td></tr>
+                      <tr><th>1</th><td>0</td><td>1</td><td>2</td></tr>
+                      <tr><th>2</th><td>0</td><td>2</td><td>1</td></tr>
+                    </tbody>
+                  </table>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Non-Example</div>
+                  <p>\(\mathbb{Z}\) is not a field because M5 fails: multiplicative inverses do not generally exist in \(\mathbb{Z}\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">zero-is-absorbing/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Zero is Absorbing for Multiplication</div>
+                  <p><strong>Theorem.</strong> Let \(F\) be a field. If \(x\in F\), then</p>
+                  \[
+                    0\cdot x=0.
+                  \]
+
+                  <p><strong>Proof.</strong></p>
+                  \[
+                  \begin{aligned}
+                    0
+                    &=0\cdot x-0\cdot x &&\text{(additive inverse)}\\
+                    &=(0+0)\cdot x-0\cdot x &&\text{(additive identity)}\\
+                    &=0\cdot x+0\cdot x-0\cdot x &&\text{(distributivity)}\\
+                    &=0\cdot x &&\text{(associativity, additive inverse, additive identity)}.
+                  \end{aligned}
+                  \]
+                  <p>Therefore, \(0\cdot x=0\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">ordered-fields/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Ordered Fields</div>
+                  <p>Let \(F\) be a field and let \(&lt;\) be an order on \(F\). We call \(F\) an <strong>ordered field</strong> if:</p>
+                  <p><strong>i)</strong> For all \(x,y,z\in F\),</p>
+                  \[
+                    x&lt;y \implies x+z&lt;y+z.
+                  \]
+                  <p><strong>ii)</strong> If \(x&gt;0\) and \(y&gt;0\), then</p>
+                  \[
+                    xy&gt;0.
+                  \]
+                  <p><strong>Terminology.</strong> If \(x&gt;0\), we say \(x\) is <strong>positive</strong>. If \(x\geq 0\), we say \(x\) is <strong>non-negative</strong>.</p>
+                  <p>If \(x&lt;0\), we say \(x\) is <strong>negative</strong>. If \(x\leq 0\), we say \(x\) is <strong>non-positive</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Proposition 1.</strong> \(\mathbb{Q}\), with the order defined by</p>
+                  \[
+                    p&lt;q
+                    \iff
+                    q-p=\frac{n}{m}
+                    \quad\text{for some }m,n\in\mathbb{N},
+                  \]
+                  <p>is an ordered field.</p>
+
+                  <p><strong>Proof.</strong> We have already seen that this relation is an order on \(\mathbb{Q}\). It remains to verify that the order is compatible with addition and multiplication.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Suppose \(x&lt;y\). Then, by definition,</p>
+                  \[
+                    y-x=\frac{n}{m}
+                  \]
+                  <p>for some \(m,n\in\mathbb{N}\). For any \(z\in\mathbb{Q}\),</p>
+                  \[
+                    (y+z)-(x+z)=y-x=\frac{n}{m}.
+                  \]
+                  <p>Therefore, by the definition of the order,</p>
+                  \[
+                    x+z&lt;y+z.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Now suppose \(x&gt;0\) and \(y&gt;0\). By definition of the order, there exist \(a,b,c,d\in\mathbb{N}\) such that</p>
+                  \[
+                    x=\frac{a}{b},
+                    \qquad
+                    y=\frac{c}{d}.
+                  \]
+                  <p>Hence</p>
+                  \[
+                    xy=\frac{ac}{bd}.
+                  \]
+                  <p>Since \(ac,bd\in\mathbb{N}\), the definition of the order gives</p>
+                  \[
+                    xy&gt;0.
+                  \]
+                  <p>Thus \(\mathbb{Q}\) is an ordered field.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Proposition 2.</strong> \(\mathbb{Z}_2\) is not an ordered field.</p>
+
+                  <p><strong>Proof.</strong> Suppose, for contradiction, that there is an order \(&lt;\) on \(\mathbb{Z}_2=\{0,1\}\) that makes \(\mathbb{Z}_2\) an ordered field.</p>
+                  <p>Since \(0\neq1\), trichotomy implies that either</p>
+                  \[
+                    0&lt;1
+                    \qquad\text{or}\qquad
+                    1&lt;0.
+                  \]
+                  <p><strong>Recall:</strong> trichotomy for \(&lt;\) means exactly one of \(x&lt;y\), \(x=y\), or \(y&lt;x\) holds.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Suppose first that</p>
+                  \[
+                    0&lt;1.
+                  \]
+                  <p>The following shows \(0&lt;1 \implies 1&lt;0\), contradicting trichotomy.</p>
+                  <div style="width:min(820px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/trichotomy-case1.png"
+                         alt="Logic graph showing that assuming zero is less than one forces one to be less than zero, contradicting trichotomy"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>If instead</p>
+                  \[
+                    1&lt;0,
+                  \]
+                  <p>the following shows \(1&lt;0 \implies 0&lt;1\), again contradicting trichotomy.</p>
+                                    <div style="width:min(820px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/trichotomy-case2.png"
+                         alt="Logic graph showing that assuming one is less than zero forces zero to be less than one, contradicting trichotomy"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Since we have shown</p>
+                  \[
+                    \mathbb{Z}_2\text{ is an ordered field}
+                    \implies
+                    \bigl(0&lt;1 \iff 1&lt;0\bigr),
+                  \]
+                  <p>we achieve a contradiction, and so \(\mathbb{Z}_2\) cannot be an ordered field.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Question.</strong> Do there exist any ordered finite fields?</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">elementary-properties/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p><strong>Theorem.</strong> Let \(F\) be a field and let \(x,y\in F\). Then</p>
+                  \[
+                    x(-y)=-(xy)
+                    \qquad\text{and}\qquad
+                    -x=(-1)x.
+                  \]
+                  <p><strong>Proof.</strong> Since</p>
+                  \[
+                    x(-y)+xy=x(-y+y)=x\cdot0=0,
+                  \]
+                  <p>\(x(-y)\) is the additive inverse of \(xy\), so \(x(-y)=-(xy)\).</p>
+                  <p>Similarly,</p>
+                  \[
+                    (-1)x+x=(-1+1)x=0\cdot x=0,
+                  \]
+                  <p>so \((-1)x\) is the additive inverse of \(x\), hence \(-x=(-1)x\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Theorem.</strong> Let \((F,&lt;)\) be an ordered field. For \(x\in F\), it holds that</p>
+                  \[
+                    0&lt;x \iff -x&lt;0.
+                  \]
+                  <p><strong>Proof.</strong></p>
+                  <p>We show \(-x&lt;0 \implies 0&lt;x\). The other direction is similar.</p>
+
+                                    <div style="width:min(980px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/negatives-reverse-sign-converse.png"
+                         alt="Logic graph showing that minus x less than zero implies zero less than x"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Theorem.</strong> Let \((F,&lt;)\) be an ordered field and let \(x,y\in F\). If \(0&lt;x\) and \(y&lt;0\), then</p>
+                  \[
+                    xy&lt;0.
+                  \]
+
+                  
+
+                  <p><strong>Proof.</strong></p>
+                  <p>Preceding theorem gives \(y&lt;0 \implies 0&lt;-y\).</p>
+                  <p>By definition of ordered field and preceding theorem, we have:</p>
+
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/opposite-signs-product-negative.png"
+                         alt="Logic graph showing that if zero is less than x and y is less than zero, then x y is less than zero"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">lub-and-glb/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Least Upper Bounds and Greatest Lower Bounds</div>
+                  <p>Let \((S,&lt;)\) be an ordered set.</p>
+                  <p>Recall:</p>
+                  <ul>
+                    <li>\((S,&lt;)\) has the <strong>least upper bound property (lub)</strong> when<br>
+                      \(E\subset S\) bounded above and nonempty \(\implies\) \(E\) has a supremum in \(S\).</li>
+                    <li>\((S,&lt;)\) has the <strong>greatest lower bound property (glb)</strong> when<br>
+                      \(E\subset S\) bounded below and nonempty \(\implies\) \(E\) has an infimum in \(S\).</li>
+                  </ul>
+
+                  <p><strong>Remark.</strong> In general, lub and glb are not equivalent. However, when \((S,&lt;)\) may be given a field structure compatible with \(&lt;\) (i.e., \((S,&lt;)\) is an ordered field), then the two are equivalent. We shall prove this now.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Theorem.</strong> Let \((F,&lt;)\) be an ordered field. Then \(F\) has the least upper bound property if and only if \(F\) has the greatest lower bound property.</p>
+                  <p><strong>Proof.</strong> We prove \({\rm lub} \implies {\rm glb}\). The other direction is similar.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">LUB \(\Rightarrow\) GLB</div>
+                  <p>Suppose \((F,&lt;)\) has the least upper bound property.</p>
+                  <p>Let \(A\subset F\) be nonempty and bounded below.</p>
+                  <p>Define</p>
+                  \[
+                    B=\{-x:x\in A\}.
+                  \]
+
+                  <div style="margin:10px auto 6px;max-width:420px;text-align:center;">
+                    <div style="font-family:monospace;font-size:1.05em;letter-spacing:0.4px;">------)------(-------</div>
+                    <div style="display:flex;justify-content:space-between;max-width:220px;margin:4px auto 0;">
+                      <span>\(B\)</span>
+                      <span>\(A\)</span>
+                    </div>
+                  </div>
+
+                  <p><strong>Plan:</strong></p>
+                  <ol>
+                    <li>show \(B\) is bounded above</li>
+                    <li>use lub \(\Rightarrow \sup B\) exists</li>
+                    <li>show \(-\sup B\) is a lower bound of \(A\)</li>
+                    <li>Show \(\inf A\) exists and \(\inf A=-\sup B\).</li>
+                  </ol>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(a\) be a lower bound of \(A\).</p>
+                  <p>We show \(-a\) is an upper bound of \(B\) and hence \(B\) is bounded above.</p>
+
+
+<p>Thus, letting \(b\in B\) be arbitrary, we aim to show \(b\le -a\).</p>
+<div style="width:min(900px,100%);margin:18px auto 28px;">
+  <img src="proof-graphs/lub-implies-glb-upper-bound-for-b.png"
+       alt="Logic graph showing that minus a is an upper bound of B"
+       style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+</div>
+
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>By the least upper bound property,</p>
+                  \[
+                    c=\sup B
+                  \]
+                  <p>exists in \(F\). <span style="white-space:nowrap;">(Note: \(A\neq\emptyset\implies B\neq\emptyset\).)</span></p>
+                  <p>We show that \(-c\) is a lower bound of \(A\).</p>
+                  <p>Thus, letting \(x\in A\) be arbitrary, we aim to show \(-c\le x\).</p>
+                                    <div style="width:min(720px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/lub-implies-glb-lower-bound-for-a.png"
+                         alt="Logic graph showing that minus c is a lower bound of A"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Now let \(a\) be any lower bound for \(A\).</p>
+                  <p>We show that \(a\le -c\).</p>
+                  <p>Since \(-c\) is a lower bound of \(A\), this establishes \(\inf A\) exists and \(\inf A=-c=-\sup B\).</p>
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/lub-implies-glb-lower-bound-comparison.png"
+                         alt="Logic graph showing that every lower bound a of A satisfies a less than or equal to minus c"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">real-numbers/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Characterizing the Real Numbers</div>
+                  <p><strong>Theorem.</strong> There exists an ordered field \(\mathbb{R}\) such that \(\mathbb{Q}\subset\mathbb{R}\), such that \(\mathbb{Q}\) is a subfield of \(\mathbb{R}\), and such that \(\mathbb{R}\) has the least upper bound property.</p>
+
+                  <p><strong>Definition.</strong> Let \(F\) be a field and let \(K\subset F\). We call \(K\) a <strong>subfield</strong> of \(F\) if \(K\) is itself a field using the same addition and multiplication as \(F\).</p>
+
+                  <p><strong>Essential uniqueness.</strong> Any ordered field containing \(\mathbb{Q}\) as a subfield and having the least upper bound property can be put in one-to-one correspondence with \(\mathbb{R}\) in a way that preserves addition, multiplication, and order.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">square-root-of-two/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Existence and Uniqueness of \(\sqrt{2}\)</div>
+                  <p><strong>Theorem.</strong> There exists a unique \(r\in\mathbb{R}\) such that</p>
+                  \[
+                    r&gt;0
+                  \]
+                  <p>and</p>
+                  \[
+                    r^2=2.
+                  \]
+                  <p><strong>Proof.</strong> We break the proof into two parts: Existence and Uniqueness.</p>
+                  <p>Existence follows from \(\mathbb{R}\) having lub.</p>
+                  <p>Uniqueness follows from a direct calculation.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Existence</div>
+                  <p>Define</p>
+                  \[
+                    \widetilde{E}=\{x\in\mathbb{R}:x&gt;0\text{ and }x^2&lt;2\}.
+                  \]
+                  <p>\(\widetilde{E}\) is bounded above and nonempty; e.g., \(1\in\widetilde{E}\) and \(2\) is an upper bound.</p>
+                  <p>Since \(\mathbb{R}\) has the least upper bound property,</p>
+                  \[
+                    r=\sup\widetilde{E}
+                  \]
+                  <p>exists.</p>
+                  <p>As in the corresponding argument for \(\mathbb{Q}\), one shows that \(r&gt;0\) and \(r^2=2\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Uniqueness</div>
+                  <p>Suppose \(s&gt;0\) also satisfies \(s^2=2\).</p>
+                  <p>Then \(r+s&gt;0\) and</p>
+                  \[
+                    0=r^2-s^2=(r+s)(r-s).
+                  \]
+                  <p>Since \(r+s&gt;0\), we have \(r+s\neq0\). Multiplying by \((r+s)^{-1}\) gives \(r-s=0\), i.e., \(r=s\).</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">archimedean-property-suprema-and-absolute-value/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">archimedean-property-and-density-of-q/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">The Archimedean Property and Density of \(\mathbb{Q}\)</div>
+                  <p>For \(x,y\in\mathbb{R}\) with \(x&lt;y\), there exists \(r\in\mathbb{R}\) such that \(x&lt;r&lt;y\). For example, take</p>
+                  \[
+                    r=\frac{x+y}{2}.
+                  \]
+                  <p>Can we always find \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\)?</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Theorem</div>
+                  <p>The answer is yes.</p>
+                  <p><strong>(i) Archimedean Property.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
+                  \[
+                    nx&gt;y.
+                  \]
+                  <p><strong>(ii) Density of \(\mathbb{Q}\).</strong> If \(x,y\in\mathbb{R}\) and \(x&lt;y\), then there exists \(r\in\mathbb{Q}\) such that</p>
+                  \[
+                    x&lt;r&lt;y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proof of the Archimedean Property</div>
+                  <p>Suppose \(x,y\in\mathbb{R}\) and \(x&gt;0\).</p>
+                  <p>We wish to show that there exists \(n\in\mathbb{N}\) such that</p>
+                  \[
+                    n&gt;\frac{y}{x}.
+                  \]
+                  <p>Suppose, for contradiction, that this is not the case.</p>
+                  <p>Then, for every \(n\in\mathbb{N}\),</p>
+                  \[
+                    n\leq\frac{y}{x}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>First we show this implies \(\mathbb{N}\) has a supremum.</p>
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/archimedean-lub-setup.png"
+                         alt="Logic graph showing that if every natural number is at most y over x, then y over x is an upper bound for the natural numbers, so the least upper bound property gives a equals the supremum of the natural numbers"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Since \(a\) is the least upper bound for \(\mathbb{N}\), \(a-1\) is not an upper bound for \(\mathbb{N}\).</p>
+                  <p>The following logic graph yields the contradiction.</p>
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/archimedean-contradiction.png"
+                         alt="Logic graph yielding the contradiction in the Archimedean property proof"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+                  <p>Therefore there exists \(n\in\mathbb{N}\) such that \(n&gt;y/x\).</p>
+                  <p>Hence \(nx&gt;y\).</p>
+
+                </div>
+              </details>
+
+              
+            </div>
+          </details>
         </div>
     </div>
   </main>
+
+  <script>
+    (function () {
+      const GAP = 10;
+
+      function graphMetrics(graph) {
+        const svg = graph.querySelector(':scope > svg');
+        const vb = svg && svg.viewBox && svg.viewBox.baseVal;
+        return {
+          width: vb && vb.width ? vb.width : graph.clientWidth,
+          height: vb && vb.height ? vb.height : graph.clientHeight
+        };
+      }
+
+      function contentRect(node, containerRect, metrics) {
+        const content = node.querySelector('mjx-container') || node;
+        const r = content.getBoundingClientRect();
+        const sx = metrics.width / containerRect.width;
+        const sy = metrics.height / containerRect.height;
+        return {
+          left: (r.left - containerRect.left) * sx,
+          right: (r.right - containerRect.left) * sx,
+          top: (r.top - containerRect.top) * sy,
+          bottom: (r.bottom - containerRect.top) * sy,
+          width: r.width * sx,
+          height: r.height * sy
+        };
+      }
+
+      function anchor(rect, side, gap) {
+        const cx = (rect.left + rect.right) / 2;
+        const cy = (rect.top + rect.bottom) / 2;
+        if (side === 'left') return {x: rect.left - gap, y: cy};
+        if (side === 'right') return {x: rect.right + gap, y: cy};
+        if (side === 'top') return {x: cx, y: rect.top - gap};
+        if (side === 'bottom') return {x: cx, y: rect.bottom + gap};
+        return {x: cx, y: cy};
+      }
+
+      function pathD(start, end, shape) {
+        if (shape === 'curve-left') {
+          const dy = Math.max(42, (end.y - start.y) * 0.48);
+          return `M ${start.x} ${start.y} C ${start.x} ${start.y + dy}, ${end.x - 70} ${end.y}, ${end.x} ${end.y}`;
+        }
+        if (shape === 'curve-right') {
+          const dy = Math.max(42, (end.y - start.y) * 0.48);
+          return `M ${start.x} ${start.y} C ${start.x} ${start.y + dy}, ${end.x + 70} ${end.y}, ${end.x} ${end.y}`;
+        }
+        return `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
+      }
+
+      function renderGraph(graph) {
+        if (!graph.offsetParent) return;
+        const cr = graph.getBoundingClientRect();
+        if (!cr.width || !cr.height) return;
+        const metrics = graphMetrics(graph);
+        const nodes = {};
+        graph.querySelectorAll('.logic-node[data-node]').forEach(node => {
+          nodes[node.dataset.node] = contentRect(node, cr, metrics);
+        });
+        graph.querySelectorAll('.logic-edge').forEach(edge => {
+          const from = nodes[edge.dataset.from];
+          const to = nodes[edge.dataset.to];
+          if (!from || !to) return;
+          const start = anchor(from, edge.dataset.fromAnchor || 'bottom', GAP);
+          const end = anchor(to, edge.dataset.toAnchor || 'top', GAP);
+          edge.setAttribute('d', pathD(start, end, edge.dataset.shape || 'line'));
+        });
+      }
+
+      function renderAll() {
+        document.querySelectorAll('.logic-graph[data-auto-anchors="true"]').forEach(renderGraph);
+      }
+
+      function schedule() {
+        requestAnimationFrame(() => requestAnimationFrame(renderAll));
+      }
+
+      document.addEventListener('DOMContentLoaded', schedule);
+      window.addEventListener('load', schedule);
+      window.addEventListener('resize', schedule);
+      document.addEventListener('toggle', schedule, true);
+      setTimeout(schedule, 150);
+      setTimeout(schedule, 500);
+      setTimeout(schedule, 1200);
+
+      const observer = new MutationObserver(schedule);
+      observer.observe(document.documentElement, {subtree: true, childList: true});
+    })();
+  </script>
 </body>
 </html>
