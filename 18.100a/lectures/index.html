@@ -2407,23 +2407,25 @@
             <div class="lecture-children">
               <details class="lecture-node">
                 <summary>
-                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
                   <span class="lecture-label">archimedean-property-and-density-of-q/</span>
                 </summary>
 
                 <div class="lecture-note">
                   <div class="note-heading">The Archimedean Property and Density of \(\mathbb{Q}\)</div>
-                  <p>For \(x,y\in\mathbb{R}\) with \(x&lt;y\), there exists \(r\in\mathbb{R}\) such that \(x&lt;r&lt;y\). For example, take</p>
+                  <p>For \(x,y\in\mathbb{R}\) with \(x&lt;y\), there exists \(r\in\mathbb{R}\) such that \(x&lt;r&lt;y\).</p>
+                  <p>For example, take</p>
                   \[
                     r=\frac{x+y}{2}.
                   \]
                   <p>Can we always find \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\)?</p>
+                  <p>In particular: can we always find a rational between any two irrationals, no matter how close they are?</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
+                  <p>The answer is yes:</p>
                   <div class="note-heading">Theorem</div>
-                  <p>The answer is yes.</p>
                   <p><strong>(i) Archimedean Property.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
                   \[
                     nx&gt;y.
@@ -2435,9 +2437,34 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
+                  <p><strong>Remark.</strong> The ordered-field axioms alone do not rule out positive infinitesimals \(\varepsilon\) for which</p>
+                  \[
+                    \{n\varepsilon:n\in\mathbb{N}\}
+                  \]
+                  <p>is bounded.</p>
+                  <p>\(\mathbb{R}\) satisfies both the Archimedean property and density of \(\mathbb{Q}\) because it is an ordered field with the least upper bound property.</p>
+                  <p>An ordered field for which neither property holds is the hyperreal field \(\mathbb{R}^\ast\), a “field extension” of \(\mathbb{R}\) admitting “infinitesimals” and “infinities.”</p>
+                  <p>There exists a positive infinitesimal \(\varepsilon\in\mathbb{R}^\ast\) such that</p>
+                  \[
+                    n\varepsilon&lt;1
+                    \qquad\text{for every }n\in\mathbb{N}.
+                  \]
+                  <p>Hence \(\{n\varepsilon:n\in\mathbb{N}\}\) is bounded.</p>
+                  <p>Moreover,</p>
+                  \[
+                    \nexists q\in\mathbb{Q}\text{ such that }0&lt;q&lt;\varepsilon,
+                  \]
+                  <p>so \(\mathbb{Q}\) is not dense in \(\mathbb{R}^\ast\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
                   <div class="note-heading">Proof of the Archimedean Property</div>
+                  <p><strong>Archimedean Property.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
+                  \[
+                    nx&gt;y.
+                  \]
                   <p>Suppose \(x,y\in\mathbb{R}\) and \(x&gt;0\).</p>
-                  <p>We wish to show that there exists \(n\in\mathbb{N}\) such that</p>
+                  <p>We will show there exists \(n\in\mathbb{N}\) such that</p>
                   \[
                     n&gt;\frac{y}{x}.
                   \]
@@ -2446,28 +2473,391 @@
                   \[
                     n\leq\frac{y}{x}.
                   \]
+                  <p><strong>Note.</strong> This implies \(\mathbb{N}\) is bounded above. Since \(\mathbb{R}\) satisfies lub, \(a=\sup\mathbb{N}\) exists in \(\mathbb{R}\).</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p>First we show this implies \(\mathbb{N}\) has a supremum.</p>
-                  <div style="width:min(900px,100%);margin:18px auto 28px;">
-                    <img src="proof-graphs/archimedean-lub-setup.png"
-                         alt="Logic graph showing that if every natural number is at most y over x, then y over x is an upper bound for the natural numbers, so the least upper bound property gives a equals the supremum of the natural numbers"
-                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
-                  </div>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <p>Since \(a\) is the least upper bound for \(\mathbb{N}\), \(a-1\) is not an upper bound for \(\mathbb{N}\).</p>
-                  <p>The following logic graph yields the contradiction.</p>
+                  <p>We use \(a=\sup\mathbb{N}\) exists in \(\mathbb{R}\) \(\implies\) \(a-1\) not an upper bound of \(\mathbb{N}\) to arrive at a contradiction:</p>
                   <div style="width:min(900px,100%);margin:18px auto 28px;">
                     <img src="proof-graphs/archimedean-contradiction.png"
                          alt="Logic graph yielding the contradiction in the Archimedean property proof"
                          style="display:block;width:100%;height:auto;">
                   </div>
-                  <p>Therefore there exists \(n\in\mathbb{N}\) such that \(n&gt;y/x\).</p>
-                  <p>Hence \(nx&gt;y\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
 
+                  <p>Since</p>
+                  \[
+                    \forall n\in\mathbb{N},\ n\leq\frac{y}{x}
+                  \]
+                  <p>results in a contradiction, we conclude \(\exists n\in\mathbb{N}\) s.t. \(nx&gt;y\), as desired.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proof of the Density of \(\mathbb{Q}\)</div>
+                  <p><strong>Density of \(\mathbb{Q}\).</strong> If \(x,y\in\mathbb{R}\) and \(x&lt;y\), then there exists \(r\in\mathbb{Q}\) such that</p>
+                  \[
+                    x&lt;r&lt;y.
+                  \]
+                  <p>Suppose \(x,y\in\mathbb{R}\) and \(x&lt;y\).</p>
+                  <p>We consider three cases:</p>
+                  <p><strong>Case 1:</strong> \(0\leq x&lt;y\).</p>
+                  <p><strong>Case 2:</strong> \(x&lt;0&lt;y\).</p>
+                  <p><strong>Case 3:</strong> \(x&lt;y\leq0\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Case 1:</span> \(0\leq x&lt;y\).</p>
+                  <p><strong>Plan</strong></p>
+                  <p><strong>1.</strong> <strong>Choose the denominator \(n\) so that rationals with denominator \(n\) are spaced more closely than \(x\) and \(y\).</strong> By the Archimedean property, choose \(n\in\mathbb{N}\) such that</p>
+                  \[
+                    \frac{1}{n}&lt;y-x,
+                  \]
+                  <p>equivalently,</p>
+                  \[
+                    x+\frac{1}{n}&lt;y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>2.</strong> <strong>Choose the least rational of the form \(m/n\) that is greater than \(x\).</strong> By well-ordering, choose the least \(m\in\mathbb{N}\) such that</p>
+                  \[
+                    x&lt;\frac{m}{n}.
+                  \]
+                  <p>Minimality of \(m\) gives</p>
+                  \[
+                    \frac{m-1}{n}\leq x&lt;\frac{m}{n},
+                  \]
+                  <p>so</p>
+                  \[
+                    x&lt;\frac{m}{n}\leq x+\frac{1}{n}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>3.</strong> <strong>Show that this rational is less than \(y\).</strong> Since</p>
+                  \[
+                    x&lt;\frac{m}{n}\leq x+\frac{1}{n}&lt;y,
+                  \]
+                  <p>we obtain</p>
+                  \[
+                    x&lt;\frac{m}{n}&lt;y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p>We first show</p>
+                  \[
+                    x+\frac{1}{n}&lt;y
+                  \]
+                  <p>which is equivalent to</p>
+                  \[
+                    nx+1&lt;ny.
+                  \]
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/density-case1-archimedean-step.png"
+                         alt="Logic graph showing that if zero is at most x and x is less than y, then the Archimedean property gives a natural number n such that n times y minus x is greater than one, hence n x plus one is less than n y"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Next we show \(\exists m\in\mathbb{N}\) s.t. \(x&lt;m/n\).</p>
+                  <p>Let</p>
+                  \[
+                    S=\{k\in\mathbb{N}:nx&lt;k\}.
+                  \]
+                  <p>Archimedean property \(\implies S\neq\emptyset\) since \(\exists l\in\mathbb{N}\) s.t. \(l&gt;nx\). (here "\(x=1\)" and "\(y=nx\)")</p>
+                  <p>Well ordering property of \(\mathbb{N}\implies S\) has least element \(m\).</p>
+                  <p>Hence \(m\in S\), so \(nx&lt;m\). Since \(n&gt;0\),</p>
+                  \[
+                    x&lt;\frac{m}{n}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>We claim that</p>
+                  \[
+                    m-1\leq nx.
+                  \]
+                  <p>If \(m=1\), then \(m-1=0\leq nx\) since \(x\geq0\).</p>
+                  <p>If \(m&gt;1\), then \(m-1\in\mathbb{N}\).</p>
+                  <p>Since \(m\) is the least element of \(S\), \(m-1\notin S\), so again \(m-1\leq nx\).</p>
+                  <p>Since \(m-1\leq nx\), we have \(m\leq nx+1&lt;ny\).</p>
+                  <p>Since \(n&gt;0\),</p>
+                  \[
+                    \frac{m}{n}&lt;y.
+                  \]
+                  <p>But \(x&lt;m/n\).</p>
+                  <p>Since \(m/n\in\mathbb{Q}\), we conclude there exists \(q\in\mathbb{Q}\) such that</p>
+                  \[
+                    x&lt;q&lt;y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Case 2:</span> \(x&lt;0&lt;y\).</p>
+                  <p>Take \(r=0\in\mathbb{Q}\).</p>
+                  <p>Then \(x&lt;r&lt;y\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="step-label">Case 3:</span> \(x&lt;y\leq0\).</p>
+                  <p>We may reduce Case 3 to Case 1 as follows.</p>
+                  <div style="width:min(900px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/density-case3-reduction.png"
+                         alt="Logic graph reducing the case x less than y less than or equal to zero to Case 1 by negating the interval and choosing a rational between minus y and minus x"
+                         style="display:block;width:100%;max-width:100%;height:auto;object-fit:contain;">
+                  </div>
+                  <p>Therefore, whenever \(x&lt;y\), there exists \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-supremum-example/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">A Supremum Example</div>
+                  <p><strong>Theorem.</strong></p>
+                  <p>Let</p>
+                  \[
+                    E=\left\{1-\frac1n:n\in\mathbb{N}\right\}\subset\mathbb{R}.
+                  \]
+                  <p>Then</p>
+                  \[
+                    \sup E=1.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>Plan</strong></p>
+                  <ol>
+                    <li>Show a natural candidate \(s\) for the supremum is an upper bound.</li>
+                    <li>Show that any upper bound \(x\) satisfies \(s\leq x\).</li>
+                    <li>Conclude the supremum is \(s\).</li>
+                  </ol>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>1.</strong> We show \(1\) is an upper bound of \(E=\{1-1/n:n\in\mathbb{N}\}\); i.e.,</p>
+                  \[
+                    \forall n\in\mathbb{N},\qquad 1-\frac{1}{n}\leq1.
+                  \]
+                  <p><strong>Useful proof strategy.</strong> When trying to prove an inequality, sometimes it is easier to start with the desired inequality and reverse engineer until you arrive at something known to be true.</p>
+                  <p>Indeed, the reverse engineering</p>
+                  \[
+                    1-\frac{1}{n}\leq1
+                    \iff
+                    1\leq1+\frac{1}{n}
+                    \iff
+                    0\leq\frac{1}{n}
+                    \iff
+                    0&lt;n
+                  \]
+                  <p>gives us</p>
+                  \[
+                    n\in\mathbb{N}
+                    \implies
+                    0&lt;n
+                    \implies
+                    0\leq\frac{1}{n}
+                    \implies
+                    1\leq1+\frac{1}{n}
+                    \implies
+                    1-\frac{1}{n}\leq1.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>2.</strong> We now show that if \(x\) is an upper bound of \(E=\{1-1/n:n\in\mathbb{N}\}\), then \(1\leq x\).</p>
+                  <p>For sake of contradiction suppose \(x&lt;1\), and hence \(0&lt;1-x\).</p>
+                  <p><em>Recall the Archimedean property: if \(a,b\in\mathbb{R}\) and \(a&gt;0\), then \(\exists n\in\mathbb{N}\) s.t. \(na&gt;b\).</em></p>
+                  <p>Thus \(\exists n\in\mathbb{N}\) s.t.</p>
+                  \[
+                    1&lt;n(1-x).
+                  \]
+                  <p>But</p>
+                  \[
+                    1&lt;n(1-x)
+                    \implies
+                    \frac{1}{n}&lt;1-x
+                    \implies
+                    x&lt;1-\frac{1}{n}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>3.</strong> We conclude \(\sup E=1\) as follows.</p>
+                  <p>We have shown</p>
+                  <p>(i) \(1\) is an upper bound of \(E=\{1-\frac{1}{n}:n\in\mathbb{N}\}\).</p>
+                  <p>(ii) If \(x\) is an upper bound of \(E\) and \(x&lt;1\), then</p>
+                  \[
+                    x&lt;1-\frac1n.
+                  \]
+                  <p>Since \(1-\frac1n\in E\), (ii) gives a contradiction.</p>
+                  <p>Therefore:</p>
+                  <p>(iii) If \(x\) is an upper bound of \(E\), then \(1\leq x\).</p>
+                  <p>In conclusion, (i) and (iii) imply</p>
+                  \[
+                    \sup E=1.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">characterizing-the-supremum/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Characterizing the Supremum</div>
+                  <p>We now prove some results about supremums and infimums that will make them easier to use.</p>
+                  <p><strong>Theorem.</strong> Suppose \(S\subset\mathbb{R}\) is nonempty and bounded above. Then \(x=\sup S\) if and only if:</p>
+                  <ol>
+                    <li>\(x\) is an upper bound for \(S\).</li>
+                    <li>For every \(\varepsilon&gt;0\), there exists \(y\in S\) such that
+                      \[
+                        x-\varepsilon&lt;y\leq x.
+                      \]
+                    </li>
+                  </ol>
+                  <p>The proof is left as an exercise.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">suprema-under-translation-and-positive-scaling/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Suprema Under Translation and Positive Scaling</div>
+                  <p><strong>Notation.</strong> For \(x\in\mathbb{R}\) and \(A\subset\mathbb{R}\), define</p>
+                  \[
+                    x+A:=\{x+a:a\in A\},
+                  \]
+                  \[
+                    xA:=\{xa:a\in A\}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Theorem.</strong> If \(x\in\mathbb{R}\) and \(A\) is bounded above, then \(x+A\) is bounded above and</p>
+                  \[
+                    \sup(x+A)=x+\sup A.
+                  \]
+                  <p>If \(x&gt;0\) and \(A\) is bounded above, then \(xA\) is bounded above and</p>
+                  \[
+                    \sup(xA)=x\sup A.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>Plan</strong></p>
+                  <p>1. Show that \(x+\sup A\) is an upper bound of \(x+A\).</p>
+                  <p>2. For \(x&gt;0\), show that \(x\sup A\) is an upper bound of \(xA\).</p>
+                  <p>3. Use the characterization of the supremum above to conclude that these upper bounds are in fact the corresponding suprema.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>1. We show \(x+\sup A\) is an upper bound of \(x+A\).</p>
+                  <p>Every point in \(x+A\) is, by definition, of the form \(x+a\) for some \(a\in A\).</p>
+                  <p>For such \(a\),</p>
+                  \[
+                    a\leq\sup A,
+                  \]
+                  <p>so</p>
+                  \[
+                    x+a\leq x+\sup A.
+                  \]
+                  <p>Thus \(x+\sup A\) is an upper bound for \(x+A\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>2. We now show \(x\sup A\) is an upper bound of \(xA\).</p>
+                  <p>For every \(a\in A\),</p>
+                  \[
+                    a\leq\sup A.
+                  \]
+                  <p>Since \(x&gt;0\),</p>
+                  \[
+                    xa\leq x\sup A.
+                  \]
+                  <p>Thus \(x\sup A\) is an upper bound for \(xA\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>3. We now use the characterization of suprema above to show each upper bound is a supremum.</p>
+                  <p>Recall the characterization of the supremum.</p>
+                  <p>If \(M\) is an upper bound for a set \(E\), and if for every \(\varepsilon&gt;0\) there exists \(y\in E\) such that</p>
+                  \[
+                    M-\varepsilon&lt;y\leq M,
+                  \]
+                  <p>then \(M=\sup E\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>3a. We show \(x+\sup A=\sup(x+A)\).</p>
+                  <p>Let \(\varepsilon&gt;0\).</p>
+                  <p>Since \(\sup A\) is the supremum of \(A\), there exists \(y\in A\) such that</p>
+                  \[
+                    \sup A-\varepsilon&lt;y\leq\sup A.
+                  \]
+                  <p>Adding \(x\) gives</p>
+                  \[
+                    (x+\sup A)-\varepsilon&lt;x+y\leq x+\sup A.
+                  \]
+                  <p>Therefore, by the characterization of the supremum,</p>
+                  \[
+                    \sup(x+A)=x+\sup A.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>3b. We show \(x\sup A=\sup(xA)\).</p>
+                  <p>Now assume \(x&gt;0\).</p>
+                  <p>Let \(\varepsilon&gt;0\).</p>
+                  <p>Since \(\varepsilon/x&gt;0\), there exists \(z\in A\) such that</p>
+                  \[
+                    \sup A-\frac{\varepsilon}{x}&lt;z\leq\sup A.
+                  \]
+                  <p>Multiplying by \(x\) gives</p>
+                  \[
+                    x\sup A-\varepsilon&lt;xz\leq x\sup A.
+                  \]
+                  <p>Therefore, by the characterization of the supremum,</p>
+                  \[
+                    \sup(xA)=x\sup A.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">comparing-suprema-and-infima/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Comparing Suprema and Infima</div>
+                  <p><strong>Theorem.</strong> Let \(A,B\subset\mathbb{R}\) such that for every \(x\in A\) and every \(y\in B\),</p>
+                  \[
+                    x\leq y.
+                  \]
+                  <p>Then</p>
+                  \[
+                    \sup A\leq\inf B.
+                  \]
+                  <p>The proof is left to the reader.</p>
                 </div>
               </details>
 
