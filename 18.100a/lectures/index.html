@@ -155,8 +155,40 @@
       font-weight: 600;
       fill: var(--muted);
     }
+
+    .diagonal-array-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      margin: 18px auto 22px;
+      font-size: 0.68em;
+      white-space: nowrap;
+    }
+    .diagonal-array-row > div {
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+    .diagonal-array-row mjx-container[jax="CHTML"][display="true"] {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: visible !important;
+    }
+    .diagonal-array-arrow {
+      font-size: 1.7em;
+      line-height: 1;
+    }
+    .diagonal-array-y {
+      font-size: 1.15em;
+      font-weight: 600;
+      margin-top: 0.35em;
+      text-align: left;
+      padding-left: 0.4em;
+    }
     mjx-container[jax="CHTML"] { font-size: 108% !important; }
-    mjx-container[jax="CHTML"][display="true"] { margin: 1.05em 0 !important; overflow-x: auto; overflow-y: hidden; padding: 0.12em 0; }
+    mjx-container[jax="CHTML"][display="true"] { margin: 1.05em 0 !important; overflow: visible; padding: 0.12em 0; }
     @media (min-width: 821px) {
       .lecture-node[open] { padding-bottom: 45vh; }
       .presentation-break { height: 45vh; }
@@ -1143,85 +1175,46 @@
                 </summary>
 
                 <div class="lecture-note">
-                  <div class="note-heading">Example 1</div>
-                  <p>Show that the set of even positive integers</p>
+                  <div class="note-heading">Example</div>
+                  <p><strong>(i)</strong> Let \(c\in\mathbb{R}\) and define \(\{x_n\}\) by</p>
                   \[
-                    E:=\{2n:n\in\mathbb N\}
+                    \forall n\in\mathbb{N},\quad x_n=c.
                   \]
-                  <p>is countably infinite.</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <div class="note-heading">Solution</div>
-                  <p>Define</p>
+                  <p>Then</p>
                   \[
-                    f:\mathbb N\to E,\qquad f(n)=2n.
+                    \lim x_n=c.
                   \]
-                  <p>If \(f(n)=f(m)\), then \(2n=2m\), so \(n=m\). Thus \(f\) is injective.</p>
-                  <p>If \(y\in E\), then \(y=2n=f(n)\) for some \(n\in\mathbb N\). Thus \(f\) is surjective.</p>
-                  <p>Hence \(f\) is a bijection and</p>
+                  <p><strong>(ii)</strong> Define \(\{x_n\}\) by</p>
                   \[
-                    |E|=|\mathbb N|.
+                    \forall n\in\mathbb{N},\quad x_n=3+\frac{(-1)^n}{n}.
                   \]
-                  <p><strong>Remark.</strong> The odd positive integers are countably infinite by the same argument, using \(n\mapsto 2n-1\).</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <div class="note-heading">Example 2</div>
-                  <p>Show that \(\mathbb Z\) is countably infinite.</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <div class="note-heading">Solution</div>
-                  <p>Define \(f:\mathbb N\to\mathbb Z\) by</p>
+                  <p>Then</p>
                   \[
-                    f(2k)=k,\qquad
-                    f(2k-1)=-(k-1),\qquad k\in\mathbb N.
-                  \]
-                  <p>Thus \(f\) enumerates</p>
-                  \[
-                    0,1,-1,2,-2,3,-3,\ldots
-                  \]
-                  <p>and is a bijection. Therefore</p>
-                  \[
-                    |\mathbb Z|=|\mathbb N|.
+                    \lim x_n=3.
                   \]
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Example 3</div>
-                  <p>Show that \(\mathbb N\times\mathbb N\) is countably infinite.</p>
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>(i)</strong> Let \(\epsilon&gt;0\) and choose \(N=1\).</p>
+                  <p>For every \(n\geq N\),</p>
+                  \[
+                    |x_n-c|=|c-c|=0&lt;\epsilon.
+                  \]
+                  <p>Therefore \(\lim x_n=c\).</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Solution</div>
-                  <p>First, group the pairs in \(\mathbb N\times\mathbb N\) according to the value of \(m+n\):</p>
+                  <p><strong>(ii)</strong> Let \(\epsilon&gt;0\).</p>
+                  <p>By the Archimedean property, choose \(N\in\mathbb{N}\) such that</p>
                   \[
-                  \begin{aligned}
-                    m+n=2:&\quad (1,1),\\
-                    m+n=3:&\quad (2,1),(1,2),\\
-                    m+n=4:&\quad (3,1),(2,2),(1,3),\\
-                    m+n=5:&\quad (4,1),(3,2),(2,3),(1,4),\\
-                    &\quad \vdots
-                  \end{aligned}
+                    N&gt;\frac1\epsilon.
                   \]
-                  <p>These groups are the <strong>diagonals</strong> of \(\mathbb N\times\mathbb N\). Enumerate the pairs one diagonal at a time, increasing \(n\) within each diagonal:</p>
+                  <p>Then for every \(n\geq N\),</p>
                   \[
-                    (1,1)\mapsto1,\quad
-                    (2,1)\mapsto2,\quad
-                    (1,2)\mapsto3,\quad
-                    (3,1)\mapsto4,\quad\ldots
+                    |x_n-3|=\left|\frac{(-1)^n}{n}\right|=\frac1n\leq\frac1N&lt;\epsilon.
                   \]
-                  <p>This enumeration is given by the Cantor pairing map \(\pi:\mathbb N\times\mathbb N\to\mathbb N\):</p>
-                  \[
-                    \pi(m,n)
-                    :=\frac{(m+n-2)(m+n-1)}{2}+n.
-                  \]
-                  <p>For a fixed value of \(m+n\), the formula assigns consecutive natural numbers to all pairs in that diagonal. Every pair appears on exactly one diagonal, and every natural number occurs exactly once.</p>
-                  <p>Thus \(\pi\) is a bijection, and therefore</p>
-                  \[
-                    |\mathbb N\times\mathbb N|=|\mathbb N|.
-                  \]
+                  <p>Therefore \(\lim x_n=3\).</p>
                 </div>
               </details>
             </div>
@@ -2397,11 +2390,11 @@
             </div>
           </details>
 
-          <details class="lecture-node lecture-chapter">
+                    <details class="lecture-node lecture-chapter">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
-              <span class="lecture-label">archimedean-property-suprema-and-absolute-value/</span>
+              <span class="lecture-label">archimedean-property-and-density-of-the-rationals/</span>
             </summary>
 
             <div class="lecture-children">
@@ -2409,30 +2402,14 @@
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">archimedean-property-and-density-of-q/</span>
+                  <span class="lecture-label">archimedean-property/</span>
                 </summary>
 
                 <div class="lecture-note">
-                  <div class="note-heading">The Archimedean Property and Density of \(\mathbb{Q}\)</div>
-                  <p>For \(x,y\in\mathbb{R}\) with \(x&lt;y\), there exists \(r\in\mathbb{R}\) such that \(x&lt;r&lt;y\).</p>
-                  <p>For example, take</p>
-                  \[
-                    r=\frac{x+y}{2}.
-                  \]
-                  <p>Can we always find \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\)?</p>
-                  <p>In particular: can we always find a rational between any two irrationals, no matter how close they are?</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <p>The answer is yes:</p>
-                  <div class="note-heading">Theorem</div>
-                  <p><strong>(i) Archimedean Property.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
+                  <div class="note-heading">Archimedean Property</div>
+                  <p><strong>Theorem.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
                   \[
                     nx&gt;y.
-                  \]
-                  <p><strong>(ii) Density of \(\mathbb{Q}\).</strong> If \(x,y\in\mathbb{R}\) and \(x&lt;y\), then there exists \(r\in\mathbb{Q}\) such that</p>
-                  \[
-                    x&lt;r&lt;y.
                   \]
 
                   <div class="presentation-break" aria-hidden="true"></div>
@@ -2450,15 +2427,10 @@
                     \qquad\text{for every }n\in\mathbb{N}.
                   \]
                   <p>Hence \(\{n\varepsilon:n\in\mathbb{N}\}\) is bounded.</p>
-                  <p>Moreover,</p>
-                  \[
-                    \nexists q\in\mathbb{Q}\text{ such that }0&lt;q&lt;\varepsilon,
-                  \]
-                  <p>so \(\mathbb{Q}\) is not dense in \(\mathbb{R}^\ast\).</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Proof of the Archimedean Property</div>
+<div class="note-heading">Proof of the Archimedean Property</div>
                   <p><strong>Archimedean Property.</strong> If \(x,y\in\mathbb{R}\) and \(x&gt;0\), then there exists \(n\in\mathbb{N}\) such that</p>
                   \[
                     nx&gt;y.
@@ -2491,9 +2463,47 @@
                   \]
                   <p>results in a contradiction, we conclude \(\exists n\in\mathbb{N}\) s.t. \(nx&gt;y\), as desired.</p>
 
+
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">density-of-the-rationals/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Density of the Rationals</div>
+                  <p>For \(x,y\in\mathbb{R}\) with \(x&lt;y\), there exists \(r\in\mathbb{R}\) such that \(x&lt;r&lt;y\).</p>
+                  <p>For example, take</p>
+                  \[
+                    r=\frac{x+y}{2}.
+                  \]
+                  <p>Can we always find \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\)?</p>
+                  <p>In particular: can we always find a rational between any two irrationals, no matter how close they are?</p>
+
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Proof of the Density of \(\mathbb{Q}\)</div>
+                  <p>The answer is yes:</p>
+                  <div class="note-heading">Theorem</div>
+                  <p>If \(x,y\in\mathbb{R}\) and \(x&lt;y\), then there exists \(r\in\mathbb{Q}\) such that</p>
+                  \[
+                    x&lt;r&lt;y.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Remark.</strong> For the hyperreal field \(\mathbb{R}^\ast\),</p>
+                  \[
+                    \nexists q\in\mathbb{Q}\text{ such that }0&lt;q&lt;\varepsilon,
+                  \]
+                  <p>so \(\mathbb{Q}\) is not dense in \(\mathbb{R}^\ast\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+<div class="note-heading">Proof of the Density of \(\mathbb{Q}\)</div>
                   <p><strong>Density of \(\mathbb{Q}\).</strong> If \(x,y\in\mathbb{R}\) and \(x&lt;y\), then there exists \(r\in\mathbb{Q}\) such that</p>
                   \[
                     x&lt;r&lt;y.
@@ -2560,7 +2570,7 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p>Next we show \(\exists m\in\mathbb{N}\) s.t. \(x&lt;m/n\).</p>
+                  <p>Next we show there exists a least \(m\in\mathbb{N}\) such that \(x&lt;m/n\).</p>
                   <p>Let</p>
                   \[
                     S=\{k\in\mathbb{N}:nx&lt;k\}.
@@ -2610,8 +2620,18 @@
                   <p>Therefore, whenever \(x&lt;y\), there exists \(r\in\mathbb{Q}\) such that \(x&lt;r&lt;y\).</p>
                 </div>
               </details>
+            </div>
+          </details>
 
-              <details class="lecture-node">
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">properties-of-the-supremum/</span>
+            </summary>
+
+            <div class="lecture-children">
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -2699,7 +2719,7 @@
                 </div>
               </details>
 
-              <details class="lecture-node">
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -2722,7 +2742,7 @@
                 </div>
               </details>
 
-              <details class="lecture-node">
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -2832,7 +2852,7 @@
                 </div>
               </details>
 
-              <details class="lecture-node">
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">└──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -2852,8 +2872,650 @@
                   <p>The proof is left to the reader.</p>
                 </div>
               </details>
+            </div>
+          </details>
 
-              
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">the-uncountability-of-the-reals/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">outline/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p><strong>Fundamental question:</strong> What is the cardinality of \(\mathbb{R}\)?</p>
+                  <p>In this unit we:</p>
+                  <ul>
+                    <li>formalize decimal expansions;</li>
+                    <li>use a diagonalization argument on decimal expansions to conclude \((0,1]\) is uncountable;</li>
+                    <li>conclude \(|\mathbb{N}|&lt;|\mathbb{R}|\).</li>
+                  </ul>
+                  <p><strong>Recall.</strong> A set \(X\) is countable if there is a bijection \(f:X\to\mathbb{N}\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">decimal-representations/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p><strong>Goal:</strong> formalize representing real numbers in terms of decimal expansions.</p>
+                  <p><strong>Observe:</strong></p>
+                  <div style="display:grid;grid-template-columns:max-content max-content max-content max-content max-content;column-gap:0.35em;row-gap:0.35em;align-items:baseline;justify-content:start;width:max-content;max-width:100%;margin:1.05em 0;">
+                    <div style="text-align:right;">\(\frac{1}{2}\)</div>
+                    <div>\(=\)</div>
+                    <div>\(5\cdot 10^{-1}\)</div>
+                    <div>\(=\)</div>
+                    <div>“0.5”</div>
+
+                    <div style="text-align:right;">\(\frac{1}{8}\)</div>
+                    <div>\(=\)</div>
+                    <div>\(1\cdot 10^{-1}+2\cdot 10^{-2}+5\cdot 10^{-3}\)</div>
+                    <div>\(=\)</div>
+                    <div>“0.125”</div>
+
+                    <div style="text-align:right;">\(32+\frac{1}{3}\)</div>
+                    <div>\(=\)</div>
+                    <div>\(3\cdot 10^{1}+2\cdot 10^{0}+3\cdot 10^{-1}+3\cdot 10^{-2}+3\cdot 10^{-3}+\ldots\)</div>
+                    <div>\(=\)</div>
+                    <div>“32.333…”</div>
+                  </div>
+                  <ul>
+                    <li>This suggests a formal way to define decimal representations for at least rational numbers.</li>
+                    <li>What about general real numbers?</li>
+                  </ul>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proposition</div>
+                  <p>If \(x&gt;0\), then there exist digits \(d_i\in\{0,1,\ldots,9\}\), indexed by \(i\in\mathbb{Z}\), such that at most finitely many \(d_j\) with \(j\geq0\) are nonzero.</p>
+                  <p>Choose \(k\geq0\) such that \(d_j=0\) for every \(j&gt;k\).</p>
+                  <p>Then</p>
+                  \[
+                    x=\sup\left\{d_k\cdot10^k+\cdots+d_1\cdot10+d_0+d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}:n\in\mathbb{N}\right\}.
+                  \]
+                  <p><strong>Proof.</strong> Take for granted.</p>
+                  <p>For \(x&lt;0\), apply the proposition to \(-x\) and prepend a minus sign.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Definition.</strong> Suppose \(d_k\neq0\) and</p>
+                  \[
+                    x=\sup\left\{d_k\cdot10^k+\cdots+d_1\cdot10+d_0+d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}:n\in\mathbb{N}\right\}.
+                  \]
+                  <p>Then we write</p>
+                  \[
+                    x=d_kd_{k-1}\cdots d_1d_0.d_{-1}d_{-2}\cdots
+                  \]
+                  <p>and call it the <strong>decimal representation</strong> of \(x\).</p>
+                  <p><strong>Remark.</strong></p>
+                  <p>(i) If \(\exists N\in\mathbb{N}\) such that \(d_{-j}=0\) for \(j&gt;N\) and \(d_{-N}\neq 0\), then we write</p>
+                  \[
+                    x=d_kd_{k-1}\ldots d_1d_0.d_{-1}d_{-2}\ldots d_{-N}
+                  \]
+                  <p>(ii) Each decimal representation corresponds to a unique real number, but not conversely; e.g., \(0.999\ldots=1\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Theorem</div>
+                  <p>If \(x\in(0,1]\) then</p>
+                  \[
+                    \exists!\ d_{-j}\in\{0,1,\ldots,9\},\quad j\in\mathbb{N}
+                  \]
+                  <p>such that</p>
+                  <ul>
+                    <li>\(x=0.d_{-1}d_{-2}\ldots\)</li>
+                    <li>if \(n\in\mathbb{N}\), then</li>
+                  </ul>
+                  \[
+                    0.d_{-1}\ldots d_{-n}&lt;x\leq 0.d_{-1}\ldots d_{-n}+10^{-n}
+                  \]
+                  <p><strong>Proof.</strong> Take for granted.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Remark.</strong> This theorem does not contradict the general nonuniqueness of decimal representations.</p>
+                  <p>E.g., even though</p>
+                  \[
+                    0.499\ldots=0.5
+                  \]
+                  <p>the following is false</p>
+                  \[
+                    0.5&lt;0.5\leq 0.5+10^{-1}
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cantors-diagonalization-argument/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p><strong>Goal:</strong> show that \((0,1]\) is uncountable (and hence \(\mathbb{R}\) is uncountable).</p>
+                  <ul>
+                    <li>Maybe this is surprising: the collection</li>
+                  </ul>
+                  \[
+                    \{0.d_{-1}d_{-2}\ldots:d_{-j}\in\{0,1,\ldots,9\}\}
+                  \]
+                  <p>somehow “feels” countable.</p>
+                  <ul>
+                    <li>On the contrary: we use decimal representations to show a bijection \(\mathbb{N}\to(0,1]\) cannot exist.</li>
+                  </ul>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Theorem (Cantor)</div>
+                  <p>\((0,1]\) is uncountable.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Proof sketch.</strong></p>
+                  <p><strong>1.</strong> Assume for contradiction there exists a bijection \(\mathbb{N}\to(0,1]\).</p>
+                  <p><strong>2.</strong> Make the correspondence \(n\leftrightarrow\) "nth decimal representation".</p>
+                  <p><strong>3.</strong> Diagonalize step 2 to generate a decimal representation not equal to any one from step 2.</p>
+                  <p><strong>4.</strong> Combining steps 1 and 3 furnishes a contradiction.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>1.</strong> Suppose for contradiction \((0,1]\) is countable.</p>
+                  <p>Then \(\exists\) a bijection \(x:\mathbb{N}\to(0,1]\).</p>
+                  <p><strong>2.</strong> This allows us to enumerate decimal expansions:</p>
+                  \[
+                    \begin{aligned}
+                      x(1)&=0.d_{-1}^{(1)}d_{-2}^{(1)}d_{-3}^{(1)}\ldots\\
+                      x(2)&=0.d_{-1}^{(2)}d_{-2}^{(2)}d_{-3}^{(2)}\ldots\\
+                      &\vdots\\
+                      x(n)&=0.d_{-1}^{(n)}d_{-2}^{(n)}d_{-3}^{(n)}\ldots\\
+                      &\vdots
+                    \end{aligned}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>3.</strong> Let \(y\in(0,1]\) have decimal expansion</p>
+                  \[
+                    y=0.e_{-1}e_{-2}e_{-3}\ldots \qquad (\ast)
+                  \]
+                  <p>where</p>
+                  \[
+                    e_{-j}=
+                    \begin{cases}
+                      1, &amp; d_{-j}^{(j)}\neq 1,\\
+                      2, &amp; d_{-j}^{(j)}=1.
+                    \end{cases}
+                  \]
+                  <p>Since \(e_{-j}\geq 1\), there holds</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad 0.e_{-1}\ldots e_{-n}&lt;y\leq 0.e_{-1}\ldots e_{-n}+10^{-n}.
+                  \]
+                  <p>Therefore \((\ast)\) is the unique decimal representation of \(y\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Illustration.</strong></p>
+                  <p>The diagram below depicts an example construction of \(y\).</p>
+
+                  <div class="diagonal-array-row">
+                    <div>
+                      \[
+                      \begin{array}{c|cccccc}
+                        & d_{-1} & d_{-2} & d_{-3} & d_{-4} & d_{-5} & d_{-6} \\ \hline
+                        x(1)=0. & \boxed{3} & 2 & 3 & 4 & 5 & 1 & \ldots\\
+                        x(2)=0. & 4 & \boxed{1} & 8 & 9 & 0 & 5 & \ldots\\
+                        x(3)=0. & 5 & 5 & \boxed{4} & 3 & 3 & 8 & \ldots\\
+                        x(4)=0. & 7 & 4 & 4 & \boxed{7} & 6 & 0 & \ldots\\
+                        x(5)=0. & 8 & 9 & 0 & 0 & \boxed{1} & 7 & \ldots\\
+                        x(6)=0. & 1 & 2 & 2 & 2 & 3 & \boxed{8} & \ldots\\
+                        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots
+                      \end{array}
+                      \]
+                    </div>
+                    <div class="diagonal-array-arrow">\(\Longrightarrow\)</div>
+                    <div>
+                      \[
+                      \begin{array}{cccccc}
+                        e_{-1} & e_{-2} & e_{-3} & e_{-4} & e_{-5} & e_{-6} \\
+                        \boxed{1} & & & & & \\
+                        & \boxed{2} & & & & \\
+                        & & \boxed{1} & & & \\
+                        & & & \boxed{1} & & \\
+                        & & & & \boxed{2} & \\
+                        & & & & & \boxed{1}
+                      \end{array}
+                      \]
+                      <div class="diagonal-array-y">\(y=0.121121\ldots\)</div>
+                    </div>
+                  </div>
+
+                  <p><strong>Observe.</strong></p>
+                  <ul>
+                    <li>\(e_{-1}=1\neq 3=d_{-1}^{(1)}\implies y\neq x(1)\).</li>
+                    <li>\(e_{-2}=2\neq 1=d_{-2}^{(2)}\implies y\neq x(2)\).</li>
+                    <li>\(e_{-3}=1\neq 4=d_{-3}^{(3)}\implies y\neq x(3)\).</li>
+                    <li>And so on.</li>
+                  </ul>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <p><strong>4.</strong> Given \(n\in\mathbb{N}\)</p>
+                  \[
+                    e_{-n}\neq d_{-n}^{(n)}\implies y\neq x(n).
+                  \]
+                  <p>But \(e_{-n}\neq d_{-n}^{(n)}\) by definition.</p>
+                  <p>Therefore the decimal representation</p>
+                  \[
+                    0.e_{-1}e_{-2}e_{-3}\ldots
+                  \]
+                  <p>lies outside the collection of decimal representations</p>
+                  \[
+                    \{0.d_{-1}^{(n)}d_{-2}^{(n)}\ldots:n\in\mathbb{N}\}
+                  \]
+                  <p>obtainable from \(x:\mathbb{N}\to(0,1]\).</p>
+                  <p>Therefore there cannot exist a bijection \(x:\mathbb{N}\to(0,1]\) and so \((0,1]\) is uncountable.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Corollary</div>
+                  <p>\(\mathbb{R}\) is uncountable.</p>
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>Since \((0,1]\subset\mathbb{R}\) is uncountable, \(\mathbb{R}\) is uncountable.</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">the-absolute-value-and-triangle-inequality/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-absolute-value/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Absolute Value</div>
+                  <p>For \(x\in\mathbb{R}\), define</p>
+                  \[
+                    |x|=
+                    \begin{cases}
+                      x, &amp; x\geq0,\\
+                      -x, &amp; x&lt;0.
+                    \end{cases}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Absolute value has the following properties:</p>
+                  <ol>
+                    <li>\(|x|\geq0\), and \(|x|=0\) if and only if \(x=0\).</li>
+                    <li>\(|-x|=|x|\).</li>
+                    <li>\(|xy|=|x||y|\).</li>
+                    <li>\(|x^2|=x^2=|x|^2\).</li>
+                    <li>\(|x|\leq y\) if and only if \(-y\leq x\leq y\).</li>
+                    <li>\(x\leq|x|\).</li>
+                  </ol>
+                  <p><strong>Exercise.</strong></p>
+                  <p>Prove each of these properties directly from the definition of absolute value.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-triangle-inequality/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Theorem: triangle inequality</div>
+                  <p>For all \(x,y\in\mathbb{R}\),</p>
+                  \[
+                    |x+y|\leq|x|+|y|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>1.</strong> Observe</p>
+                  \[
+                    |x+y|\leq|x|+|y| \iff -(|x|+|y|)\leq x+y\leq |x|+|y|.
+                  \]
+                  <p><strong>2.</strong> But</p>
+                  \[
+                    x\leq|x|,\ y\leq|y|\implies x+y\leq|x|+|y|.
+                  \]
+                  <p><strong>3.</strong> and</p>
+                  \[
+                    -x\leq|-x|,\ -y\leq|-y|\implies -x-y\leq|-x|+|-y|\implies-(|x|+|y|)\leq x+y.
+                  \]
+                  <p><strong>4.</strong> Combining 2. and 3. gives</p>
+                  \[
+                    -(|x|+|y|)\leq x+y\leq|x|+|y|.
+                  \]
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">sequences-and-limits/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">outline/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>So we've formalized the real numbers. Now what?</p>
+                  <p>We begin studying real analysis proper.</p>
+                  <p>In this unit we:</p>
+                  <ul>
+                    <li>Define sequences of real numbers.</li>
+                    <li>Formalize notions of convergence and divergence.</li>
+                    <li>Study properties and examples of sequences.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">sequences-of-real-numbers/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Sequences</div>
+                  <p>A <strong>sequence of real numbers</strong> is a function</p>
+                  \[
+                    x:\mathbb{N}\to\mathbb{R}.
+                  \]
+                  <p><strong>Notation:</strong></p>
+                  <ul>
+                    <li>Often write \(x_n\) for \(x(n)\) and understand \(x_n\) as the \(n\)th term in the sequence.</li>
+                    <li>Often write</li>
+                  </ul>
+                  \[
+                    \{x_n\}_{n=1}^{\infty},\quad \{x_n\},\quad \text{ or }\quad x_1,x_2,\ldots
+                  \]
+                  <p>for a sequence \(x:\mathbb{N}\to\mathbb{R}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Bounded Sequences</div>
+                  <p>A sequence \(\{x_n\}\) is <strong>bounded</strong> if there exists \(M\geq0\) such that</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |x_n|\leq M.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Example.</strong></p>
+                  <p>Let \(\{x_n\}\) be the sequence defined by</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad x_n=\frac{1}{n}.
+                  \]
+                  <p>Given \(n\in\mathbb{N}\),</p>
+                  \[
+                    n\geq1\implies \frac{1}{n}\leq1.
+                  \]
+                  <p>Thus</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |x_n|=\frac{1}{n}\leq1.
+                  \]
+                  <p>Therefore \(\{x_n\}\) is bounded with \(M=1\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Sequences versus Sets</div>
+                  <p><strong>Important:</strong> a sequence is a function \(x:\mathbb{N}\to\mathbb{R}\), not a set of real numbers.</p>
+                  <p>For example</p>
+                  \[
+                    \{(-1)^n\}_{n=1}^{\infty}
+                  \]
+                  <p>is the function \(x:\mathbb{N}\to\mathbb{R}\) defined by \(x(n)=(-1)^n\), whereas</p>
+                  \[
+                    \{(-1)^{n}:n\in\mathbb{N}\}=\{-1,1\}.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">convergence-of-sequences/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Convergence</div>
+                  <p>Let \(\{x_n\}\) be a sequence and \(x\in\mathbb{R}\).</p>
+                  <p>We say \(\{x_n\}\) <strong>converges</strong> to \(x\) if:</p>
+                  <p>\(\forall\,\epsilon&gt;0,\ \exists N\in\mathbb{N}\) such that</p>
+                  \[
+                    n\geq N\implies |x_n-x|&lt;\epsilon.
+                  \]
+                  <p>In this case we write</p>
+                  \[
+                    \lim_{n\to\infty} x_n = x\quad \text{or}\quad \lim x_n = x\quad \text{or}\quad x_n\to x
+                  \]
+                  <p>and say \(\{x_n\}\) is <strong>convergent</strong> and has limit \(x\).</p>
+                  <p>If \(\{x_n\}\) is not convergent, we say it is <strong>divergent</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Illustration</div>
+                  <p>Which \(N\) seems to satisfy \(n\geq N\implies |x_n-x|<\epsilon\)?</p>
+                  <p><strong>Note:</strong> \(|x_n-x|&lt;\epsilon\iff x-\epsilon&lt;x_n&lt;x+\epsilon\).</p>
+                  <div style="width:min(1100px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/convergence-illustration.png"
+                         alt="Illustration of a convergent sequence and an epsilon neighborhood"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Divergence</div>
+                  <p>Let \(\{x_n\}\) be a sequence.</p>
+                  <p>To show that \(\{x_n\}\) does not converge to \(x\in\mathbb{R}\), one must show:</p>
+                  <p>There exists \(\epsilon&gt;0\) such that for all \(N\in\mathbb{N}\) there exists \(n\geq N\) such that</p>
+                  \[
+                    |x_n-x|\geq\epsilon.
+                  \]
+                  <p>Viz., \(\{x_n\}\) always admits a term a positive distance away from \(x\).</p>
+                  <p>In particular: \(\{x_n\}\) is divergent if this holds for every \(x\in\mathbb{R}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Illustration</div>
+                  <p>Observe below that every odd term remains more than \(\epsilon\) away from 1.</p>
+                  <div style="width:min(1100px,100%);margin:18px auto 28px;">
+                    <img src="proof-graphs/divergence-illustration.png"
+                         alt="Illustration showing the sequence (-1)^n does not converge to 1"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">uniqueness-of-limits/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p><strong>Goal:</strong> Prove</p>
+                  <ul>
+                    <li>two real numbers arbitrarily close to each other must be the same number;</li>
+                    <li>if a sequence converges, then its limit is unique.</li>
+                  </ul>
+                  <p><strong>Note.</strong> There are "geometric" settings where limits of sequences are not unique.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Theorem</div>
+                  <p>Let \(x,y\in\mathbb{R}\) be such that</p>
+                  \[
+                    |x-y|&lt;\epsilon
+                  \]
+                  <p>for all \(\epsilon&gt;0\).</p>
+                  <p>Then \(x=y\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>For contradiction, suppose \(x\neq y\).</p>
+                  <p>Need to use</p>
+                  \[
+                    \forall\,\epsilon&gt;0,\quad |x-y|&lt;\epsilon
+                  \]
+                  <p>to establish contradiction.</p>
+                  <p><strong>Idea:</strong> choose specific \(\epsilon&gt;0\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Observe:</strong> \(x\neq y\) gives</p>
+                  \[
+                    |x-y|&gt;0
+                  \]
+                  <p><strong>Idea:</strong> choose \(\epsilon=|x-y|\).</p>
+                  <p>But then</p>
+                  \[
+                    (\forall\,\epsilon&gt;0,\ |x-y|&lt;\epsilon)\implies |x-y|&lt;|x-y|,
+                  \]
+                  <p>a contradiction.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Theorem: Uniqueness of Limits</div>
+                  <p>Let \(\{x_n\}\) be a sequence in \(\mathbb{R}\) and let \(x,y\in\mathbb{R}\).</p>
+                  <p>If \(x_n\to x\) and \(x_n\to y\), then \(x=y\).</p>
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>Plan:</strong> show that</p>
+                  \[
+                    \forall \epsilon&gt;0,\quad |x-y|&lt;\epsilon.
+                  \]
+                  <p>The preceding theorem would then imply \(x=y\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>We have</p>
+                  <p><strong>(i)</strong> \(x_n\to x\)</p>
+                  <p><strong>(ii)</strong> \(x_n\to y\)</p>
+                  <p>and want</p>
+                  <p><strong>(iii)</strong> \(|x-y|&lt;\epsilon\) for all \(\epsilon&gt;0\).</p>
+                  <p>Idea: combine <strong>(i)</strong> and <strong>(ii)</strong> to obtain <strong>(iii)</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Observe</p>
+                  <p><strong>(i)</strong> \(x_n\to x\) \(\iff \forall\epsilon&gt;0,\ \exists N_1\in\mathbb{N}\) such that \(n\geq N_1\implies |x_n-x|&lt;\epsilon\)</p>
+                  <p><strong>(ii)</strong> \(x_n\to y\) \(\iff \forall\epsilon&gt;0,\ \exists N_2\in\mathbb{N}\) such that \(n\geq N_2\implies |x_n-y|&lt;\epsilon\)</p>
+                  <p>Recall: triangle inequality asserts</p>
+                  \[
+                    \forall a,b,c\in\mathbb{R},\quad |a-b|\leq|a-c|+|b-c|.
+                  \]
+                  <p>Idea: use <strong>(i)</strong> and <strong>(ii)</strong> with triangle inequality to obtain the estimate</p>
+                  \[
+                    \forall\epsilon&gt;0,\quad |x-y|&lt;\epsilon.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(\epsilon&gt;0\) be arbitrary.</p>
+                  <p>Let \(N_1,N_2\in\mathbb{N}\) be such that</p>
+                  <p><strong>(i)</strong> \(n\geq N_1\implies |x_n-x|&lt;\epsilon/2\)</p>
+                  <p><strong>(ii)</strong> \(n\geq N_2\implies |x_n-y|&lt;\epsilon/2\)</p>
+                  <p>Let \(N=\max\{N_1,N_2\}\).</p>
+                  <p>Then \(n\geq N \implies |x_n-x|&lt;\epsilon/2\) and \(|x_n-y|&lt;\epsilon/2\).</p>
+                  <p>Combining with the triangle inequality, for all \(n\geq N\) there holds</p>
+                  \[
+                    |x-y|=|x-x_n+x_n-y|\leq|x-x_n|+|x_n-y|&lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+                  \]
+                  <p>Since \(\epsilon&gt;0\) was arbitrary, we conclude \(x=y\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">examples/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example</div>
+                  <p><strong>(i)</strong> Let \(c\in\mathbb{R}\) and define \(\{x_n\}\) by</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad x_n=c.
+                  \]
+                  <p>Then</p>
+                  \[
+                    \lim x_n=c.
+                  \]
+                  <p><strong>(ii)</strong> Define \(\{x_n\}\) by</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad x_n=3+\frac{(-1)^n}{n}.
+                  \]
+                  <p>Then</p>
+                  \[
+                    \lim x_n=3.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>(i)</strong> Let \(\epsilon&gt;0\) and choose \(N=1\).</p>
+                  <p>For every \(n\geq N\),</p>
+                  \[
+                    |x_n-c|=|c-c|=0&lt;\epsilon.
+                  \]
+                  <p>Therefore \(\lim x_n=c\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>(ii)</strong> Let \(\epsilon&gt;0\).</p>
+                  <p>By the Archimedean property, choose \(N\in\mathbb{N}\) such that</p>
+                  \[
+                    N&gt;\frac1\epsilon.
+                  \]
+                  <p>Then for every \(n\geq N\),</p>
+                  \[
+                    |x_n-3|=\left|\frac{(-1)^n}{n}\right|=\frac1n\leq\frac1N&lt;\epsilon.
+                  \]
+                  <p>Therefore \(\lim x_n=3\).</p>
+                </div>
+              </details>
             </div>
           </details>
         </div>
