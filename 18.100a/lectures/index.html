@@ -2894,8 +2894,8 @@
                   <p><strong>Fundamental question:</strong> What is the cardinality of \(\mathbb{R}\)?</p>
                   <p>In this unit we:</p>
                   <ul>
-                    <li>formalize decimal expansions;</li>
-                    <li>use a diagonalization argument on decimal expansions to conclude \((0,1]\) is uncountable;</li>
+                    <li>formalize decimal representations;</li>
+                    <li>use a diagonalization argument on decimal representations to conclude \((0,1]\) is uncountable;</li>
                     <li>conclude \(|\mathbb{N}|&lt;|\mathbb{R}|\).</li>
                   </ul>
                   <p><strong>Recall.</strong> A set \(X\) is countable if there is a bijection \(f:X\to\mathbb{N}\).</p>
@@ -2910,7 +2910,7 @@
                 </summary>
 
                 <div class="lecture-note">
-                  <p><strong>Goal:</strong> formalize representing real numbers in terms of decimal expansions.</p>
+                  <p><strong>Goal:</strong> formalize decimal representations of real numbers.</p>
                   <p><strong>Observe:</strong></p>
                   <div style="display:grid;grid-template-columns:max-content max-content max-content max-content max-content;column-gap:0.35em;row-gap:0.35em;align-items:baseline;justify-content:start;width:max-content;max-width:100%;margin:1.05em 0;">
                     <div style="text-align:right;">\(\frac{1}{2}\)</div>
@@ -2938,33 +2938,56 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Proposition</div>
-                  <p>If \(x&gt;0\), then there exist digits \(d_i\in\{0,1,\ldots,9\}\), indexed by \(i\in\mathbb{Z}\), such that at most finitely many \(d_j\) with \(j\geq0\) are nonzero.</p>
-                  <p>Choose \(k\geq0\) such that \(d_j=0\) for every \(j&gt;k\).</p>
-                  <p>Then</p>
+                                    <div class="note-heading">Proposition</div>
+                  <p>If \(x\geq0\), then there exist \(k\in\mathbb{N}\) and digits</p>
                   \[
-                    x=\sup\left\{d_k\cdot10^k+\cdots+d_1\cdot10+d_0+d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}:n\in\mathbb{N}\right\}.
+                    d_j\in\{0,1,\ldots,9\},
+                    \qquad j\leq k,
+                  \]
+                  <p>such that</p>
+                  \[
+                    x=
+                    \sup\left\{
+                      d_k\cdot10^k+\cdots+d_1\cdot10+d_0
+                      +d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}
+                      :n\in\mathbb{N}
+                    \right\}.
                   \]
                   <p><strong>Proof.</strong> Take for granted.</p>
-                  <p>For \(x&lt;0\), apply the proposition to \(-x\) and prepend a minus sign.</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>Definition.</strong> Suppose \(d_k\neq0\) and</p>
-                  \[
-                    x=\sup\left\{d_k\cdot10^k+\cdots+d_1\cdot10+d_0+d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}:n\in\mathbb{N}\right\}.
-                  \]
-                  <p>Then we write</p>
+                                    <p><strong>Definition.</strong> Let \(x\geq0\).</p>
+                  <p>A <strong>decimal representation</strong> of \(x\) is an expression</p>
                   \[
                     x=d_kd_{k-1}\cdots d_1d_0.d_{-1}d_{-2}\cdots
                   \]
-                  <p>and call it the <strong>decimal representation</strong> of \(x\).</p>
-                  <p><strong>Remark.</strong></p>
+                  <p>where \(k\in\mathbb{N}\cup\{0\}\) and \(d_j\in\{0,1,\ldots,9\}\) for every integer \(j\leq k\), are such that</p>
+                  \[
+                    x=
+                    \sup\left\{
+                      d_k\cdot10^k+\cdots+d_1\cdot10+d_0
+                      +d_{-1}\cdot10^{-1}+\cdots+d_{-n}\cdot10^{-n}
+                      :n\in\mathbb{N}
+                    \right\}.
+                  \]
+<div class="presentation-break" aria-hidden="true"></div>
+
+<p><strong>Remark.</strong></p>
                   <p>(i) If \(\exists N\in\mathbb{N}\) such that \(d_{-j}=0\) for \(j&gt;N\) and \(d_{-N}\neq 0\), then we write</p>
                   \[
                     x=d_kd_{k-1}\ldots d_1d_0.d_{-1}d_{-2}\ldots d_{-N}
                   \]
-                  <p>(ii) Each decimal representation corresponds to a unique real number, but not conversely; e.g., \(0.999\ldots=1\).</p>
+                  <p>(ii) Each decimal representation determines a unique real number, but a real number may have more than one decimal representation; e.g., \(0.999\ldots=1\).</p>
+                  <p>(iii) One may define decimal representations for negative real numbers too.</p>
+                  <p>(iv) Given digits \(d_{-j}\in\{0,1,\ldots,9\}\), \(j\in\mathbb{N}\), the supremum</p>
+                  \[
+                    \sup\left\{
+                      d_{-1}10^{-1}+d_{-2}10^{-2}+\cdots+d_{-n}10^{-n}
+                      :n\in\mathbb{N}
+                    \right\}
+                  \]
+                  <p>defines a real number in \([0,1]\).</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
@@ -2981,11 +3004,12 @@
                   \[
                     0.d_{-1}\ldots d_{-n}&lt;x\leq 0.d_{-1}\ldots d_{-n}+10^{-n}
                   \]
+                  <p>We call \(0.d_{-1}d_{-2}\ldots\) the <strong>distinguished decimal representation</strong> of \(x\).</p>
                   <p><strong>Proof.</strong> Take for granted.</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>Remark.</strong> This theorem does not contradict the general nonuniqueness of decimal representations.</p>
+                  <p><strong>Remark.</strong> This theorem does not contradict the general nonuniqueness of decimal representations: it singles out one distinguished decimal representation.</p>
                   <p>E.g., even though</p>
                   \[
                     0.499\ldots=0.5
@@ -3024,7 +3048,8 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>Proof sketch.</strong></p>
+                                    <p><strong>Proof sketch.</strong></p>
+                  <p><strong>0.</strong> Show that \((0,1]\) is not finite. Consequently, if \((0,1]\) were countable, then it would be countably infinite.</p>
                   <p><strong>1.</strong> Assume for contradiction there exists a bijection \(\mathbb{N}\to(0,1]\).</p>
                   <p><strong>2.</strong> Make the correspondence \(n\leftrightarrow\) "nth decimal representation".</p>
                   <p><strong>3.</strong> Diagonalize step 2 to generate a decimal representation not equal to any one from step 2.</p>
@@ -3033,9 +3058,25 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>0.</strong> Let</p>
+                  \[
+                    a_{-j}^{(n)}=
+                    \begin{cases}
+                      1, &amp; \text{if }j=n,\\
+                      0, &amp; \text{if }j\neq n.
+                    \end{cases}
+                  \]
+                  <p>Define</p>
+                  \[
+                    x_n=0.a_{-1}^{(n)}a_{-2}^{(n)}\ldots.
+                  \]
+                  <p>Thus \(x_n=10^{-n}\).</p>
+                  <p>The mapping \(\mathbb{N}\to(0,1]\) defined by \(n\mapsto x_n\) is injective, and so \((0,1]\) is infinite.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <p><strong>1.</strong> Suppose for contradiction \((0,1]\) is countable.</p>
                   <p>Then \(\exists\) a bijection \(x:\mathbb{N}\to(0,1]\).</p>
-                  <p><strong>2.</strong> This allows us to enumerate decimal expansions:</p>
+                                    <p><strong>2.</strong> Since we may identify each number in \((0,1]\) with its distinguished decimal representation, <strong>1.</strong> allows us to enumerate the distinguished decimal representations of numbers in \((0,1]\):</p>
                   \[
                     \begin{aligned}
                       x(1)&=0.d_{-1}^{(1)}d_{-2}^{(1)}d_{-3}^{(1)}\ldots\\
@@ -3048,11 +3089,7 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>3.</strong> Let \(y\in(0,1]\) have decimal expansion</p>
-                  \[
-                    y=0.e_{-1}e_{-2}e_{-3}\ldots \qquad (\ast)
-                  \]
-                  <p>where</p>
+                                    <p><strong>3.</strong> Define digits \(e_{-j}\) by</p>
                   \[
                     e_{-j}=
                     \begin{cases}
@@ -3060,11 +3097,19 @@
                       2, &amp; d_{-j}^{(j)}=1.
                     \end{cases}
                   \]
-                  <p>Since \(e_{-j}\geq 1\), there holds</p>
+                  <p>Define</p>
+                  \[
+                    y=
+                    \sup\left\{
+                      e_{-1}10^{-1}+e_{-2}10^{-2}+\cdots+e_{-n}10^{-n}
+                      :n\in\mathbb{N}
+                    \right\}.
+                  \]
+<p>Since \(e_{-j}\geq 1\), there holds</p>
                   \[
                     \forall n\in\mathbb{N},\quad 0.e_{-1}\ldots e_{-n}&lt;y\leq 0.e_{-1}\ldots e_{-n}+10^{-n}.
                   \]
-                  <p>Therefore \((\ast)\) is the unique decimal representation of \(y\).</p>
+                  <p>In particular, \(0.e_{-1}e_{-2}\ldots\) is the distinguished decimal representation of \(y\).</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
@@ -3117,11 +3162,11 @@
                     e_{-n}\neq d_{-n}^{(n)}\implies y\neq x(n).
                   \]
                   <p>But \(e_{-n}\neq d_{-n}^{(n)}\) by definition.</p>
-                  <p>Therefore the decimal representation</p>
+                  <p>Therefore the distinguished decimal representation</p>
                   \[
                     0.e_{-1}e_{-2}e_{-3}\ldots
                   \]
-                  <p>lies outside the collection of decimal representations</p>
+                  <p>lies outside the collection of distinguished decimal representations</p>
                   \[
                     \{0.d_{-1}^{(n)}d_{-2}^{(n)}\ldots:n\in\mathbb{N}\}
                   \]
@@ -3221,7 +3266,7 @@
 
           <details class="lecture-node lecture-chapter">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">sequences-and-limits/</span>
             </summary>
@@ -3495,7 +3540,11 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <p><span class="proof-label">Proof.</span></p>
-                  <p><strong>(i)</strong> Let \(\epsilon&gt;0\) and choose \(N=1\).</p>
+                  <p><strong>(i)</strong> Let \({x_n}\) be defined by</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad x_n=c.
+                  \]
+                  <p>Let \(\epsilon&gt;0\) and choose \(N=1\).</p>
                   <p>For every \(n\geq N\),</p>
                   \[
                     |x_n-c|=|c-c|=0&lt;\epsilon.
@@ -3504,7 +3553,11 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>(ii)</strong> Let \(\epsilon&gt;0\).</p>
+                  <p><strong>(ii)</strong> Let \({x_n}\) be defined by</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad x_n=3+\frac{(-1)^n}{n}.
+                  \]
+                  <p>Let \(\epsilon&gt;0\).</p>
                   <p>By the Archimedean property, choose \(N\in\mathbb{N}\) such that</p>
                   \[
                     N&gt;\frac1\epsilon.
@@ -3514,6 +3567,433 @@
                     |x_n-3|=\left|\frac{(-1)^n}{n}\right|=\frac1n\leq\frac1N&lt;\epsilon.
                   \]
                   <p>Therefore \(\lim x_n=3\).</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">convergent-sequences-are-bounded/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">theorem-and-proof/</span>
+                </summary>
+
+                                <div class="lecture-note">
+                  <div class="note-heading">Theorem</div>
+                  <p>Let \(\{x_n\}\) be a sequence of real numbers.</p>
+                  <p>If \(\{x_n\}\) is convergent, then \(\{x_n\}\) is bounded: \(\exists M\geq0\) such that</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |x_n|\leq M.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>Suppose \(x_n\to x\); i.e., \(\forall\epsilon&gt;0\), \(\exists N\in\mathbb{N}\) such that</p>
+                  \[
+                    n\geq N\implies |x_n-x|&lt;\epsilon.
+                  \]
+                  <p><strong>Observe:</strong> Given \(n\in\mathbb{N}\), if \(C&gt;0\) and if</p>
+                  \[
+                    |x_n-x|&lt;C,
+                  \]
+                  <p>then</p>
+                  \[
+                    |x_n|
+                    =|x_n-x+x|
+                    \leq|x-x_n|+|x|
+                    \leq C+|x|.
+                  \]
+                  <p><strong>Idea:</strong> If \(\epsilon&gt;0\) and if \(|x_n-x|&lt;\epsilon\) for \(n\geq N\), then we need only control finitely many terms</p>
+                  \[
+                    |x_1|,|x_2|,\ldots,|x_{N-1}|.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <ul>
+                    <li>Fix \(\epsilon&gt;0\) and let \(N\in\mathbb{N}\), \(N\geq2\), be such that</li>
+                  </ul>
+                  \[
+                    n\geq N\implies |x_n-x|&lt;\epsilon.
+                  \]
+                  <ul>
+                    <li>Define</li>
+                  </ul>
+                  \[
+                    M'=\max\{|x_1|,|x_2|,\ldots,|x_{N-1}|\}.
+                  \]
+                  <ul>
+                    <li>Then</li>
+                  </ul>
+                  \[
+                    |x_n|\leq M'
+                    \qquad\text{for }n=1,\ldots,N-1,
+                  \]
+                  <p>and</p>
+                  \[
+                    |x_n|
+                    \leq|x-x_n|+|x|
+                    \leq\epsilon+|x|
+                    \qquad\text{for }n\geq N.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <ul>
+                    <li>Lastly, define</li>
+                  </ul>
+                  \[
+                    M=\max\{M',\epsilon+|x|\}.
+                  \]
+                  <ul>
+                    <li>Then</li>
+                  </ul>
+                  \[
+                    |x_n|\leq
+                    \begin{cases}
+                      M', &amp; \text{if }n=1,\ldots,N-1,\\
+                      \epsilon+|x|, &amp; \text{if }n\geq N
+                    \end{cases}
+                    \leq M.
+                  \]
+                  <ul>
+                    <li>Since \(|x_n|\leq M\) for all \(n\in\mathbb{N}\), we conclude \(\{x_n\}\) is bounded.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">monotone-sequences/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">definition-and-examples/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Monotone Sequences</div>
+                  <p>A sequence \(\{x_n\}\) is <strong>monotone increasing</strong> if, for every \(n\in\mathbb{N}\),</p>
+                  \[
+                    x_n\leq x_{n+1}.
+                  \]
+                  <p>A sequence \(\{x_n\}\) is <strong>monotone decreasing</strong> if, for every \(n\in\mathbb{N}\),</p>
+                  \[
+                    x_n\geq x_{n+1}.
+                  \]
+                  <p>If \(\{x_n\}\) is either monotone increasing or monotone decreasing, we say that \(\{x_n\}\) is <strong>monotone</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Examples</div>
+                  <ul>
+                    <li>\(a_n=\frac1n\) is monotone decreasing.</li>
+                    <li>\(b_n=-\frac1n\) is monotone increasing.</li>
+                    <li>\(c_n=2(-1)^n\) is neither monotone increasing nor monotone decreasing.</li>
+                  </ul>
+                  <div style="width:min(1200px,100%);margin:12px auto 0;">
+                    <img src="proof-graphs/monotone-sequences-examples-graph.png"
+                         alt="Graph showing the sequences a_n = 1/n, b_n = -1/n, and c_n = 2(-1)^n"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">monotone-convergence/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Monotone Increasing Sequences</div>
+                  <p><strong>Remark.</strong> The preceding theorem asserts: if \(\{x_n\}\) is convergent, then \(\{x_n\}\) is bounded.</p>
+                  <p>In general, the converse is false; e.g., consider</p>
+                  \[
+                    x_n=(-1)^n.
+                  \]
+                  <p>However, if \(\{x_n\}\) is bounded and monotone, then \(\{x_n\}\) indeed converges.</p>
+                  <p>This result is contained in the following two theorems.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a monotone increasing sequence.</p>
+                  <p>Then \(\{x_n\}\) is convergent if and only if \(\{x_n\}\) is bounded above.</p>
+                  <p>Moreover,</p>
+                  \[
+                    \lim_{n\to\infty}x_n
+                    =
+                    \sup\{x_n:n\in\mathbb{N}\}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p><strong>1.</strong> We have from the preceding theorem that, if \(\{x_n\}\) is convergent, then \(\{x_n\}\) is bounded and hence bounded above.</p>
+                  <p>Suppose now \(\{x_n\}\) is bounded above and monotone increasing.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>2.</strong> Since \(\{x_n\}\) is bounded above, by the least upper bound property,</p>
+                  \[
+                    x:=\sup\{x_n:n\in\mathbb{N}\}
+                  \]
+                  <p>exists.</p>
+                  <p>We prove</p>
+                  \[
+                    x_n\to x.
+                  \]
+                  <p>Viz., \(\forall\epsilon&gt;0\), \(\exists N\in\mathbb{N}\) such that</p>
+                  \[
+                    n\geq N\implies |x-x_n|&lt;\epsilon.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>3.</strong> Let \(\epsilon&gt;0\) be arbitrary.</p>
+                  <p>Since</p>
+                  \[
+                    x=\sup\{x_n:n\in\mathbb{N}\},
+                  \]
+                  <p>there exists \(N\in\mathbb{N}\) such that</p>
+                  \[
+                    x-\epsilon&lt;x_N\leq x.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>4.</strong> Since</p>
+                  \[
+                    x-\epsilon&lt;x_N\leq x,\qquad
+                    x=\sup\{x_n:n\in\mathbb{N}\},
+                  \]
+                  <p>and \(\{x_n\}\) is monotone increasing, it follows</p>
+                  \[
+                    x-\epsilon&lt;x_N\leq x_n\leq x
+                  \]
+                  <p>for all \(n\geq N\).</p>
+
+                                    <p>Hence, for all \(n\geq N\),</p>
+                  \[
+                    0\leq x-x_n&lt;\epsilon,
+                  \]
+                  <p>and therefore</p>
+                  \[
+                    |x_n-x|=x-x_n&lt;\epsilon.
+                  \]
+
+<p><strong>5.</strong> We have therefore shown: \(\forall\epsilon&gt;0\), \(\exists N\in\mathbb{N}\) such that</p>
+                  \[
+                    n\geq N\implies |x_n-x|&lt;\epsilon;
+                  \]
+                  <p>i.e.,</p>
+                  \[
+                    \lim x_n
+                    =
+                    x
+                    =
+                    \sup\{x_n:n\in\mathbb{N}\}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Monotone Decreasing Sequences</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a monotone decreasing sequence.</p>
+                  <p>Then \(\{x_n\}\) is convergent if and only if \(\{x_n\}\) is bounded below.</p>
+                  <p>Moreover,</p>
+                  \[
+                    \lim_{n\to\infty}x_n
+                    =
+                    \inf\{x_n:n\in\mathbb{N}\}.
+                  \]
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>The proof is similar to the monotone increasing case, replacing the supremum by the infimum and reversing the inequalities.</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">subsequences/</span>
+            </summary>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">definition-and-examples/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Subsequences</div>
+                  <p>Let \(\{x_n\}\) be a sequence and let \(\{n_k\}\) be a strictly increasing sequence of natural numbers.</p>
+                  <p>Then the sequence</p>
+                  \[
+                    \{x_{n_k}\}_{k=1}^{\infty}
+                  \]
+                  <p>is called a <strong>subsequence</strong> of \(\{x_n\}\).</p>
+                  <p>Informally, a subsequence is a sequence whose entries come from another given sequence, while preserving their original order.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Example</div>
+                  <p>Consider the sequence \(\{x_n\}\) defined by \(x_n=n\):</p>
+                  \[
+                    1,2,3,4,\ldots
+                  \]
+                  <p>The following are subsequences of \(\{x_n\}\):</p>
+                  \[
+                    1,3,5,7,9,11,\ldots
+                  \]
+                  \[
+                    2,4,6,8,10,\ldots
+                  \]
+                  \[
+                    2,3,5,7,11,13,\ldots
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>For the first two subsequences, the corresponding index sequences are</p>
+                  \[
+                    n_k=2k-1
+                    \qquad\text{and}\qquad
+                    n_k=2k,
+                  \]
+                  <p>respectively.</p>
+                  <p><strong>Question.</strong> How would we describe the third?</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>The following are <strong>not</strong> subsequences of \(\{x_n\}\):</p>
+                  \[
+                    1,1,1,1,1,\ldots
+                  \]
+                  \[
+                    1,1,3,3,5,5,\ldots
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Subsequences of \(\{(-1)^n\}\)</div>
+                  <p>Now let \(\{x_n\}\) be defined by</p>
+                  \[
+                    x_n=(-1)^n.
+                  \]
+                  <p>Then</p>
+                  \[
+                    \{x_{2k-1}\}=\{-1,-1,-1,\ldots\}
+                  \]
+                  <p>and</p>
+                  \[
+                    \{x_{2k}\}=\{1,1,1,\ldots\}
+                  \]
+                  <p>are subsequences of \(\{x_n\}\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">limits-of-subsequences/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Theorem: Limits of Subsequences</div>
+                  <p>If \(\{x_n\}\) converges to \(x\), then every subsequence \(\{x_{n_k}\}\) converges to \(x\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>Observe.</strong> Since \(\{n_k\}\) is a strictly increasing sequence of natural numbers,</p>
+                  \[
+                    n_k\geq k
+                    \qquad\text{for every }k\in\mathbb{N}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>Suppose \(x_n\to x\).</p>
+                  <p>Let \(\epsilon&gt;0\).</p>
+                  <p>Then there exists \(M\in\mathbb{N}\) such that, for every \(n\geq M\),</p>
+                  \[
+                    |x_n-x|&lt;\epsilon.
+                  \]
+                  <p>If \(k\geq M\), then</p>
+                  \[
+                    n_k\geq k\geq M.
+                  \]
+                  <p>Therefore,</p>
+                  \[
+                    |x_{n_k}-x|&lt;\epsilon.
+                  \]
+                  <p>Hence \(x_{n_k}\to x\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">using-subsequences-to-prove-divergence/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Using Subsequences to Prove Divergence</div>
+                  <p>Consider again the sequence \(\{x_n\}\) defined by</p>
+                  \[
+                    x_n=(-1)^n.
+                  \]
+                  <p>Its odd subsequence satisfies</p>
+                  \[
+                    x_{2k-1}=-1,
+                  \]
+                  <p>so</p>
+                  \[
+                    x_{2k-1}\to-1.
+                  \]
+                  <p>Its even subsequence satisfies</p>
+                  \[
+                    x_{2k}=1,
+                  \]
+                  <p>so</p>
+                  \[
+                    x_{2k}\to1.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>If \(\{x_n\}\) converged, then every subsequence would have to converge to the same limit.</p>
+                  <p>But the odd and even subsequences converge to different limits.</p>
+                  <p>Therefore,</p>
+                  \[
+                    \{(-1)^n\}\text{ does not converge.}
+                  \]
+                  <p>We may abbreviate the statement that a sequence does not converge by saying that the sequence <strong>DNC</strong>.</p>
                 </div>
               </details>
             </div>
