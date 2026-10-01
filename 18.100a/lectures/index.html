@@ -3291,7 +3291,45 @@
                 </div>
               </details>
 
-              <details class="lecture-node">
+                            <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">why-sequences/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <p>There are at least two situations in which it is natural to consider sequences and their convergence.</p>
+                  <ol>
+                    <li>
+                      <p>A sequence may encode a mathematical object; e.g., a Fourier series:</p>
+                      \[
+                        \{c_n\}
+                        \iff
+                        f\sim\sum_{n\in\mathbb{Z}}c_ne^{inx}.
+                      \]
+                      <p>A natural question is: What properties of \(f\) are characterized by type of convergence of the sequence \(\{c_n\}\)?</p>
+                    </li>
+                                        <div class="presentation-break" aria-hidden="true"></div>
+<li>
+                      <p>When solving certain problems, you may try generating a sequence of approximate solutions hoping the sequence converges to a solution.</p>
+                      <p>For example, suppose we wish to calculate</p>
+                      \[
+                        x=\operatorname*{argmin}\Psi
+                      \]
+                      <p>of some function \(\Psi\). One might try constructing or showing existence of \(\{x_n\}\) satisfying</p>
+                      \[
+                        \Psi(x_n)\geq\Psi(x_{n+1})\geq\cdots,
+                        \qquad
+                        \Psi(x_n)\to\min\Psi,
+                      \]
+                      <p>hoping \(\{x_n\}\) converges to some \(x\).</p>
+                    </li>
+                  </ol>
+                </div>
+              </details>
+
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -3580,7 +3618,22 @@
             </summary>
 
             <div class="lecture-children">
-              <details class="lecture-node">
+                            <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">goals/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <ol>
+                    <li>Partially characterize convergent sequences; i.e., offer an answer to "What do all convergent sequences necessarily satisfy?"</li>
+                    <li>Witness the proof strategy of splitting a problem into special cases.</li>
+                  </ol>
+                </div>
+              </details>
+
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">└──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -3668,6 +3721,15 @@
                   \]
                   <ul>
                     <li>Since \(|x_n|\leq M\) for all \(n\in\mathbb{N}\), we conclude \(\{x_n\}\) is bounded.</li>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>In short:</strong></p>
+                  <div style="width:min(1200px,100%);margin:12px auto 0;">
+                    <img src="proof-graphs/bounded-sequence-in-short.png"
+                         alt="Summary of the boundedness proof: finitely many initial terms are bounded by their finite maximum, while all remaining terms are bounded using convergence"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
                   </ul>
                 </div>
               </details>
@@ -3682,7 +3744,22 @@
             </summary>
 
             <div class="lecture-children">
-              <details class="lecture-node">
+                            <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">goals/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <ol>
+                    <li>Identify a sufficient condition for sequence convergence.</li>
+                    <li>In particular, we identify a class of sequences whose convergent sequences are completely characterized by a necessary and sufficient condition.</li>
+                  </ol>
+                </div>
+              </details>
+
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -3745,6 +3822,13 @@
                     \sup\{x_n:n\in\mathbb{N}\}.
                   \]
 
+                  
+                  <div style="width:min(1200px,100%);margin:18px auto 0;">
+                    <img src="proof-graphs/monotone-increasing-supremum-plot.png"
+                         alt="Monotone increasing sequence approaching its supremum from below"
+                         style="display:block;width:100%;height:auto;">
+                  </div>
+
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <p><span class="proof-label">Proof.</span></p>
@@ -3779,6 +3863,8 @@
                     x-\epsilon&lt;x_N\leq x.
                   \]
 
+                                    <p><strong>Recall:</strong> the existence of such an \(x_N\) is guaranteed by a characterization of supremum we proved before.</p>
+
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <p><strong>4.</strong> Since</p>
@@ -3792,16 +3878,27 @@
                   \]
                   <p>for all \(n\geq N\).</p>
 
-                                    <p>Hence, for all \(n\geq N\),</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                                    <p><strong>5.</strong> Since</p>
+                  \[
+                    \forall n\geq N,\qquad
+                    x-\epsilon&lt;x_N\leq x_n\leq x,
+                    \qquad
+                    x=\sup\{x_n:n\in\mathbb{N}\},
+                  \]
+                  <p>there holds</p>
                   \[
                     0\leq x-x_n&lt;\epsilon,
                   \]
                   <p>and therefore</p>
                   \[
-                    |x_n-x|=x-x_n&lt;\epsilon.
+                    \forall n\geq N,\qquad |x-x_n|=x-x_n&lt;\epsilon.
                   \]
 
-<p><strong>5.</strong> We have therefore shown: \(\forall\epsilon&gt;0\), \(\exists N\in\mathbb{N}\) such that</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+<p><strong>6.</strong> We have therefore shown: \(\forall\epsilon&gt;0\), \(\exists N\in\mathbb{N}\) such that</p>
                   \[
                     n\geq N\implies |x_n-x|&lt;\epsilon;
                   \]
@@ -3840,7 +3937,45 @@
             </summary>
 
             <div class="lecture-children">
-              <details class="lecture-node">
+                            <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">motivation/</span>
+                </summary>
+
+                                <div class="lecture-note">
+                  <p>Imagine an "almost monotonic" sequence such as</p>
+                  \[
+                    x_n=
+                    \begin{cases}
+                      1/n & \text{if \(n\) is even}\\
+                      1/n^3 & \text{if \(n\) is odd}
+                    \end{cases}
+                    \qquad\text{or}\qquad
+                    y_n=
+                    \begin{cases}
+                      1+1/n & \text{if \(n\) is even}\\
+                      1/n & \text{if \(n\) is odd.}
+                    \end{cases}
+                  \]
+                  <p>Evidently \(\{x_n\}\) ought to still converge and \(\{y_n\}\) ought to diverge.</p>
+                  <p>This <em>ought</em> to be true because all terms in \(\{x_n\}\) behave similarly, whereas, \(\{y_n\}\) admits two "subsequences" converging to the distinct real numbers \(0\) and \(1\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>An Aside.</strong> Suppose \(\{y_n\}\) above represents a minimizing sequence of some function \(\Psi\):</p>
+                  \[
+                    \Psi(y_n)\geq\Psi(y_{n+1}),
+                    \qquad
+                    \Psi(y_n)\to\min\Psi.
+                  \]
+                  <p>This suggests \(\Psi\) may have two minimizing inputs: \(0\) and \(1\).</p>
+                  <p><strong>The point:</strong> a divergent sequence may still admit useful subsequences.</p>
+                </div>
+              </details>
+
+<details class="lecture-node">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
@@ -3855,63 +3990,25 @@
                     \{x_{n_k}\}_{k=1}^{\infty}
                   \]
                   <p>is called a <strong>subsequence</strong> of \(\{x_n\}\).</p>
-                  <p>Informally, a subsequence is a sequence whose entries come from another given sequence, while preserving their original order.</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <div class="note-heading">Example</div>
-                  <p>Consider the sequence \(\{x_n\}\) defined by \(x_n=n\):</p>
-                  \[
-                    1,2,3,4,\ldots
-                  \]
-                  <p>The following are subsequences of \(\{x_n\}\):</p>
-                  \[
-                    1,3,5,7,9,11,\ldots
-                  \]
-                  \[
-                    2,4,6,8,10,\ldots
-                  \]
-                  \[
-                    2,3,5,7,11,13,\ldots
-                  \]
+                  <p><strong>Example 1.</strong></p>
+                  <p>If \(\{x_n\}\) is any sequence, then \(\{x_{2n}\}\) and \(\{x_{2n+1}\}\) define the subsequences of even and odd terms of \(\{x_n\}\), respectively.</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p>For the first two subsequences, the corresponding index sequences are</p>
-                  \[
-                    n_k=2k-1
-                    \qquad\text{and}\qquad
-                    n_k=2k,
-                  \]
-                  <p>respectively.</p>
-                  <p><strong>Question.</strong> How would we describe the third?</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <p>The following are <strong>not</strong> subsequences of \(\{x_n\}\):</p>
-                  \[
-                    1,1,1,1,1,\ldots
-                  \]
-                  \[
-                    1,1,3,3,5,5,\ldots
-                  \]
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
-                  <div class="note-heading">Subsequences of \(\{(-1)^n\}\)</div>
-                  <p>Now let \(\{x_n\}\) be defined by</p>
-                  \[
-                    x_n=(-1)^n.
-                  \]
+                  <p><strong>Example 2.</strong> Let \(\{x_n\}\) be defined by \(x_n = (-1)^n\).</p>
                   <p>Then</p>
                   \[
-                    \{x_{2k-1}\}=\{-1,-1,-1,\ldots\}
+                  \{x_{2n}\} = \{1,1,1,1,1,\ldots\}
                   \]
-                  <p>and</p>
                   \[
-                    \{x_{2k}\}=\{1,1,1,\ldots\}
+                  \{x_{2n+1}\} = \{-1,-1,-1,-1,-1,\ldots\}
                   \]
-                  <p>are subsequences of \(\{x_n\}\).</p>
+                  <p>define two distinct convergent subsequences with different limits.</p>
+
+
                 </div>
               </details>
 
@@ -3922,12 +4019,12 @@
                   <span class="lecture-label">limits-of-subsequences/</span>
                 </summary>
 
-                <div class="lecture-note">
+                                <div class="lecture-note">
                   <div class="note-heading">Theorem: Limits of Subsequences</div>
-                  <p>If \(\{x_n\}\) converges to \(x\), then every subsequence \(\{x_{n_k}\}\) converges to \(x\).</p>
-
-                  <div class="presentation-break" aria-hidden="true"></div>
-
+                  <p>If \(x_n\to x\), then every subsequence \(\{x_{n_k}\}\) satisfies</p>
+                  \[
+                    x_{n_k}\to x.
+                  \]
                   <p><strong>Observe.</strong> Since \(\{n_k\}\) is a strictly increasing sequence of natural numbers,</p>
                   \[
                     n_k\geq k
@@ -3937,17 +4034,16 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <p><span class="proof-label">Proof.</span></p>
-                  <p>Suppose \(x_n\to x\).</p>
-                  <p>Let \(\epsilon&gt;0\).</p>
-                  <p>Then there exists \(M\in\mathbb{N}\) such that, for every \(n\geq M\),</p>
+                  <p>Suppose \(x_n\to x\). Let \(\epsilon&gt;0\).</p>
+                  <p>Choose \(M\in\mathbb{N}\) such that</p>
                   \[
-                    |x_n-x|&lt;\epsilon.
+                    n\geq M\implies |x_n-x|&lt;\epsilon.
                   \]
                   <p>If \(k\geq M\), then</p>
                   \[
-                    n_k\geq k\geq M.
+                    n_k\geq k\geq M,
                   \]
-                  <p>Therefore,</p>
+                  <p>and therefore</p>
                   \[
                     |x_{n_k}-x|&lt;\epsilon.
                   \]
@@ -3962,38 +4058,35 @@
                   <span class="lecture-label">using-subsequences-to-prove-divergence/</span>
                 </summary>
 
-                <div class="lecture-note">
+                                <div class="lecture-note">
                   <div class="note-heading">Using Subsequences to Prove Divergence</div>
-                  <p>Consider again the sequence \(\{x_n\}\) defined by</p>
+                  <p>Let \(\{x_n\}\) be defined by</p>
                   \[
                     x_n=(-1)^n.
                   \]
-                  <p>Its odd subsequence satisfies</p>
+                  <p>Its odd and even subsequences satisfy</p>
                   \[
-                    x_{2k-1}=-1,
+                    x_{2k-1}=-1
+                    \qquad\Longrightarrow\qquad
+                    x_{2k-1}\to-1,
                   \]
-                  <p>so</p>
                   \[
-                    x_{2k-1}\to-1.
-                  \]
-                  <p>Its even subsequence satisfies</p>
-                  \[
-                    x_{2k}=1,
-                  \]
-                  <p>so</p>
-                  \[
+                    x_{2k}=1
+                    \qquad\Longrightarrow\qquad
                     x_{2k}\to1.
                   \]
+                  <p>Thus \(\{x_n\}\) has two subsequences converging to distinct limits.</p>
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p>If \(\{x_n\}\) converged, then every subsequence would have to converge to the same limit.</p>
-                  <p>But the odd and even subsequences converge to different limits.</p>
-                  <p>Therefore,</p>
+                  <p>If \(\{x_n\}\) converged to some \(x\in\mathbb{R}\), then every subsequence would converge to \(x\).</p>
+                  <p>But</p>
                   \[
-                    \{(-1)^n\}\text{ does not converge.}
+                    x_{2k-1}\to-1
+                    \qquad\text{and}\qquad
+                    x_{2k}\to1.
                   \]
-                  <p>We may abbreviate the statement that a sequence does not converge by saying that the sequence <strong>DNC</strong>.</p>
+                  <p>Therefore \(\{(-1)^n\}\) diverges.</p>
                 </div>
               </details>
             </div>
