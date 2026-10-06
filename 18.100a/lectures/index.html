@@ -3935,7 +3935,7 @@
 
           <details class="lecture-node lecture-chapter">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">subsequences/</span>
             </summary>
@@ -4091,6 +4091,712 @@
                     x_{2k}\to1.
                   \]
                   <p>Therefore \(\{(-1)^n\}\) diverges.</p>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter lecture8-single-spaced">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">limit-theorems-for-sequences/</span>
+            </summary>
+
+            <style>
+              .lecture8-single-spaced .lecture-note { line-height: 1.2; }
+              .lecture8-single-spaced .lecture-note p,
+              .lecture8-single-spaced .lecture-note ol,
+              .lecture8-single-spaced .lecture-note ul {
+                margin-bottom: 8px;
+                line-height: 1.2;
+              }
+              .lecture8-single-spaced .lecture-note li { margin: 2px 0; }
+              .lecture8-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+                margin: 0.55em 0 !important;
+              }
+            </style>
+
+            <div class="lecture-children">
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">squeeze-theorem/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">The Squeeze Theorem</div>
+                  <p><strong>Theorem.</strong> Let \(\{a_n\}\), \(\{b_n\}\), and \(\{x_n\}\) be sequences of real numbers, and let \(x\in\mathbb{R}\).</p>
+                  <p>Suppose that for every \(n\in\mathbb{N}\),</p>
+                  \[
+                    a_n\leq x_n\leq b_n.
+                  \]
+                  <p>Suppose also that \(\{a_n\}\) and \(\{b_n\}\) converge to the same limit:</p>
+                  \[
+                    \lim a_n=x=\lim b_n.
+                  \]
+                  <p>Then \(\{x_n\}\) converges and</p>
+                  \[
+                    \lim x_n=x.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proof</div>
+                  <p><strong>WTS.</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad x-\varepsilon&lt;x_n&lt;x+\varepsilon
+                  \]
+                  <p><strong>Idea.</strong> Show both</p>
+                  \[
+                    x-\varepsilon&lt;a_n\ \text{and}\ b_n&lt;x+\varepsilon
+                  \]
+                  <p>then appeal to \(a_n\leq x_n\leq b_n\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(\varepsilon&gt;0\).</p>
+                  \[
+                  \begin{aligned}
+                    \textbf{(i)}\quad a_n\to x
+                    &\implies \exists N_1\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_1,\ |a_n-x|&lt;\varepsilon \\
+                    &\implies \forall n\geq N_1,\ x-\varepsilon&lt;a_n.
+                  \end{aligned}
+                  \]
+
+                  \[
+                  \begin{aligned}
+                    \textbf{(ii)}\quad b_n\to x
+                    &\implies \exists N_2\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_2,\ |b_n-x|&lt;\varepsilon \\
+                    &\implies \forall n\geq N_2,\ b_n&lt;x+\varepsilon.
+                  \end{aligned}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Choose</p>
+                  \[
+                    N=\max\{N_1,N_2\}.
+                  \]
+                  <p>Combining</p>
+                  \[
+                    \forall n\geq N_1,\quad x-\varepsilon&lt;a_n
+                  \]
+                  \[
+                    \forall n\geq N_2,\quad b_n&lt;x+\varepsilon
+                  \]
+                  \[
+                    \forall n\in\mathbb{N},\quad a_n\leq x_n\leq b_n
+                  \]
+                  <p>we obtain</p>
+                  \[
+                    \forall n\geq N,\quad x-\varepsilon&lt;a_n\leq x_n\leq b_n&lt;x+\varepsilon
+                    \implies \forall n\geq N,\quad |x_n-x|&lt;\varepsilon.
+                  \]
+                  <p>Since \(\varepsilon&gt;0\) was arbitrary, we conclude \(x_n\to x\).</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">equivalent-definition-of-convergence/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">An Equivalent Way to Check Convergence</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a sequence of real numbers and let \(x\in\mathbb{R}\).</p>
+                  <p>Then</p>
+                  \[
+                    \lim x_n=x
+                    \quad\Longleftrightarrow\quad
+                    \lim |x_n-x|=0.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <p>Observe:</p>
+                  \[
+                    x_n\to x
+                  \]
+                  <p>\(\Longleftrightarrow\)</p>
+                  \[
+                    \forall \varepsilon&gt;0,\ \exists N\in\mathbb{N}
+                    \text{ s.t. }
+                    \forall n\geq N,\quad |x_n-x|&lt;\varepsilon
+                  \]
+                  <p>\(\Longleftrightarrow\)</p>
+                  \[
+                    \forall \varepsilon&gt;0,\ \exists N\in\mathbb{N}
+                    \text{ s.t. }
+                    \forall n\geq N,\quad
+                    \bigl||x_n-x|-0\bigr|=|x_n-x|&lt;\varepsilon
+                  \]
+                  <p>\(\Longleftrightarrow\)</p>
+                  \[
+                    |x_n-x|\to0.
+                  \]
+                  <p>\(\square\)</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">example/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Example</div>
+                  <p>Show that</p>
+                  \[
+                    \lim \frac{n^2+1}{n^2+n}=1.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>By the equivalent definition of convergence, this means showing that</p>
+                  \[
+                    \left|\frac{n^2+1}{n^2+n}-1\right|\to0.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Observe</p>
+                  \[
+                  \begin{aligned}
+                    \left|\frac{n^2+1}{n^2+n}-1\right|
+                    &amp;=\left|\frac{1-n}{n^2+n}\right|\\
+                    &amp;=\frac{n-1}{n(n+1)}\\
+                    &amp;\leq\frac{n+1}{n(n+1)}\\
+                    &amp;=\frac{1}{n}.
+                  \end{aligned}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Thus</p>
+                  \[
+                    0\leq
+                    \left|\frac{n^2+1}{n^2+n}-1\right|
+                    \leq\frac1n\to0.
+                  \]
+                  <p>By the squeeze theorem,</p>
+                  \[
+                    \left|\frac{n^2+1}{n^2+n}-1\right|\to0.
+                  \]
+                  <p>By the equivalent definition of convergence,</p>
+                  \[
+                    \lim \frac{n^2+1}{n^2+n}=1.
+                  \]
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">limits-and-order/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">How Limits Interact with Ordering</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) and \(\{y_n\}\) be convergent sequences of real numbers, and let \(a,b\in\mathbb{R}\).</p>
+                  <p><strong>(i)</strong> If \(x_n\leq y_n\) for every \(n\in\mathbb{N}\), then</p>
+                  \[
+                    \lim x_n\leq \lim y_n.
+                  \]
+                  <p><strong>(ii)</strong> If \(a\leq x_n\leq b\) for every \(n\in\mathbb{N}\), then</p>
+                  \[
+                    a\leq \lim x_n\leq b.
+                  \]
+                  <p><strong>Remark.</strong> In both statements, “for every \(n\in\mathbb{N}\)” can be relaxed to “for every sufficiently large \(n\in\mathbb{N}\)”.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proof of (i): \(x_n\leq y_n\implies \lim x_n\leq\lim y_n\)</div>
+                  <p>Let</p>
+                  \[
+                    x=\lim x_n,
+                    \qquad
+                    y=\lim y_n.
+                  \]
+                  <p>Suppose for contradiction that \(y&lt;x\); we show \(\exists N\in\mathbb{N}\) such that \(y_N&lt;x_N\), contradicting \(\forall n\in\mathbb{N},\ x_n\leq y_n\).</p>
+                  <p><strong>Observe:</strong> for sufficiently large \(n\),</p>
+                  \[
+                    x-\varepsilon&lt;x_n\quad \text{and} \quad y_n&lt;y+\varepsilon
+                  \]
+                  <p><strong>Idea.</strong> Choose \(\varepsilon&gt;0\) so that</p>
+                  \[
+                    y+\varepsilon\leq x-\varepsilon
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Letting</p>
+                  \[
+                    \varepsilon:=\frac{x-y}{2}&gt;0,
+                  \]
+                  <p>observe</p>
+                  \[
+                  \begin{aligned}
+                    x_n\to x
+                    &amp;\implies \exists N_0\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_0,\ |x_n-x|&lt;\varepsilon\\
+                    &amp;\implies \forall n\geq N_0,\ x_n&gt;x-\varepsilon=\frac{x+y}{2},
+                  \end{aligned}
+                  \]
+                  <p>and</p>
+                  \[
+                  \begin{aligned}
+                    y_n\to y
+                    &amp;\implies \exists N_1\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_1,\ |y_n-y|&lt;\varepsilon\\
+                    &amp;\implies \forall n\geq N_1,\ y_n&lt;y+\varepsilon=\frac{x+y}{2}.
+                  \end{aligned}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Choose</p>
+                  \[
+                    N=\max\{N_0,N_1\}.
+                  \]
+                  <p>Then, by work above,</p>
+                  \[
+                    y_N&lt;\frac{x+y}{2}&lt;x_N,
+                  \]
+                  <p>contradicting \(\forall n\in\mathbb{N},\ x_n\leq y_n\), thereby proving <strong>(i)</strong>.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Proof of (ii): \(a\leq x_n\leq b\implies a\leq\lim x_n\leq b\)</div>
+                  <p>The constant sequences \(\{a\}\) and \(\{b\}\) converge to \(a\) and \(b\), respectively.</p>
+                  <p>Since \(a\leq x_n\leq b\), applying <strong>(i)</strong> twice gives</p>
+                  \[
+                    a=\lim a
+                    \leq\lim x_n
+                    \leq\lim b=b.
+                  \]
+                  <p>This proves <strong>(ii)</strong>.</p>
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">algebra-of-limits/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Algebra of Limits</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) and \(\{y_n\}\) be sequences of real numbers, and let \(x,y\in\mathbb{R}\).</p>
+                  <p>Suppose</p>
+                  \[
+                    \lim x_n=x,
+                    \qquad
+                    \lim y_n=y.
+                  \]
+                  <p>Then:</p>
+                  <ol>
+                    <li>\(x_n+y_n\to x+y\).</li>
+                    <li>For every \(c\in\mathbb{R}\), \(cx_n\to cx\).</li>
+                    <li>\(x_ny_n\to xy\).</li>
+                    <li>If \(y_n\neq0\) for every \(n\in\mathbb{N}\) and \(y\neq0\), then \(x_n/y_n\to x/y\).</li>
+                  </ol>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">1. Limits Are Additive: \(x_n+y_n\to x+y\)</div>
+                  <p><strong>WTS:</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |x_n+y_n-(x+y)|&lt;\varepsilon.
+                  \]
+                  <p>Triangle inequality gives</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |x_n+y_n-(x+y)|\leq |x_n-x|+|y_n-y|.
+                  \]
+                  <p><strong>Idea:</strong> use \(x_n\to x\) and \(y_n\to y\).</p>
+                  <p><strong>Remark.</strong> Note we cannot yet appeal to the squeeze theorem here.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  \[
+                    \textbf{(i)}\quad x_n\to x\implies \forall\varepsilon&gt;0,\ \exists N_1\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_1,\quad |x_n-x|&lt;\frac{\varepsilon}{2}.
+                  \]
+                  \[
+                    \textbf{(ii)}\quad y_n\to y\implies \forall\varepsilon&gt;0,\ \exists N_2\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N_2,\quad |y_n-y|&lt;\frac{\varepsilon}{2}.
+                  \]
+                  <p>Letting \(N=\max\{N_1,N_2\}\):</p>
+                  \[
+                    \forall n\geq N,\quad
+                    |x_n-x|&lt;\frac{\varepsilon}{2}
+                    \quad\text{and}\quad
+                    |y_n-y|&lt;\frac{\varepsilon}{2}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Combining</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad
+                    |x_n+y_n-(x+y)|\leq |x_n-x|+|y_n-y|
+                  \]
+                  <p>and</p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\
+                    \forall n\geq N,\quad
+                    |x_n-x|&lt;\frac{\varepsilon}{2}
+                    \quad\text{and}\quad
+                    |y_n-y|&lt;\frac{\varepsilon}{2},
+                  \]
+                  <p>we conclude</p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\
+                    \forall n\geq N,\quad
+                    |x_n+y_n-(x+y)|&lt;\varepsilon.
+                  \]
+                  <p>Therefore \(x_n+y_n\to x+y\).</p>
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">2. Limits Under Scalar Multiplication: \(cx_n\to cx\)</div>
+                  <p><strong>Note:</strong> if \(c=0\), then \(cx_n=0\) and \(cx_n\to0\) trivially.</p>
+                  <p>Assume \(c\neq0\).</p>
+                  <p><strong>WTS:</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |cx_n-cx|&lt;\varepsilon
+                  \]
+                  <p><strong>Observe:</strong></p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |cx_n-cx|=|c|\,|x_n-x|.
+                  \]
+                  <p><strong>Idea:</strong> use \(x_n\to x\) with suitably chosen “\(\varepsilon\)” to control \(|c|\,|x_n-x|\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Using \(x_n\to x\),</p>
+                  \[
+                    \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |x_n-x|&lt;\frac{\varepsilon}{|c|}
+                  \]
+                  <p>Combining with</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |cx_n-cx|=|c|\,|x_n-x|.
+                  \]
+                  <p>we conclude</p>
+                  \[
+                    \forall n\geq N,\quad |cx_n-cx|=|c|\,|x_n-x|&lt;\varepsilon.
+                  \]
+                  <p>Therefore \(cx_n\to cx\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">3. Limits of Products: \(x_ny_n\to xy\)</div>
+                  <p><strong>WTS:</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |x_ny_n-xy|&lt;\varepsilon.
+                  \]
+                  <p><strong>Observe:</strong></p>
+                  \[
+                  \begin{aligned}
+                    \forall n\in\mathbb{N},\quad |x_ny_n-xy|
+                    &amp;=|x_ny_n-y_nx+y_nx-xy|\\
+                    &amp;\leq |y_n(x_n-x)|+|x(y_n-y)|\\
+                    &amp;=|y_n|\,|x_n-x|+|x|\,|y_n-y|.
+                  \end{aligned}
+                  \]
+                  <p><strong>Idea.</strong> control \(|y_n|\), \(|x_n-x|\), and \(|y_n-y|\); e.g., try showing</p>
+                  \[
+                    \exists M\geq0\ \text{and}\ \exists N\in\mathbb{N}\ \text{s.t.}
+                  \]
+                  \[
+                    \forall n\geq N,\quad
+                    |y_n|\leq M,\quad
+                    |x_n-x|&lt;\frac{\varepsilon}{2(M+1)},\quad
+                    |y_n-y|&lt;\frac{\varepsilon}{2(|x|+1)}.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(\varepsilon&gt;0\) be arbitrary.</p>
+                  <p><strong>(i)</strong> Using \(y_n\to y\), \(\exists N_1\in\mathbb{N}\) s.t.</p>
+                  \[
+                    \forall n\geq N_1,\quad |y_n-y|&lt;\frac{\varepsilon}{2(|x|+1)}
+                  \]
+                  <p><strong>(ii)</strong> Using \(y_n\to y\), \(\{y_n\}\) is bounded and hence \(\exists M\geq0\) such that</p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |y_n|\leq M.
+                  \]
+                  <p><strong>(iii)</strong> Using \(x_n\to x\), \(\exists N_2\in\mathbb{N}\) s.t.</p>
+                  \[
+                    \forall n\geq N_2,\quad |x_n-x|&lt;\frac{\varepsilon}{2(M+1)}
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(N=\max\{N_1,N_2\}\).</p>
+                  <p>Combining</p>
+                  <ul>
+                    <li>
+                      \[
+                        \forall n\in\mathbb{N},\quad |y_n|\,|x_n-x|\leq M|x_n-x|
+                      \]
+                    </li>
+                    <li>
+                      \[
+                        \forall n\geq N_1,\quad |y_n-y|&lt;\frac{\varepsilon}{2(|x|+1)}
+                      \]
+                    </li>
+                    <li>
+                      \[
+                        \forall n\geq N_2,\quad |x_n-x|&lt;\frac{\varepsilon}{2(M+1)}
+                      \]
+                    </li>
+                    <li>
+                      \[
+                        \forall n\in\mathbb{N},\quad |x_ny_n-xy|\leq |y_n|\,|x_n-x|+|x|\,|y_n-y|
+                      \]
+                    </li>
+                  </ul>
+                  <p>we conclude</p>
+                  \[
+                  \begin{aligned}
+                    \forall n\geq N,\quad |x_ny_n-xy|
+                    &amp;&lt;M\frac{\varepsilon}{2(M+1)}+|x|\frac{\varepsilon}{2(|x|+1)} \\
+                    &amp;\leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+                  \end{aligned}
+                  \]
+                  <p>Therefore \(x_ny_n\to xy\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">4. Limits of Quotients: \(\frac{x_n}{y_n}\to\frac{x}{y}\)</div>
+                  <p>By <strong>3.</strong>, it suffices to show</p>
+                  \[
+                    \frac1{y_n}\to\frac1y.
+                  \]
+                  <p><span class="proof-label">Proof.</span> Proof by being a problem in pset3.</p>
+
+                </div>
+              </details>
+
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">square-roots-and-absolute-values/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Square Roots</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a convergent sequence of real numbers such that \(x_n\geq0\) for every \(n\in\mathbb{N}\).</p>
+                  <p>Then</p>
+                  \[
+                    \lim \sqrt{x_n}
+                    =
+                    \sqrt{\lim x_n}.
+                  \]
+                  <p><span class="proof-label">Proof.</span> Let</p>
+                  \[
+                    x=\lim x_n.
+                  \]
+                  <p>Since \(x_n\geq0\) for every \(n\in\mathbb{N}\), the order theorem gives \(x\geq0\).</p>
+                  <p>We show \(\sqrt{x_n}\to\sqrt{x}\) by considering the cases \(x=0\) and \(x&gt;0\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Case 1: \(x=0\)</div>
+                  <p><strong>WTS:</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |\sqrt{x_n}-0|&lt;\varepsilon.
+                  \]
+                  <p><strong>Observe:</strong></p>
+                  \[
+                    \forall n\in\mathbb{N},\quad |\sqrt{x_n}-0|=\sqrt{x_n}.
+                  \]
+                  <p><strong>Idea.</strong> Use observation that \(\sqrt{x_n}&lt;\varepsilon\) iff \(x_n&lt;\varepsilon^2\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(\varepsilon&gt;0\) be arbitrary.</p>
+                  <p>Using \(x_n\to0\), \(\exists N\in\mathbb{N}\) s.t.</p>
+                  \[
+                    \forall n\geq N,\quad |x_n|=x_n&lt;\varepsilon^2.
+                  \]
+                  <p>Combining with the observation above,</p>
+                  \[
+                    \forall n\geq N,\quad
+                    |\sqrt{x_n}-0|=\sqrt{x_n}&lt;\sqrt{\varepsilon^2}=\varepsilon.
+                  \]
+                  <p>Therefore \(\sqrt{x_n}\to0=\sqrt{x}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Case 2: \(x&gt;0\)</div>
+                  <p><strong>WTS:</strong></p>
+                  \[
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |\sqrt{x_n}-\sqrt{x}|&lt;\varepsilon.
+                  \]
+                  <p><strong>Observe:</strong></p>
+                  \[
+                    \forall n\in\mathbb{N},\quad
+                    |\sqrt{x_n}-\sqrt{x}|
+                    =\frac{|x_n-x|}{\sqrt{x_n}+\sqrt{x}}
+                    \leq\frac{1}{\sqrt{x}}|x_n-x|.
+                  \]
+                  <p><strong>Idea.</strong> Since \(\sqrt{x}\) does not depend on \(n\), control \(|x_n-x|\) in terms of “\(\varepsilon\)” depending on \(\sqrt{x}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(\varepsilon&gt;0\) be arbitrary.</p>
+                  <p>Since \(x&gt;0\), we have \(\varepsilon\sqrt{x}&gt;0\).</p>
+                  <p>Using \(x_n\to x\), \(\exists N\in\mathbb{N}\) s.t.</p>
+                  \[
+                    \forall n\geq N,\quad |x_n-x|&lt;\varepsilon\sqrt{x}.
+                  \]
+                  <p>Combining with the observation above,</p>
+                  \[
+                    \forall n\geq N,\quad
+                    |\sqrt{x_n}-\sqrt{x}|
+                    \leq\frac{1}{\sqrt{x}}|x_n-x|
+                    &lt;\varepsilon.
+                  \]
+                  <p>Therefore \(\sqrt{x_n}\to\sqrt{x}\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">Absolute Values</div>
+                  <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a sequence of real numbers and let \(x\in\mathbb{R}\).</p>
+                  <p>If \(x_n\to x\), then</p>
+                  \[
+                    |x_n|\to |x|.
+                  \]
+
+                  <div class="note-heading">Proof</div>
+                  <p>First note that for every real number \(t\),</p>
+                  \[
+                    \sqrt{t^2}=|t|.
+                  \]
+                  <p>Since \(x_n^2\to x^2\), the square root theorem gives</p>
+                  \[
+                    \lim |x_n|
+                    =\lim \sqrt{x_n^2}
+                    =\sqrt{x^2}
+                    =|x|.
+                  \]
+                </div>
+              </details>
+
+                            <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">geometric-sequences/</span>
+                </summary>
+
+                <div class="lecture-note">
+                  <div class="note-heading">Geometric Sequences</div>
+                  <p><strong>Theorem.</strong> Let \(c\in\mathbb{R}\).</p>
+                  <p>If \(0&lt;c&lt;1\), then</p>
+                  \[
+                    \lim c^n=0.
+                  \]
+                  <p>If \(c&gt;1\), then \(\{c^n\}\) is unbounded.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><span class="proof-label">Proof.</span></p>
+                  <div class="note-heading">The Case \(0&lt;c&lt;1\)</div>
+                  <p><strong>Outline.</strong></p>
+                  <ol>
+                    <li>Show \(\{c^n\}\) is bounded below and monotone decreasing, and hence has limit \(L\).</li>
+                    <li>Show \(\forall\varepsilon&gt;0,\ |L|&lt;\varepsilon\), and hence \(L=0\).</li>
+                  </ol>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>1.</strong> We show by induction</p>
+                  \[
+                    \forall n\in\mathbb{N},\qquad 0&lt;c^{n+1}&lt;c^n&lt;1.
+                  \]
+                  <p><span class="step-label">Base case:</span> \(n=1\).</p>
+                  \[
+                    0&lt;c&lt;1
+                    \implies
+                    0&lt;c^2&lt;c&lt;1
+                  \]
+                  <p>by multiplication by \(c\).</p>
+                  <p><span class="step-label">Inductive step.</span></p>
+                  \[
+                    \forall n\in\mathbb{N},\qquad
+                    \bigl(0&lt;c^{n+1}&lt;c^n&lt;1\ \text{ and }\ 0&lt;c&lt;1\bigr)
+                    \implies
+                    0&lt;c^{n+2}&lt;c^{n+1}&lt;1.
+                  \]
+                  <p>Consequently, \(\{c^n\}\) is bounded below and monotone decreasing.</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>2.</strong> By <strong>1.</strong>, there exists \(L\in\mathbb{R}\) such that</p>
+                  \[
+                    L=\lim c^n.
+                  \]
+                  <p>We show \(L=0\) by showing \(\forall\varepsilon&gt;0,\ |L|&lt;\varepsilon\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p><strong>WTS.</strong> \(\forall\varepsilon&gt;0,\ |L|&lt;\varepsilon\).</p>
+                  <p>This suggests using \(c^n\to L\) to have access to “\(\forall\varepsilon&gt;0\)”.</p>
+                  <p>Observe, for every \(N\in\mathbb{N}\),</p>
+                  \[
+                  \begin{aligned}
+                    |L|
+                    &amp;=\frac{1-c}{1-c}|L| = \frac{1}{1-c}|L-cL|\\
+                    &amp;\leq \frac{1}{1-c}\left(|L-c^{N+1}|+|c^{N+1}-cL|\right)\\
+                    &amp;=\frac{1}{1-c}\left(|L-c^{N+1}|+c|L-c^N|\right).
+                  \end{aligned}
+                  \]
+                  <p><strong>Note.</strong> We now have access to using \(c^n\to L\).</p>
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Since \(c^n\to L\): \(\forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\) s.t.</p>
+                  \[
+                    \forall n\geq N,\quad |L-c^n|&lt;\varepsilon
+                  \]
+                  <p>Then</p>
+                  \[
+                    |L|\leq\frac{1}{1-c}\left(|L-c^{N+1}|+c|L-c^N|\right)
+                    &lt;\frac{1+c}{1-c}\varepsilon.
+                  \]
+                  <p>Since \(\frac{1+c}{1-c}&gt;0\), this implies \(\forall\varepsilon&gt;0,\ |L|&lt;\varepsilon\) and hence \(L=0\).</p>
+                  <p>In conclusion: if \(0&lt;c&lt;1\), then</p>
+                  \[
+                    \lim c^n=0.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <div class="note-heading">The Case \(c&gt;1\)</div>
+                  <p>We show that for every \(B\geq0\), there exists \(n\in\mathbb{N}\) such that \(c^n&gt;B\).</p>
+                  <p>Let \(B\geq0\).</p>
+                  <p>Choose \(n\in\mathbb{N}\) such that</p>
+                  \[
+                    n&gt;\frac{B}{c-1}.
+                  \]
+                  <p>Then, using \( (1+t)^n\geq 1+nt \) with \(t=c-1\),</p>
+                  \[
+                  \begin{aligned}
+                    c^n
+                    &amp;=(1+(c-1))^n\\
+                    &amp;\geq 1+n(c-1)\\
+                    &amp;\geq n(c-1)\\
+                    &amp;&gt;B.
+                  \end{aligned}
+                  \]
+                  <p>Therefore \(\{c^n\}\) is unbounded.</p>
                 </div>
               </details>
             </div>
