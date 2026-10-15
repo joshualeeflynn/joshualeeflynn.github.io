@@ -238,6 +238,19 @@
       text-align: left;
       line-height: 1.25;
     }
+    /* Lecture 9 follows the spacing of the preceding lecture. */
+    .lecture9-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture9-single-spaced .lecture-note p,
+    .lecture9-single-spaced .lecture-note ol,
+    .lecture9-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture9-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture9-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture9-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
   </style>
   <script>
     window.MathJax = {
@@ -4098,7 +4111,7 @@
 
           <details class="lecture-node lecture-chapter lecture8-single-spaced">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">limit-theorems-for-sequences/</span>
             </summary>
@@ -4689,9 +4702,56 @@
                 </div>
               </details>
 
-                            <details class="lecture-node">
+                            <details class="lecture-node lecture9-single-spaced" id="lecture9-binomial">
                 <summary>
-                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">binomial-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-binomial-1">
+                    <p><strong>Definition.</strong> For \(n\in\mathbb{N}\), define <em>\(n\) factorial</em> by</p>
+                    \[
+                      n!:=1\cdot2\cdots n,\qquad 0!:=1.
+                    \]
+                    <p>For integers \(0\leq k\leq n\), the <em>binomial coefficient</em> is</p>
+                    \[
+                      \binom nk:=\frac{n!}{k!(n-k)!}.
+                    \]
+                    <p><strong>Observe.</strong></p>
+                    \[
+                      \binom n0=\binom nn=1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-binomial-2">
+                    <p><strong>Theorem (Binomial Theorem).</strong> For \(a,b\in\mathbb{R}\) and \(n\in\mathbb{N}\),</p>
+                    \[
+                      (a+b)^n=\sum_{k=0}^{n}\binom nk a^{n-k}b^k.
+                    \]
+                    <p><strong>Proof.</strong> Follows from inducting on the exponent \(n\) and Pascal's identity:</p>
+                    \[
+                      \binom nk+\binom n{k-1}=\binom{n+1}{k}\qquad(1\leq k\leq n).
+                    \]
+                    <p>The details are left as an exercise.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-binomial-3">
+                    <p><strong>Corollary (binomial inequality).</strong> For \(t\geq0\) and \(n\in\mathbb{N}\),</p>
+                    \[
+                      (1+t)^n\geq1+nt,\qquad (1+t)^n\geq\binom nk t^k\quad(0\leq k\leq n).
+                    \]
+                    <p><strong>Proof.</strong> Take \(a=1\) and \(b=t\):</p>
+                    \[
+                      (1+t)^n=\sum_{k=0}^{n}\binom nk t^k.
+                    \]
+                    <p>Every term is nonnegative, and the \(k=0,1\) terms sum to \(1+nt\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node">
+                <summary>
+                  <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
                   <span class="lecture-label">geometric-sequences/</span>
                 </summary>
@@ -4739,7 +4799,7 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p><strong>2.</strong> By <strong>1.</strong>, there exists \(L\in\mathbb{R}\) such that</p>
+                  <p><strong>2.</strong> Since <strong>1.</strong> \(\implies\) \(\{c^n\}\) is bounded and monotone, \(\exists L\in\mathbb{R}\) s.t.</p>
                   \[
                     L=\lim c^n.
                   \]
@@ -4762,9 +4822,9 @@
 
                   <div class="presentation-break" aria-hidden="true"></div>
 
-                  <p>Since \(c^n\to L\): \(\forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\) s.t.</p>
+                  <p>Since \(c^n\to L\):</p>
                   \[
-                    \forall n\geq N,\quad |L-c^n|&lt;\varepsilon
+                    \forall\varepsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad |L-c^n|&lt;\varepsilon
                   \]
                   <p>Then</p>
                   \[
@@ -4780,13 +4840,19 @@
                   <div class="presentation-break" aria-hidden="true"></div>
 
                   <div class="note-heading">The Case \(c&gt;1\)</div>
-                  <p>We show that for every \(B\geq0\), there exists \(n\in\mathbb{N}\) such that \(c^n&gt;B\).</p>
-                  <p>Let \(B\geq0\).</p>
-                  <p>Choose \(n\in\mathbb{N}\) such that</p>
+                  <p><strong>WTS.</strong> \(c&gt;1\implies\{c^n\}\text{ is unbounded}\); i.e.,</p>
+                  \[
+                    \forall B\geq0,\ \exists n\in\mathbb{N}\ \text{s.t.}\ c^n&gt;B.
+                  \]
+
+                  <div class="presentation-break" aria-hidden="true"></div>
+
+                  <p>Let \(B\geq0\) be arbitrary.</p>
+                  <p>Use the Archimedean property and \(c&gt;1\) to choose \(n\in\mathbb{N}\) s.t.</p>
                   \[
                     n&gt;\frac{B}{c-1}.
                   \]
-                  <p>Then, using \( (1+t)^n\geq 1+nt \) with \(t=c-1\),</p>
+                  <p>Using the binomial inequality and \(c&gt;1\):</p>
                   \[
                   \begin{aligned}
                     c^n
@@ -4796,11 +4862,423 @@
                     &amp;&gt;B.
                   \end{aligned}
                   \]
-                  <p>Therefore \(\{c^n\}\) is unbounded.</p>
+                  <p>Since \(B\) was arbitrary, \(\{c^n\}\) is unbounded.</p>
+
+                </div>
+              </details>
+              <details class="lecture-node lecture9-single-spaced" id="lecture9-power-decay">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">negative-powers/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-power-decay-1">
+                    <p><strong>Theorem.</strong> For each fixed \(p&gt;0\),</p>
+                    \[
+                      \lim_{n\to\infty}n^{-p}=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-power-decay-2">
+                    <p><strong>WTS.</strong></p>
+                    \[
+                      \forall\epsilon&gt;0,\ \exists N\in\mathbb{N}\ \text{s.t.}\ \forall n\geq N,\quad \left|\frac{1}{n^p}-0\right|=\left|\frac{1}{n^p}\right|&lt;\epsilon.
+                    \]
+                    <p><strong>Observe.</strong> Since \(p&gt;0\),</p>
+                    \[
+                      \frac{1}{n^p}&lt;\epsilon
+                      \quad\Longleftrightarrow\quad
+                      n&gt;\left(\frac{1}{\epsilon}\right)^{1/p}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-power-decay-3">
+                    <p><strong>Proof.</strong> Let \(\epsilon&gt;0\) be arbitrary.</p>
+                    <p>By Archimedean property:</p>
+                    \[
+                      \exists N\in\mathbb{N}\ \text{s.t.}\ N&gt;\left(\frac{1}{\epsilon}\right)^{1/p}.
+                    \]
+                    <p>Consequently</p>
+                    \[
+                      \forall n\geq N,\quad\frac{1}{n^p}\leq\frac{1}{N^p}&lt;\epsilon.
+                    \]
+                    <p>Since \(\epsilon\) was arbitrary, it follows that \(1/n^p\to0\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture9-single-spaced" id="lecture9-fixed-roots">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">roots-of-a-fixed-positive-number/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-fixed-roots-1">
+                    <p><strong>Theorem.</strong> For each fixed \(p&gt;0\),</p>
+                    \[
+                      \lim_{n\to\infty}p^{1/n}=1.
+                    \]
+                    <p>Here \(p^{1/n}\) denotes the positive \(n\)th root of \(p\).</p>
+                    <p><strong>Proof outline.</strong> First handle \(p&gt;1\).</p>
+                    <p>Then handle \(0&lt;p&lt;1\) by taking reciprocals and \(p=1\) directly.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-fixed-roots-2">
+                    <div class="note-heading">The Case \(p&gt;1\)</div>
+                    <p><strong>WTS.</strong> \(p^{1/n}-1\to0\).</p>
+                    <p><strong>Observe.</strong> Set \(u_n=p^{1/n}-1&gt;0\).</p>
+                    <p>By the binomial inequality,</p>
+                    \[
+                      p=(1+u_n)^n\geq1+nu_n.
+                    \]
+                    <p><strong>Idea.</strong> Since \(p\) is fixed and \(n\to\infty\), intuitively \(u_n\) must tend to \(0\).</p>
+                    <p>This also suggests trying the squeeze theorem.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-fixed-roots-3">
+                    <p>Observe</p>
+                    \[
+                      p\geq1+nu_n\;\Rightarrow\;0\leq u_n\leq\frac{p-1}{n}.
+                    \]
+                    <p>Moreover</p>
+                    \[
+                      \frac1n\to0\;\Rightarrow\;\frac{p-1}{n}\to0.
+                    \]
+                    <p>Therefore the squeeze theorem implies</p>
+                    \[
+                      u_n\to0
+                    \]
+                    <p>and so</p>
+                    \[
+                      p^{1/n}=1+u_n\to1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-fixed-roots-4">
+                    <div class="note-heading">The Case \(0&lt;p&lt;1\)</div>
+                    <p><strong>Idea.</strong> The number \(q=1/p\) satisfies \(q&gt;1\), so the preceding case applies.</p>
+                    \[
+                      \begin{gathered}
+                        q^{1/n}\to1,\\
+                        p^{1/n}=\frac{1}{q^{1/n}}\to\frac11=1.
+                      \end{gathered}
+                    \]
+                    <p><strong>Recall:</strong> if \(\{x_n\}\) is a sequence with \(x_n&gt;0\) and \(x_n\to L&gt;0\), then</p>
+                    \[
+                      \frac{1}{x_n}\to\frac{1}{L}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-fixed-roots-5">
+                    <div class="note-heading">The Case \(p=1\)</div>
+                    <p><strong>Observe.</strong> If \(p=1\), then \(p^{1/n}=1\) for every \(n\), and so \(p^{1/n}\to1\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-fixed-roots-6">
+                    <div class="note-heading">Conclusion</div>
+                    <p>We have therefore shown that \(p^{1/n}\to1\) for all \(p&gt;0\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture9-single-spaced" id="lecture9-roots-of-n">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">roots-of-n/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-roots-of-n-1">
+                    <p><strong>Theorem.</strong></p>
+                    \[
+                      \lim_{n\to\infty}n^{1/n}=1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-roots-of-n-2">
+                    <p><strong>Observe.</strong> \(n^{1/n}\to1\) if and only if \(n^{1/n}-1\to0\); however, neither \(n^{1/n}\) nor \(n^{1/n}-1\) are particularly easy to work with.</p>
+                    <p><strong>Idea.</strong> Let us consider instead \(u_n=n^{1/n}-1\geq0\) and write \(n=(1+u_n)^n\).</p>
+                    <p><strong>Note.</strong> This gives us access to the binomial theorem:</p>
+                    \[
+                      n=(1+u_n)^n=\sum_{k=0}^{n}\binom nk u_n^k.
+                    \]
+                    <p>We will use this to squeeze \(u_n\) between \(0\) and a negative power of \(n\) and hence show \(u_n\to0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-roots-of-n-3">
+                    <p>More precisely: given</p>
+                    \[
+                      n=(1+u_n)^n=\sum_{k=0}^{n}\binom nk u_n^k
+                      \qquad\text{and}\qquad
+                      \binom nk=\frac{n!}{k!(n-k)!},
+                    \]
+                    <p>we may try to obtain an estimate of the form</p>
+                    \[
+                      n\geq c n^{a}u_n^{b}
+                    \]
+                    <p>with \(a,b&gt;1\) and \(c&gt;0\).</p>
+                    <p>Indeed, then</p>
+                    \[
+                      0\leq u_n\leq\left(\frac{n^{1-a}}{c}\right)^{1/b}\to0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-roots-of-n-4">
+                    <p><strong>Observe.</strong></p>
+                    <p>Given the binomial theorem</p>
+                    \[
+                      n=(1+u_n)^n=\sum_{k=0}^{n}\binom nk u_n^k,\qquad \binom nk=\frac{n!}{k!(n-k)!},
+                    \]
+                    <p>we have, for \(n\geq2\),</p>
+                    \[
+                      n\geq\binom n1 u_n=nu_n,\qquad n\geq\binom n2 u_n^2=\frac{n(n-1)}{2}u_n^2,\qquad\ldots
+                    \]
+                    <p><strong>Idea.</strong> Using \(k=2\), we would obtain</p>
+                    \[
+                      n\geq\frac{n(n-1)}{2}u_n^2\quad\Longrightarrow\quad 0\leq u_n\leq\sqrt{\frac{2}{n-1}}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-roots-of-n-5">
+                    <p><strong>Proof.</strong> Setting \(u_n=n^{1/n}-1\geq0\), we show \(u_n\to0\).</p>
+                    <p>The binomial theorem implies, for \(n\geq2\),</p>
+                    \[
+                      n=(1+u_n)^n\geq\frac{n(n-1)}{2}u_n^2
+                    \]
+                    <p>and hence</p>
+                    \[
+                      0\leq u_n\leq\sqrt{\frac{2}{n-1}}\leq\frac{2}{\sqrt n}\to0\qquad(n\geq2).
+                    \]
+                    <p>By the squeeze theorem, \(u_n\to0\) and hence \(n^{1/n}\to1\).</p>
+                  </div>
                 </div>
               </details>
             </div>
           </details>
+          <!-- Limsup and liminf -->
+          <details class="lecture-node lecture-chapter lecture9-single-spaced" id="lecture-9">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">limsup-and-liminf/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture9-tails">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">tails-of-a-sequence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-tails-1">
+                    <p><strong>Definition.</strong> Given a sequence \(\{x_k\}\) and \(n\in\mathbb{N}\), its \(n\)th tail \(T_n\) is defined as</p>
+                    \[
+                      T_n=\{x_k:k\geq n\}.
+                    \]
+                    <p><strong>Observe.</strong></p>
+                    \[
+                      \forall n\in\mathbb{N},\quad T_{n+1}\subset T_n.
+                    \]
+                    <div style="padding-top: 12px;">
+                      \[
+                        x_1,\;x_2,\;\underbrace{x_3,\;x_4,\;\underbrace{x_5,\;x_6,\;x_7,\;\ldots}_{T_5}}_{T_3}
+                      \]
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-tails-2">
+                    <p><strong>Proposition.</strong> Let \(\{x_k\}\) be a bounded real sequence.</p>
+                    <p>Set</p>
+                    \[
+                      a_n=\sup T_n,\qquad b_n=\inf T_n.
+                    \]
+                    <p>Then \(\{a_n\}\) is decreasing and bounded, and \(\{b_n\}\) is increasing and bounded.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-tails-3">
+                    <p><strong>Proof.</strong> Recall</p>
+                    <ul>
+                      <li>\(T_n=\{x_k:k\geq n\}\), \(a_n=\sup T_n\) and \(b_n=\inf T_n\);</li>
+                      <li>if \(A\subset B\) are nonempty bounded sets, then \(\inf B\leq\inf A\leq\sup A\leq\sup B\);</li>
+                      <li>\(\{x_k\}\text{ bounded}\implies\exists B&gt;0\ \text{s.t.}\ \forall k\in\mathbb{N},\ |x_k|\leq B\).</li>
+                    </ul>
+                    <p>Consequently,</p>
+                    \[
+                      a_{n+1}=\sup T_{n+1}\leq\sup T_n=a_n,\qquad b_n=\inf T_n\leq\inf T_{n+1}=b_{n+1}
+                    \]
+                    <p>and</p>
+                    \[
+                      -B\leq b_n\leq x_n\leq a_n\leq B.
+                    \]
+                    <p>Therefore \(\{a_n\},\{b_n\}\) are monotonic and bounded.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture9-definitions">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">liminf-and-limsup/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-definitions-1">
+                    <p><strong>Definition.</strong> Let \(\{x_k\}\) be a bounded sequence of real numbers.</p>
+                    <p>Given \(n\in\mathbb{N}\), let</p>
+                    \[
+                      a_n=\sup T_n=\sup\{x_k:k\geq n\},\quad b_n=\inf T_n=\inf\{x_k:k\geq n\}.
+                    \]
+                    <p>Then the <em>limit inferior</em> and <em>limit superior</em> of \(\{x_k\}\) are defined as</p>
+                    \[
+                      \liminf_{n\to\infty}x_n=\lim_{n\to\infty}b_n\quad\text{and}\quad\limsup_{n\to\infty}x_n=\lim_{n\to\infty}a_n,
+                    \]
+                    <p>respectively.</p>
+                    <p><strong>Remark.</strong></p>
+                    <ul>
+                      <li>\(b_n\leq a_n\implies\liminf x_n\leq\limsup x_n\).</li>
+                      <li>\(\{x_n\}\text{ bounded}\implies\liminf x_n\text{ and }\limsup x_n\text{ exist}\).</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture9-examples">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">examples-of-limsup-and-liminf/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-examples-1">
+                    <p><strong>Example.</strong> Let \(x_n=(-1)^n\).</p>
+                    <p>Every tail has</p>
+                    \[
+                      T_n=\{-1,1\},\qquad b_n=\inf T_n=-1,\qquad a_n=\sup T_n=1.
+                    \]
+                    <p>Therefore</p>
+                    \[
+                      \liminf_{n\to\infty}(-1)^n=-1,\qquad \limsup_{n\to\infty}(-1)^n=1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-examples-2">
+                    <p><strong>Example.</strong> Let \(x_n=1/n\).</p>
+                    <p>Then</p>
+                    \[
+                      T_n=\left\{\frac1k:k\geq n\right\},\qquad a_n=\sup T_n=\frac1n,\qquad b_n=\inf T_n=0.
+                    \]
+                    <p>Consequently</p>
+                    \[
+                      \liminf_{n\to\infty}\frac1n=\lim_{n\to\infty}0=0\quad\text{and}\quad\limsup_{n\to\infty}\frac1n=\lim_{n\to\infty}\frac1n=0.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture9-subsequences">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">subsequences-approaching-limsup-and-liminf/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-subsequences-1">
+                    <p><strong>Theorem.</strong> Every bounded real sequence \(\{x_n\}\) has subsequences satisfying</p>
+                    \[
+                      x_{n_k}\to\limsup x_n,\qquad x_{m_k}\to\liminf x_n.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-subsequences-2">
+                    <p><strong>Observe.</strong> For \(N\in\mathbb{N}\) and \(a_N=\sup T_N\), the \(\epsilon\)-characterization of suprema gives</p>
+                    \[
+                      \forall\epsilon&gt;0,\ \exists j_\epsilon\geq N\ \text{s.t.}\ a_N-\epsilon&lt;x_{j_\epsilon}\leq a_N.
+                    \]
+                    <p><strong>Idea.</strong> Take \(\epsilon=1/k\) and choose terms from later and later tails, each within \(1/k\) of its tail supremum.</p>
+                    <p>As the tail suprema approach \(\limsup x_n\), these chosen terms should too.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-subsequences-3">
+                    <p><strong>Proof (limsup).</strong> Set \(L=\limsup x_n\).</p>
+                    <p>We construct the subsequence \(\{x_{n_k}\}\) by using the observation to choose a strictly increasing sequence of indices \(\{n_k\}\).</p>
+                    <p>For \(k=1\), take \(N=1\) and \(\epsilon=1\).</p>
+                    <p>The observation gives an index \(n_1=j_1\geq1\) satisfying</p>
+                    \[
+                      a_1-1&lt;x_{n_1}\leq a_1.
+                    \]
+                    <p>For \(k\geq2\), suppose \(n_1&lt;\cdots&lt;n_{k-1}\) have been chosen.</p>
+                    <p>Take \(N=n_{k-1}+1\) and \(\epsilon=1/k\).</p>
+                    <p>Apply the observation to this new tail \(T_N\) and choose \(n_k=j_{1/k}\geq N\) satisfying</p>
+                    \[
+                      a_N-\frac1k&lt;x_{n_k}\leq a_N.
+                    \]
+                    <p>This ensures \(n_k&gt;n_{k-1}\), so \(\{x_{n_k}\}\) is a subsequence.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-subsequences-4">
+                    <p>Since the indices strictly increase, \(n_k\geq k\), and hence \(n_{k-1}+1\to\infty\).</p>
+                    <p>Consequently,</p>
+                    \[
+                      a_{n_{k-1}+1}\to L,\qquad \frac1k\to0.
+                    \]
+                    <p>By construction, for \(k\geq2\),</p>
+                    \[
+                      a_{n_{k-1}+1}-\frac1k&lt;x_{n_k}\leq a_{n_{k-1}+1}.
+                    \]
+                    <p>The squeeze theorem gives \(x_{n_k}\to L=\limsup x_n\).</p>
+                    <p><strong>Exercise.</strong> Prove the liminf case.</p>
+                    <p>Use the infimum property:</p>
+                    \[
+                      \forall\epsilon&gt;0,\ \exists j_\epsilon\geq N\ \text{s.t.}\ b_N\leq x_{j_\epsilon}&lt;b_N+\epsilon.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture9-bolzano-weierstrass">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">bolzano-weierstrass/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-bolzano-weierstrass-1">
+                    <p><strong>Theorem (Bolzano–Weierstrass).</strong> Every bounded real sequence has a convergent subsequence.</p>
+                    <p><strong>Proof.</strong> The preceding theorem gives a subsequence converging to \(\limsup x_n\in\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture9-convergence">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">when-limsup-and-liminf-agree/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture9-convergence-1">
+                    <p><strong>Theorem.</strong> A bounded real sequence \(\{x_n\}\) converges if and only if</p>
+                    \[
+                      \liminf x_n=\limsup x_n.
+                    \]
+                    <p>In this case,</p>
+                    \[
+                      \lim x_n=\liminf x_n=\limsup x_n.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture9-convergence-2">
+                    <p><strong>Proof.</strong> If \(\liminf x_n=\limsup x_n=L\), then</p>
+                    \[
+                      b_n\leq x_n\leq a_n,\qquad b_n\to L,\qquad a_n\to L.
+                    \]
+                    <p>By squeeze, \(x_n\to L\).</p>
+                    <p>Conversely, if \(x_n\to L\), every subsequence converges to \(L\).</p>
+                    <p>Applying this to the subsequences approaching \(\liminf x_n\) and \(\limsup x_n\), uniqueness of limits gives</p>
+                    \[
+                      \liminf x_n=L=\limsup x_n.
+                    \]
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End limsup and liminf -->
         </div>
     </div>
   </main>
