@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>18.100a late policy — Joshua Flynn</title>
   <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    .late-policy-child {
+      grid-template-columns: 8ch minmax(0, 1fr);
+    }
+
+    .late-policy-group {
+      margin-top: 1em;
+    }
+  </style>
 </head>
 <body>
   <main>
@@ -24,8 +33,58 @@
         </nav>
       </section>
 
-      <section class="content-panel">
-        <h2>late-policy/</h2>
+      <section class="content-panel" aria-labelledby="late-policy-heading">
+        <div class="course-tree">
+          <h2 class="course-root" id="late-policy-heading">late-policy/</h2>
+
+          <div class="course-row">
+            <span class="course-branch" aria-hidden="true">├──</span>
+            <span class="course-entry">psets/</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   ├──</span>
+            <span class="course-entry">late psets are not accepted</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   ├──</span>
+            <span class="course-entry">gradescope provides a 30-minute late-submission window</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   └──</span>
+            <span class="course-entry">submissions after the stated deadline are marked late</span>
+          </div>
+
+          <div class="course-row late-policy-group">
+            <span class="course-branch" aria-hidden="true">├──</span>
+            <span class="course-entry">missed-quizzes-and-exams/</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   ├──</span>
+            <span class="course-entry">rescheduling requires support from student support services (s3) documenting a compelling reason, such as illness or circumstances outside your control</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   ├──</span>
+            <span class="course-entry">athletic or professional obligations may be accommodated when coordinated in advance with the appropriate mit staff</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   └──</span>
+            <span class="course-entry">holiday travel, job interviews, and registration in simultaneous classes are not grounds for rescheduling</span>
+          </div>
+
+          <div class="course-row late-policy-group">
+            <span class="course-branch" aria-hidden="true">├──</span>
+            <span class="course-entry">support/</span>
+          </div>
+          <div class="course-row late-policy-child">
+            <span class="course-branch" aria-hidden="true">│   └──</span>
+            <span class="course-entry">personal or medical issues affecting your coursework: contact <a href="https://studentlife.mit.edu/wellbeing-support/student-support-services-s3/">student support services (s3)</a></span>
+          </div>
+
+          <div class="course-row late-policy-group">
+            <span class="course-branch" aria-hidden="true">└──</span>
+            <span class="course-entry">syllabus: <a href="/18.100a/syllabus.pdf">full course policies</a></span>
+          </div>
+        </div>
       </section>
     </div>
   </main>
