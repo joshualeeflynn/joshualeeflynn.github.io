@@ -238,18 +238,58 @@
       text-align: left;
       line-height: 1.25;
     }
-    /* Lecture 9 follows the spacing of the preceding lecture. */
-    .lecture9-single-spaced .lecture-note { line-height: 1.2; }
+    /* Lectures 9 and 10 follow the spacing of Lecture 8. */
+    .lecture9-single-spaced .lecture-note,
+    .lecture10-single-spaced .lecture-note { line-height: 1.2; }
     .lecture9-single-spaced .lecture-note p,
+    .lecture10-single-spaced .lecture-note p,
     .lecture9-single-spaced .lecture-note ol,
-    .lecture9-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
-    .lecture9-single-spaced .lecture-note li { margin: 2px 0; }
-    .lecture9-single-spaced .lecture-label { overflow-wrap: anywhere; }
-    .lecture9-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+    .lecture10-single-spaced .lecture-note ol,
+    .lecture9-single-spaced .lecture-note ul,
+    .lecture10-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture9-single-spaced .lecture-note li,
+    .lecture10-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture9-single-spaced .lecture-label,
+    .lecture10-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture9-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"],
+    .lecture10-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
       margin: 0.55em 0 !important;
       max-width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
+    }
+    /* Lecture 10: one presentation block per full-screen viewport. */
+    .lecture10-single-spaced {
+      --lecture10-slide-height: 90vh;
+      --lecture10-slide-gap: 10vh;
+      --lecture10-slide-inset: 3vh;
+    }
+    .lecture10-single-spaced .lecture-note {
+      font-size: clamp(22px, calc(2px + 2.3vh), 24px);
+    }
+    .lecture10-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture10-single-spaced {
+        --lecture10-slide-height: 90dvh;
+        --lecture10-slide-gap: 10dvh;
+        --lecture10-slide-inset: 3dvh;
+      }
+      .lecture10-single-spaced .lecture-note {
+        font-size: clamp(22px, calc(2px + 2.3dvh), 24px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture10-single-spaced .lecture-block {
+        height: var(--lecture10-slide-height);
+        padding-block: var(--lecture10-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture10-slide-inset);
+      }
+      .lecture10-single-spaced .presentation-break {
+        height: var(--lecture10-slide-gap);
+      }
+      .lecture10-single-spaced[open],
+      .lecture10-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
   </style>
   <script>
@@ -5058,7 +5098,7 @@
           <!-- Limsup and liminf -->
           <details class="lecture-node lecture-chapter lecture9-single-spaced" id="lecture-9">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">limsup-and-liminf/</span>
             </summary>
@@ -5279,6 +5319,720 @@
             </div>
           </details>
           <!-- End limsup and liminf -->
+
+          <!-- Lecture 10: Cauchy sequences and series -->
+          <details class="lecture-node lecture-chapter lecture10-single-spaced" id="lecture-10">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">cauchy-sequences/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture10-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">definition/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-definition-1">
+                    <div class="note-heading">Cauchy Sequences</div>
+                    <p><strong>Definition.</strong> A sequence of real numbers \(\{x_n\}\) is <em>Cauchy</em> if</p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall n,k\geq M,\quad |x_n-x_k|&lt;\varepsilon.
+                    \]
+                    <div class="cauchy-sequence-plot" role="figure" aria-label="Graph of x_n = 1/n at natural-number indices. A blue tail band starts at M_1 = 3 and has height epsilon_1 = 1/2. A green tail band starts at M_2 = 5 and has height epsilon_2 = 1/4. Every term in each tail is strictly inside its horizontal band.">
+                      <!-- Native MathJax graph: coordinates in em, x = 1.4 + 1.4n, y = 6/n.
+                           All axes, bands, points, and labels are TeX, with no image asset.
+                           Local placement macro and a phantom reserve the full graph bounds. -->
+                      \[
+                        {
+                          \def\CauchyPlace#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                          \CauchyPlace{5.6}{0}{\color{#dce5ec}\rule{10em}{3em}}
+                          \CauchyPlace{8.4}{0}{\color{#cedfd4}\rule{7.2em}{1.5em}}
+                          \CauchyPlace{5.6}{3}{\color{#3f6286}\rule{10em}{0.035em}}
+                          \CauchyPlace{5.6}{0}{\color{#3f6286}\rule{0.035em}{3em}}
+                          \CauchyPlace{8.4}{1.5}{\color{#365c50}\rule{7.2em}{0.035em}}
+                          \CauchyPlace{8.4}{0}{\color{#365c50}\rule{0.035em}{1.5em}}
+                          \CauchyPlace{1.4}{0}{\rule{14.5em}{0.035em}}
+                          \CauchyPlace{1.4}{0}{\rule{0.035em}{6.5em}}
+                          \CauchyPlace{1.15}{6.35}{\scriptstyle\blacktriangle}
+                          \CauchyPlace{15.8}{-0.2}{\scriptstyle\blacktriangleright}
+                          \CauchyPlace{1.05}{6.95}{x_n}
+                          \CauchyPlace{16.55}{-0.2}{n}
+                          \CauchyPlace{0.55}{-0.2}{0}
+                          \CauchyPlace{0.55}{5.7}{1}
+                          \CauchyPlace{1.2}{6}{\rule{0.2em}{0.035em}}
+                          \CauchyPlace{0.2}{2.7}{\tfrac12}
+                          \CauchyPlace{1.2}{3}{\rule{0.2em}{0.035em}}
+                          \CauchyPlace{0.2}{1.2}{\tfrac14}
+                          \CauchyPlace{1.2}{1.5}{\rule{0.2em}{0.035em}}
+                          \CauchyPlace{2.55}{5.75}{\bullet}
+                          \CauchyPlace{3.95}{2.75}{\bullet}
+                          \CauchyPlace{5.35}{1.75}{\bullet}
+                          \CauchyPlace{6.75}{1.25}{\bullet}
+                          \CauchyPlace{8.15}{0.95}{\bullet}
+                          \CauchyPlace{9.55}{0.75}{\bullet}
+                          \CauchyPlace{10.95}{0.607143}{\bullet}
+                          \CauchyPlace{12.35}{0.5}{\bullet}
+                          \CauchyPlace{13.75}{0.416667}{\bullet}
+                          \CauchyPlace{14.75}{0.35}{\cdots}
+                          \CauchyPlace{2.8}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{4.2}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{5.6}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{7}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{8.4}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{9.8}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{11.2}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{12.6}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{14}{-0.14}{\rule{0.035em}{0.14em}}
+                          \CauchyPlace{2.55}{-0.9}{1}
+                          \CauchyPlace{3.95}{-0.9}{2}
+                          \CauchyPlace{5.35}{-0.9}{\color{#3f6286}3}
+                          \CauchyPlace{6.75}{-0.9}{4}
+                          \CauchyPlace{8.15}{-0.9}{\color{#365c50}5}
+                          \CauchyPlace{9.55}{-0.9}{6}
+                          \CauchyPlace{10.95}{-0.9}{7}
+                          \CauchyPlace{12.35}{-0.9}{8}
+                          \CauchyPlace{13.75}{-0.9}{9}
+                          \CauchyPlace{4.95}{-1.85}{\color{#3f6286}M_1}
+                          \CauchyPlace{7.75}{-1.85}{\color{#365c50}M_2}
+                          \CauchyPlace{16.1}{2.7}{\color{#3f6286}\varepsilon_1=\tfrac12}
+                          \CauchyPlace{16.1}{1.2}{\color{#365c50}\varepsilon_2=\tfrac14}
+                          \phantom{\rule[-2.15em]{21em}{9.9em}}
+                        }
+                      \]
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-definition-2">
+                    <p><strong>Remark.</strong> We will see that Cauchy \(\Rightarrow\) convergence in \(\mathbb{R}\).</p>
+                    <p>Thus, the Cauchy condition provides another means to check convergence.</p>
+                    <p>This matches intuition: if members of tails of a sequence become arbitrarily close, the sequence ought to converge.</p>
+                    <p>However, in general spaces, Cauchy sequences need not converge; e.g., \(\mathbb{Q}\) or \(\mathbb{R}\setminus\{0\}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-reciprocal-example">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-cauchy-example/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-reciprocal-example-1">
+                    <p><strong>Example.</strong> Show that \(x_n=1/n\) is Cauchy.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-reciprocal-example-2">
+                    <p><strong>WTS.</strong></p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall n,k\geq M,\quad \left|\frac1n-\frac1k\right|&lt;\varepsilon.
+                    \]
+                    <p><strong>Observe.</strong> For \(n,k\geq M\),</p>
+                    \[
+                      \left|\frac1n-\frac1k\right|\leq\frac1n+\frac1k\leq\frac2M.
+                    \]
+                    <p><strong>Idea.</strong> Choose \(M\) so that \(1/M&lt;\varepsilon/2\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-reciprocal-example-3">
+                    <p><strong>Proof.</strong> Let \(\varepsilon&gt;0\).</p>
+                    <p>By the Archimedean property, choose \(M\in\mathbb{N}\) with \(M&gt;2/\varepsilon\).</p>
+                    <p>Then, for all \(n,k\geq M\),</p>
+                    \[
+                      \left|\frac1n-\frac1k\right|
+                      \leq\frac1n+\frac1k\leq\frac2M&lt;\varepsilon.
+                    \]
+                    <p>Since \(\varepsilon&gt;0\) was arbitrary, \(\{1/n\}\) is Cauchy.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-not-cauchy">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-non-cauchy-example/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-not-cauchy-1">
+                    <p><strong>Negation.</strong> A sequence \(\{x_n\}\) is <em>not Cauchy</em> if</p>
+                    \[
+                      \exists\varepsilon_0&gt;0\ \text{s.t.}\ \forall M\in\mathbb{N},\ \exists n,k\geq M,\quad |x_n-x_k|\geq\varepsilon_0.
+                    \]
+                    <p><strong>Remark.</strong> Thus, a sequence is not Cauchy if there is a uniform threshold \(\varepsilon_0&gt;0\) such that every tail \(T_M=\{x_n:n\geq M\}\) contains two members at least \(\varepsilon_0\) apart.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-not-cauchy-2">
+                    <p><strong>Example.</strong> Show that \(x_n=(-1)^n\) is not Cauchy.</p>
+                    <p><strong>Observe.</strong> Consecutive terms satisfy</p>
+                    \[
+                      |(-1)^M-(-1)^{M+1}|=2.
+                    \]
+                    <p><strong>Idea.</strong> Choose \(\varepsilon_0=1\) and use consecutive terms beyond any proposed threshold.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-not-cauchy-3">
+                    <p><strong>Proof.</strong> Choose \(\varepsilon_0=1\) and let \(M\in\mathbb{N}\).</p>
+                    <p>Take \(n=M\) and \(k=M+1\).</p>
+                    <p>Then \(n,k\geq M\) and</p>
+                    \[
+                      |x_n-x_k|=|(-1)^M-(-1)^{M+1}|=2\geq\varepsilon_0.
+                    \]
+                    <p>Thus \(\{(-1)^n\}\) is not Cauchy.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-bounded">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cauchy-sequences-are-bounded/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-bounded-1">
+                    <p><strong>Theorem.</strong> Every Cauchy sequence of real numbers is bounded.</p>
+                    <p><strong>Remark.</strong> Note we are <strong>NOT</strong> assuming \(\{x_n\}\) is convergent.</p>
+                    <p>Boundedness comes from \(\{x_n\}\) being Cauchy.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-bounded-2">
+                    <p><strong>WTS.</strong></p>
+                    \[
+                      \exists B&gt;0\ \text{s.t.}\ \forall n\in\mathbb{N},\quad |x_n|\leq B.
+                    \]
+                    <p><strong>Observe.</strong> The Cauchy condition with \(\varepsilon=1\) gives \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n,k\geq M,\quad |x_n-x_k|&lt;1.
+                    \]
+                    <p><strong>Idea.</strong> The Cauchy condition offers control on the tail \(\{x_M,x_{M+1},\ldots\}\).</p>
+                    <p>The set \(\{x_1,\ldots,x_{M-1}\}\) is bounded by being finite.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-bounded-3">
+                    <p><strong>Proof.</strong> \(\{x_n\}\) being Cauchy \(\Rightarrow\exists M\in\mathbb{N}\) s.t.</p>
+                    \[
+                      \forall n,k\geq M,\quad |x_n-x_k|&lt;1.
+                    \]
+                    <p>Triangle inequality and taking \(k=M\) give</p>
+                    \[
+                      \forall n\geq M,\quad |x_n|\leq|x_n-x_M|+|x_M|&lt;1+|x_M|.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-bounded-4">
+                    <p>Set</p>
+                    \[
+                      B=|x_1|+\cdots+|x_M|+1.
+                    \]
+                    <p>Then</p>
+                    \[
+                      \begin{array}{lrl}
+                        \text{(finiteness)} &amp; 1\leq n&lt;M &amp; \implies |x_n|&lt;B \\[0.4em]
+                        \text{(Cauchy)} &amp; n\geq M &amp; \implies |x_n|&lt;1+|x_M|\leq B.
+                      \end{array}
+                    \]
+                    <p>Consequently</p>
+                    \[
+                      \forall n\in\mathbb{N},\quad |x_n|\leq B
+                    \]
+                    <p>and so \(\{x_n\}\) is bounded.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-subsequence">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">subsequential-convergence-implies-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-subsequence-1">
+                    <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a Cauchy sequence of real numbers.</p>
+                    <p>If a subsequence \(\{x_{n_k}\}\) converges to \(x\), then \(x_n\to x\).</p>
+                    <p><strong>Remark.</strong> This theorem asserts that one may establish convergence by checking the Cauchy condition and finding <em>any</em> convergent subsequence.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-subsequence-2">
+                    <p><strong>WTS.</strong> \(x_{n_k}\to x\) and \(\{x_n\}\) Cauchy imply</p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall n\geq M,\quad |x_n-x|&lt;\varepsilon.
+                    \]
+                    <p><strong>Observe.</strong> For any subsequence term \(x_{n_k}\),</p>
+                    \[
+                      |x_n-x|\leq|x_n-x_{n_k}|+|x_{n_k}-x|.
+                    \]
+                    <p><strong>Idea.</strong> Use the Cauchy condition for the first term and subsequence convergence for the second.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-subsequence-3">
+                    <p><strong>Proof.</strong> Let \(\varepsilon&gt;0\).</p>
+                    <p><strong>(i)</strong> Since \(x_{n_k}\to x\), choose \(M_0\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall k\geq M_0,\quad |x_{n_k}-x|&lt;\frac{\varepsilon}{2}.
+                    \]
+                    <p><strong>(ii)</strong> Since \(\{x_n\}\) is Cauchy, choose \(M_1\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n,m\geq M_1,\quad |x_n-x_m|&lt;\frac{\varepsilon}{2}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-subsequence-4">
+                    <p>Set \(M=M_0+M_1\), noting \(n_M\geq M\).</p>
+                    <p>Observe that</p>
+                    \[
+                      M\geq M_0\implies |x_{n_M}-x|&lt;\frac{\varepsilon}{2}
+                    \]
+                    \[
+                      n,n_M\geq M\implies n,n_M\geq M_1\implies |x_n-x_{n_M}|&lt;\frac{\varepsilon}{2}.
+                    \]
+                    <p>Triangle inequality then gives</p>
+                    \[
+                      \forall n\geq M,\; |x_n\!-\!x|\leq|x_n\!-\!x_{n_M}|\!+\!|x_{n_M}\!-\!x|&lt;\frac{\varepsilon}{2}\!+\!\frac{\varepsilon}{2}=\varepsilon.
+                    \]
+                    <p>In conclusion: \(x_n\to x\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-sequence-criterion">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cauchy-implies-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-sequence-criterion-1">
+                    <p><strong>Theorem.</strong> A sequence of real numbers is Cauchy if and only if it converges.</p>
+                    <p><strong>Remark.</strong></p>
+                    <ol>
+                      <li>
+                        <p>This is an existence theorem: if \(\{x_n\}\) is Cauchy, then \(\exists x\in\mathbb{R}\) such that \(x_n\to x\).</p>
+                        <p>This does not require a priori identification of <span style="white-space: nowrap;">the limit \(x\).</span></p>
+                      </li>
+                      <li>
+                        <p>The implication “Cauchy \(\Rightarrow\) convergent” is called Cauchy completeness.</p>
+                        <p>In particular, \(\mathbb{R}\) is Cauchy complete, while \(\mathbb{Q}\) is not.</p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-sequence-criterion-2">
+                    <p><strong>Proof \((\Longrightarrow)\).</strong> Suppose \(\{x_n\}\) is Cauchy.</p>
+                    <ol>
+                      <li>By the boundedness theorem, \(\{x_n\}\) is bounded.</li>
+                      <li>By Bolzano–Weierstrass, \(\{x_n\}\) has a convergent subsequence.</li>
+                      <li>By the preceding theorem, \(\{x_n\}\) converges.</li>
+                    </ol>
+                    <p>Here, completeness in this form follows from Bolzano–Weierstrass, which ultimately rests on the least-upper-bound property.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-sequence-criterion-4">
+                    <p><strong>Proof \((\Longleftarrow)\).</strong> Let \(\varepsilon&gt;0\).</p>
+                    <p>Since \(x_n\to x\), choose \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n\geq M,\quad |x_n-x|&lt;\frac{\varepsilon}{2}.
+                    \]
+                    <p>For every \(n,k\geq M\),</p>
+                    \[
+                      |x_n-x_k|\leq|x_n-x|+|x_k-x|&lt;\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+                    \]
+                    <p>Therefore \(\{x_n\}\) is Cauchy.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter lecture10-single-spaced" id="lecture-10-series">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">series/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture10-partial-sums">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">series-and-partial-sums/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-partial-sums-1">
+                    <p><strong>Definition.</strong> Let \(\{x_n\}\) be a sequence of real numbers.</p>
+                    <p>For \(n\in\mathbb{N}\), its <em>\(n\)th partial sum</em> is</p>
+                    \[
+                      s_n:=\sum_{k=1}^{n}x_k=x_1+\cdots+x_n.
+                    \]
+                    <p>The sequence \(\{s_n\}\) is called the <em>sequence of partial sums</em>.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-partial-sums-2">
+                    <p><strong>Definition.</strong> If the partial sums \(\{s_n\}\) of a sequence \(\{x_n\}\) converge to \(s\), then define</p>
+                    \[
+                      \sum_{k=1}^{\infty}x_k:=\lim_{n\to\infty}s_n=s
+                    \]
+                    <p>to be the <em>series</em> of \(\{x_n\}\) and say it <em>converges</em> to \(s\).</p>
+                    <p>If \(\{s_n\}\) is not convergent, we say \(\{x_n\}\) has a <em>divergent series</em>.</p>
+                    <p><strong>Remark.</strong> A series need not start at \(k=1\).</p>
+                    <p>Instead, one may define a series starting at any finite integer index or with lower limit \(-\infty\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-partial-sums-3">
+                    <p><strong>Optional Remark.</strong> For any set \(A\subset[0,\infty)\), define</p>
+                    \[
+                      \sum_{a\in A}a:=\sup\left\{\sum_{a\in E}a:\ E\subseteq A,\ E\text{ finite}\right\}.
+                    \]
+                    <p>The empty sum is \(0\), and we write \(+\infty\) if the finite subsums are unbounded above.</p>
+                    <p>This definition also makes sense in any ordered field, provided the supremum exists in that field.</p>
+                    <p>The least upper bound property is not needed to state the definition.</p>
+                    <p>It guarantees existence when the finite subsums are bounded above.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-telescoping">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-telescoping-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-telescoping-1">
+                    <p><strong>Example.</strong> Show that</p>
+                    \[
+                      \sum_{n=1}^{\infty}\frac{1}{n(n+1)}
+                    \]
+                    <p>converges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-telescoping-2">
+                    <p><strong>WTS.</strong> The partial sums</p>
+                    \[
+                      s_m=\sum_{n=1}^{m}\frac{1}{n(n+1)}
+                    \]
+                    <p>converge.</p>
+                    <p><strong>Observe.</strong></p>
+                    \[
+                      \frac{1}{n(n+1)}=\frac1n-\frac1{n+1}.
+                    \]
+                    <p><strong>Idea.</strong> Substitute this identity into the finite sum and cancel the repeated terms.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-telescoping-3">
+                    <p><strong>Proof.</strong> Consider the partial sums:</p>
+                    \[
+                      \begin{aligned}
+                        s_m
+                        &amp;=\sum_{n=1}^{m}\left(\frac1n-\frac1{n+1}\right)\\
+                        &amp;=\left(1+\frac12\!+\!\cdots\!+\!\frac1m\right)-\left(\frac12\!+\!\cdots\!+\!\frac1m+\frac1{m+1}\right)\\
+                        &amp;=1-\frac1{m+1}\longrightarrow1.
+                      \end{aligned}
+                    \]
+                    <p>Thus the partial sums converge, and</p>
+                    \[
+                      \sum_{n=1}^{\infty}\frac{1}{n(n+1)}=1.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-geometric">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">geometric-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-geometric-1">
+                    <p><strong>Definition.</strong> For \(\alpha,r\in\mathbb{R}\), a series of the form</p>
+                    \[
+                      \sum_{n=0}^{\infty}\alpha r^n
+                    \]
+                    <p>is called a <em>geometric series</em>.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-geometric-2">
+                    <p><strong>Theorem.</strong> If \(r\in\mathbb{R}\) and \(|r|&lt;1\), then the series converges and</p>
+                    \[
+                      \sum_{n=0}^{\infty}r^n=\frac{1}{1-r}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-geometric-3">
+                    <p><strong>Observe.</strong> For \(m\geq0\),</p>
+                    \[
+                      \begin{aligned}
+                        s_m&amp;=\sum_{n=0}^{m}r^n=1+r+\cdots+r^m,\\
+                        rs_m&amp;=r+r^2+\cdots+r^{m+1}.
+                      \end{aligned}
+                    \]
+                    <p>For \(r\neq1\), subtracting gives</p>
+                    \[
+                      (1-r)s_m=1-r^{m+1}\quad\implies\quad s_m=\frac{1-r^{m+1}}{1-r}.
+                    \]
+                    <p>This formula can also be proved by induction.</p>
+                    <p><strong>Idea.</strong> Now use \(|r|&lt;1\) and the limit laws.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-geometric-4">
+                    <p><strong>Proof.</strong> Since \(|r|&lt;1\), we have \(1-r\neq0\) and</p>
+                    \[
+                      |r^{m+1}|=|r|^{m+1}\longrightarrow0.
+                    \]
+                    <p>Thus \(r^{m+1}\to0\).</p>
+                    <p>Using the finite-sum formula and the limit laws,</p>
+                    \[
+                      s_m=\sum_{n=0}^{m}r^n=\frac{1-r^{m+1}}{1-r}
+                      \longrightarrow\frac{1-0}{1-r}=\frac{1}{1-r}.
+                    \]
+                    <p>Therefore the series converges and</p>
+                    \[
+                      \sum_{n=0}^{\infty}r^n=\frac{1}{1-r}.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-series-tails">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">tails-of-a-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-series-tails-1">
+                    <p><strong>Theorem.</strong> Let \(\{x_n\}\) be a sequence of real numbers and let \(M\in\mathbb{N}\).</p>
+                    <p>Then</p>
+                    \[
+                      \sum_{n=1}^{\infty}x_n\text{ converges}
+                      \quad\Longleftrightarrow\quad
+                      \sum_{n=M}^{\infty}x_n\text{ converges}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-series-tails-3">
+                    <p><strong>Proof.</strong> For \(m\geq M\), we have \(s_m=t_m+C\), where</p>
+                    \[
+                      s_m=\sum_{n=1}^{m}x_n,\qquad t_m=\sum_{n=M}^{m}x_n,\qquad C=\sum_{n=1}^{M-1}x_n.
+                    \]
+                    <p>When \(M=1\), the empty sum defining \(C\) is \(0\).</p>
+                    <p>If \(s_m\to s\), then \(t_m=s_m-C\longrightarrow s-C\).</p>
+                    <p>If \(t_m\to t\), then \(s_m=t_m+C\longrightarrow t+C\).</p>
+                    <p>Thus either series converges if and only if the other does.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-cauchy-series">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cauchy-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-cauchy-series-1">
+                    <p><strong>Definition.</strong> A series \(\sum x_n\) is <em>Cauchy</em> if its sequence of partial sums \(\{s_m\}\) is Cauchy:</p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall m,\ell\geq M,\, \left|\sum_{n=1}^{m}x_n-\sum_{n=1}^{\ell}x_n\right|&lt;\varepsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-cauchy-series-2">
+                    <p><strong>Theorem.</strong> A series of real numbers is Cauchy if and only if it converges.</p>
+                    <p><strong>Proof.</strong> Apply the Cauchy criterion for real sequences to \(\{s_m\}\):</p>
+                    \[
+                      \begin{aligned}
+                        \sum x_n\text{ is Cauchy}
+                        &amp;\quad\Longleftrightarrow\quad \{s_m\}\text{ is Cauchy}\\
+                        &amp;\quad\Longleftrightarrow\quad \{s_m\}\text{ converges}\\
+                        &amp;\quad\Longleftrightarrow\quad \sum x_n\text{ converges}.
+                      \end{aligned}
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-series-criterion">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cauchy-criterion-for-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-series-criterion-1">
+                    <p><strong>Theorem (Cauchy Criterion).</strong> A series \(\sum x_n\) is Cauchy if and only if</p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall\ell&gt;m\geq M,\quad \left|\sum_{n=m+1}^{\ell}x_n\right|&lt;\varepsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-series-criterion-3">
+                    <p><strong>Proof \((\Longrightarrow)\).</strong> Suppose \(\sum x_n\) is Cauchy and let \(\varepsilon&gt;0\).</p>
+                    <p>Choose \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall m,\ell\geq M,\quad |s_\ell-s_m|&lt;\varepsilon.
+                    \]
+                    <p>Noting that</p>
+                    \[
+                      \forall\ell&gt;m\geq M,\quad s_\ell-s_m=\sum_{n=1}^{\ell}x_n-\sum_{n=1}^{m}x_n=\sum_{n=m+1}^{\ell}x_n,
+                    \]
+                    <p>we conclude</p>
+                    \[
+                      \left|\sum_{n=m+1}^{\ell}x_n\right|
+                      =|s_\ell-s_m|&lt;\varepsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-series-criterion-4">
+                    <p><strong>Proof \((\Longleftarrow)\).</strong> Assume the tail condition and let \(\varepsilon&gt;0\).</p>
+                    <p>Choose \(M\in\mathbb{N}\) so that for all \(\ell&gt;m\geq M\),</p>
+                    \[
+                      |s_\ell-s_m|=\left|\sum_{n=m+1}^{\ell}x_n\right|&lt;\varepsilon.
+                    \]
+                    <p>By symmetry, the same bound holds for \(m&gt;\ell\geq M\).</p>
+                    <p>For \(m=\ell\geq M\), we have \(|s_\ell-s_m|=0&lt;\varepsilon\).</p>
+                    <p>In conclusion,</p>
+                    \[
+                      \forall m,\ell\geq M,\quad |s_\ell-s_m|&lt;\varepsilon,
+                    \]
+                    <p>and so \(\{s_m\}\), and hence \(\sum x_n\), is Cauchy.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-terms-zero">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">terms-of-a-convergent-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-terms-zero-1">
+                    <p><strong>Theorem.</strong> If \(\sum x_n\) converges, then</p>
+                    \[
+                      \lim_{n\to\infty}x_n=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-terms-zero-2">
+                    <p><strong>WTS.</strong></p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall n\geq M,\quad |x_n|&lt;\varepsilon.
+                    \]
+                    <p><strong>Observe.</strong> The Cauchy criterion controls \(\left|\sum_{j=m+1}^{\ell}x_j\right|\).</p>
+                    <p><strong>Idea.</strong> Take \(m=n-1\) and \(\ell=n\) so that this sum has just one term:</p>
+                    \[
+                      \sum_{j=(n-1)+1}^{n}x_j=x_n.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-terms-zero-3">
+                    <p><strong>Proof.</strong> Suppose \(\sum x_n\) converges and let \(\varepsilon&gt;0\).</p>
+                    <p>The series is Cauchy, so choose \(M_0\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall\ell&gt;m\geq M_0,\quad
+                      \left|\sum_{j=m+1}^{\ell}x_j\right|&lt;\varepsilon.
+                    \]
+                    <p>Choose \(M=M_0+1\).</p>
+                    <p>If \(n\geq M\), then \(n-1\geq M_0\), and taking \(m=n-1\), \(\ell=n\) gives</p>
+                    \[
+                      |x_n|=\left|\sum_{j=n}^{n}x_j\right|&lt;\varepsilon.
+                    \]
+                    <p>Therefore \(x_n\to0\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-geometric-convergence">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">when-geometric-series-diverge/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-geometric-convergence-1">
+                    <p><strong>Theorem.</strong> If \(r\in\mathbb{R}\) and \(|r|\geq1\), then</p>
+                    \[
+                      \sum_{n=0}^{\infty}r^n
+                    \]
+                    <p>diverges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-geometric-convergence-2">
+                    <p><strong>Proof.</strong> If \(|r|\geq1\), then</p>
+                    \[
+                      |r^n|=|r|^n\geq1\qquad\text{for every }n\geq0.
+                    \]
+                    <p>By the squeeze theorem, even if \(r^n\) converged, its limit could not be \(0\).</p>
+                    <p>If \(\sum_{n=0}^{\infty}r^n\) converged, the preceding theorem would imply \(r^n\to0\), a contradiction.</p>
+                    <p>Therefore the series diverges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-geometric-convergence-3">
+                    <p><strong>Corollary.</strong> Let \(\alpha,r\in\mathbb{R}\) with \(\alpha\neq0\).</p>
+                    <p>Then</p>
+                    \[
+                      \sum_{n=0}^{\infty}\alpha r^n\text{ converges}
+                      \quad\Longleftrightarrow\quad |r|&lt;1.
+                    \]
+                    <p><strong>Proof.</strong> The partial sums are \(\alpha\sum_{n=0}^{m}r^n\).</p>
+                    <p>Since \(\alpha\neq0\), convergence is equivalent to convergence of \(\sum_{n=0}^{m}r^n\), by scalar multiplication in either direction.</p>
+                    <p><strong>Remark.</strong> If \(\alpha=0\), every term is zero, so the series converges to \(0\) for every \(r\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture10-harmonic">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">harmonic-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture10-harmonic-1">
+                    <p><strong>Recall.</strong> If \(\sum x_n\) converges, then \(x_n\to0\).</p>
+                    <p><strong>Question.</strong> Is the converse true?</p>
+                    <p>Does \(x_n\to0\) imply that \(\sum x_n\) converges?</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-harmonic-2">
+                    <p><strong>Theorem.</strong> The series</p>
+                    \[
+                      \sum_{n=1}^{\infty}\frac1n
+                    \]
+                    <p>does not converge.</p>
+                    <p>This is called the <em>harmonic series</em>.</p>
+                    <p>Since \(1/n\to0\), the converse is false.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-harmonic-3">
+                    <p><strong>Observe.</strong> For \(m,\ell,k\in\mathbb{N}\) with \(m\leq\ell\):</p>
+                    <ol>
+                      <li>The sum \(\sum_{n=m}^{\ell}\) contains \(\ell-m+1\) terms.</li>
+                      <li>\(\displaystyle \sum_{n=m}^{\ell}\frac1n\geq\sum_{n=m}^{\ell}\frac1\ell=\frac{\ell-m+1}{\ell}.\)</li>
+                      <li>\(\displaystyle \left|\{2^{k-1}+1,\ldots,2^k\}\right|=2^{k-1}.\)</li>
+                      <li>\(\displaystyle \frac{2^{k-1}}{2^k}=\frac12.\)</li>
+                    </ol>
+                    <p>Taking \(m=2^{k-1}+1\) and \(\ell=2^k\) gives</p>
+                    \[
+                      \sum_{n=2^{k-1}+1}^{2^k}\frac1n\geq\frac{2^{k-1}}{2^k}=\frac12.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-harmonic-4">
+                    <p><strong>Proof.</strong> Let \(s_m=\sum_{n=1}^{m}1/n\).</p>
+                    <p>For every \(k\in\mathbb{N}\),</p>
+                    \[
+                      \sum_{n=2^{k-1}+1}^{2^k}\frac1n
+                      \geq\sum_{n=2^{k-1}+1}^{2^k}\frac1{2^k}
+                      =\frac{2^{k-1}}{2^k}
+                      =\frac12.
+                    \]
+                    <p>For every \(\ell\in\mathbb{N}\), grouping these terms gives</p>
+                    \[
+                      s_{2^\ell}=1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}\frac1n
+                      \geq1+\sum_{k=1}^{\ell}\frac12=1+\frac{\ell}{2}.
+                    \]
+                    <p>Hence the partial sums are unbounded, so they do not converge.</p>
+                    <p>In conclusion, \(\sum_{n=1}^{\infty}1/n\) diverges.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 10 -->
         </div>
     </div>
   </main>
