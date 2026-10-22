@@ -265,7 +265,7 @@
       --lecture10-slide-inset: 3vh;
     }
     .lecture10-single-spaced .lecture-note {
-      font-size: clamp(22px, calc(2px + 2.3vh), 24px);
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
     }
     .lecture10-single-spaced .note-heading { font-size: 1.05em; }
     @supports (height: 100dvh) {
@@ -275,7 +275,7 @@
         --lecture10-slide-inset: 3dvh;
       }
       .lecture10-single-spaced .lecture-note {
-        font-size: clamp(22px, calc(2px + 2.3dvh), 24px);
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
       }
     }
     @media screen and (min-width: 821px) and (min-height: 600px) {
@@ -291,6 +291,108 @@
       .lecture10-single-spaced[open],
       .lecture10-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
+    /* Lecture 11 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture11-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture11-single-spaced .lecture-note p,
+    .lecture11-single-spaced .lecture-note ol,
+    .lecture11-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture11-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture11-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture11-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture11-single-spaced {
+      --lecture11-slide-height: 90vh;
+      --lecture11-slide-gap: 10vh;
+      --lecture11-slide-inset: 3vh;
+    }
+    .lecture11-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture11-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture11-single-spaced {
+        --lecture11-slide-height: 90dvh;
+        --lecture11-slide-gap: 10dvh;
+        --lecture11-slide-inset: 3dvh;
+      }
+      .lecture11-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture11-single-spaced .lecture-block {
+        height: var(--lecture11-slide-height);
+        padding-block: var(--lecture11-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture11-slide-inset);
+      }
+      .lecture11-single-spaced .presentation-break {
+        height: var(--lecture11-slide-gap);
+      }
+      .lecture11-single-spaced[open],
+      .lecture11-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* Begin Lecture 12 geometry */
+    /* Lecture 12 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture12-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture12-single-spaced .lecture-note p,
+    .lecture12-single-spaced .lecture-note ol,
+    .lecture12-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture12-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture12-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture12-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture12-single-spaced {
+      --lecture12-slide-height: 90vh;
+      --lecture12-slide-gap: 10vh;
+      --lecture12-slide-inset: 3vh;
+    }
+    .lecture12-single-spaced .lecture-note {
+      font-size: clamp(22px, calc(2px + 2.3vh), 24px);
+    }
+    .lecture12-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture12-single-spaced {
+        --lecture12-slide-height: 90dvh;
+        --lecture12-slide-gap: 10dvh;
+        --lecture12-slide-inset: 3dvh;
+      }
+      .lecture12-single-spaced .lecture-note {
+        font-size: clamp(22px, calc(2px + 2.3dvh), 24px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture12-single-spaced .lecture-block {
+        height: var(--lecture12-slide-height);
+        padding-block: var(--lecture12-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture12-slide-inset);
+      }
+      .lecture12-single-spaced .presentation-break {
+        height: var(--lecture12-slide-gap);
+      }
+      .lecture12-single-spaced[open],
+      .lecture12-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 12 geometry */
+    /* Lecture 12 font experiment: 2px larger, with existing slide geometry. */
+    .lecture-node[id^="lecture12-"] > .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    @supports (height: 100dvh) {
+      .lecture-node[id^="lecture12-"] > .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    /* End Lecture 12 font experiment. */
   </style>
   <script>
     window.MathJax = {
@@ -4617,8 +4719,8 @@
                   \[
                   \begin{aligned}
                     \forall n\geq N,\quad |x_ny_n-xy|
-                    &amp;&lt;M\frac{\varepsilon}{2(M+1)}+|x|\frac{\varepsilon}{2(|x|+1)} \\
-                    &amp;\leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+                    &amp;\leq M\frac{\varepsilon}{2(M+1)}+|x|\frac{\varepsilon}{2(|x|+1)} \\
+                    &amp;&lt;\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
                   \end{aligned}
                   \]
                   <p>Therefore \(x_ny_n\to xy\).</p>
@@ -5458,7 +5560,7 @@
                   <div class="lecture-block" id="lecture10-not-cauchy-1">
                     <p><strong>Negation.</strong> A sequence \(\{x_n\}\) is <em>not Cauchy</em> if</p>
                     \[
-                      \exists\varepsilon_0&gt;0\ \text{s.t.}\ \forall M\in\mathbb{N},\ \exists n,k\geq M,\quad |x_n-x_k|\geq\varepsilon_0.
+                      \exists\varepsilon_0&gt;0\ \text{s.t.}\ \forall M\in\mathbb{N},\ \exists n,k\geq M,\, |x_n-x_k|\geq\varepsilon_0.
                     \]
                     <p><strong>Remark.</strong> Thus, a sequence is not Cauchy if there is a uniform threshold \(\varepsilon_0&gt;0\) such that every tail \(T_M=\{x_n:n\geq M\}\) contains two members at least \(\varepsilon_0\) apart.</p>
                   </div>
@@ -5527,14 +5629,14 @@
                     \]
                     <p>Then</p>
                     \[
-                      \begin{array}{lrl}
-                        \text{(finiteness)} &amp; 1\leq n&lt;M &amp; \implies |x_n|&lt;B \\[0.4em]
-                        \text{(Cauchy)} &amp; n\geq M &amp; \implies |x_n|&lt;1+|x_M|\leq B.
+                      \begin{array}{@{}l@{\;}r@{\;}l@{}}
+                        \text{(finiteness)} &amp; 1\!\leq\! n\!&lt;\!M &amp; \!\Rightarrow\! |x_n|\!&lt;\!B \\[0.4em]
+                        \text{(Cauchy)} &amp; n\!\geq\! M &amp; \!\Rightarrow\! |x_n|\!&lt;\!1\!+\!|x_M|\!\leq\! B.
                       \end{array}
                     \]
                     <p>Consequently</p>
                     \[
-                      \forall n\in\mathbb{N},\quad |x_n|\leq B
+                      \forall n\in\mathbb{N},\quad |x_n|\!\leq\! B
                     \]
                     <p>and so \(\{x_n\}\) is bounded.</p>
                   </div>
@@ -5584,11 +5686,11 @@
                       M\geq M_0\implies |x_{n_M}-x|&lt;\frac{\varepsilon}{2}
                     \]
                     \[
-                      n,n_M\geq M\implies n,n_M\geq M_1\implies |x_n-x_{n_M}|&lt;\frac{\varepsilon}{2}.
+                      n,n_M\!\geq\!M\!\Rightarrow\!n,n_M\!\geq\!M_1\!\Rightarrow\!|x_n\!-\!x_{n_M}|\!&lt;\!\frac{\varepsilon}{2}.
                     \]
-                    <p>Triangle inequality then gives</p>
+                    <p>For every \(n\geq M\), the triangle inequality gives</p>
                     \[
-                      \forall n\geq M,\; |x_n\!-\!x|\leq|x_n\!-\!x_{n_M}|\!+\!|x_{n_M}\!-\!x|&lt;\frac{\varepsilon}{2}\!+\!\frac{\varepsilon}{2}=\varepsilon.
+                      |x_n\!-\!x|\!\leq\!|x_n\!-\!x_{n_M}|\!+\!|x_{n_M}\!-\!x|\!&lt;\!\frac{\varepsilon}{2}\!+\!\frac{\varepsilon}{2}\!=\!\varepsilon.
                     \]
                     <p>In conclusion: \(x_n\to x\).</p>
                   </div>
@@ -5645,7 +5747,7 @@
 
           <details class="lecture-node lecture-chapter lecture10-single-spaced" id="lecture-10-series">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">series/</span>
             </summary>
@@ -5675,6 +5777,7 @@
                     <p>If \(\{s_n\}\) is not convergent, we say \(\{x_n\}\) has a <em>divergent series</em>.</p>
                     <p><strong>Remark.</strong> A series need not start at \(k=1\).</p>
                     <p>Instead, one may define a series starting at any finite integer index or with lower limit \(-\infty\).</p>
+                    <p>We will often write \(\sum x_n\) for \(\sum_{n=1}^{\infty}x_n\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture10-partial-sums-3">
@@ -5723,7 +5826,8 @@
                       \begin{aligned}
                         s_m
                         &amp;=\sum_{n=1}^{m}\left(\frac1n-\frac1{n+1}\right)\\
-                        &amp;=\left(1+\frac12\!+\!\cdots\!+\!\frac1m\right)-\left(\frac12\!+\!\cdots\!+\!\frac1m+\frac1{m+1}\right)\\
+                        &amp;=\left(1+\frac12\!+\!\cdots\!+\!\frac1m\right)\\
+                        &amp;\qquad-\left(\frac12\!+\!\cdots\!+\!\frac1m+\frac1{m+1}\right)\\
                         &amp;=1-\frac1{m+1}\longrightarrow1.
                       \end{aligned}
                     \]
@@ -5823,18 +5927,28 @@
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">cauchy-series/</span>
+                  <span class="lecture-label">cauchy-series-and-the-cauchy-criterion/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture10-cauchy-series-1">
                     <p><strong>Definition.</strong> A series \(\sum x_n\) is <em>Cauchy</em> if its sequence of partial sums \(\{s_m\}\) is Cauchy:</p>
                     \[
-                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall m,\ell\geq M,\, \left|\sum_{n=1}^{m}x_n-\sum_{n=1}^{\ell}x_n\right|&lt;\varepsilon.
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall m,\ell\geq M,\quad
+                      \left|\sum_{n=1}^{m}x_n-\sum_{n=1}^{\ell}x_n\right|&lt;\varepsilon.
                     \]
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture10-cauchy-series-2">
                     <p><strong>Theorem.</strong> A series of real numbers is Cauchy if and only if it converges.</p>
+                    <p><strong>Remark.</strong> One usually calls the condition</p>
+                    \[
+                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall\ell&gt;m\geq M,\quad
+                      \left|\sum_{n=m+1}^{\ell}x_n\right|&lt;\varepsilon
+                    \]
+                    <p>the <em>Cauchy criterion</em> for series.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-cauchy-series-3">
                     <p><strong>Proof.</strong> Apply the Cauchy criterion for real sequences to \(\{s_m\}\):</p>
                     \[
                       \begin{aligned}
@@ -5847,58 +5961,11 @@
                   </div>
                 </div>
               </details>
-              <details class="lecture-node" id="lecture10-series-criterion">
-                <summary>
-                  <span class="lecture-branch">├──</span>
-                  <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">cauchy-criterion-for-series/</span>
-                </summary>
-                <div class="lecture-note">
-                  <div class="lecture-block" id="lecture10-series-criterion-1">
-                    <p><strong>Theorem (Cauchy Criterion).</strong> A series \(\sum x_n\) is Cauchy if and only if</p>
-                    \[
-                      \forall\varepsilon&gt;0,\ \exists M\in\mathbb{N}\ \text{s.t.}\ \forall\ell&gt;m\geq M,\quad \left|\sum_{n=m+1}^{\ell}x_n\right|&lt;\varepsilon.
-                    \]
-                  </div>
-                  <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture10-series-criterion-3">
-                    <p><strong>Proof \((\Longrightarrow)\).</strong> Suppose \(\sum x_n\) is Cauchy and let \(\varepsilon&gt;0\).</p>
-                    <p>Choose \(M\in\mathbb{N}\) such that</p>
-                    \[
-                      \forall m,\ell\geq M,\quad |s_\ell-s_m|&lt;\varepsilon.
-                    \]
-                    <p>Noting that</p>
-                    \[
-                      \forall\ell&gt;m\geq M,\quad s_\ell-s_m=\sum_{n=1}^{\ell}x_n-\sum_{n=1}^{m}x_n=\sum_{n=m+1}^{\ell}x_n,
-                    \]
-                    <p>we conclude</p>
-                    \[
-                      \left|\sum_{n=m+1}^{\ell}x_n\right|
-                      =|s_\ell-s_m|&lt;\varepsilon.
-                    \]
-                  </div>
-                  <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture10-series-criterion-4">
-                    <p><strong>Proof \((\Longleftarrow)\).</strong> Assume the tail condition and let \(\varepsilon&gt;0\).</p>
-                    <p>Choose \(M\in\mathbb{N}\) so that for all \(\ell&gt;m\geq M\),</p>
-                    \[
-                      |s_\ell-s_m|=\left|\sum_{n=m+1}^{\ell}x_n\right|&lt;\varepsilon.
-                    \]
-                    <p>By symmetry, the same bound holds for \(m&gt;\ell\geq M\).</p>
-                    <p>For \(m=\ell\geq M\), we have \(|s_\ell-s_m|=0&lt;\varepsilon\).</p>
-                    <p>In conclusion,</p>
-                    \[
-                      \forall m,\ell\geq M,\quad |s_\ell-s_m|&lt;\varepsilon,
-                    \]
-                    <p>and so \(\{s_m\}\), and hence \(\sum x_n\), is Cauchy.</p>
-                  </div>
-                </div>
-              </details>
               <details class="lecture-node" id="lecture10-terms-zero">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">terms-of-a-convergent-series/</span>
+                  <span class="lecture-label">convergence-implies-terms-vanish/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture10-terms-zero-1">
@@ -5922,15 +5989,15 @@
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture10-terms-zero-3">
                     <p><strong>Proof.</strong> Suppose \(\sum x_n\) converges and let \(\varepsilon&gt;0\).</p>
-                    <p>The series is Cauchy, so choose \(M_0\in\mathbb{N}\) such that</p>
+                    <p>\(\text{Convergence}\implies\text{Cauchy}\implies\exists M_0\in\mathbb{N}\) s.t.</p>
                     \[
                       \forall\ell&gt;m\geq M_0,\quad
                       \left|\sum_{j=m+1}^{\ell}x_j\right|&lt;\varepsilon.
                     \]
-                    <p>Choose \(M=M_0+1\).</p>
-                    <p>If \(n\geq M\), then \(n-1\geq M_0\), and taking \(m=n-1\), \(\ell=n\) gives</p>
+                    <p>Set \(M=M_0+1\).</p>
+                    <p>If \(n\geq M\), then \(n,n-1\geq M_0\) and so</p>
                     \[
-                      |x_n|=\left|\sum_{j=n}^{n}x_j\right|&lt;\varepsilon.
+                      \forall n\geq M,\quad |x_n|=\left|\sum_{j=n}^{n}x_j\right|&lt;\varepsilon.
                     \]
                     <p>Therefore \(x_n\to0\).</p>
                   </div>
@@ -5962,15 +6029,20 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture10-geometric-convergence-3">
-                    <p><strong>Corollary.</strong> Let \(\alpha,r\in\mathbb{R}\) with \(\alpha\neq0\).</p>
+                    <p><strong>Corollary.</strong> Let \(r\in\mathbb{R}\).</p>
                     <p>Then</p>
                     \[
-                      \sum_{n=0}^{\infty}\alpha r^n\text{ converges}
+                      \sum_{n=0}^{\infty}r^n\text{ converges}
                       \quad\Longleftrightarrow\quad |r|&lt;1.
                     \]
-                    <p><strong>Proof.</strong> The partial sums are \(\alpha\sum_{n=0}^{m}r^n\).</p>
-                    <p>Since \(\alpha\neq0\), convergence is equivalent to convergence of \(\sum_{n=0}^{m}r^n\), by scalar multiplication in either direction.</p>
-                    <p><strong>Remark.</strong> If \(\alpha=0\), every term is zero, so the series converges to \(0\) for every \(r\).</p>
+                    <p><strong>Proof.</strong> Combine</p>
+                    \[
+                      |r|&lt;1\implies\sum_{n=0}^{\infty}r^n\text{ converges}
+                    \]
+                    <p>and</p>
+                    \[
+                      |r|\geq1\implies\sum_{n=0}^{\infty}r^n\text{ diverges}.
+                    \]
                   </div>
                 </div>
               </details>
@@ -5993,8 +6065,8 @@
                       \sum_{n=1}^{\infty}\frac1n
                     \]
                     <p>does not converge.</p>
-                    <p>This is called the <em>harmonic series</em>.</p>
-                    <p>Since \(1/n\to0\), the converse is false.</p>
+                    <p><strong>Remark.</strong> This series is called the <em>harmonic series</em>.</p>
+                    <p>Since \(1/n\to0\) and the harmonic series diverges, having terms that tend to zero does not imply convergence.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture10-harmonic-3">
@@ -6002,8 +6074,8 @@
                     <ol>
                       <li>The sum \(\sum_{n=m}^{\ell}\) contains \(\ell-m+1\) terms.</li>
                       <li>\(\displaystyle \sum_{n=m}^{\ell}\frac1n\geq\sum_{n=m}^{\ell}\frac1\ell=\frac{\ell-m+1}{\ell}.\)</li>
-                      <li>\(\displaystyle \left|\{2^{k-1}+1,\ldots,2^k\}\right|=2^{k-1}.\)</li>
-                      <li>\(\displaystyle \frac{2^{k-1}}{2^k}=\frac12.\)</li>
+                      <li>\(\displaystyle 2^k-2^{k-1}=2^{k-1}\) and \(\displaystyle \frac{2^{k-1}}{2^k}=\frac12.\)</li>
+                      <li>\(\displaystyle \sum_{n=1}^{2^\ell}x_n=x_1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}x_n.\)</li>
                     </ol>
                     <p>Taking \(m=2^{k-1}+1\) and \(\ell=2^k\) gives</p>
                     \[
@@ -6020,19 +6092,654 @@
                       =\frac{2^{k-1}}{2^k}
                       =\frac12.
                     \]
-                    <p>For every \(\ell\in\mathbb{N}\), grouping these terms gives</p>
+                    <p>Consequently, for every \(\ell\in\mathbb{N}\):</p>
                     \[
-                      s_{2^\ell}=1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}\frac1n
-                      \geq1+\sum_{k=1}^{\ell}\frac12=1+\frac{\ell}{2}.
+                      \begin{aligned}
+                      s_{2^\ell}&amp;=\sum_{n=1}^{2^\ell}\frac1n
+                      =1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}\frac1n\\
+                      &amp;\geq1+\sum_{k=1}^{\ell}\frac12=1+\frac{\ell}{2},
+                      \end{aligned}
                     \]
-                    <p>Hence the partial sums are unbounded, so they do not converge.</p>
-                    <p>In conclusion, \(\sum_{n=1}^{\infty}1/n\) diverges.</p>
+                    <p>and so \(\{s_m\}\) is unbounded and therefore \(\sum_{n=1}^{\infty}1/n\) diverges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture10-harmonic-5">
+                    <p><strong>Remark.</strong> The decomposition</p>
+                    \[
+                      \sum_{n=1}^{2^\ell}\frac1n
+                      =1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}\frac1n
+                    \]
+                    <p>is an example of a <em>dyadic decomposition</em> and the proof above is a <em>dyadic argument</em>.</p>
+                    <p>This is a powerful and standard type of argument in analysis.</p>
                   </div>
                 </div>
               </details>
             </div>
           </details>
           <!-- End Lecture 10 -->
+
+          <!-- Lecture 11: properties of series and convergence tests -->
+          <details class="lecture-node lecture-chapter lecture11-single-spaced" id="lecture-11">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">properties-of-series/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture11-linearity">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">linearity-of-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture11-linearity-1">
+                    <p><strong>Theorem (Linearity of Series).</strong> Let \(\alpha\in\mathbb{R}\), and suppose that \(\sum x_n\) and \(\sum y_n\) converge.</p>
+                    <p>Then \(\sum(\alpha x_n+y_n)\) converges and</p>
+                    \[
+                      \sum(\alpha x_n+y_n)
+                      =\alpha\sum x_n+\sum y_n.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-linearity-2">
+                    <p><strong>Proof.</strong> For every \(m\in\mathbb{N}\), finite sums satisfy</p>
+                    \[
+                      \sum_{n=1}^{m}(\alpha x_n+y_n)
+                      =\alpha\sum_{n=1}^{m}x_n+\sum_{n=1}^{m}y_n.
+                    \]
+                    <p>Taking limits and using the algebra of limits gives</p>
+                    \[
+                      \lim_{m\to\infty}\sum_{n=1}^{m}(\alpha x_n+y_n)
+                      =\alpha\sum x_n+\sum y_n.
+                    \]
+                    <p>Thus \(\sum(\alpha x_n+y_n)\) converges to the stated sum.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture11-nonnegative">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">series-with-nonnegative-terms/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture11-nonnegative-1">
+                    <p><strong>Theorem.</strong> Suppose \(x_n\geq0\) for every \(n\in\mathbb{N}\).</p>
+                    <p>Then</p>
+                    \[
+                      \sum x_n\text{ converges}
+                      \quad\Longleftrightarrow\quad
+                      \{s_m\}\text{ is bounded},
+                    \]
+                    <p>where \(s_m=\sum_{n=1}^{m}x_n\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-nonnegative-2">
+                    <p><strong>Proof \((\Longrightarrow)\).</strong> Suppose \(\sum x_n\) converges.</p>
+                    <p>Then the sequence of partial sums \(\{s_m\}\) converges and hence is bounded.</p>
+                    <p><strong>Proof \((\Longleftarrow)\).</strong> Suppose \(\{s_m\}\) is bounded.</p>
+                    <p>Since</p>
+                    \[
+                      s_m\leq s_m+x_{m+1}=s_{m+1}
+                    \]
+                    <p>we conclude \(\{s_m\}\) is monotonic and bounded, and hence converges by the monotone convergence theorem.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture11-absolute">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">absolute-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture11-absolute-1">
+                    <p><strong>Definition.</strong> The series \(\sum x_n\) <em>converges absolutely</em> if</p>
+                    \[
+                      \sum |x_n|
+                    \]
+                    <p>converges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-absolute-2">
+                    <p><strong>Theorem.</strong> If \(\sum x_n\) converges absolutely, then \(\sum x_n\) converges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-absolute-6">
+                    <p><strong>Proof.</strong> Suppose \(\sum |x_n|\) converges and let \(\varepsilon&gt;0\).</p>
+                    <p>By the Cauchy criterion,</p>
+                    \[
+                      \exists M\in\mathbb{N}\ \text{s.t.}\ \forall\ell&gt;m\geq M,\quad
+                      \sum_{n=m+1}^{\ell}|x_n|&lt;\varepsilon.
+                    \]
+                    <p>Iterating the triangle inequality gives</p>
+                    \[
+                      \forall\ell&gt;m\geq M,\quad
+                      \left|\sum_{n=m+1}^{\ell}x_n\right|
+                      \leq\sum_{n=m+1}^{\ell}|x_n|&lt;\varepsilon.
+                    \]
+                    <p>Therefore \(\sum x_n\) is Cauchy and hence convergent.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-absolute-8">
+                    <p><strong>Remark.</strong> Let \(x_n=(-1)^n/n\).</p>
+                    <p>We will show \(\sum x_n\) converges, but it is not absolutely convergent since</p>
+                    \[
+                      \sum_{n=1}^{\infty}|x_n|=\sum_{n=1}^{\infty}\frac1n
+                    \]
+                    <p>is the harmonic series.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-absolute-9">
+                    <p><strong>Optional Remark.</strong> Let \(\ell^1(\mathbb{N})\) denote the family of real sequences \(\{x_n\}\) such that \(\sum |x_n|\) converges.</p>
+                    <p>The preceding results ensure that \(\ell^1(\mathbb{N})\) is a vector space and that we may define the map</p>
+                    \[
+                      \begin{gathered}
+                      \sum:\ell^1(\mathbb{N})\to\mathbb{R},\\
+                      \{x_n\}\mapsto\sum x_n:=\sum_{n=1}^{\infty}x_n.
+                      \end{gathered}
+                    \]
+                    <p>The linearity theorem establishes that \(\sum\) is a linear functional on \(\ell^1(\mathbb{N})\).</p>
+                    <p>Informally, \(\sum\) is a kind of “integral” defined on the naturals.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details class="lecture-node lecture-chapter lecture11-single-spaced" id="lecture-11-tests">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">convergence-tests/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture11-comparison">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">comparison-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture11-comparison-1">
+                    <p><strong>Theorem (Comparison Test).</strong> Suppose</p>
+                    \[
+                      0\leq x_n\leq y_n\qquad(n\in\mathbb{N}).
+                    \]
+                    <p>Then</p>
+                    <ol>
+                      <li>if \(\sum y_n\) converges, then \(\sum x_n\) converges;</li>
+                      <li>if \(\sum x_n\) diverges, then \(\sum y_n\) diverges.</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-comparison-2">
+                    <p><strong>Proof.</strong> Let</p>
+                    \[
+                      s_m=\sum_{n=1}^{m}x_n
+                      \qquad\text{and}\qquad
+                      t_m=\sum_{n=1}^{m}y_n.
+                    \]
+                    <p>Then \(s_m\leq t_m\), and both \(\{s_m\}\) and \(\{t_m\}\) are monotonically increasing.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-comparison-3">
+                    <p><strong>1.</strong> Suppose \(\sum y_n\) converges.</p>
+                    <p>Then \(\{t_m\}\) is bounded and so</p>
+                    \[
+                      \exists B\geq0\ \text{s.t.}\ \forall m\in\mathbb{N},\quad
+                      0\leq s_m\leq t_m\leq B.
+                    \]
+                    <p>But then \(\{s_m\}\) is monotonic and bounded.</p>
+                    <p>Monotone convergence theorem \(\implies\{s_m\}\) converges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-comparison-4">
+                    <p><strong>2.</strong> Suppose \(\sum x_n\) diverges.</p>
+                    <p>Then \(\{s_m\}\) is unbounded and so</p>
+                    \[
+                      \forall B\geq0,\ \exists m\in\mathbb{N}\ \text{s.t.}\quad
+                      B\leq s_m\leq t_m.
+                    \]
+                    <p>But then \(\{t_m\}\) is unbounded and hence divergent.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture11-p-series">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">p-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture11-p-series-1">
+                    <p><strong>Theorem (\(p\)-Series).</strong> Let \(p\in\mathbb{R}\).</p>
+                    <p>Then</p>
+                    \[
+                      \sum_{n=1}^{\infty}\frac{1}{n^p}
+                      \text{ converges}
+                      \quad\Longleftrightarrow\quad p&gt;1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-p-series-2">
+                    <p><strong>Proof \((\Longrightarrow)\).</strong> Let \(p\in\mathbb{R}\) and suppose \(\sum 1/n^p\) converges.</p>
+                    <p>For contradiction, assume \(p\leq1\).</p>
+                    <p>Then</p>
+                    \[
+                      \forall n\in\mathbb{N},\quad0\leq\frac1n\leq\frac{1}{n^p}.
+                    \]
+                    <p>By comparison with the harmonic series, \(\sum 1/n^p\) diverges.</p>
+                    <p>This contradiction implies \(p&gt;1\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-p-series-3">
+                    <p><strong>Proof \((\Longleftarrow)\).</strong> Suppose \(p&gt;1\).</p>
+                    <p>We perform a dyadic decomposition and compare with a geometric series.</p>
+                    <p>Let \(s_m=\sum_{n=1}^{m}1/n^p\) and \(r=2^{1-p}\in(0,1)\).</p>
+                    <p>For every \(\ell\in\mathbb{N}\),</p>
+                    \[
+                      \begin{aligned}
+                      s_{2^\ell}&amp;=1+\sum_{k=1}^{\ell}\sum_{n=2^{k-1}+1}^{2^k}\frac1{n^p}\\
+                      &amp;\leq1+\sum_{k=1}^{\ell}\frac{2^{k-1}}{2^{p(k-1)}}\\
+                      &amp;=1+\sum_{k=1}^{\ell}r^{k-1}\leq1+\frac1{1-r}.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture11-p-series-4">
+                    <p>Since \(\{s_m\}\) is increasing and \(m&lt;2^m\),</p>
+                    \[
+                      \forall m\in\mathbb{N},\quad0\leq s_m\leq s_{2^m}\leq1+\frac1{1-r}.
+                    \]
+                    <p>Monotone convergence theorem \(\Longrightarrow\) \(\{s_m\}\) converges.</p>
+                    <p>Hence \(\sum_{n=1}^{\infty}1/n^p\) converges.</p>
+                  </div>
+                </div>
+              </details>
+
+              <!-- Begin Lecture 12 convergence tests -->
+              <details class="lecture-node" id="lecture12-ratio">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">ratio-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-ratio-1">
+                    <p><strong>Theorem (Ratio Test).</strong> Let \(\{x_n\}\) be a sequence of nonzero real numbers, and suppose</p>
+                    \[
+                      L=\lim_{n\to\infty}\frac{|x_{n+1}|}{|x_n|}
+                    \]
+                    <p>exists.</p>
+                    <ol>
+                      <li>If \(L&lt;1\), then \(\sum_{n=1}^{\infty}x_n\) converges absolutely.</li>
+                      <li>If \(L&gt;1\), then \(\sum_{n=1}^{\infty}x_n\) diverges.</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-ratio-3">
+                    <p><strong>Proof. Case \(L&gt;1\).</strong></p>
+                    <p>Choose \(1&lt;\alpha&lt;L\) and \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n\geq M,\quad\frac{|x_{n+1}|}{|x_n|}&gt;\alpha&gt;1.
+                    \]
+                    <p>In particular</p>
+                    \[
+                      \forall n\geq M,\quad|x_{n+1}|&gt;|x_n|\geq|x_M|&gt;0.
+                    \]
+                    <p>Thus \(\{x_n\}\) does not converge to \(0\), so \(\sum x_n\) diverges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-ratio-4">
+                    <p><strong>Case \(L&lt;1\).</strong></p>
+                    <p>Choose \(0\leq L&lt;\alpha&lt;1\) and \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n\geq M,\quad\frac{|x_{n+1}|}{|x_n|}&lt;\alpha&lt;1.
+                    \]
+                    <p>In particular</p>
+                    \[
+                      \forall n\geq M,\quad|x_{n+1}|&lt;\alpha|x_n|.
+                    \]
+                    <p>Iterating, for \(n\geq M\),</p>
+                    \[
+                      \begin{aligned}
+                      |x_{M+1}|&amp;\leq\alpha|x_M|\\
+                      |x_{M+2}|&amp;\leq\alpha|x_{M+1}|\leq\alpha^2|x_M|\\
+                      &amp;\vdots\\
+                      |x_n|&amp;\leq\alpha^{n-M}|x_M|.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-ratio-5">
+                    <p>For \(m\geq M\),</p>
+                    \[
+                      \begin{aligned}
+                      \sum_{n=M}^{m}|x_n|
+                      &amp;\leq|x_M|\sum_{n=M}^{m}\alpha^{n-M}\\
+                      &amp;=|x_M|\sum_{k=0}^{m-M}\alpha^k\\
+                      &amp;\leq\frac{|x_M|}{1-\alpha}.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(\sum_{n=M}^{\infty}|x_n|\) converges by the monotone convergence theorem.</p>
+                    <p>This is enough to conclude absolute convergence of \(\sum_{n=1}^{\infty}x_n\).</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node" id="lecture12-factorial">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">example/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-factorial-1">
+                    <p><strong>Example.</strong> For every \(x\in\mathbb{R}\), the series</p>
+                    \[
+                      \sum_{n=0}^{\infty}\frac{x^n}{n!}
+                    \]
+                    <p>converges absolutely.</p>
+                    <p><strong>Proof.</strong> For \(x=0\), the series \(1+0+0+\cdots\) converges absolutely.</p>
+                    <p>For \(x\neq0\),</p>
+                    \[
+                      \frac{|x^{n+1}/(n+1)!|}{|x^n/n!|}
+                      =\frac{|x|}{n+1}\longrightarrow0.
+                    \]
+                    <p>The ratio test gives absolute convergence.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node" id="lecture12-ratio-example">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">an-inconclusive-ratio-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-ratio-example-1">
+                    <p>If \(|x_{n+1}|/|x_n|\to1\), we cannot conclude whether \(\sum x_n\) converges absolutely.</p>
+                    <p>Indeed, \(\sum1/n^2\) converges and \(\sum1/n\) diverges, yet</p>
+                    \[
+                      \frac{n^2}{(n+1)^2}\longrightarrow1
+                      \qquad\text{and}\qquad
+                      \frac{n}{n+1}\longrightarrow1.
+                    \]
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node" id="lecture12-root">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">root-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-root-1">
+                    <p><strong>Theorem (Root Test).</strong> Let \(\{x_n\}\) be a sequence of real numbers, and suppose</p>
+                    \[
+                      L=\lim_{n\to\infty}|x_n|^{1/n}
+                    \]
+                    <p>exists.</p>
+                    <ol>
+                      <li>If \(L&lt;1\), then \(\sum_{n=1}^{\infty}x_n\) converges absolutely.</li>
+                      <li>If \(L&gt;1\), then \(\sum_{n=1}^{\infty}x_n\) diverges.</li>
+                    </ol>
+                    <p><strong>Remark.</strong> When \(L=1\), the test is inconclusive.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-root-5">
+                    <p><strong>Proof. Case \(L&gt;1\).</strong></p>
+                    <p>Choose \(1&lt;\alpha&lt;L\) and \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n\geq M,\quad|x_n|^{1/n}&gt;\alpha&gt;1.
+                    \]
+                    <p>In particular</p>
+                    \[
+                      \forall n\geq M,\quad|x_n|&gt;\alpha^n\geq\alpha^M&gt;0.
+                    \]
+                    <p>Thus \(\{x_n\}\) does not converge to \(0\), so \(\sum x_n\) diverges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-root-3">
+                    <p><strong>Case \(L&lt;1\).</strong></p>
+                    <p>Choose \(0\leq L&lt;\alpha&lt;1\) and \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      \forall n\geq M,\quad|x_n|^{1/n}&lt;\alpha&lt;1.
+                    \]
+                    <p>In particular</p>
+                    \[
+                      \forall n\geq M,\quad|x_n|&lt;\alpha^n.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-root-4">
+                    <p>For \(m\geq M\),</p>
+                    \[
+                      \begin{aligned}
+                      \sum_{n=M}^{m}|x_n|
+                      &amp;\leq\sum_{n=M}^{m}\alpha^n\\
+                      &amp;=\alpha^M\sum_{k=0}^{m-M}\alpha^k\\
+                      &amp;\leq\frac{\alpha^M}{1-\alpha}.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(\sum_{n=M}^{\infty}|x_n|\) converges by the monotone convergence theorem.</p>
+                    <p>This is enough to conclude absolute convergence of \(\sum_{n=1}^{\infty}x_n\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-root-6">
+                    <p><strong>Remark.</strong> The theorem also holds with</p>
+                    \[
+                      L=\limsup_{n\to\infty}|x_n|^{1/n}.
+                    \]
+                    <p>The ordinary limit need not exist.</p>
+                    <p><strong>1.</strong> If \(L&lt;1\), choose \(L&lt;\alpha&lt;1\).</p>
+                    <p>Then \(|x_n|^{1/n}&lt;\alpha\) eventually, so the same estimate applies.</p>
+                    <p><strong>2.</strong> If \(L&gt;1\), then \(|x_n|^{1/n}&gt;1\), hence \(|x_n|&gt;1\), for arbitrarily large \(n\).</p>
+                    <p>Thus \(\{x_n\}\) does not converge to \(0\), so \(\sum x_n\) diverges.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node" id="lecture12-alternating">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">alternating-series-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-alternating-1">
+                    <p><strong>Theorem (Alternating-Series Test).</strong> Suppose \(x_{n+1}\leq x_n\) for every \(n\in\mathbb{N}\), and \(x_n\to0\).</p>
+                    <p>Then</p>
+                    \[
+                      \sum_{n=1}^{\infty}(-1)^n x_n
+                    \]
+                    <p>converges.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-alternating-3">
+                    <p><strong>Proof.</strong> Let \(s_m=\sum_{n=1}^{m}(-1)^n x_n\).</p>
+                    <p>Since \(\{x_n\}\) decreases to \(0\), \(x_n\geq0\).</p>
+                    <p>Then</p>
+                    \[
+                      s_{2k}=\sum_{j=1}^{k}(x_{2j}-x_{2j-1}),
+                    \]
+                    <p>and monotonicity gives</p>
+                    \[
+                      s_{2k+2}-s_{2k}=x_{2k+2}-x_{2k+1}\leq0.
+                    \]
+                    <p>Thus \(\{s_{2k}\}\) is monotone decreasing.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-alternating-4">
+                    <p>Regrouping gives</p>
+                    \[
+                      s_{2k}=-x_1+\sum_{j=1}^{k-1}(x_{2j}-x_{2j+1})+x_{2k}.
+                    \]
+                    <p>All terms after \(-x_1\) are nonnegative, so</p>
+                    \[
+                      s_{2k}\geq-x_1\qquad(k\in\mathbb{N}).
+                    \]
+                    <p>By monotone convergence, \(s_{2k}\to s\) for some \(s\in\mathbb{R}.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-alternating-5">
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Since \(s_{2k}\to s\) and \(x_n\to0\), choose \(M_0,M_1\in\mathbb{N}\) such that</p>
+                    \[
+                      \begin{aligned}
+                        k\geq M_0&amp;\implies |s_{2k}-s|&lt;\frac{\epsilon}{2},\\
+                        n\geq M_1&amp;\implies |x_n|&lt;\frac{\epsilon}{2}.
+                      \end{aligned}
+                    \]
+                    <p>Set \(M=\max\{2M_0+1,M_1\}\), and let \(m\geq M\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-alternating-6">
+                    <p>If \(m=2k\), then \(k\geq M_0\), so</p>
+                    \[
+                      |s_m-s|=|s_{2k}-s|&lt;\frac{\epsilon}{2}&lt;\epsilon.
+                    \]
+                    <p>If \(m=2k+1\), then \(k\geq M_0\), \(m\geq M_1\), and \(s_m=s_{2k}-x_m\), so</p>
+                    \[
+                      |s_m-s|\leq|s_{2k}-s|+|x_m|
+                      &lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+                    \]
+                    <p>Therefore \(s_m\to s\), so the series converges.</p>
+                  </div>
+                </div>
+              </details>
+
+              <details class="lecture-node" id="lecture12-alternating-harmonic">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">alternating-harmonic-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-alternating-harmonic-1">
+                    <p><strong>Corollary.</strong> The series</p>
+                    \[
+                      \sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+                    \]
+                    <p>converges, but does not converge absolutely.</p>
+                    <p><strong>Proof.</strong> Since \(1/n\) decreases to \(0\), the alternating-series test gives convergence.</p>
+                    <p>Absolute convergence fails because</p>
+                    \[
+                      \sum_{n=1}^{\infty}\left|\frac{(-1)^n}{n}\right|
+                      =\sum_{n=1}^{\infty}\frac{1}{n}
+                    \]
+                    <p>diverges.</p>
+                  </div>
+                </div>
+              </details>
+              <!-- End Lecture 12 convergence tests -->
+            </div>
+          </details>
+          <!-- End Lecture 11 -->
+          <!-- Begin Lecture 12 rearrangements -->
+          <details class="lecture-node lecture-chapter lecture12-single-spaced" id="lecture-12-rearrangements">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">rearrangements/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture12-rearrangements">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">absolute-convergence-and-rearrangements/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture12-rearrangements-1">
+                    <p><strong>Theorem.</strong> Suppose \(\sum_{n=1}^{\infty}x_n\) converges absolutely, with sum \(x\).</p>
+                    <p>If \(\sigma:\mathbb{N}\to\mathbb{N}\) is a bijection, then</p>
+                    \[
+                      \sum_{n=1}^{\infty}x_{\sigma(n)}
+                    \]
+                    <p>converges absolutely and has sum \(x\).</p>
+                    <p>The series \(\sum x_{\sigma(n)}\) is called a <strong>rearrangement</strong> of \(\sum x_n\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-2">
+                    <p><strong>WTS.</strong> The rearranged series converges absolutely, and its partial sums tend to \(x\).</p>
+                    <p><strong>Observe.</strong> Injectivity prevents repetition.</p>
+                    <p>Surjectivity ensures that, for each fixed \(K\), every sufficiently long rearranged partial sum contains \(x_1,\ldots,x_K\).</p>
+                    <p><strong>Idea.</strong> Bound the absolute partial sums.</p>
+                    <p>Then choose \(K\) so that the original partial sum is close to \(x\) and the finite absolute tails after \(K\) are small.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-3">
+                    <p><strong>Proof of absolute convergence.</strong> Since \(\sum |x_n|\) converges, choose \(B\geq0\) such that</p>
+                    \[
+                      \sum_{n=1}^{\ell}|x_n|\leq B\qquad(\ell\in\mathbb{N}).
+                    \]
+                    <p>For \(m\in\mathbb{N}\), let \(\ell=\max\{\sigma(1),\ldots,\sigma(m)\}\).</p>
+                    <p>Injectivity gives</p>
+                    \[
+                      0\leq\sum_{n=1}^{m}|x_{\sigma(n)}|
+                      \leq\sum_{j=1}^{\ell}|x_j|\leq B.
+                    \]
+                    <p>The boundedness criterion gives absolute convergence of \(\sum x_{\sigma(n)}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-4">
+                    <p><strong>Proof that the sums agree.</strong> Write</p>
+                    \[
+                      s_k=\sum_{n=1}^{k}x_n,
+                      \qquad t_m=\sum_{n=1}^{m}x_{\sigma(n)}.
+                    \]
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Since \(s_k\to x\) and \(\sum |x_n|\) is Cauchy, choose \(M_0,M_1\in\mathbb{N}\) such that</p>
+                    \[
+                      \begin{aligned}
+                        k\geq M_0&amp;\implies |s_k-x|&lt;\frac{\epsilon}{2},\\
+                        \ell&gt;k\geq M_1&amp;\implies
+                        \sum_{j=k+1}^{\ell}|x_j|&lt;\frac{\epsilon}{2}.
+                      \end{aligned}
+                    \]
+                    <p>Set \(K=\max\{M_0,M_1\}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-5">
+                    <p>Set</p>
+                    \[
+                      M=\max\{\sigma^{-1}(1),\ldots,\sigma^{-1}(K)\}.
+                    \]
+                    <p>For \(m\geq M\), let \(E_m=\{\sigma(1),\ldots,\sigma(m)\}\).</p>
+                    <p>Then \(\{1,\ldots,K\}\subseteq E_m\), so</p>
+                    \[
+                      t_m=s_K+\sum_{\substack{j\in E_m\\j&gt;K}}x_j.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-6">
+                    <p>For \(m\geq M\), set \(\ell=\max(\{K+1\}\cup E_m)&gt;K\).</p>
+                    <p>Then</p>
+                    \[
+                      \begin{aligned}
+                      |t_m-x|
+                      &amp;\leq|s_K-x|+\sum_{\substack{j\in E_m\\j&gt;K}}|x_j|\\
+                      &amp;\leq|s_K-x|+\sum_{j=K+1}^{\ell}|x_j|\\
+                      &amp;&lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Hence \(t_m\to x\), so</p>
+                    \[
+                      \sum_{n=1}^{\infty}x_{\sigma(n)}
+                      =\sum_{n=1}^{\infty}x_n=x.
+                    \]
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 12 rearrangements -->
         </div>
     </div>
   </main>
