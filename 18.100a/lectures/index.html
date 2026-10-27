@@ -393,6 +393,100 @@
       }
     }
     /* End Lecture 12 font experiment. */
+    /* Begin Lecture 13 geometry */
+    /* Lecture 13 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture13-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture13-single-spaced .lecture-note p,
+    .lecture13-single-spaced .lecture-note ol,
+    .lecture13-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture13-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture13-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture13-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture13-single-spaced {
+      --lecture13-slide-height: 90vh;
+      --lecture13-slide-gap: 10vh;
+      --lecture13-slide-inset: 3vh;
+    }
+    .lecture13-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture13-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture13-single-spaced {
+        --lecture13-slide-height: 90dvh;
+        --lecture13-slide-gap: 10dvh;
+        --lecture13-slide-inset: 3dvh;
+      }
+      .lecture13-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture13-single-spaced .lecture-block {
+        height: var(--lecture13-slide-height);
+        padding-block: var(--lecture13-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture13-slide-inset);
+      }
+      .lecture13-single-spaced .presentation-break {
+        height: var(--lecture13-slide-gap);
+      }
+      .lecture13-single-spaced[open],
+      .lecture13-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 13 geometry */
+    /* Begin Lecture 14 geometry */
+    /* Lecture 14 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture14-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture14-single-spaced .lecture-note p,
+    .lecture14-single-spaced .lecture-note ol,
+    .lecture14-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture14-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture14-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture14-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture14-single-spaced {
+      --lecture14-slide-height: 90vh;
+      --lecture14-slide-gap: 10vh;
+      --lecture14-slide-inset: 3vh;
+    }
+    .lecture14-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture14-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture14-single-spaced {
+        --lecture14-slide-height: 90dvh;
+        --lecture14-slide-gap: 10dvh;
+        --lecture14-slide-inset: 3dvh;
+      }
+      .lecture14-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture14-single-spaced .lecture-block {
+        height: var(--lecture14-slide-height);
+        padding-block: var(--lecture14-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture14-slide-inset);
+      }
+      .lecture14-single-spaced .presentation-break {
+        height: var(--lecture14-slide-gap);
+      }
+      .lecture14-single-spaced[open],
+      .lecture14-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 14 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -6520,12 +6614,7 @@
                   <div class="lecture-block" id="lecture12-root-4">
                     <p>For \(m\geq M\),</p>
                     \[
-                      \begin{aligned}
-                      \sum_{n=M}^{m}|x_n|
-                      &amp;\leq\sum_{n=M}^{m}\alpha^n\\
-                      &amp;=\alpha^M\sum_{k=0}^{m-M}\alpha^k\\
-                      &amp;\leq\frac{\alpha^M}{1-\alpha}.
-                      \end{aligned}
+                      \sum_{n=M}^{m}|x_n|\leq\sum_{n=M}^{m}\alpha^n=\alpha^M\sum_{k=0}^{m-M}\alpha^k\leq\frac{\alpha^M}{1-\alpha}.
                     \]
                     <p>Thus \(\sum_{n=M}^{\infty}|x_n|\) converges by the monotone convergence theorem.</p>
                     <p>This is enough to conclude absolute convergence of \(\sum_{n=1}^{\infty}x_n\).</p>
@@ -6561,6 +6650,20 @@
                     <p>converges.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-alternating-2">
+                    <p><strong>Proof outline.</strong></p>
+                    <ol>
+                      <li>Show that the sequence of even partial sums \(\{s_{2k}\}\) converges to some \(s\in\mathbb{R}\).</li>
+                      <li>Use
+                        \[
+                          |s_{2k+1}-s|\leq|s_{2k}-s|+|x_{2k+1}|
+                        \]
+                        and \(x_m\to0\) to conclude \(s_{2k+1}\to s\).
+                      </li>
+                      <li>Use \(s_{2k}\to s\) and \(s_{2k+1}\to s\) to conclude \(s_m\to s\).</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-alternating-3">
                     <p><strong>Proof.</strong> Let \(s_m=\sum_{n=1}^{m}(-1)^n x_n\).</p>
                     <p>Since \(\{x_n\}\) decreases to \(0\), \(x_n\geq0\).</p>
@@ -6576,13 +6679,18 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-alternating-4">
-                    <p>Regrouping gives</p>
+                    <p>Observing \(\forall k\in\mathbb{N}\),</p>
                     \[
-                      s_{2k}=-x_1+\sum_{j=1}^{k-1}(x_{2j}-x_{2j+1})+x_{2k}.
+                      s_{2k}=-x_1+\sum_{j=1}^{k-1}(x_{2j}-x_{2j+1})+x_{2k},
                     \]
-                    <p>All terms after \(-x_1\) are nonnegative, so</p>
+                    <p>and for \(1\leq j\leq k-1\),</p>
                     \[
-                      s_{2k}\geq-x_1\qquad(k\in\mathbb{N}).
+                      x_{2j}-x_{2j+1}\geq0
+                      \quad\text{and}\quad x_{2k}\geq0,
+                    \]
+                    <p>there holds</p>
+                    \[
+                      \forall k\in\mathbb{N},\quad s_{2k}\geq-x_1.
                     \]
                     <p>By monotone convergence, \(s_{2k}\to s\) for some \(s\in\mathbb{R}.\)</p>
                   </div>
@@ -6644,7 +6752,7 @@
           <!-- Begin Lecture 12 rearrangements -->
           <details class="lecture-node lecture-chapter lecture12-single-spaced" id="lecture-12-rearrangements">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">rearrangements/</span>
             </summary>
@@ -6667,79 +6775,745 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-rearrangements-2">
-                    <p><strong>WTS.</strong> The rearranged series converges absolutely, and its partial sums tend to \(x\).</p>
-                    <p><strong>Observe.</strong> Injectivity prevents repetition.</p>
-                    <p>Surjectivity ensures that, for each fixed \(K\), every sufficiently long rearranged partial sum contains \(x_1,\ldots,x_K\).</p>
-                    <p><strong>Idea.</strong> Bound the absolute partial sums.</p>
-                    <p>Then choose \(K\) so that the original partial sum is close to \(x\) and the finite absolute tails after \(K\) are small.</p>
+                    <p><strong>Proof outline.</strong> Let</p>
+                    \[
+                      s_m=\sum_{n=1}^{m}x_n,
+                      \qquad t_m=\sum_{n=1}^{m}x_{\sigma(n)}.
+                    \]
+                    <ol>
+                      <li>
+                        <p>Prove the rearrangement converges absolutely.</p>
+                        <p><strong>Idea.</strong> Every term in \(t_m\) occurs once in \(s_M\) for sufficiently large \(M\); compare the sums of absolute values.</p>
+                      </li>
+                      <li>
+                        <p>Prove \(s_m\) and \(t_m\) converge to the same sum \(x\).</p>
+                        <p><strong>Idea.</strong> For fixed large \(K\), eventually \(t_m=s_K+r_m,\) where \(|r_m|\) is bounded by a finite tail of the Cauchy series \(\sum|x_n|\).</p>
+                      </li>
+                    </ol>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-rearrangements-3">
-                    <p><strong>Proof of absolute convergence.</strong> Since \(\sum |x_n|\) converges, choose \(B\geq0\) such that</p>
+                    <p><strong>Proof (Absolute Convergence).</strong></p>
+                    <p>\(\sum |x_n|\) converges \(\implies\exists B\geq0\) s.t.</p>
                     \[
-                      \sum_{n=1}^{\ell}|x_n|\leq B\qquad(\ell\in\mathbb{N}).
+                      \forall\ell\in\mathbb{N},\quad\sum_{n=1}^{\ell}|x_n|\leq B.
                     \]
-                    <p>For \(m\in\mathbb{N}\), let \(\ell=\max\{\sigma(1),\ldots,\sigma(m)\}\).</p>
-                    <p>Injectivity gives</p>
+                    <p>Let \(m\in\mathbb{N}\) and \(\ell=\max\{\sigma(1),\ldots,\sigma(m)\}\).</p>
+                    <p>Observing \(\{\sigma(1),\ldots,\sigma(m)\}\subseteq\{1,\ldots,\ell\}\), we have</p>
                     \[
                       0\leq\sum_{n=1}^{m}|x_{\sigma(n)}|
                       \leq\sum_{j=1}^{\ell}|x_j|\leq B.
                     \]
-                    <p>The boundedness criterion gives absolute convergence of \(\sum x_{\sigma(n)}\).</p>
+                    <p>Monotone convergence theorem \(\implies\sum x_{\sigma(n)}\) is absolutely convergent.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-rearrangements-4">
-                    <p><strong>Proof that the sums agree.</strong> Write</p>
-                    \[
-                      s_k=\sum_{n=1}^{k}x_n,
-                      \qquad t_m=\sum_{n=1}^{m}x_{\sigma(n)}.
-                    \]
+                    <p><strong>Proof (Sums Agree).</strong></p>
                     <p>Let \(\epsilon&gt;0\).</p>
-                    <p>Since \(s_k\to x\) and \(\sum |x_n|\) is Cauchy, choose \(M_0,M_1\in\mathbb{N}\) such that</p>
-                    \[
-                      \begin{aligned}
-                        k\geq M_0&amp;\implies |s_k-x|&lt;\frac{\epsilon}{2},\\
-                        \ell&gt;k\geq M_1&amp;\implies
-                        \sum_{j=k+1}^{\ell}|x_j|&lt;\frac{\epsilon}{2}.
-                      \end{aligned}
-                    \]
+                    <p>Observe</p>
+                    <ul>
+                      <li>
+                        \(s_k\to x\implies\exists M_0\in\mathbb{N}\ \text{s.t.}\)
+                        \[
+                          \forall k\geq M_0,\quad |s_k-x|&lt;\frac{\epsilon}{2},
+                        \]
+                      </li>
+                      <li>
+                        \(\sum |x_n|\text{ Cauchy}\implies\exists M_1\in\mathbb{N}\ \text{s.t.}\)
+                        \[
+                          \forall\ell&gt;k\geq M_1,\quad\sum_{j=k+1}^{\ell}|x_j|&lt;\frac{\epsilon}{2}.
+                        \]
+                      </li>
+                    </ul>
                     <p>Set \(K=\max\{M_0,M_1\}\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-rearrangements-5">
                     <p>Set</p>
                     \[
-                      M=\max\{\sigma^{-1}(1),\ldots,\sigma^{-1}(K)\}.
+                      \begin{gathered}
+                        M=\max\{\sigma^{-1}(1),\ldots,\sigma^{-1}(K)\},\\
+                        E_m=\{\sigma(1),\ldots,\sigma(m)\},\quad m\geq M.
+                      \end{gathered}
                     \]
-                    <p>For \(m\geq M\), let \(E_m=\{\sigma(1),\ldots,\sigma(m)\}\).</p>
-                    <p>Then \(\{1,\ldots,K\}\subseteq E_m\), so</p>
+                    <p>Then</p>
                     \[
-                      t_m=s_K+\sum_{\substack{j\in E_m\\j&gt;K}}x_j.
+                      \{1,\ldots,K\}\subseteq E_m
+                      \quad\text{and}\quad
+                      t_m=s_K+\sum_{j\in E_m,\,j&gt;K}x_j.
                     \]
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture12-rearrangements-7">
+                    <p><strong>Note.</strong></p>
+                    <p><strong>(i)</strong> \(K=\max\{M_0,M_1\}\): \(M_0\) came from convergence and \(M_1\) from the Cauchy criterion.</p>
+                    <p><strong>(ii)</strong> Since \(K\geq M_0\), there holds \(|s_K-x|&lt;\epsilon/2\).</p>
+                    <p><strong>(iii)</strong> If \(\ell=\max(\{K+1\}\cup E_m)\), then \(\ell&gt;K\geq M_1\) and so</p>
+                    \[
+                      \sum_{j\in E_m,\,j&gt;K}|x_j|
+                      \leq\sum_{j=K+1}^{\ell}|x_j|&lt;\frac{\epsilon}{2}.
+                    \]
+                    <p>Writing</p>
+                    \[
+                      t_m-x=s_K-x+\sum_{j\in E_m,\,j&gt;K}x_j,
+                    \]
+                    <p><strong>(ii)</strong> controls \(s_K-x\), and <strong>(iii)</strong> controls the sum.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture12-rearrangements-6">
-                    <p>For \(m\geq M\), set \(\ell=\max(\{K+1\}\cup E_m)&gt;K\).</p>
-                    <p>Then</p>
+                    <p>Altogether: for \(m\geq M\) and \(\ell=\max(\{K+1\}\cup E_m)\), there holds</p>
                     \[
                       \begin{aligned}
                       |t_m-x|
-                      &amp;\leq|s_K-x|+\sum_{\substack{j\in E_m\\j&gt;K}}|x_j|\\
+                      &amp;\leq|s_K-x|+\sum_{j\in E_m,\,j&gt;K}|x_j|\\
                       &amp;\leq|s_K-x|+\sum_{j=K+1}^{\ell}|x_j|\\
                       &amp;&lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
                       \end{aligned}
                     \]
-                    <p>Hence \(t_m\to x\), so</p>
-                    \[
-                      \sum_{n=1}^{\infty}x_{\sigma(n)}
-                      =\sum_{n=1}^{\infty}x_n=x.
-                    \]
+                    <p>Hence \(t_m\to x\), i.e., \(\sum_{n=1}^{\infty}x_{\sigma(n)}=\sum_{n=1}^{\infty}x_n=x\).</p>
                   </div>
                 </div>
               </details>
             </div>
           </details>
           <!-- End Lecture 12 rearrangements -->
+          <!-- Begin Lecture 13 limits of functions -->
+          <details class="lecture-node lecture-chapter lecture13-single-spaced" id="lecture-13">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">limits-of-functions/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture13-cluster-points">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cluster-points/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-cluster-points-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\).</p>
+                    <p>A point \(c\in\mathbb{R}\) is a <strong>cluster point</strong> of \(S\) if</p>
+                    \[
+                      \forall\delta&gt;0,\quad
+                      (c-\delta,c+\delta)\cap(S\setminus\{c\})\neq\varnothing.
+                    \]
+                    <p>Equivalently,</p>
+                    \[
+                      \forall\delta&gt;0,\ \exists x\in S\quad\text{s.t.}\quad
+                      0&lt;|x-c|&lt;\delta.
+                    \]
+                    <div class="cluster-point-depiction" role="figure" aria-label="Real line with unevenly spaced blue points representing S. Three pairs of parentheses, largest on the outside, mark nested open neighborhoods centered at c, with endpoints labeled c minus delta j and c plus delta j for j equals 1, 2, and 3. A tick marks c separately from the points. Smaller dots become increasingly crowded toward c from both sides, indicating accumulation.">
+                      <!-- Native MathJax number line. Center c is at 9.25em;
+                           parenthesis pairs decrease in size with the labeled neighborhood radii.
+                           Points are deliberately irregular; all drawing and labels are TeX. -->
+                      \[
+                        {
+                          \def\ClusterPlace#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                          \def\ClusterDot#1{\ClusterPlace{#1}{-0.125}{\kern0.05em\scriptscriptstyle\bullet}}
+                          {\color{#737373}
+                            \ClusterPlace{0.396}{0}{\rule{17.512em}{0.025em}}
+                            \ClusterPlace{0.176}{-0.175}{\scriptstyle\blacktriangleleft}
+                            \ClusterPlace{17.644}{-0.175}{\scriptstyle\blacktriangleright}
+                          }
+                          {\color{#3f6286}
+                            \ClusterPlace{1.188}{1.1}{S}
+                            \ClusterDot{0.594}
+                            \ClusterDot{1.122}
+                            \ClusterDot{1.958}
+                            \ClusterDot{3.454}
+                            \ClusterDot{3.7884}
+                            \ClusterDot{4.334}
+                            \ClusterDot{5.566}
+                            \ClusterDot{6.3404}
+                            \ClusterDot{6.666}
+                            \ClusterDot{7.634}
+                            \ClusterDot{8.05}
+                            \ClusterDot{8.35}
+                            \ClusterDot{8.58}
+                            \ClusterDot{8.76}
+                            \ClusterDot{8.89}
+                            \ClusterDot{8.98}
+                            \ClusterDot{9.215}
+                            \ClusterDot{9.325}
+                            \ClusterDot{9.485}
+                            \ClusterDot{9.695}
+                            \ClusterDot{9.955}
+                            \ClusterDot{10.275}
+                            \ClusterDot{10.714}
+                            \ClusterDot{11.7436}
+                            \ClusterDot{12.518}
+                            \ClusterDot{12.87}
+                            \ClusterDot{14.146}
+                            \ClusterDot{14.4716}
+                            \ClusterDot{15.158}
+                            \ClusterDot{16.302}
+                            \ClusterDot{16.918}
+                          }
+                          \ClusterPlace{1.95}{-0.25}{\underset{c-\delta_1}{\Biggl(}}
+                          \ClusterPlace{4.35}{-0.25}{\underset{c-\delta_2}{\Bigl(}}
+                          \ClusterPlace{6.55}{-0.25}{\underset{c-\delta_3}{\bigl(}}
+                          \ClusterPlace{10.55}{-0.25}{\underset{c+\delta_3}{\bigr)}}
+                          \ClusterPlace{12.75}{-0.25}{\underset{c+\delta_2}{\Bigr)}}
+                          \ClusterPlace{15.15}{-0.25}{\underset{c+\delta_1}{\Biggr)}}
+                          \ClusterPlace{9.25}{-0.17}{\rule{0.035em}{0.34em}}
+                          \ClusterPlace{9.06}{-1.15}{c}
+                          \ClusterPlace{18.304}{-0.25}{\mathbb{R}}
+                          \phantom{\rule[-2.3em]{19.2em}{4.4em}}
+                        }
+                      \]
+                    </div>
+                    <p><strong>Remark.</strong> A cluster point does not have to belong to the set.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-cluster-points-2">
+                    <p><strong>Examples.</strong></p>
+                    <ol>
+                      <li>\(S=\{1/n:n\in\mathbb{N}\}\): \(0\) is a cluster point.</li>
+                      <li>\(S=(0,1)\): the set of cluster points is \([0,1]\).</li>
+                      <li>\(S=\mathbb{Q}\): the set of cluster points is \(\mathbb{R}\).</li>
+                      <li>\(S=\{0\}\): there are no cluster points.</li>
+                      <li>\(S=\mathbb{Z}\): there are no cluster points.</li>
+                    </ol>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-cluster-sequences">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">cluster-points-and-sequences/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-cluster-sequences-1">
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\) and \(c\in\mathbb{R}\).</p>
+                    <p>Then \(c\) is a cluster point of \(S\) if and only if there exists a sequence \(\{x_n\}\) in \(S\setminus\{c\}\) such that</p>
+                    \[
+                      x_n\to c.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-cluster-sequences-2">
+                    <p><strong>Proof \((\Rightarrow)\).</strong> Suppose \(c\) is a cluster point of \(S\).</p>
+                    <p>Given \(n\in\mathbb{N}\), let \(\delta_n=1/n\).</p>
+                    \[
+                      \begin{aligned}
+                      &amp;c\text{ is a cluster point of }S\\
+                      &amp;\implies\left(c-\frac1n,c+\frac1n\right)\cap(S\setminus\{c\})\neq\varnothing\\
+                      &amp;\implies\exists x_n\in\left(c-\frac1n,c+\frac1n\right)\cap(S\setminus\{c\})\\
+                      &amp;\implies\exists x_n\in S\quad\text{s.t.}\quad0&lt;|x_n-c|&lt;\frac1n.
+                      \end{aligned}
+                    \]
+                    <p>Selecting such \(x_n\), squeeze theorem implies \(x_n\to c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-cluster-sequences-3">
+                    <p><strong>Proof \((\Leftarrow)\).</strong> Suppose \(\{x_n\}\subseteq S\setminus\{c\}\) with \(x_n\to c\).</p>
+                    <p>Let \(\delta&gt;0\) and let \(N\in\mathbb{N}\) be s.t.</p>
+                    \[
+                      \forall n\geq N,\quad |x_n-c|&lt;\delta.
+                    \]
+                    <p>In particular \(x_N\neq c\) and</p>
+                    \[
+                      x_N\in(c-\delta,c+\delta)\cap(S\setminus\{c\})
+                    \]
+                    <p>and so</p>
+                    \[
+                      \forall\delta&gt;0,\ \exists x\in(c-\delta,c+\delta)\cap(S\setminus\{c\}).
+                    \]
+                    <p>This means \(c\) is a cluster point.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">defining-limit-of-a-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-definition-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), and let \(f:S\to\mathbb{R}\).</p>
+                    <p>We say \(f(x)\) <strong>converges to</strong> \(L\in\mathbb{R}\) if:</p>
+                    <p>\(\forall\epsilon&gt;0,\ \exists\delta&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta\implies |f(x)-L|&lt;\epsilon.
+                    \]
+                    <p><strong>Notation.</strong> We write</p>
+                    \[
+                      f(x)\to L\ \text{as }x\to c,
+                      \qquad\text{or}\qquad
+                      \lim\limits_{x\to c}f(x)=L.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-definition-2">
+                    <div class="function-limit-depiction" role="figure" aria-label="An epsilon–delta diagram for a function limit. A smooth curve approaches an open point at c, L. Between c minus delta and c plus delta, its red segment stays strictly between L minus epsilon and L plus epsilon." style="position:relative;width:19.6em;max-width:100%;aspect-ratio:19.6 / 12.95;margin:0.55em auto;">
+                      <!-- Continuous cubic paths draw the graph; mathematical labels remain MathJax.
+                           Layout coordinates: c=10.5, L=5, delta=3.5, epsilon=2.
+                           The hidden schematic polynomial has |y-L| <= 1.30725 < 2 on the highlighted interval. -->
+                      <svg viewBox="0 0 19.6 12.95" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;">
+                        <g fill="none" stroke="#929292" stroke-width="0.025" stroke-dasharray="0.22 0.18">
+                          <path d="M 3 8.5 H 18.1 M 3 4.5 H 18.1 M 7 2 V 11.5 M 14 2 V 11.5" />
+                        </g>
+                        <g fill="none" stroke="#b4b4b4" stroke-width="0.025" stroke-dasharray="0.22 0.18">
+                          <path d="M 3 6.5 H 10.5 M 10.5 6.5 V 11.5" />
+                        </g>
+                        <g fill="none" stroke="var(--text)" stroke-width="0.035">
+                          <path d="M 3 1.4 V 11.5 H 18.45" />
+                          <path d="M 7 11.38 V 11.62 M 10.5 11.38 V 11.62 M 14 11.38 V 11.62 M 2.88 8.5 H 3.12 M 2.88 6.5 H 3.12 M 2.88 4.5 H 3.12" />
+                        </g>
+                        <path d="M 2.84 1.55 L 3 1.2 L 3.16 1.55 Z M 18.3 11.34 L 18.65 11.5 L 18.3 11.66 Z" fill="var(--text)" />
+                        <path d="M 4.20000 9.89028 C 8.53333 5.49446 12.86667 7.48684 17.20000 2.68542" fill="none" stroke="#454545" stroke-width="0.055" stroke-linecap="round" />
+                        <path d="M 7.00000 7.80725 C 9.33333 6.59275 11.66667 6.40725 14.00000 5.19275" fill="none" stroke="#b3261e" stroke-width="0.075" stroke-linecap="butt" />
+                        <circle cx="10.5" cy="6.5" r="0.15" fill="var(--bg)" stroke="#b3261e" stroke-width="0.045" />
+                      </svg>
+                      <span style="position:absolute;left:13.0102%;top:34.7490%;transform:translate(-100%,-50%);white-space:nowrap;">\(L+\epsilon\)</span>
+                      <span style="position:absolute;left:13.0102%;top:50.1931%;transform:translate(-100%,-50%);white-space:nowrap;">\(L\)</span>
+                      <span style="position:absolute;left:13.0102%;top:65.6371%;transform:translate(-100%,-50%);white-space:nowrap;">\(L-\epsilon\)</span>
+                      <span style="position:absolute;left:35.7143%;top:96.5251%;transform:translate(-50%,-50%);white-space:nowrap;">\(c-\delta\)</span>
+                      <span style="position:absolute;left:53.5714%;top:96.5251%;transform:translate(-50%,-50%);white-space:nowrap;">\(c\)</span>
+                      <span style="position:absolute;left:71.4286%;top:96.5251%;transform:translate(-50%,-50%);white-space:nowrap;">\(c+\delta\)</span>
+                      <span style="position:absolute;left:15.3061%;top:4.6332%;transform:translate(-50%,-50%);white-space:nowrap;">\(y\)</span>
+                      <span style="position:absolute;left:97.1939%;top:88.8031%;transform:translate(-50%,-50%);white-space:nowrap;">\(x\)</span>
+                      <span style="position:absolute;left:77.5510%;top:13.8996%;transform:translate(-50%,-50%);white-space:nowrap;">\(y=f(x)\)</span>
+                    </div>
+                    <p><strong>Remark.</strong> When calculating \(\lim\limits_{x\to c}f(x)\), we do not assume \(c\) is in the domain of \(f\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-uniqueness">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">uniqueness-of-function-limits/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-uniqueness-1">
+                    <p><strong>Theorem (Uniqueness of Function Limits).</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), and let \(f:S\to\mathbb{R}\).</p>
+                    <p>If</p>
+                    \[
+                      \lim\limits_{x\to c}f(x)=L_1
+                      \qquad\text{and}\qquad
+                      \lim\limits_{x\to c}f(x)=L_2,
+                    \]
+                    <p>then \(L_1=L_2\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-uniqueness-2">
+                    <p><strong>Proof.</strong> We show \(|L_1-L_2|&lt;\epsilon\) for every \(\epsilon&gt;0\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Choose \(\delta_1,\delta_2&gt;0\) such that, for \(x\in S\),</p>
+                    \[
+                      \begin{aligned}
+                      0&lt;|x-c|&lt;\delta_1&amp;\implies |f(x)-L_1|&lt;\frac\epsilon2,\\
+                      0&lt;|x-c|&lt;\delta_2&amp;\implies |f(x)-L_2|&lt;\frac\epsilon2.
+                      \end{aligned}
+                    \]
+                    <p>Set \(\delta=\min\{\delta_1,\delta_2\}&gt;0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-uniqueness-3">
+                    <p>Since \(c\) is a cluster point of \(S\), choose \(x_0\in S\) with</p>
+                    \[
+                      0&lt;|x_0-c|&lt;\delta.
+                    \]
+                    <p>Then</p>
+                    \[
+                      \begin{aligned}
+                      |L_1-L_2|
+                      &amp;=|L_1-f(x_0)+f(x_0)-L_2|\\
+                      &amp;\leq |L_1-f(x_0)|+|f(x_0)-L_2|\\
+                      &amp;&lt;\frac\epsilon2+\frac\epsilon2=\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Since \(\epsilon&gt;0\) was arbitrary, \(L_1=L_2\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-affine">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">an-affine-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-affine-1">
+                    <p><strong>Example.</strong> Let \(a,b\in\mathbb{R}\) and \(f(x)=ax+b\).</p>
+                    <p>For every \(c\in\mathbb{R}\),</p>
+                    \[
+                      \lim\limits_{x\to c}f(x)=ac+b.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-affine-2">
+                    <p><strong>Proof Sketch.</strong></p>
+                    <p>Observe</p>
+                    \[
+                      \begin{aligned}
+                      |f(x)-(ac+b)|&amp;=|ax+b-(ac+b)|\\
+                      &amp;=|a|\,|x-c|.
+                      \end{aligned}
+                    \]
+                    <p>Thus, if \(|x-c|&lt;\delta\), then</p>
+                    \[
+                      |f(x)-(ac+b)|\leq |a|\delta.
+                    \]
+                    <p>This suggests: let \(\delta&gt;0\) be such that</p>
+                    \[
+                      |a|\delta&lt;\epsilon.
+                    \]
+                    <p>E.g., if \(\delta&lt;\epsilon/(1+|a|)\), then</p>
+                    \[
+                      |x-c|&lt;\delta\implies |f(x)-(ac+b)|&lt;\epsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-affine-3">
+                    <p><strong>Proof.</strong> Let \(\epsilon&gt;0\) and set \(\delta=\epsilon/(1+|a|)&gt;0\).</p>
+                    <p>If \(x\in\mathbb{R}\) and \(0&lt;|x-c|&lt;\delta\), then</p>
+                    \[
+                      \begin{aligned}
+                      |f(x)-(ac+b)|
+                      &amp;=|a|\,|x-c|\\
+                      &amp;\leq |a|\delta\\
+                      &amp;=\frac{|a|}{1+|a|}\epsilon&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(\lim\limits_{x\to c}f(x)=ac+b\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-square-root">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-square-root-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-square-root-1">
+                    <p><strong>Theorem.</strong> Let \(f:[0,\infty)\to\mathbb{R}\), \(f(x)=\sqrt{x}\).</p>
+                    <p>For every \(c\geq0\),</p>
+                    \[
+                      \lim\limits_{x\to c}f(x)=\sqrt{c}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-square-root-2">
+                    <p><strong>Proof Sketch (\(c&gt;0\)).</strong></p>
+                    <p>Observe, for \(x\geq0\),</p>
+                    \[
+                      |\sqrt{x}-\sqrt{c}|=\frac{|x-c|}{\sqrt{x}+\sqrt{c}}
+                      \leq\frac{|x-c|}{\sqrt{c}}.
+                    \]
+                    <p>Thus, if \(|x-c|&lt;\delta\), then</p>
+                    \[
+                      |\sqrt{x}-\sqrt{c}|&lt;\frac\delta{\sqrt{c}}.
+                    \]
+                    <p>This suggests: let \(\delta&gt;0\) be such that</p>
+                    \[
+                      \delta/\sqrt{c}&lt;\epsilon.
+                    \]
+                    <p>E.g., if \(\delta&lt;\epsilon\sqrt{c}\), then</p>
+                    \[
+                      |x-c|&lt;\delta\implies|\sqrt{x}-\sqrt{c}|&lt;\epsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-square-root-3">
+                    <p><strong>Proof (\(c&gt;0\)).</strong> Let \(\epsilon&gt;0\) and set \(\delta=\epsilon\sqrt{c}&gt;0\).</p>
+                    <p>If \(x\geq0\) and \(0&lt;|x-c|&lt;\delta\), then</p>
+                    \[
+                      \begin{aligned}
+                      |\sqrt{x}-\sqrt{c}|
+                      &amp;=\frac{|x-c|}{\sqrt{x}+\sqrt{c}}\\
+                      &amp;\leq\frac{|x-c|}{\sqrt{c}}\\
+                      &amp;&lt;\frac\delta{\sqrt{c}}=\epsilon.
+                      \end{aligned}
+                    \]
+                    <p><strong>Note.</strong> The case \(c=0\) can be handled by taking \(\delta=\epsilon^2\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture13-sequential">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-sequential-criterion/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture13-sequential-1">
+                    <p><strong>Question.</strong> How do limits of functions relate to limits of sequences?</p>
+                    <p><strong>Theorem (Sequential Criterion).</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), let \(f:S\to\mathbb{R}\), and let \(L\in\mathbb{R}\).</p>
+                    <p>The following are equivalent:</p>
+                    <ol>
+                      <li>\(\displaystyle\lim\limits_{x\to c}f(x)=L\).</li>
+                      <li>For every sequence \(\{x_n\}\) in \(S\setminus\{c\}\) such that \(x_n\to c\), we have \(f(x_n)\to L\).</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-sequential-2">
+                    <p><strong>Proof \((1\Rightarrow2)\).</strong></p>
+                    <p>Suppose \(f(x)\to L\) as \(x\to c\).</p>
+                    <p>Let \(\{x_n\}\subseteq S\setminus\{c\}\) with \(x_n\to c\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Observe</p>
+                    <ul>
+                      <li>
+                        \(\lim\limits_{x\to c}f(x)=L\implies\exists\delta&gt;0\) s.t. \(\forall x\in S\),
+                        \[
+                          0&lt;|x-c|&lt;\delta\implies |f(x)-L|&lt;\epsilon.
+                        \]
+                      </li>
+                      <li>
+                        \(x_n\to c\implies\exists N\in\mathbb{N}\) s.t.
+                        \[
+                          \forall n\geq N,\quad |x_n-c|&lt;\delta.
+                        \]
+                      </li>
+                    </ul>
+                    <p>Fix \(\delta&gt;0\) and \(N&gt;0\) as above.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-sequential-3">
+                    <p>Altogether, if \(n\geq N\), then</p>
+                    \[
+                      0&lt;|x_n-c|&lt;\delta
+                    \]
+                    <p>and so</p>
+                    \[
+                      \forall n\geq N,\quad |f(x_n)-L|&lt;\epsilon.
+                    \]
+                    <p>Consequently, \(f(x_n)\to L\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-sequential-4">
+                    <p><strong>Proof \((2\Rightarrow1)\).</strong></p>
+                    <p>Suppose: for every sequence \(\{x_n\}\subseteq S\setminus\{c\}\), if \(x_n\to c\), then \(f(x_n)\to L\).</p>
+                    <p>Assume for contradiction \(f(x)\) does not converge to \(L\) as \(x\to c\).</p>
+                    <p>Then \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0,\ \exists x\in S\) s.t.</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta
+                      \quad\text{and}\quad
+                      |f(x)-L|\geq\epsilon_0.
+                    \]
+                    <p>Fix such an \(\epsilon_0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-sequential-7">
+                    <p>Since \(f(x)\) does not converge to \(L\) as \(x\to c\),</p>
+                    <p>\(\forall n\in\mathbb{N},\ \exists x_n\in S\) s.t.</p>
+                    \[
+                      0&lt;|x_n-c|&lt;\frac1n
+                      \quad\text{and}\quad
+                      |f(x_n)-L|\geq\epsilon_0.
+                    \]
+                    <p>Fix such a sequence \(\{x_n\}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-sequential-5">
+                    <p>Altogether, \(\{x_n\}\subseteq S\) and</p>
+                    \[
+                      \begin{gathered}
+                      \bigl(\forall n\in\mathbb{N},\quad 0&lt;|x_n-c|&lt;1/n\bigr)\\
+                      \implies x_n\to c\quad\text{and}\quad\{x_n\}\subseteq S\setminus\{c\},
+                      \end{gathered}
+                    \]
+                    <p>and</p>
+                    \[
+                      \forall n\in\mathbb{N},\quad |f(x_n)-L|\geq\epsilon_0&gt;0.
+                    \]
+                    <p>However, by assumption \(x_n\to c\) implies \(f(x_n)\to L\), thereby establishing the contradiction</p>
+                    \[
+                      0=\lim_{n\to\infty}|f(x_n)-L|\geq\epsilon_0&gt;0.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <!-- Begin Lecture 14 function limits -->
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-square-function">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-square-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-square-function-1">
+                    <p><strong>Theorem.</strong> For every \(c\in\mathbb{R}\),</p>
+                    \[
+                      \lim\limits_{x\to c}x^2=c^2.
+                    \]
+                    <p><strong>Proof.</strong> Let \(\{x_n\}\) be a sequence in \(\mathbb{R}\setminus\{c\}\) with \(x_n\to c\).</p>
+                    <p>The product rule for sequence limits gives</p>
+                    \[
+                      x_n^2\to c^2.
+                    \]
+                    <p>The sequential criterion therefore gives</p>
+                    \[
+                      \lim\limits_{x\to c}x^2=c^2.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-oscillation">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">oscillating-functions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-oscillation-1">
+                    <p><strong>Theorem.</strong> Consider the following functions on \(\mathbb{R}\setminus\{0\}\).</p>
+                    <ol>
+                      <li>\(\displaystyle\lim\limits_{x\to0}\sin(1/x)\) does not exist.</li>
+                      <li>\(\displaystyle\lim\limits_{x\to0}x\sin(1/x)=0\).</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-oscillation-2">
+                    <p><strong>Proof of 1.</strong> Set</p>
+                    \[
+                      x_n=\frac{2}{(2n-1)\pi}\qquad(n\in\mathbb{N}).
+                    \]
+                    <p>Then \(x_n\neq0\) and \(x_n\to0\), but</p>
+                    \[
+                      \sin(1/x_n)=\sin\left(\frac{(2n-1)\pi}{2}\right)=(-1)^{n+1}.
+                    \]
+                    <p>The sequence \(\{(-1)^{n+1}\}\) does not converge.</p>
+                    <p>By the sequential criterion, \(\lim\limits_{x\to0}\sin(1/x)\) does not exist.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-oscillation-3">
+                    <p><strong>Proof of 2.</strong> Let \(\{x_n\}\) be a sequence in \(\mathbb{R}\setminus\{0\}\) with \(x_n\to0\).</p>
+                    <p>Since \(|\sin t|\leq1\) for every \(t\in\mathbb{R}\),</p>
+                    \[
+                      \begin{aligned}
+                      0\leq |x_n\sin(1/x_n)|
+                      &amp;=|x_n|\,|\sin(1/x_n)|\\
+                      &amp;\leq |x_n|\to0.
+                      \end{aligned}
+                    \]
+                    <p>The squeeze theorem gives \(|x_n\sin(1/x_n)|\to0\), hence \(x_n\sin(1/x_n)\to0\).</p>
+                    <p>The sequential criterion gives</p>
+                    \[
+                      \lim\limits_{x\to0}x\sin(1/x)=0.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-order">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">order-and-function-limits/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-order-1">
+                    <p><strong>Theorem (Preservation of Order).</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), and let \(f,g:S\to\mathbb{R}\).</p>
+                    <p>Suppose \(f(x)\leq g(x)\) for every \(x\in S\), and both function limits at \(c\) exist.</p>
+                    <p>Then</p>
+                    \[
+                      \lim\limits_{x\to c}f(x)\leq\lim\limits_{x\to c}g(x).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-order-2">
+                    <p><strong>Proof.</strong> Write \(L_1=\lim\limits_{x\to c}f(x)\) and \(L_2=\lim\limits_{x\to c}g(x)\).</p>
+                    <p>Since \(c\) is a cluster point of \(S\), choose a sequence \(\{x_n\}\) in \(S\setminus\{c\}\) with \(x_n\to c\).</p>
+                    <p>By the sequential criterion and preservation of order for sequence limits,</p>
+                    \[
+                      L_1=\lim_{n\to\infty}f(x_n)
+                      \leq\lim_{n\to\infty}g(x_n)=L_2.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-one-sided">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">one-sided-limits/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-one-sided-1">
+                    <p><strong>Definition (Left-Hand Limit).</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and suppose \(c\) is a cluster point of \(S\cap(-\infty,c)\).</p>
+                    <p>We say \(f(x)\) converges to \(L\in\mathbb{R}\) as \(x\to c^-\) if</p>
+                    \[
+                      \begin{gathered}
+                      \forall\epsilon&gt;0,\ \exists\delta&gt;0\quad\text{s.t.}\quad\forall x\in S,\\
+                      c-\delta&lt;x&lt;c\implies |f(x)-L|&lt;\epsilon.
+                      \end{gathered}
+                    \]
+                    <p><strong>Notation.</strong> We write \(\displaystyle\lim\limits_{x\to c^-}f(x)=L\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-one-sided-2">
+                    <p><strong>Definition (Right-Hand Limit).</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and suppose \(c\) is a cluster point of \(S\cap(c,\infty)\).</p>
+                    <p>We say \(f(x)\) converges to \(L\in\mathbb{R}\) as \(x\to c^+\) if</p>
+                    \[
+                      \begin{gathered}
+                      \forall\epsilon&gt;0,\ \exists\delta&gt;0\quad\text{s.t.}\quad\forall x\in S,\\
+                      c&lt;x&lt;c+\delta\implies |f(x)-L|&lt;\epsilon.
+                      \end{gathered}
+                    \]
+                    <p><strong>Notation.</strong> We write \(\displaystyle\lim\limits_{x\to c^+}f(x)=L\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-step-function">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-step-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-step-function-1">
+                    <p><strong>Example.</strong> Define \(f:\mathbb{R}\setminus\{0\}\to\mathbb{R}\) by</p>
+                    \[
+                      f(x)=\begin{cases}
+                        1,&amp;x&gt;0,\\
+                        0,&amp;x&lt;0.
+                      \end{cases}
+                    \]
+                    <p>Then</p>
+                    \[
+                      \lim\limits_{x\to0^-}f(x)=0
+                      \qquad\text{and}\qquad
+                      \lim\limits_{x\to0^+}f(x)=1.
+                    \]
+                    <p>Both one-sided limits exist even though \(f(0)\) is undefined.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture14-single-spaced" id="lecture14-two-sided">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">two-sided-and-one-sided-limits/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-two-sided-1">
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and let \(L\in\mathbb{R}\).</p>
+                    <p>Suppose \(c\) is a cluster point of both</p>
+                    \[
+                      S\cap(-\infty,c)\qquad\text{and}\qquad S\cap(c,\infty).
+                    \]
+                    <p>Then \(c\) is a cluster point of \(S\), and</p>
+                    \[
+                      \begin{gathered}
+                      \lim\limits_{x\to c}f(x)=L\\
+                      \Longleftrightarrow\quad
+                      \lim\limits_{x\to c^-}f(x)=\lim\limits_{x\to c^+}f(x)=L.
+                      \end{gathered}
+                    \]
+                  </div>
+                </div>
+              </details>
+              <!-- End Lecture 14 function limits -->
+            </div>
+          </details>
+          <!-- End Lecture 13 limits of functions -->
         </div>
     </div>
   </main>
