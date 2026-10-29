@@ -487,6 +487,100 @@
       .lecture14-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
     /* End Lecture 14 geometry */
+    /* Begin Lecture 15 geometry */
+    /* Lecture 15 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture15-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture15-single-spaced .lecture-note p,
+    .lecture15-single-spaced .lecture-note ol,
+    .lecture15-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture15-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture15-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture15-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture15-single-spaced {
+      --lecture15-slide-height: 90vh;
+      --lecture15-slide-gap: 10vh;
+      --lecture15-slide-inset: 3vh;
+    }
+    .lecture15-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture15-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture15-single-spaced {
+        --lecture15-slide-height: 90dvh;
+        --lecture15-slide-gap: 10dvh;
+        --lecture15-slide-inset: 3dvh;
+      }
+      .lecture15-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture15-single-spaced .lecture-block {
+        height: var(--lecture15-slide-height);
+        padding-block: var(--lecture15-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture15-slide-inset);
+      }
+      .lecture15-single-spaced .presentation-break {
+        height: var(--lecture15-slide-gap);
+      }
+      .lecture15-single-spaced[open],
+      .lecture15-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 15 geometry */
+    /* Begin Lecture 16 geometry */
+    /* Lecture 16 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture16-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture16-single-spaced .lecture-note p,
+    .lecture16-single-spaced .lecture-note ol,
+    .lecture16-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture16-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture16-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture16-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture16-single-spaced {
+      --lecture16-slide-height: 90vh;
+      --lecture16-slide-gap: 10vh;
+      --lecture16-slide-inset: 3vh;
+    }
+    .lecture16-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture16-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture16-single-spaced {
+        --lecture16-slide-height: 90dvh;
+        --lecture16-slide-gap: 10dvh;
+        --lecture16-slide-inset: 3dvh;
+      }
+      .lecture16-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture16-single-spaced .lecture-block {
+        height: var(--lecture16-slide-height);
+        padding-block: var(--lecture16-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture16-slide-inset);
+      }
+      .lecture16-single-spaced .presentation-break {
+        height: var(--lecture16-slide-gap);
+      }
+      .lecture16-single-spaced[open],
+      .lecture16-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 16 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -6880,7 +6974,7 @@
           <!-- Begin Lecture 13 limits of functions -->
           <details class="lecture-node lecture-chapter lecture13-single-spaced" id="lecture-13">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">limits-of-functions/</span>
             </summary>
@@ -6976,6 +7070,20 @@
                       <li>\(S=\{0\}\): there are no cluster points.</li>
                       <li>\(S=\mathbb{Z}\): there are no cluster points.</li>
                     </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-cluster-points-3">
+                    <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\) and let \(c\in\mathbb{R}\).</p>
+                    <p>The point \(c\) is <strong>not a cluster point of \(S\)</strong> if and only if</p>
+                    \[
+                      \exists\delta_0&gt;0\quad\text{s.t.}\quad
+                      (c-\delta_0,c+\delta_0)\cap(S\setminus\{c\})=\varnothing.
+                    \]
+                    <p>Equivalently,</p>
+                    \[
+                      \exists\delta_0&gt;0,\ \forall x\in S\setminus\{c\},\quad
+                      |x-c|\geq\delta_0.
+                    \]
                   </div>
                 </div>
               </details>
@@ -7080,6 +7188,17 @@
                       <span style="position:absolute;left:77.5510%;top:13.8996%;transform:translate(-50%,-50%);white-space:nowrap;">\(y=f(x)\)</span>
                     </div>
                     <p><strong>Remark.</strong> When calculating \(\lim\limits_{x\to c}f(x)\), we do not assume \(c\) is in the domain of \(f\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture13-definition-3">
+                    <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), let \(f:S\to\mathbb{R}\), and let \(L\in\mathbb{R}\).</p>
+                    <p>\(f(x)\) <strong>does not converge to \(L\) as \(x\to c\)</strong> if and only if</p>
+                    \[
+                      \begin{gathered}
+                      \exists\epsilon_0&gt;0,\ \forall\delta&gt;0,\ \exists x\in S\quad\text{s.t.}\\
+                      0&lt;|x-c|&lt;\delta\quad\text{and}\quad |f(x)-L|\geq\epsilon_0.
+                      \end{gathered}
+                    \]
                   </div>
                 </div>
               </details>
@@ -7215,14 +7334,11 @@
                     \[
                       \delta/\sqrt{c}&lt;\epsilon.
                     \]
-                    <p>E.g., if \(\delta&lt;\epsilon\sqrt{c}\), then</p>
-                    \[
-                      |x-c|&lt;\delta\implies|\sqrt{x}-\sqrt{c}|&lt;\epsilon.
-                    \]
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture13-square-root-3">
-                    <p><strong>Proof (\(c&gt;0\)).</strong> Let \(\epsilon&gt;0\) and set \(\delta=\epsilon\sqrt{c}&gt;0\).</p>
+                    <p><strong>Proof.</strong> Consider \(c&gt;0\) first.</p>
+                    <p>Let \(\epsilon&gt;0\) and set \(\delta=\epsilon\sqrt{c}&gt;0\).</p>
                     <p>If \(x\geq0\) and \(0&lt;|x-c|&lt;\delta\), then</p>
                     \[
                       \begin{aligned}
@@ -7232,7 +7348,7 @@
                       &amp;&lt;\frac\delta{\sqrt{c}}=\epsilon.
                       \end{aligned}
                     \]
-                    <p><strong>Note.</strong> The case \(c=0\) can be handled by taking \(\delta=\epsilon^2\).</p>
+                    <p>For \(c=0\), take \(\delta=\epsilon^2\).</p>
                   </div>
                 </div>
               </details>
@@ -7240,12 +7356,11 @@
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">the-sequential-criterion/</span>
+                  <span class="lecture-label">sequential-characterization-of-limits/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture13-sequential-1">
-                    <p><strong>Question.</strong> How do limits of functions relate to limits of sequences?</p>
-                    <p><strong>Theorem (Sequential Criterion).</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), let \(f:S\to\mathbb{R}\), and let \(L\in\mathbb{R}\).</p>
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\), let \(c\) be a cluster point of \(S\), let \(f:S\to\mathbb{R}\), and let \(L\in\mathbb{R}\).</p>
                     <p>The following are equivalent:</p>
                     <ol>
                       <li>\(\displaystyle\lim\limits_{x\to c}f(x)=L\).</li>
@@ -7273,17 +7388,23 @@
                         \]
                       </li>
                     </ul>
-                    <p>Fix \(\delta&gt;0\) and \(N&gt;0\) as above.</p>
+                    <p>Fix such a \(\delta&gt;0\) and \(N&gt;0\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture13-sequential-3">
                     <p>Altogether, if \(n\geq N\), then</p>
                     \[
-                      0&lt;|x_n-c|&lt;\delta
+                      \begin{gathered}
+                      0&lt;|x_n-c|&lt;\delta\\
+                      (\text{by }x_n\to c\text{ and }x_n\neq c)
+                      \end{gathered}
                     \]
                     <p>and so</p>
                     \[
-                      \forall n\geq N,\quad |f(x_n)-L|&lt;\epsilon.
+                      \begin{gathered}
+                      \forall n\geq N,\quad |f(x_n)-L|&lt;\epsilon\\
+                      (\text{by }f(x)\to L\text{ as }x\to c).
+                      \end{gathered}
                     \]
                     <p>Consequently, \(f(x_n)\to L\).</p>
                   </div>
@@ -7347,9 +7468,9 @@
                     <p><strong>Proof.</strong> Let \(\{x_n\}\) be a sequence in \(\mathbb{R}\setminus\{c\}\) with \(x_n\to c\).</p>
                     <p>The product rule for sequence limits gives</p>
                     \[
-                      x_n^2\to c^2.
+                      x_n^2=x_n\,x_n\to c\,c=c^2.
                     \]
-                    <p>The sequential criterion therefore gives</p>
+                    <p>The sequential characterization therefore gives</p>
                     \[
                       \lim\limits_{x\to c}x^2=c^2.
                     \]
@@ -7381,7 +7502,7 @@
                       \sin(1/x_n)=\sin\left(\frac{(2n-1)\pi}{2}\right)=(-1)^{n+1}.
                     \]
                     <p>The sequence \(\{(-1)^{n+1}\}\) does not converge.</p>
-                    <p>By the sequential criterion, \(\lim\limits_{x\to0}\sin(1/x)\) does not exist.</p>
+                    <p>By the sequential characterization, \(\lim\limits_{x\to0}\sin(1/x)\) does not exist.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture14-oscillation-3">
@@ -7395,7 +7516,7 @@
                       \end{aligned}
                     \]
                     <p>The squeeze theorem gives \(|x_n\sin(1/x_n)|\to0\), hence \(x_n\sin(1/x_n)\to0\).</p>
-                    <p>The sequential criterion gives</p>
+                    <p>The sequential characterization gives</p>
                     \[
                       \lim\limits_{x\to0}x\sin(1/x)=0.
                     \]
@@ -7421,7 +7542,7 @@
                   <div class="lecture-block" id="lecture14-order-2">
                     <p><strong>Proof.</strong> Write \(L_1=\lim\limits_{x\to c}f(x)\) and \(L_2=\lim\limits_{x\to c}g(x)\).</p>
                     <p>Since \(c\) is a cluster point of \(S\), choose a sequence \(\{x_n\}\) in \(S\setminus\{c\}\) with \(x_n\to c\).</p>
-                    <p>By the sequential criterion and preservation of order for sequence limits,</p>
+                    <p>By the sequential characterization and preservation of order for sequence limits,</p>
                     \[
                       L_1=\lim_{n\to\infty}f(x_n)
                       \leq\lim_{n\to\infty}g(x_n)=L_2.
@@ -7499,14 +7620,71 @@
                     \[
                       S\cap(-\infty,c)\qquad\text{and}\qquad S\cap(c,\infty).
                     \]
-                    <p>Then \(c\) is a cluster point of \(S\), and</p>
+                    <p>Then \(c\) is a cluster point of \(S\), and \(\lim\limits_{x\to c}f(x)=L\) if and only if</p>
                     \[
-                      \begin{gathered}
-                      \lim\limits_{x\to c}f(x)=L\\
-                      \Longleftrightarrow\quad
                       \lim\limits_{x\to c^-}f(x)=\lim\limits_{x\to c^+}f(x)=L.
-                      \end{gathered}
                     \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-two-sided-cluster">
+                    <p><strong>Proof.</strong> Let \(A\subseteq B\subseteq\mathbb{R}\), and suppose \(c\) is a cluster point of \(A\).</p>
+                    <p>Let \(\delta&gt;0\).</p>
+                    \[
+                      \begin{aligned}
+                      \emptyset&amp;\neq(c-\delta,c+\delta)\cap(A\setminus\{c\})\\
+                      &amp;\subseteq(c-\delta,c+\delta)\cap(B\setminus\{c\}).
+                      \end{aligned}
+                    \]
+                    <p>As \(\delta&gt;0\) was arbitrary, \(c\) is a cluster point of \(B\).</p>
+                    <p>Taking \(A=S\cap(-\infty,c)\) and \(B=S\), we conclude that \(c\) is a cluster point of \(S\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-two-sided-2">
+                    <p><strong>Proof \((\Rightarrow)\).</strong> Suppose \(\lim\limits_{x\to c}f(x)=L\).</p>
+                    <p>Let \(\epsilon&gt;0\) and choose \(\delta&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta\implies |f(x)-L|&lt;\epsilon.
+                    \]
+                    <p>For \(x\in S\),</p>
+                    \[
+                      \begin{aligned}
+                      c-\delta&lt;x&lt;c&amp;\implies0&lt;|x-c|&lt;\delta\\
+                      &amp;\implies|f(x)-L|&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Since \(\epsilon&gt;0\) was arbitrary, \(\lim\limits_{x\to c^-}f(x)=L\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-two-sided-forward-right">
+                    <p>For the right-hand limit, use the same \(\delta&gt;0\).</p>
+                    <p>For \(x\in S\),</p>
+                    \[
+                      \begin{aligned}
+                      c&lt;x&lt;c+\delta&amp;\implies0&lt;|x-c|&lt;\delta\\
+                      &amp;\implies|f(x)-L|&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Again, \(\epsilon&gt;0\) was arbitrary, so \(\lim\limits_{x\to c^+}f(x)=L\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-two-sided-3">
+                    <p><strong>Proof \((\Leftarrow)\).</strong> Suppose both one-sided limits equal \(L\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Choose \(\delta_-,\delta_+&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      \begin{aligned}
+                      c-\delta_-&lt;x&lt;c&amp;\implies |f(x)-L|&lt;\epsilon,\\
+                      c&lt;x&lt;c+\delta_+&amp;\implies |f(x)-L|&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Set \(\delta=\min\{\delta_-,\delta_+\}&gt;0\).</p>
+                    <p>Let \(x\in S\) with \(0&lt;|x-c|&lt;\delta\).</p>
+                    <ul>
+                      <li>If \(x&lt;c\), then \(c-\delta_-&lt;x&lt;c\).</li>
+                      <li>If \(x&gt;c\), then \(c&lt;x&lt;c+\delta_+\).</li>
+                    </ul>
+                    <p>In both cases, \(|f(x)-L|&lt;\epsilon\).</p>
+                    <p>Hence \(\lim\limits_{x\to c}f(x)=L\).</p>
                   </div>
                 </div>
               </details>
@@ -7514,6 +7692,644 @@
             </div>
           </details>
           <!-- End Lecture 13 limits of functions -->
+          <!-- Begin Lecture 14 continuity -->
+          <details class="lecture-node lecture-chapter lecture14-single-spaced" id="lecture-14-continuity">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">continuous-functions/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node" id="lecture14-continuity-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">definition/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-continuity-definition-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and let \(c\in S\).</p>
+                    <p>We say \(f\) is <strong>continuous at \(c\)</strong> if</p>
+                    \[
+                      \begin{gathered}
+                      \forall\epsilon&gt;0,\ \exists\delta&gt;0\quad\text{s.t.}\quad\forall x\in S,\\
+                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                      \end{gathered}
+                    \]
+                    <p>For \(U\subseteq S\), we say \(f\) is <strong>continuous on \(U\)</strong> if it is continuous at every point of \(U\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-continuity-definition-2">
+                    <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and let \(c\in S\).</p>
+                    <p>The function \(f\) is <strong>not continuous at \(c\)</strong> if and only if</p>
+                    \[
+                      \begin{gathered}
+                      \exists\epsilon_0&gt;0,\ \forall\delta&gt;0,\ \exists x\in S\quad\text{s.t.}\\
+                      |x-c|&lt;\delta\quad\text{and}\quad |f(x)-f(c)|\geq\epsilon_0.
+                      \end{gathered}
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture14-continuous-affine">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">affine-functions-are-continuous/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-continuous-affine-1">
+                    <p><strong>Example.</strong> Let \(a,b\in\mathbb{R}\).</p>
+                    <p>The function \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=ax+b\), is continuous on \(\mathbb{R}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-continuous-affine-2">
+                    <p><strong>Proof Sketch.</strong></p>
+                    <p>Let \(c\in\mathbb{R}\).</p>
+                    <p><strong>WTS.</strong> \(\forall\epsilon&gt;0,\ \exists\delta&gt;0\) s.t. \(\forall x\in\mathbb{R}\),</p>
+                    \[
+                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>This is equivalent to</p>
+                    \[
+                      |x-c|&lt;\delta\implies |a|\,|x-c|&lt;\epsilon.
+                    \]
+                    <p>This suggests taking \(\delta&gt;0\) such that</p>
+                    \[
+                      |a|\delta&lt;\epsilon.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-continuous-affine-3">
+                    <p><strong>Proof.</strong> Let \(c\in\mathbb{R}\) and \(\epsilon&gt;0\), and set \(\delta=\epsilon/(1+|a|)&gt;0\).</p>
+                    <p>If \(x\in\mathbb{R}\) and \(|x-c|&lt;\delta\), then</p>
+                    \[
+                      \begin{aligned}
+                      |f(x)-f(c)|
+                      &amp;=|a|\,|x-c|\\
+                      &amp;\leq |a|\delta\\
+                      &amp;=\frac{|a|}{1+|a|}\epsilon&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is continuous at every \(c\in\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node" id="lecture14-discontinuity">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-discontinuous-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture14-discontinuity-1">
+                    <p><strong>Example.</strong> Define \(f:\mathbb{R}\to\mathbb{R}\) by</p>
+                    \[
+                      f(x)=\begin{cases}
+                        1,&amp;x\neq0,\\
+                        2,&amp;x=0.
+                      \end{cases}
+                    \]
+                    <p>This function is not continuous at \(0\).</p>
+                    <p><strong>Recall.</strong> For \(f:S\to\mathbb{R}\), \(S\subseteq\mathbb{R}\), and \(c\in S\), \(f\) is not continuous at \(c\) if and only if</p>
+                    \[
+                      \begin{gathered}
+                      \exists\epsilon_0&gt;0,\ \forall\delta&gt;0,\ \exists x\in S\quad\text{s.t.}\\
+                      |x-c|&lt;\delta\quad\text{and}\quad |f(x)-f(c)|\geq\epsilon_0.
+                      \end{gathered}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-discontinuity-2">
+                    <p><strong>Proof.</strong> For the example, choose \(\epsilon_0=1\) and let \(\delta&gt;0\).</p>
+                    <p>Set \(x=\delta/2&gt;0\).</p>
+                    <p>Then</p>
+                    \[
+                      \begin{aligned}
+                      |x-0|&amp;=\delta/2&lt;\delta,\\
+                      |f(x)-f(0)|&amp;=|1-2|=1\geq\epsilon_0.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is not continuous at \(0\).</p>
+                  </div>
+                </div>
+              </details>
+              <!-- Begin Lecture 15 continuity properties -->
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-continuity-limits">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">continuity-and-limits/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-continuity-limits-1">
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\), let \(c\in S\), and let \(f:S\to\mathbb{R}\).</p>
+                    <ol>
+                      <li>If \(c\) is not a cluster point of \(S\), then \(f\) is continuous at \(c\).</li>
+                      <li>If \(c\) is a cluster point of \(S\), then
+                        \[
+                          f\text{ is continuous at }c
+                          \iff \lim\limits_{x\to c}f(x)=f(c).
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-continuity-limits-recall">
+                    <p><strong>Recall.</strong> \(c\) is a cluster point of \(S\) if \(\forall\delta&gt;0\),</p>
+                    \[
+                      (c-\delta,c+\delta)\cap(S\setminus\{c\})\neq\emptyset.
+                    \]
+                    <p>Thus \(c\) is not a cluster point of \(S\) if and only if \(\exists\delta_0&gt;0\) s.t.</p>
+                    \[
+                      (c-\delta_0,c+\delta_0)\cap(S\setminus\{c\})=\emptyset.
+                    \]
+                    <p>Since \(c\in S\), this is equivalent to</p>
+                    \[
+                      (c-\delta_0,c+\delta_0)\cap S=\{c\}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-continuity-limits-2">
+                    <p><strong>Proof (1).</strong> Suppose \(c\) is not a cluster point of \(S\).</p>
+                    <p>Let \(\delta_0&gt;0\) be such that</p>
+                    \[
+                      (c-\delta_0,c+\delta_0)\cap S=\{c\}.
+                    \]
+                    <p>Let \(\epsilon&gt;0\) and set \(\delta=\delta_0&gt;0\).</p>
+                    <p>For \(x\in S\),</p>
+                    \[
+                      |x-c|&lt;\delta\implies x=c.
+                    \]
+                    <p>Hence \(|f(x)-f(c)|=0&lt;\epsilon\).</p>
+                    <p>Thus \(f\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-continuity-limits-3">
+                    <p><strong>Proof (2, \(\Rightarrow\)).</strong> Suppose \(c\) is a cluster point of \(S\) and \(f\) is continuous at \(c\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>By continuity, \(\exists\delta&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>In particular, for \(x\in S\),</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Hence \(\lim\limits_{x\to c}f(x)=f(c)\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-continuity-limits-4">
+                    <p><strong>Proof (2, \(\Leftarrow\)).</strong> Suppose \(\lim\limits_{x\to c}f(x)=f(c)\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Then \(\exists\delta&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Let \(x\in S\) with \(|x-c|&lt;\delta\).</p>
+                    <ul>
+                      <li>If \(x\neq c\), then \(0&lt;|x-c|&lt;\delta\), so \(|f(x)-f(c)|&lt;\epsilon\).</li>
+                      <li>If \(x=c\), then \(|f(x)-f(c)|=0&lt;\epsilon\).</li>
+                    </ul>
+                    <p>Thus \(f\) is continuous at \(c\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-sequential">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">sequential-characterization-of-continuity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-sequential-1">
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\), let \(c\in S\), and let \(f:S\to\mathbb{R}\).</p>
+                    <p>The following are equivalent:</p>
+                    <ol>
+                      <li>\(f\) is continuous at \(c\).</li>
+                      <li>For every sequence \(\{x_n\}\subseteq S\) such that \(x_n\to c\), we have \(f(x_n)\to f(c)\).</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-2">
+                    <p><strong>Proof \((1\Rightarrow2)\).</strong></p>
+                    <p>Suppose \(f\) is continuous at \(c\).</p>
+                    <p>Let \(\{x_n\}\subseteq S\) with \(x_n\to c\).</p>
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Observe</p>
+                    <ul>
+                      <li>
+                        Continuity at \(c\) \(\implies\exists\delta&gt;0\) s.t. \(\forall x\in S\),
+                        \[
+                          |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                        \]
+                      </li>
+                      <li>
+                        \(x_n\to c\implies\exists N\in\mathbb{N}\) s.t.
+                        \[
+                          \forall n\geq N,\quad |x_n-c|&lt;\delta.
+                        \]
+                      </li>
+                    </ul>
+                    <p>Fix \(\delta&gt;0\) and \(N\in\mathbb{N}\) as above.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-3">
+                    <p>Altogether, if \(n\geq N\), then</p>
+                    \[
+                      x_n\in S\quad\text{and}\quad |x_n-c|&lt;\delta
+                    \]
+                    <p>and so</p>
+                    \[
+                      \forall n\geq N,\quad |f(x_n)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Consequently, \(f(x_n)\to f(c)\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-4">
+                    <p><strong>Proof \((2\Rightarrow1)\).</strong></p>
+                    <p>Suppose: for every sequence \(\{x_n\}\subseteq S\), if \(x_n\to c\), then \(f(x_n)\to f(c)\).</p>
+                    <p>Assume for contradiction \(f\) is not continuous at \(c\).</p>
+                    <p>Then \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0,\ \exists x\in S\) s.t.</p>
+                    \[
+                      |x-c|&lt;\delta
+                      \quad\text{and}\quad
+                      |f(x)-f(c)|\geq\epsilon_0.
+                    \]
+                    <p>Fix such an \(\epsilon_0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-5">
+                    <p>Since \(f\) is not continuous at \(c\),</p>
+                    <p>\(\forall n\in\mathbb{N},\ \exists x_n\in S\) s.t.</p>
+                    \[
+                      |x_n-c|&lt;\frac1n
+                      \quad\text{and}\quad
+                      |f(x_n)-f(c)|\geq\epsilon_0.
+                    \]
+                    <p>Fix such a sequence \(\{x_n\}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-6">
+                    <p>Altogether, \(\{x_n\}\subseteq S\) and</p>
+                    \[
+                      \forall n\in\mathbb{N},\quad 0\leq|x_n-c|&lt;1/n.
+                    \]
+                    <p>The squeeze theorem implies \(x_n\to c\), while</p>
+                    \[
+                      \forall n\in\mathbb{N},\quad |f(x_n)-f(c)|\geq\epsilon_0&gt;0.
+                    \]
+                    <p>However, by assumption \(x_n\to c\) implies \(f(x_n)\to f(c)\), thereby establishing the contradiction</p>
+                    \[
+                      0=\lim_{n\to\infty}|f(x_n)-f(c)|\geq\epsilon_0&gt;0.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-trigonometric">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">sine-and-cosine-are-continuous/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-trigonometric-1">
+                    <p><strong>Theorem.</strong> The functions \(\sin x\) and \(\cos x\) are continuous on \(\mathbb{R}\).</p>
+                    <p><strong>Recall.</strong> From the unit-circle definitions, for \(x\in\mathbb{R}\),</p>
+                    \[
+                      \sin^2x+\cos^2x=1,
+                    \]
+                    \[
+                      |\sin x|\leq1,\qquad |\cos x|\leq1,\qquad |\sin x|\leq|x|.
+                    \]
+                    <p>For \(a,b\in\mathbb{R}\), the angle-addition formula gives</p>
+                    \[
+                      \sin(a+b)=\cos a\sin b+\sin a\cos b.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-trigonometric-2">
+                    <p><strong>Proof (Sine).</strong> Let \(c\in\mathbb{R}\) and \(\epsilon&gt;0\).</p>
+                    <p>Observe</p>
+                    \[
+                      \sin x-\sin c
+                      =2\sin\left(\frac{x-c}{2}\right)\cos\left(\frac{x+c}{2}\right).
+                    \]
+                    <p>Set \(\delta=\epsilon&gt;0\).</p>
+                    <p>If \(|x-c|&lt;\delta\), then</p>
+                    \[
+                      \begin{aligned}
+                      |\sin x-\sin c|
+                      &amp;\leq2\left|\sin\left(\frac{x-c}{2}\right)\right|\\
+                      &amp;\leq2\frac{|x-c|}{2}=|x-c|&lt;\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(\sin x\) is continuous at every \(c\in\mathbb{R}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-trigonometric-3">
+                    <p><strong>Proof (Cosine).</strong> Recall \(\cos x=\sin(x+\pi/2)\).</p>
+                    <p>Let \(c\in\mathbb{R}\) and let \(\{x_n\}\subseteq\mathbb{R}\) with \(x_n\to c\).</p>
+                    <p>Then</p>
+                    \[
+                      x_n+\pi/2\to c+\pi/2.
+                    \]
+                    <p>Since sine is continuous, the sequential characterization gives</p>
+                    \[
+                      \cos x_n=\sin(x_n+\pi/2)\to\sin(c+\pi/2)=\cos c.
+                    \]
+                    <p>By the sequential characterization, \(\cos x\) is continuous at every \(c\in\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-polynomials">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">polynomials-are-continuous/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-polynomials-1">
+                    <p><strong>Theorem.</strong> Let \(d\in\mathbb{N}\) and \(a_0,\ldots,a_d\in\mathbb{R}\).</p>
+                    <p>The polynomial \(f:\mathbb{R}\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=a_dx^d+\cdots+a_1x+a_0
+                    \]
+                    <p>is continuous on \(\mathbb{R}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-polynomials-2">
+                    <p><strong>Proof.</strong> Let \(c\in\mathbb{R}\), and let \(\{x_n\}\) be a sequence in \(\mathbb{R}\) such that \(x_n\to c\).</p>
+                    <p>The limit laws for sequences give</p>
+                    \[
+                      \begin{aligned}
+                      \lim_{n\to\infty}f(x_n)
+                      &amp;=\lim_{n\to\infty}(a_dx_n^d+\cdots+a_1x_n+a_0)\\
+                      &amp;=a_dc^d+\cdots+a_1c+a_0\\
+                      &amp;=f(c).
+                      \end{aligned}
+                    \]
+                    <p>By the sequential characterization for continuity, \(f\) is continuous at every \(c\in\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-algebra">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">algebra-of-continuous-functions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-algebra-1">
+                    <p><strong>Theorem.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f,g:S\to\mathbb{R}\).</p>
+                    <p>If \(f\) and \(g\) are continuous at \(c\in S\), then</p>
+                    <ol>
+                      <li>\(f+g\) is continuous at \(c\).</li>
+                      <li>\(fg\) is continuous at \(c\).</li>
+                      <li>If \(g(x)\neq0\) for all \(x\in S\), then \(f/g\) is continuous at \(c\).</li>
+                    </ol>
+                    <p>The proofs are left as an exercise.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-composition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">composition-of-continuous-functions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-composition-1">
+                    <p><strong>Theorem.</strong> Let \(A,B\subseteq\mathbb{R}\), let \(g:A\to B\) and \(f:B\to\mathbb{R}\), and let \(c\in A\).</p>
+                    <p>If \(g\) is continuous at \(c\) and \(f\) is continuous at \(g(c)\), then \(f\circ g:A\to\mathbb{R}\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-composition-2">
+                    <p><strong>Proof.</strong> Let \(\{x_n\}\) be a sequence in \(A\) such that \(x_n\to c\).</p>
+                    <p>By continuity of \(g\) at \(c\) and the sequential characterization,</p>
+                    \[
+                      g(x_n)\to g(c).
+                    \]
+                    <p>Set \(y_n=g(x_n)\).</p>
+                    <p>Then \(\{y_n\}\subseteq B\) and \(y_n\to g(c)\).</p>
+                    <p>Since \(f\) is continuous at \(g(c)\), the sequential characterization applied to \(\{y_n\}\) gives</p>
+                    \[
+                      (f\circ g)(x_n)=f(y_n)\to f(g(c))=(f\circ g)(c).
+                    \]
+                    <p>The sequential characterization gives continuity of \(f\circ g\) at \(c\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-examples">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">continuity-examples/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-examples-1">
+                    <p><strong>Example.</strong> The function \(h:(0,\infty)\to\mathbb{R}\) given by</p>
+                    \[
+                      h(x)=\frac1{x^2}
+                    \]
+                    <p>is continuous on \((0,\infty)\).</p>
+                    <p><strong>Proof.</strong> The polynomials \(x\mapsto1\) and \(x\mapsto x^2\) are continuous on \((0,\infty)\).</p>
+                    <p>Since \(x^2&gt;0\) for every \(x&gt;0\), the quotient theorem gives continuity of \(h\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-examples-2">
+                    <p><strong>Example.</strong> The function \(h:(0,\infty)\to\mathbb{R}\) given by</p>
+                    \[
+                      h(x)=\left(\cos\frac1{x^2}\right)^2
+                    \]
+                    <p>is continuous on \((0,\infty)\).</p>
+                    <p><strong>Proof.</strong> By the previous example and continuity of cosine, \(g:(0,\infty)\to\mathbb{R}\), \(g(x)=\cos(1/x^2)\), is continuous.</p>
+                    <p>The polynomial \(p:\mathbb{R}\to\mathbb{R}\), \(p(t)=t^2\), is continuous. Since \(h=p\circ g\), the composition theorem gives continuity of \(h\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture15-single-spaced" id="lecture15-dirichlet">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-dirichlet-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-dirichlet-1">
+                    <p><strong>Theorem.</strong> The <strong>Dirichlet function</strong> \(f:\mathbb{R}\to\mathbb{R}\), defined by</p>
+                    \[
+                      f(x)=\begin{cases}
+                        1,&amp;x\in\mathbb{Q},\\
+                        0,&amp;x\notin\mathbb{Q},
+                      \end{cases}
+                    \]
+                    <p>is not continuous at any point of \(\mathbb{R}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-dirichlet-2">
+                    <p><strong>Proof.</strong> First suppose \(c\in\mathbb{Q}\).</p>
+                    <p>By density of the irrationals, choose a sequence \(\{x_n\}\) in \(\mathbb{R}\setminus\mathbb{Q}\) satisfying</p>
+                    \[
+                      c&lt;x_n&lt;c+\frac1n\qquad(n\in\mathbb{N}).
+                    \]
+                    <p>Then \(x_n\to c\), whereas</p>
+                    \[
+                      \lim_{n\to\infty}f(x_n)=0\neq1=f(c).
+                    \]
+                    <p>By the sequential characterization for continuity, \(f\) is not continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-dirichlet-3">
+                    <p>Now suppose \(c\in\mathbb{R}\setminus\mathbb{Q}\).</p>
+                    <p>By density of the rationals, choose a sequence \(\{x_n\}\) in \(\mathbb{Q}\) satisfying</p>
+                    \[
+                      c&lt;x_n&lt;c+\frac1n\qquad(n\in\mathbb{N}).
+                    \]
+                    <p>Then \(x_n\to c\), whereas</p>
+                    \[
+                      \lim_{n\to\infty}f(x_n)=1\neq0=f(c).
+                    \]
+                    <p>The sequential characterization again rules out continuity at \(c\).</p>
+                    <p>Thus \(f\) is not continuous at any point of \(\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <!-- End Lecture 15 continuity properties -->
+            </div>
+          </details>
+          <!-- End Lecture 14 continuity -->
+          <!-- Begin Lecture 16 closed intervals -->
+          <details class="lecture-node lecture-chapter lecture16-single-spaced" id="lecture-16">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">continuous-functions-on-closed-intervals/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-bounded-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">bounded-functions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-bounded-definition-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
+                    <p>We say \(f\) is <strong>bounded</strong> if \(\exists B\geq0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      |f(x)|\leq B.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-boundedness">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">boundedness-on-closed-intervals/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-boundedness-1">
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\).</p>
+                    <p>If \(f:[a,b]\to\mathbb{R}\) is continuous, then \(f\) is bounded.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-boundedness-2">
+                    <p><strong>Proof.</strong> Suppose for contradiction that \(f\) is unbounded.</p>
+                    <p>Then \(\forall n\in\mathbb{N}\), \(\exists x_n\in[a,b]\) s.t.</p>
+                    \[
+                      |f(x_n)|\geq n.
+                    \]
+                    <p>Select such a sequence \(\{x_n\}\).</p>
+                    <p>By Bolzano–Weierstrass, there is a subsequence \(\{x_{n_k}\}\) and an \(x\in\mathbb{R}\) such that \(x_{n_k}\to x\).</p>
+                    <p>Since \(a\leq x_{n_k}\leq b\), preservation of order gives</p>
+                    \[
+                      a\leq x\leq b.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-boundedness-3">
+                    <p>By continuity of \(f\) at \(x\) and the sequential characterization,</p>
+                    \[
+                      f(x_{n_k})\to f(x).
+                    \]
+                    <p>Hence \(|f(x_{n_k})|\to|f(x)|\), so \(\{|f(x_{n_k})|\}\) is bounded.</p>
+                    <p>Let \(C\geq0\) satisfy \(|f(x_{n_k})|\leq C\) for all \(k\in\mathbb{N}\).</p>
+                    <p>However, the subsequence indices satisfy \(n_k\geq k\), so</p>
+                    \[
+                      \forall k\in\mathbb{N},\qquad k\leq n_k\leq|f(x_{n_k})|\leq C,
+                    \]
+                    <p>a contradiction.</p>
+                    <p>Thus \(f\) is bounded.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-extrema">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">absolute-minima-and-maxima/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-extrema-1">
+                    <p><strong>Definition.</strong> Let \(f:S\to\mathbb{R}\).</p>
+                    <p>We say \(f\) achieves an <strong>absolute minimum</strong> at \(c\in S\) if \(\forall x\in S\),</p>
+                    \[
+                      f(c)\leq f(x).
+                    \]
+                    <p>We say \(f\) achieves an <strong>absolute maximum</strong> at \(d\in S\) if \(\forall x\in S\),</p>
+                    \[
+                      f(x)\leq f(d).
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-min-max">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-min-max-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-min-max-1">
+                    <p><strong>Theorem (Min–Max).</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
+                    <p>Then \(f\) achieves an absolute minimum and an absolute maximum.</p>
+                    <p><strong>Remark.</strong> This is also called the <strong>Extreme Value Theorem</strong>.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-min-max-2">
+                    <p><strong>Proof (Maximum).</strong> By the preceding theorem, \(f\) is bounded.</p>
+                    <p>The set \(E=\{f(x):x\in[a,b]\}\) is nonempty and bounded.</p>
+                    <p>Let \(L=\sup E\).</p>
+                    <p>Observe</p>
+                    <ol>
+                      <li>\(\forall x\in[a,b]\), \(f(x)\leq L\).</li>
+                      <li>\(\forall n\in\mathbb{N}\), \(\exists x_n\in[a,b]\) s.t.
+                        \[
+                          L-\frac1n&lt;f(x_n)\leq L.
+                        \]
+                      </li>
+                    </ol>
+                    <p>Selecting such \(x_n\), the squeeze theorem implies \(f(x_n)\to L\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-min-max-3">
+                    <p>By Bolzano–Weierstrass, there is a subsequence \(\{x_{n_k}\}\) and a \(d\in\mathbb{R}\) such that \(x_{n_k}\to d\).</p>
+                    <p>Since \(a\leq x_{n_k}\leq b\), preservation of order gives \(d\in[a,b]\).</p>
+                    <p>Since \(f(x_n)\to L\), we also have \(f(x_{n_k})\to L\).</p>
+                    <p>By continuity of \(f\) at \(d\),</p>
+                    \[
+                      f(d)=\lim_{k\to\infty}f(x_{n_k})=L.
+                    \]
+                    <p>Thus \(\forall x\in[a,b]\), \(f(x)\leq L=f(d)\).</p>
+                    <p>Hence \(f\) achieves an absolute maximum at \(d\).</p>
+                    <p><strong>Proof (Minimum).</strong> Exercise.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 16 closed intervals -->
         </div>
     </div>
   </main>
