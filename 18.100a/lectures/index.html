@@ -581,6 +581,53 @@
       .lecture16-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
     /* End Lecture 16 geometry */
+    /* Begin Lecture 17 geometry */
+    /* Lecture 17 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture17-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture17-single-spaced .lecture-note p,
+    .lecture17-single-spaced .lecture-note ol,
+    .lecture17-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture17-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture17-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture17-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture17-single-spaced {
+      --lecture17-slide-height: 90vh;
+      --lecture17-slide-gap: 10vh;
+      --lecture17-slide-inset: 3vh;
+    }
+    .lecture17-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture17-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture17-single-spaced {
+        --lecture17-slide-height: 90dvh;
+        --lecture17-slide-gap: 10dvh;
+        --lecture17-slide-inset: 3dvh;
+      }
+      .lecture17-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture17-single-spaced .lecture-block {
+        height: var(--lecture17-slide-height);
+        padding-block: var(--lecture17-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture17-slide-inset);
+      }
+      .lecture17-single-spaced .presentation-break {
+        height: var(--lecture17-slide-gap);
+      }
+      .lecture17-single-spaced[open],
+      .lecture17-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 17 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -7719,6 +7766,14 @@
                     <p>For \(U\subseteq S\), we say \(f\) is <strong>continuous on \(U\)</strong> if it is continuous at every point of \(U\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture14-continuity-function-space">
+                    <p><strong>Optional Remark.</strong> For \(A\subseteq\mathbb{R}\), we write</p>
+                    \[
+                      C(A)=\{f:A\to\mathbb{R}:f\text{ is continuous on }A\}.
+                    \]
+                    <p>Thus \(C(A)\) is the set of continuous real-valued functions on \(A\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture14-continuity-definition-2">
                     <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and let \(c\in S\).</p>
                     <p>The function \(f\) is <strong>not continuous at \(c\)</strong> if and only if</p>
@@ -7914,8 +7969,16 @@
                   <div class="lecture-block" id="lecture15-sequential-2">
                     <p><strong>Proof \((1\Rightarrow2)\).</strong></p>
                     <p>Suppose \(f\) is continuous at \(c\).</p>
-                    <p>Let \(\{x_n\}\subseteq S\) with \(x_n\to c\).</p>
+                    <p>We wish to show this implies the implication</p>
+                    \[
+                      \text{if }\{x_n\}\subseteq S\text{ and }x_n\to c,
+                      \text{ then }f(x_n)\to f(c).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-sequential-2-estimates">
                     <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Let \(\{x_n\}\subseteq S\) with \(x_n\to c\).</p>
                     <p>Observe</p>
                     <ul>
                       <li>
@@ -7937,18 +8000,25 @@
                   <div class="lecture-block" id="lecture15-sequential-3">
                     <p>Altogether, if \(n\geq N\), then</p>
                     \[
-                      x_n\in S\quad\text{and}\quad |x_n-c|&lt;\delta
+                      \begin{gathered}
+                      x_n\in S\quad\text{and}\quad |x_n-c|&lt;\delta\\
+                      (\text{by choice of }N)
+                      \end{gathered}
                     \]
                     <p>and so</p>
                     \[
-                      \forall n\geq N,\quad |f(x_n)-f(c)|&lt;\epsilon.
+                      \begin{gathered}
+                      \forall n\geq N,\quad |f(x_n)-f(c)|&lt;\epsilon\\
+                      (\text{by choice of }\delta).
+                      \end{gathered}
                     \]
                     <p>Consequently, \(f(x_n)\to f(c)\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture15-sequential-4">
                     <p><strong>Proof \((2\Rightarrow1)\).</strong></p>
-                    <p>Suppose: for every sequence \(\{x_n\}\subseteq S\), if \(x_n\to c\), then \(f(x_n)\to f(c)\).</p>
+                    <p>Suppose: if \(\{x_n\}\subseteq S\) and \(x_n\to c\), then \(f(x_n)\to f(c)\).</p>
+                    <p>We wish to show that \(f\) is then continuous at \(c\).</p>
                     <p>Assume for contradiction \(f\) is not continuous at \(c\).</p>
                     <p>Then \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0,\ \exists x\in S\) s.t.</p>
                     \[
@@ -7973,11 +8043,17 @@
                   <div class="lecture-block" id="lecture15-sequential-6">
                     <p>Altogether, \(\{x_n\}\subseteq S\) and</p>
                     \[
-                      \forall n\in\mathbb{N},\quad 0\leq|x_n-c|&lt;1/n.
+                      \begin{gathered}
+                      \forall n\in\mathbb{N},\quad 0\leq|x_n-c|&lt;1/n\\
+                      (\text{by choice of }x_n).
+                      \end{gathered}
                     \]
                     <p>The squeeze theorem implies \(x_n\to c\), while</p>
                     \[
-                      \forall n\in\mathbb{N},\quad |f(x_n)-f(c)|\geq\epsilon_0&gt;0.
+                      \begin{gathered}
+                      \forall n\in\mathbb{N},\quad |f(x_n)-f(c)|\geq\epsilon_0&gt;0\\
+                      (\text{by choice of }\epsilon_0\text{ and }x_n).
+                      \end{gathered}
                     \]
                     <p>However, by assumption \(x_n\to c\) implies \(f(x_n)\to f(c)\), thereby establishing the contradiction</p>
                     \[
@@ -8088,7 +8164,26 @@
                       <li>\(fg\) is continuous at \(c\).</li>
                       <li>If \(g(x)\neq0\) for all \(x\in S\), then \(f/g\) is continuous at \(c\).</li>
                     </ol>
-                    <p>The proofs are left as an exercise.</p>
+                    <p><strong>Proof.</strong> Use the sequential characterization of continuity and the algebra of sequence limits.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-algebra-remark">
+                    <p><strong>Optional Remark.</strong> Let \(A\subseteq\mathbb{R}\).</p>
+                    <p>If \(f,g\in C(A)\) and \(\alpha\in\mathbb{R}\), then</p>
+                    \[
+                      f+g,\quad \alpha f,\quad fg\in C(A).
+                    \]
+                    <p>These operations are defined pointwise: for \(x\in A\),</p>
+                    \[
+                      \begin{aligned}
+                      (f+g)(x)&amp;=f(x)+g(x),\\
+                      (\alpha f)(x)&amp;=\alpha f(x),\\
+                      (fg)(x)&amp;=f(x)g(x).
+                      \end{aligned}
+                    \]
+                    <p>They obey the usual algebraic rules, so we say that \(C(A)\) is an <strong>algebra over \(\mathbb{R}\)</strong>.</p>
+                    <p>Informally, we can add, scale, and multiply continuous functions and remain in \(C(A)\).</p>
+                    <p>(Roughly speaking, an algebra is a vector space with &quot;multiplication.&quot;)</p>
                   </div>
                 </div>
               </details>
@@ -8105,18 +8200,33 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture15-composition-2">
-                    <p><strong>Proof.</strong> Let \(\{x_n\}\) be a sequence in \(A\) such that \(x_n\to c\).</p>
-                    <p>By continuity of \(g\) at \(c\) and the sequential characterization,</p>
+                    <p><strong>Proof.</strong> We appeal to sequential characterization of continuity.</p>
+                    <p>Thus, if \(\{x_n\}\subseteq A\) and \(x_n\to c\), we wish to show</p>
+                    \[
+                      (f\circ g)(x_n)=f(g(x_n))\to f(g(c))=(f\circ g)(c).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-composition-3">
+                    <p>Observe that \(g\) continuous at \(c\) implies</p>
                     \[
                       g(x_n)\to g(c).
                     \]
-                    <p>Set \(y_n=g(x_n)\).</p>
-                    <p>Then \(\{y_n\}\subseteq B\) and \(y_n\to g(c)\).</p>
-                    <p>Since \(f\) is continuous at \(g(c)\), the sequential characterization applied to \(\{y_n\}\) gives</p>
+                    <p>Let \(y_n=g(x_n)\) and \(y=g(c)\), noting \(\{y_n\}\subseteq B\) and \(y_n\to y\).</p>
+                    <p>\(f\) continuous at \(g(c)=y\) implies</p>
                     \[
-                      (f\circ g)(x_n)=f(y_n)\to f(g(c))=(f\circ g)(c).
+                      f(g(x_n))=f(y_n)\to f(y)=f(g(c)),
                     \]
-                    <p>The sequential characterization gives continuity of \(f\circ g\) at \(c\).</p>
+                    <p>and so \(f\circ g\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-composition-remark">
+                    <p><strong>Optional Remark.</strong> The preceding theorem implies that the algebra \(C(\mathbb{R})\) is also closed under composition:</p>
+                    \[
+                      f,g\in C(\mathbb{R})\implies f\circ g\in C(\mathbb{R}).
+                    \]
+                    <p>Composition gives \(C(\mathbb{R})\) an additional algebraic structure: it is associative, and the identity function \(x\mapsto x\) acts as an identity.</p>
+                    <p>Unlike pointwise multiplication, composition need not be commutative.</p>
                   </div>
                 </div>
               </details>
@@ -8155,6 +8265,23 @@
                   <span class="lecture-label">the-dirichlet-function/</span>
                 </summary>
                 <div class="lecture-note">
+                  <div class="lecture-block" id="lecture15-irrational-density-1">
+                    <p><strong>Lemma (Density of the irrationals).</strong> Let \(a,b\in\mathbb{R}\) with \(a&lt;b\).</p>
+                    <p>There exists \(x\in\mathbb{R}\setminus\mathbb{Q}\) such that</p>
+                    \[
+                      a&lt;x&lt;b.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture15-irrational-density-2">
+                    <p><strong>Proof.</strong> By density of the rationals, choose \(q\in\mathbb{Q}\) such that</p>
+                    \[
+                      a-\sqrt{2}&lt;q&lt;b-\sqrt{2}.
+                    \]
+                    <p>Set \(x=q+\sqrt{2}\), noting \(x\) is irrational since otherwise \(x-q=\sqrt{2}\in\mathbb{Q}\).</p>
+                    <p>Then \(a&lt;x&lt;b\), with \(x\in\mathbb{R}\setminus\mathbb{Q}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture15-dirichlet-1">
                     <p><strong>Theorem.</strong> The <strong>Dirichlet function</strong> \(f:\mathbb{R}\to\mathbb{R}\), defined by</p>
                     \[
@@ -8201,7 +8328,7 @@
           <!-- Begin Lecture 16 closed intervals -->
           <details class="lecture-node lecture-chapter lecture16-single-spaced" id="lecture-16">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">continuous-functions-on-closed-intervals/</span>
             </summary>
@@ -8218,6 +8345,14 @@
                     <p>We say \(f\) is <strong>bounded</strong> if \(\exists B\geq0\) s.t. \(\forall x\in S\),</p>
                     \[
                       |f(x)|\leq B.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-bounded-definition-2">
+                    <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
+                    <p>The function \(f\) is <strong>unbounded</strong> (not bounded) if and only if</p>
+                    \[
+                      \forall B\geq0,\ \exists x\in S\quad\text{s.t.}\quad |f(x)|&gt;B.
                     \]
                   </div>
                 </div>
@@ -8249,12 +8384,14 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-boundedness-3">
-                    <p>By continuity of \(f\) at \(x\) and the sequential characterization,</p>
+                    <p>By continuity of \(f\) and \(x_{n_k}\to x\), there holds</p>
                     \[
                       f(x_{n_k})\to f(x).
                     \]
-                    <p>Hence \(|f(x_{n_k})|\to|f(x)|\), so \(\{|f(x_{n_k})|\}\) is bounded.</p>
-                    <p>Let \(C\geq0\) satisfy \(|f(x_{n_k})|\leq C\) for all \(k\in\mathbb{N}\).</p>
+                    <p>Thus \(\{|f(x_{n_k})|\}\) is convergent and hence bounded: \(\exists C&gt;0\) s.t. \(\forall k\in\mathbb{N}\),</p>
+                    \[
+                      |f(x_{n_k})|\leq C.
+                    \]
                     <p>However, the subsequence indices satisfy \(n_k\geq k\), so</p>
                     \[
                       \forall k\in\mathbb{N},\qquad k\leq n_k\leq|f(x_{n_k})|\leq C,
@@ -8281,26 +8418,65 @@
                     \[
                       f(x)\leq f(d).
                     \]
+                    <div class="absolute-extrema-depiction" role="figure" aria-label="Graph of f(x)=x(x−1)(x+1) on the closed interval [−1,1]. Its absolute maximum is at d=−1/√3, with f(d)=2/(3√3), and its absolute minimum is at c=1/√3, with f(c)=−2/(3√3). Both endpoint values are zero." style="position:relative;width:18em;max-width:100%;aspect-ratio:18 / 8;margin:1em auto 0;">
+                      <!-- Exact cubic: X=9+6x, Y=4−4.5f(x), −1≤x≤1.
+                           A smooth SVG path draws the curve; all labels are MathJax. -->
+                      <svg viewBox="0 0 18 8" aria-hidden="true" focusable="false" style="display:block;width:100%;height:100%;">
+                        <g fill="none" stroke="#929292" stroke-width="0.025" stroke-dasharray="0.16 0.14">
+                          <path d="M 5.535898 4 V 2.267949 H 9 M 9 5.732051 H 12.464102 V 4" />
+                        </g>
+                        <g fill="none" stroke="var(--text)" stroke-width="0.035">
+                          <path d="M 1.7 4 H 16.5 M 9 6.5 V 1.4" />
+                          <path d="M 3 3.9 V 4.1 M 5.535898 3.9 V 4.1 M 12.464102 3.9 V 4.1 M 15 3.9 V 4.1 M 8.9 2.267949 H 9.1 M 8.9 5.732051 H 9.1" />
+                        </g>
+                        <path d="M 16.35 3.86 L 16.65 4 L 16.35 4.14 Z M 8.86 1.55 L 9 1.25 L 9.14 1.55 Z" fill="var(--text)" />
+                        <path d="M 3 4 C 7 -2 11 10 15 4" fill="none" stroke="#454545" stroke-width="0.055" stroke-linecap="round" />
+                        <g fill="#454545">
+                          <circle cx="3" cy="4" r="0.075" />
+                          <circle cx="15" cy="4" r="0.075" />
+                        </g>
+                        <g fill="#b3261e">
+                          <circle cx="5.535898" cy="2.267949" r="0.095" />
+                          <circle cx="12.464102" cy="5.732051" r="0.095" />
+                        </g>
+                      </svg>
+                      <span style="position:absolute;left:26.1111%;top:16.875%;transform:translate(-50%,-50%);white-space:nowrap;color:#b3261e;">\(\text{absolute max}\)</span>
+                      <span style="position:absolute;left:72.2222%;top:84.375%;transform:translate(-50%,-50%);white-space:nowrap;color:#b3261e;">\(\text{absolute min}\)</span>
+                      <span style="position:absolute;left:51.9444%;top:28.3494%;transform:translate(0,-50%);white-space:nowrap;">\(f(d)\)</span>
+                      <span style="position:absolute;left:48.0556%;top:71.6506%;transform:translate(-100%,-50%);white-space:nowrap;">\(f(c)\)</span>
+                      <span style="position:absolute;left:30.7550%;top:56.25%;transform:translate(-50%,-50%);white-space:nowrap;">\(d\)</span>
+                      <span style="position:absolute;left:69.2450%;top:43.75%;transform:translate(-50%,-50%);white-space:nowrap;">\(c\)</span>
+                      <span style="position:absolute;left:16.6667%;top:58.125%;transform:translate(-50%,-50%);white-space:nowrap;">\(-1\)</span>
+                      <span style="position:absolute;left:83.3333%;top:43.75%;transform:translate(-50%,-50%);white-space:nowrap;">\(1\)</span>
+                      <span style="position:absolute;left:47.5%;top:56.25%;transform:translate(-50%,-50%);white-space:nowrap;">\(0\)</span>
+                      <span style="position:absolute;left:47.2222%;top:20%;transform:translate(-50%,-50%);white-space:nowrap;">\(y\)</span>
+                      <span style="position:absolute;left:94.4444%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;">\(x\)</span>
+                    </div>
                   </div>
                 </div>
               </details>
               <details class="lecture-node lecture16-single-spaced" id="lecture16-min-max">
                 <summary>
-                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">the-min-max-theorem/</span>
+                  <span class="lecture-label">the-extreme-value-theorem/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture16-min-max-1">
-                    <p><strong>Theorem (Min–Max).</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
+                    <p><strong>Theorem (Extreme Value Theorem).</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
                     <p>Then \(f\) achieves an absolute minimum and an absolute maximum.</p>
-                    <p><strong>Remark.</strong> This is also called the <strong>Extreme Value Theorem</strong>.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-min-max-2">
-                    <p><strong>Proof (Maximum).</strong> By the preceding theorem, \(f\) is bounded.</p>
-                    <p>The set \(E=\{f(x):x\in[a,b]\}\) is nonempty and bounded.</p>
-                    <p>Let \(L=\sup E\).</p>
+                    <p style="margin-bottom:1.2em;"><strong>Proof.</strong> We prove \(f\) has a maximum; the proof \(f\) has a minimum is similar.</p>
+                    <p>The preceding theorem implies \(f\) is bounded.</p>
+                    <p>If \(E=\{f(x):x\in[a,b]\}\), then \(E\) is nonempty and bounded.</p>
+                    <p>Let \(L:=\sup E\).</p>
+                    <p>We use Bolzano–Weierstrass to show \(L\) is the absolute maximum of \(f\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-min-max-2-observation">
+                    <p>\(L=\sup E\), \(E=\{f(x):x\in[a,b]\}\).</p>
                     <p>Observe</p>
                     <ol>
                       <li>\(\forall x\in[a,b]\), \(f(x)\leq L\).</li>
@@ -8308,6 +8484,7 @@
                         \[
                           L-\frac1n&lt;f(x_n)\leq L.
                         \]
+                        <p><strong>Note:</strong> this follows from the \(\epsilon\)-characterization of supremum, and from \(\forall y\in E\), \(\exists x\in[a,b]\) s.t. \(f(x)=y\).</p>
                       </li>
                     </ol>
                     <p>Selecting such \(x_n\), the squeeze theorem implies \(f(x_n)\to L\).</p>
@@ -8323,13 +8500,548 @@
                     \]
                     <p>Thus \(\forall x\in[a,b]\), \(f(x)\leq L=f(d)\).</p>
                     <p>Hence \(f\) achieves an absolute maximum at \(d\).</p>
-                    <p><strong>Proof (Minimum).</strong> Exercise.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-hypotheses">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">necessity-of-the-hypotheses/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-hypotheses-1">
+                    <p><strong>Example.</strong> Continuity cannot be omitted from the Extreme Value Theorem.</p>
+                    <p>Define \(f:[0,1]\to\mathbb{R}\) by</p>
+                    \[
+                      f(x)=\begin{cases}
+                        \frac12,&amp;x\in\{0,1\},\\
+                        x,&amp;0&lt;x&lt;1.
+                      \end{cases}
+                    \]
+                    <p>This function is not continuous at \(0\) or \(1\).</p>
+                    <p>Its range is \((0,1)\), so it achieves neither an absolute minimum nor an absolute maximum.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-hypotheses-2">
+                    <p><strong>Example.</strong> The conclusion can fail on an open interval.</p>
+                    <p>The function \(f:(0,1)\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=\frac1x-\frac1{1-x}
+                    \]
+                    <p>is continuous.</p>
+                    <p>For \(n\geq2\),</p>
+                    \[
+                      \begin{aligned}
+                      f(1/n)&amp;=n-\frac{n}{n-1}\geq n-2,\\
+                      f(1-1/n)&amp;=\frac{n}{n-1}-n\leq2-n.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is unbounded above and below, so it achieves neither an absolute maximum nor an absolute minimum.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-zero">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-zero-between-opposite-signs/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-zero-1">
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a&lt;b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
+                    <p>If \(f(a)&lt;0&lt;f(b)\), then \(\exists c\in(a,b)\) such that</p>
+                    \[
+                      f(c)=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-idea">
+                    <p><strong>Proof.</strong></p>
+                    <p>Roughly speaking, in order to show \(\exists c\in[a,b]\) s.t. \(f(c)=0\), we construct a converging sequence \(\{z_n\}\) satisfying</p>
+                    \[
+                      z_n\to c\in[a,b]\quad\text{and}\quad f(z_n)\to0.
+                    \]
+                    <p>Using continuity of \(f\) on \([a,b]\), we can then conclude \(f(c)=0\).</p>
+                    <p>(We really construct two suitable monotone sequences.)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-2">
+                    <p>We define two sequences \(\{a_n\},\{b_n\}\subseteq[a,b]\) inductively:</p>
+                    <ol>
+                      <li>Define \(a_1=a\) and \(b_1=b\).</li>
+                      <li>Given \(a_n\) and \(b_n\), define
+                        \[
+                          m_n=\frac{a_n+b_n}{2}.
+                        \]
+                      </li>
+                      <li>Define \(a_{n+1}\) and \(b_{n+1}\) by declaring
+                        \[
+                          (a_{n+1},b_{n+1})=
+                          \begin{cases}
+                            (a_n,m_n),&amp;f(m_n)\geq0,\\
+                            (m_n,b_n),&amp;f(m_n)&lt;0.
+                          \end{cases}
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-3">
+                    <p>Observe that \(\forall n\in\mathbb{N}\),</p>
+                    <ol>
+                      <li>The intervals \(\{(a_n,b_n)\}\) are nested:
+                        \[
+                          a\leq a_n\leq a_{n+1}\leq b_{n+1}\leq b_n\leq b.
+                        \]
+                        <p>Indeed,</p>
+                        \[
+                          a_n\leq\frac{a_n+b_n}{2}\leq b_n.
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-3-lengths">
+                    <ol start="2">
+                      <li>The lengths are halved:
+                        \[
+                          b_{n+1}-a_{n+1}=\frac{b_n-a_n}{2}.
+                        \]
+                        <p>Indeed,</p>
+                        \[
+                          (a_{n+1},b_{n+1})=(a_n,m_n)\quad\text{or}\quad(m_n,b_n)
+                        \]
+                        <p>and</p>
+                        \[
+                          m_n-a_n=b_n-m_n=\frac{b_n-a_n}{2}.
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-3-signs">
+                    <ol start="3">
+                      <li>The endpoints satisfy
+                        \[
+                          f(a_n)&lt;0\leq f(b_n).
+                        \]
+                        <p>Indeed, this holds for \(n=1\). If it holds for \(n\), then:</p>
+                        <ul>
+                          <li>If \(f(m_n)\geq0\), then \((a_{n+1},b_{n+1})=(a_n,m_n)\), so
+                            \[
+                              \begin{aligned}
+                              f(a_{n+1})&amp;=f(a_n)&lt;0,\\
+                              f(b_{n+1})&amp;=f(m_n)\geq0.
+                              \end{aligned}
+                            \]
+                          </li>
+                          <li>If \(f(m_n)&lt;0\), then \((a_{n+1},b_{n+1})=(m_n,b_n)\), so
+                            \[
+                              \begin{aligned}
+                              f(a_{n+1})&amp;=f(m_n)&lt;0,\\
+                              f(b_{n+1})&amp;=f(b_n)\geq0.
+                              \end{aligned}
+                            \]
+                          </li>
+                        </ul>
+                        <p>Hence (3) holds by induction.</p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-summary">
+                    <p>In short</p>
+                    <p>\(\forall n\in\mathbb{N}\)</p>
+                    <ol>
+                      <li>
+                        \[
+                          a\leq a_n\leq a_{n+1}\leq b_{n+1}\leq b_n\leq b.
+                        \]
+                      </li>
+                      <li>
+                        \[
+                          b_{n+1}-a_{n+1}=\frac{b_n-a_n}{2}.
+                        \]
+                      </li>
+                      <li>
+                        \[
+                          f(a_n)&lt;0\leq f(b_n).
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-4">
+                    <p>By (1), \(\{a_n\}\) is nondecreasing and \(\{b_n\}\) is nonincreasing, and both are bounded.</p>
+                    <p>The Monotone Convergence Theorem gives \(c,d\in[a,b]\) such that</p>
+                    \[
+                      a_n\to c,\qquad b_n\to d.
+                    \]
+                    <p>Iterating (2),</p>
+                    \[
+                      b_n-a_n=\frac{b-a}{2^{n-1}}\to0.
+                    \]
+                    <p>Thus</p>
+                    \[
+                      d-c=\lim_{n\to\infty}(b_n-a_n)=0,
+                    \]
+                    <p>and so \(d=c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-5">
+                    <p>Altogether, \(a_n\to c\) and \(b_n\to c\), with \(c\in[a,b]\).</p>
+                    <p>By continuity of \(f\), (3), and preservation of order,</p>
+                    \[
+                      \begin{aligned}
+                      f(c)&amp;=\lim_{n\to\infty}f(a_n)\leq0,\\
+                      f(c)&amp;=\lim_{n\to\infty}f(b_n)\geq0.
+                      \end{aligned}
+                    \]
+                    <p>Hence \(f(c)=0\).</p>
+                    <p>Since \(f(a)&lt;0&lt;f(b)\), we have \(c\neq a,b\).</p>
+                    <p>Therefore \(c\in(a,b)\), as required.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-ivt">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-intermediate-value-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-ivt-1">
+                    <p><strong>Theorem (Bolzano's Intermediate Value Theorem).</strong></p>
+                    <p>Let \(a,b\in\mathbb{R}\) with \(a&lt;b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
+                    <p>If \(y\in\mathbb{R}\) satisfies</p>
+                    \[
+                      f(a)&lt;y&lt;f(b)\quad\text{or}\quad f(b)&lt;y&lt;f(a),
+                    \]
+                    <p>then \(\exists c\in(a,b)\) such that \(f(c)=y\).</p>
+                    <p><strong>Remark.</strong> Without continuity, the conclusion need not hold.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-ivt-2">
+                    <p><strong>Proof.</strong> Suppose \(f(a)&lt;y&lt;f(b)\).</p>
+                    <p>Define \(g:[a,b]\to\mathbb{R}\) by \(g(x)=f(x)-y\).</p>
+                    <p>Then \(g\) is continuous, and</p>
+                    \[
+                      g(a)=f(a)-y&lt;0&lt;f(b)-y=g(b).
+                    \]
+                    <p>By the preceding theorem, \(\exists c\in(a,b)\) such that</p>
+                    \[
+                      0=g(c)=f(c)-y.
+                    \]
+                    <p>Hence \(f(c)=y\).</p>
+                    <p>The case \(f(b)&lt;y&lt;f(a)\) follows by applying the same argument to \(-f\) and \(-y\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-image">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">image-of-a-closed-interval/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-image-1">
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
+                    <p>Suppose \(f\) achieves its absolute minimum at \(c\in[a,b]\) and its absolute maximum at \(d\in[a,b]\).</p>
+                    <p>Then</p>
+                    \[
+                      f([a,b])=[f(c),f(d)].
+                    \]
+                    <p>Thus every value between the absolute minimum and maximum values is attained.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-image-2">
+                    <p><strong>Proof.</strong> By the definitions of minimum and maximum,</p>
+                    \[
+                      f([a,b])\subseteq[f(c),f(d)].
+                    \]
+                    <p>Let \(y\in[f(c),f(d)]\).</p>
+                    <p>If \(y=f(c)\) or \(y=f(d)\), then \(y\in f([a,b])\).</p>
+                    <p>Otherwise, \(f(c)&lt;y&lt;f(d)\), so \(c\neq d\).</p>
+                    <p>Set \(u=\min\{c,d\}\) and \(v=\max\{c,d\}\).</p>
+                    <p>By the IVT on \([u,v]\subseteq[a,b]\), \(\exists z\in(u,v)\) with \(f(z)=y\).</p>
+                    <p>Thus \([f(c),f(d)]\subseteq f([a,b])\), proving equality.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture16-single-spaced" id="lecture16-polynomial-root">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-real-root-of-a-polynomial/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture16-polynomial-root-1">
+                    <p><strong>Theorem.</strong> The polynomial</p>
+                    \[
+                      f(x)=x^{2021}+x^{2020}+9.03x+1
+                    \]
+                    <p>has at least one real root.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-polynomial-root-2">
+                    <p><strong>Proof.</strong> Since \(f\) is a polynomial, it is continuous on \([-1,0]\).</p>
+                    <p>Observe</p>
+                    \[
+                      \begin{aligned}
+                      f(-1)&amp;=-1+1-9.03+1=-8.03&lt;0,\\
+                      f(0)&amp;=1&gt;0.
+                      \end{aligned}
+                    \]
+                    <p>By the IVT, \(\exists c\in(-1,0)\) such that \(f(c)=0\).</p>
                   </div>
                 </div>
               </details>
             </div>
           </details>
           <!-- End Lecture 16 closed intervals -->
+          <!-- Begin Lecture 17 uniform continuity -->
+          <details class="lecture-node lecture-chapter lecture17-single-spaced" id="lecture-17">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">uniform-continuity/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-continuity-recall">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">recall-continuity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-continuity-recall-1">
+                    <p><strong>Recall.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
+                    <p>Then \(f\) is continuous on \(S\) if \(\forall c\in S\) and \(\forall\epsilon&gt;0\), \(\exists\delta&gt;0\) s.t. \(\forall x\in S\),</p>
+                    \[
+                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Here \(\delta\) may depend on both \(\epsilon\) and \(c\).</p>
+                    <p>We write \(\delta=\delta(\epsilon,c)\) to indicate this dependence.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-reciprocal-continuity">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">continuity-of-the-reciprocal/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-reciprocal-continuity-1">
+                    <p><strong>Example.</strong> The function \(f:(0,1)\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=\frac1x
+                    \]
+                    <p>is continuous on \((0,1)\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-reciprocal-continuity-2">
+                    <p><strong>Proof.</strong> Fix \(c\in(0,1)\) and let \(\epsilon&gt;0\).</p>
+                    <p>Choose</p>
+                    \[
+                      \delta=\min\left\{\frac c2,\frac{c^2\epsilon}{2}\right\}&gt;0.
+                    \]
+                    <p>Let \(x\in(0,1)\) satisfy \(|x-c|&lt;\delta\).</p>
+                    <p>Since \(\delta\leq c/2\),</p>
+                    \[
+                      |x|\geq c-|x-c|&gt;\frac c2.
+                    \]
+                    <p>Hence \(1/|x|&lt;2/c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-reciprocal-continuity-3">
+                    <p>Using \(|x-c|&lt;\delta\), \(1/|x|&lt;2/c\), and \(c&gt;0\),</p>
+                    \[
+                      \begin{aligned}
+                      \left|\frac1x-\frac1c\right|
+                        &amp;=\frac{|x-c|}{|x|c}\\
+                        &amp;&lt;\frac{\delta}{|x|c}
+                         &lt;\frac{2\delta}{c^2}\\
+                        &amp;\leq\frac{2}{c^2}\cdot\frac{c^2\epsilon}{2}=\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is continuous at \(c\).</p>
+                    <p>Since \(c\in(0,1)\) was arbitrary, \(f\) is continuous on \((0,1)\).</p>
+                    <p><strong>Remark.</strong> The chosen \(\delta\) depends on both \(\epsilon\) and \(c\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-uniform-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">defining-uniform-continuity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-uniform-definition-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
+                    <p>We say \(f\) is <strong>uniformly continuous</strong> on \(S\) if \(\forall\epsilon&gt;0\), \(\exists\delta&gt;0\) s.t. \(\forall x,c\in S\),</p>
+                    \[
+                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p><strong>Remark.</strong> Here \(\delta=\delta(\epsilon)\) depends only on \(\epsilon\).</p>
+                    <p>The same \(\delta\) must work for every pair \(x,c\in S\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-uniform-square">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">uniform-continuity-of-the-square-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-uniform-square-1">
+                    <p><strong>Example.</strong> The function \(f:[0,1]\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=x^2
+                    \]
+                    <p>is uniformly continuous on \([0,1]\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-square-2">
+                    <p><strong>Proof.</strong> Let \(\epsilon&gt;0\) and choose \(\delta=\epsilon/2&gt;0\).</p>
+                    <p>Let \(x,c\in[0,1]\) satisfy \(|x-c|&lt;\delta\).</p>
+                    <p>Since \(|x+c|\leq2\),</p>
+                    \[
+                      \begin{aligned}
+                      |x^2-c^2|&amp;=|x+c||x-c|\\
+                               &amp;\leq2|x-c|&lt;2\delta=\epsilon.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is uniformly continuous on \([0,1]\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-uniform-negation">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">negation-of-uniform-continuity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-uniform-negation-1">
+                    <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
+                    <p>Then \(f\) is <strong>not uniformly continuous</strong> on \(S\) if and only if \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0\), \(\exists x,c\in S\) with</p>
+                    \[
+                      |x-c|&lt;\delta
+                      \quad\text{and}\quad
+                      |f(x)-f(c)|\geq\epsilon_0.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-reciprocal-not-uniform">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-reciprocal-is-not-uniformly-continuous/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-reciprocal-not-uniform-1">
+                    <p><strong>Example.</strong> The function \(f:(0,1)\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=\frac1x
+                    \]
+                    <p>is continuous but not uniformly continuous on \((0,1)\).</p>
+                    <p><strong>Remark.</strong> We will use \(\epsilon_0=2\); any \(\epsilon_0&gt;0\) could be used with a suitable choice of \(x,c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-reciprocal-not-uniform-2">
+                    <p><strong>Proof.</strong> Choose \(\epsilon_0=2\) and let \(\delta&gt;0\).</p>
+                    <p>Set</p>
+                    \[
+                      c=\min\left\{\delta,\frac12\right\},\qquad x=\frac c2.
+                    \]
+                    <p>Then \(0&lt;x&lt;c\leq1/2&lt;1\), so \(x,c\in(0,1)\).</p>
+                    <p>Moreover,</p>
+                    \[
+                      |x-c|=\frac c2\leq\frac\delta2&lt;\delta,
+                    \]
+                    <p>whereas</p>
+                    \[
+                      \left|\frac1x-\frac1c\right|
+                      =\left|\frac2c-\frac1c\right|=\frac1c\geq2=\epsilon_0.
+                    \]
+                    <p>Thus \(f\) is not uniformly continuous on \((0,1)\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-uniform-closed-interval">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">uniform-continuity-on-closed-intervals/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-1">
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\).</p>
+                    <p>Then \(f\) is continuous on \([a,b]\) if and only if \(f\) is uniformly continuous on \([a,b]\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-2">
+                    <p><strong>Proof (\(\Leftarrow\)).</strong> Exercise.</p>
+                    <p><strong>Proof (\(\Rightarrow\)).</strong> Suppose \(f\) is continuous but not uniformly continuous.</p>
+                    <p>Fix \(\epsilon_0&gt;0\) from the negation.</p>
+                    <p>Taking \(\delta=1/n\), for each \(n\in\mathbb{N}\) choose \(x_n,c_n\in[a,b]\) s.t.</p>
+                    \[
+                      |x_n-c_n|&lt;\frac1n
+                      \quad\text{and}\quad
+                      |f(x_n)-f(c_n)|\geq\epsilon_0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-3">
+                    <p>By Bolzano–Weierstrass, there is a subsequence \(\{x_{n_k}\}\) such that \(x_{n_k}\to x\).</p>
+                    <p>Apply Bolzano–Weierstrass to the bounded sequence \(\{c_{n_k}\}\).</p>
+                    <p>There is a subsequence \(\{c_{n_{k_j}}\}\) converging to \(c\).</p>
+                    <p>The corresponding subsequence of \(\{x_{n_k}\}\) still converges to \(x\):</p>
+                    \[
+                      x_{n_{k_j}}\to x,\qquad c_{n_{k_j}}\to c.
+                    \]
+                    <p>Both sequences lie in \([a,b]\), so preservation of order gives \(x,c\in[a,b]\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-4">
+                    <p>Since \(n_{k_j}\geq k_j\geq j\), we have \(1/n_{k_j}\to0\).</p>
+                    <p>Using \(|x_n-c_n|&lt;1/n\) along the common subsequence,</p>
+                    \[
+                      \begin{aligned}
+                      0\leq |x-c|
+                      &amp;=\lim_{j\to\infty}|x_{n_{k_j}}-c_{n_{k_j}}|\\
+                      &amp;\leq\lim_{j\to\infty}\frac1{n_{k_j}}=0.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(x=c\), and both subsequences converge to \(c\in[a,b]\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-5">
+                    <p>By continuity of \(f\) at \(c\) and the sequential characterization,</p>
+                    \[
+                      f(x_{n_{k_j}})\to f(c),\qquad f(c_{n_{k_j}})\to f(c).
+                    \]
+                    <p>Hence</p>
+                    \[
+                      \begin{aligned}
+                      0=|f(c)-f(c)|
+                      &amp;=\lim_{j\to\infty}|f(x_{n_{k_j}})-f(c_{n_{k_j}})|\\
+                      &amp;\geq\epsilon_0&gt;0,
+                      \end{aligned}
+                    \]
+                    <p>a contradiction.</p>
+                    <p>Therefore \(f\) is uniformly continuous on \([a,b]\).</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 17 uniform continuity -->
         </div>
     </div>
   </main>
