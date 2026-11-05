@@ -8468,15 +8468,16 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-min-max-2">
-                    <p style="margin-bottom:1.2em;"><strong>Proof.</strong> We prove \(f\) has a maximum; the proof \(f\) has a minimum is similar.</p>
+                    <p><strong>Proof.</strong> We prove \(f\) has a maximum; the proof \(f\) has a minimum is similar.</p>
                     <p>The preceding theorem implies \(f\) is bounded.</p>
                     <p>If \(E=\{f(x):x\in[a,b]\}\), then \(E\) is nonempty and bounded.</p>
                     <p>Let \(L:=\sup E\).</p>
                     <p>We use Bolzano–Weierstrass to show \(L\) is the absolute maximum of \(f\).</p>
+                    <p>In particular we aim to show \(\exists x\in[a,b]\) s.t. \(f(x)=L\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-min-max-2-observation">
-                    <p>\(L=\sup E\), \(E=\{f(x):x\in[a,b]\}\).</p>
+                    <p>Recall \(L=\sup E\), \(E=\{f(x):x\in[a,b]\}\).</p>
                     <p>Observe</p>
                     <ol>
                       <li>\(\forall x\in[a,b]\), \(f(x)\leq L\).</li>
@@ -8487,19 +8488,27 @@
                         <p><strong>Note:</strong> this follows from the \(\epsilon\)-characterization of supremum, and from \(\forall y\in E\), \(\exists x\in[a,b]\) s.t. \(f(x)=y\).</p>
                       </li>
                     </ol>
-                    <p>Selecting such \(x_n\), the squeeze theorem implies \(f(x_n)\to L\).</p>
+                    <p>Fix such a sequence \(\{x_n\}\subset[a,b]\), noting \(\lim f(x_n)=L\) by the squeeze theorem; a priori, \(\{x_n\}\) could diverge.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-min-max-3">
-                    <p>By Bolzano–Weierstrass, there is a subsequence \(\{x_{n_k}\}\) and a \(d\in\mathbb{R}\) such that \(x_{n_k}\to d\).</p>
-                    <p>Since \(a\leq x_{n_k}\leq b\), preservation of order gives \(d\in[a,b]\).</p>
-                    <p>Since \(f(x_n)\to L\), we also have \(f(x_{n_k})\to L\).</p>
-                    <p>By continuity of \(f\) at \(d\),</p>
+                    <p>Bolzano–Weierstrass \(\implies\exists\) subsequence \(\{x_{n_k}\}\) and \(z\in\mathbb{R}\) s.t. \(x_{n_k}\to z\).</p>
+                    <p>Observe</p>
                     \[
-                      f(d)=\lim_{k\to\infty}f(x_{n_k})=L.
+                      \begin{aligned}
+                      a\leq x_{n_k}\leq b
+                      &amp;\implies z\in[a,b],\\
+                      f(x_n)\to L
+                      &amp;\implies f(x_{n_k})\to L,\\
+                      f\text{ continuous on }[a,b]
+                      &amp;\implies f(z)=\lim_{k\to\infty}f(x_{n_k})=L.
+                      \end{aligned}
                     \]
-                    <p>Thus \(\forall x\in[a,b]\), \(f(x)\leq L=f(d)\).</p>
-                    <p>Hence \(f\) achieves an absolute maximum at \(d\).</p>
+                    <p>Consequently, since \(L=\sup\{f(x):x\in[a,b]\}\), we have shown</p>
+                    \[
+                      \forall x\in[a,b],\quad f(x)\leq L=f(z).
+                    \]
+                    <p>Hence \(f\) achieves an absolute maximum at \(z\).</p>
                   </div>
                 </div>
               </details>
@@ -8523,6 +8532,87 @@
                     <p>Its range is \((0,1)\), so it achieves neither an absolute minimum nor an absolute maximum.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-hypotheses-1-graph">
+                    <div class="hypotheses-example-graph" role="figure" aria-label="The graph equals y=x between zero and one, with open circles at (0,0) and (1,1), and filled points at (0,1/2) and (1,1/2). Neither zero nor one is attained." style="margin:.25em auto 0;font-size:clamp(1.2em,min(2.88vw,5.04vh),1.38em);">
+                      <!-- Native MathJax only. X=2.4+12x, Y=6y. Open endpoint circles and filled endpoint values; no connecting vertical segments. -->
+                      \[
+                        {
+                        \rlap{\kern2.4em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.04em}{#2em}$}}
+                        \C-.028/.075;\C-.007/.075;\C.013/.075;\C.033/.075;\C.053/.075;\C.073/.075;\C.092/.075;\C.113/.075;\C.133/.075;\C.152/.075;
+                        \C.173/.075;\C.193/.075;\C.212/.075;\C.233/.075;\C.253/.075;\C.273/.075;\C.292/.075;\C.312/.075;\C.332/.075;\C.352/.075;
+                        \C.372/.075;\C.393/.075;\C.412/.075;\C.432/.075;\C.452/.075;\C.472/.075;\C.492/.075;\C.513/.075;\C.533/.075;\C.552/.075;
+                        \C.573/.075;\C.593/.075;\C.613/.075;\C.633/.075;\C.652/.075;\C.672/.075;\C.693/.075;\C.713/.075;\C.733/.075;\C.753/.075;
+                        \C.773/.075;\C.792/.075;\C.813/.075;\C.833/.075;\C.853/.075;\C.872/.075;\C.892/.075;\C.913/.075;\C.932/.075;\C.953/.075;
+                        \C.973/.075;\C.993/.075;\C1.012/.075;\C1.032/.075;\C1.052/.075;\C1.072/.075;\C1.093/.075;\C1.113/.075;\C1.132/.075;\C1.152/.075;
+                        \C1.173/.075;\C1.192/.075;\C1.212/.075;\C1.232/.075;\C1.252/.075;\C1.272/.075;\C1.292/.075;\C1.312/.075;\C1.332/.075;\C1.353/.075;
+                        \C1.372/.075;\C1.392/.075;\C1.412/.075;\C1.432/.075;\C1.452/.075;\C1.472/.075;\C1.492/.075;\C1.512/.075;\C1.532/.075;\C1.552/.075;
+                        \C1.573/.075;\C1.593/.075;\C1.612/.075;\C1.633/.075;\C1.653/.075;\C1.672/.075;\C1.693/.075;\C1.712/.075;\C1.732/.075;\C1.753/.075;
+                        \C1.772/.075;\C1.792/.075;\C1.812/.075;\C1.832/.075;\C1.853/.075;\C1.872/.075;\C1.892/.075;\C1.912/.075;\C1.932/.075;\C1.952/.075;
+                        \C1.972/.075;\C1.992/.075;\C2.013/.075;\C2.033/.075;\C2.053/.075;\C2.072/.075;\C2.093/.075;\C2.113/.075;\C2.133/.075;\C2.153/.075;
+                        \C2.172/.075;\C2.192/.075;\C2.213/.075;\C2.232/.075;\C2.253/.075;\C2.273/.075;\C2.292/.075;\C2.312/.075;\C2.333/.075;\C2.353/.075;
+                        \C2.373/.075;\C2.393/.075;\C2.413/.075;\C2.433/.075;\C2.453/.075;\C2.473/.075;\C2.493/.075;\C2.513/.075;\C2.533/.075;\C2.553/.075;
+                        \C2.573/.075;\C2.593/.075;\C2.613/.075;\C2.633/.075;\C2.652/.075;\C2.673/.075;\C2.692/.075;\C2.713/.075;\C2.733/.075;\C2.752/.075;
+                        \C2.772/.075;\C2.792/.075;\C2.812/.075;\C2.833/.075;\C2.853/.075;\C2.873/.075;\C2.893/.075;\C2.913/.075;\C2.933/.075;\C2.953/.075;
+                        \C2.973/.075;\C2.992/.075;\C3.013/.075;\C3.033/.075;\C3.053/.075;\C3.073/.075;\C3.093/.075;\C3.112/.075;\C3.132/.075;\C3.153/.075;
+                        $}}
+                        \rlap{\kern8.8em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.04em}{#2em}$}}
+                        \C3.173/.075;\C3.192/.075;\C3.213/.075;\C3.232/.075;\C3.252/.075;\C3.273/.075;\C3.293/.075;\C3.312/.075;\C3.333/.075;\C3.353/.075;
+                        \C3.373/.075;\C3.393/.075;\C3.413/.075;\C3.433/.075;\C3.452/.075;\C3.473/.075;\C3.493/.075;\C3.513/.075;\C3.533/.075;\C3.553/.075;
+                        \C3.572/.075;\C3.593/.075;\C3.613/.075;\C3.633/.075;\C3.652/.075;\C3.673/.075;\C3.692/.075;\C3.712/.075;\C3.733/.075;\C3.753/.075;
+                        \C3.772/.075;\C3.793/.075;\C3.812/.075;\C3.833/.075;\C3.853/.075;\C3.873/.075;\C3.893/.075;\C3.912/.075;\C3.933/.075;\C3.953/.075;
+                        \C3.973/.075;\C3.993/.075;\C4.013/.075;\C4.032/.075;\C4.053/.075;\C4.072/.075;\C4.093/.075;\C4.112/.075;\C4.133/.075;\C4.152/.075;
+                        \C4.172/.075;\C4.193/.075;\C4.213/.075;\C4.232/.075;\C4.253/.075;\C4.272/.075;\C4.293/.075;\C4.312/.075;\C4.333/.075;\C4.353/.075;
+                        \C4.372/.075;\C4.393/.075;\C4.412/.075;\C4.433/.075;\C4.453/.075;\C4.473/.075;\C4.492/.075;\C4.513/.075;\C4.533/.075;\C4.553/.075;
+                        \C4.573/.075;\C4.593/.075;\C4.612/.075;\C4.633/.075;\C4.652/.075;\C4.673/.075;\C4.692/.075;\C4.713/.075;\C4.732/.075;\C4.752/.075;
+                        \C4.773/.075;\C4.793/.075;\C4.812/.075;\C4.833/.075;\C4.853/.075;\C4.873/.075;\C4.893/.075;\C4.913/.075;\C4.933/.075;\C4.952/.075;
+                        \C4.973/.075;\C4.992/.075;\C5.013/.075;\C5.033/.075;\C5.053/.075;\C5.072/.075;\C5.093/.075;\C5.113/.075;\C5.133/.075;\C5.152/.075;
+                        \C5.173/.075;\C5.192/.075;\C5.213/.075;\C5.232/.075;\C5.253/.075;\C5.272/.075;\C5.293/.075;\C5.312/.075;\C5.332/.075;\C5.353/.075;
+                        \C5.373/.075;\C5.393/.075;\C5.412/.075;\C5.433/.075;\C5.453/.075;\C5.473/.075;\C5.493/.075;\C5.513/.075;\C5.532/.075;\C5.553/.075;
+                        \C5.572/.075;\C5.593/.075;\C5.612/.075;\C5.633/.075;\C5.652/.075;\C5.672/.075;\C5.693/.075;\C5.713/.075;\C5.732/.075;\C5.753/.075;
+                        \C5.772/.075;\C5.793/.075;\C5.812/.075;\C5.833/.075;\C5.853/.075;\C5.872/.075;\C5.893/.075;\C5.912/.075;\C5.933/.075;\C5.953/.075;
+                        $}}
+                        \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                        \def\H#1/#2/#3;{\P{#1}{#2}{\rule{#3em}{.022em}}}
+                        \def\V#1/#2/#3;{\P{#1}{#2}{\rule{.022em}{#3em}}}
+                        \P{1.7}{0}{\rule{13.85em}{.025em}}
+                        \P{2.4}{-.6}{\rule{.025em}{7.5em}}
+                        \P{2.23}{6.75}{\scriptscriptstyle\blacktriangle}
+                        \P{15.42}{-.14}{\scriptscriptstyle\blacktriangleright}
+                        \P{15.75}{-.18}{\scriptstyle x}
+                        \P{1.83}{-.64}{\scriptstyle 0}
+                        \P{14.22}{-.64}{\scriptstyle 1}
+                        \P{1.75}{5.85}{\scriptstyle 1}
+                        \P{1.5}{2.77}{\scriptstyle\tfrac12}
+                        \P{2.3}{6}{\rule{.2em}{.025em}}
+                        \P{2.3}{3}{\rule{.2em}{.025em}}
+                        \P{14.4}{-.1}{\rule{.025em}{.2em}}
+                        {\color{#929292}
+                        \H2.65/6/.14;\H2.95/6/.14;\H3.25/6/.14;\H3.55/6/.14;\H3.85/6/.14;\H4.15/6/.14;\H4.45/6/.14;\H4.75/6/.14;
+                        \H5.05/6/.14;\H5.35/6/.14;\H5.65/6/.14;\H5.95/6/.14;\H6.25/6/.14;\H6.55/6/.14;\H6.85/6/.14;\H7.15/6/.14;
+                        \H7.45/6/.14;\H7.75/6/.14;\H8.05/6/.14;\H8.35/6/.14;\H8.65/6/.14;\H8.95/6/.14;\H9.25/6/.14;\H9.55/6/.14;
+                        \H9.85/6/.14;\H10.15/6/.14;\H10.45/6/.14;\H10.75/6/.14;\H11.05/6/.14;\H11.35/6/.14;\H11.65/6/.14;\H11.95/6/.14;
+                        \H12.25/6/.14;\H12.55/6/.14;\H12.85/6/.14;\H13.15/6/.14;\H13.45/6/.14;\H13.75/6/.14;\H14.05/6/.1;
+                        \V14.4/.25/.14;\V14.4/.55/.14;\V14.4/.85/.14;\V14.4/1.15/.14;\V14.4/1.45/.14;\V14.4/1.75/.14;\V14.4/2.05/.14;\V14.4/2.35/.14;
+                        \V14.4/2.65/.14;\V14.4/2.95/.14;\V14.4/3.25/.14;\V14.4/3.55/.14;\V14.4/3.85/.14;\V14.4/4.15/.14;\V14.4/4.45/.14;\V14.4/4.75/.14;
+                        \V14.4/5.05/.14;\V14.4/5.35/.14;\V14.4/5.65/.1;
+                        }
+                        \P{2.15}{-.25}{\color{#f1f0ea}\bullet}
+                        \P{2.15}{-.25}{\color{#3f6286}\circ}
+                        \P{14.15}{5.75}{\color{#f1f0ea}\bullet}
+                        \P{14.15}{5.75}{\color{#3f6286}\circ}
+                        \P{2.15}{2.75}{\color{#3f6286}\bullet}
+                        \P{14.15}{2.75}{\color{#3f6286}\bullet}
+                        \phantom{\rule[-1em]{17em}{8.3em}}
+                        }
+                      \]
+                    </div>
+                    <p>No matter how close \(x\) is to \(0\) or \(1\), \(f(x)\) is never equal to \(0\) nor \(1\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-hypotheses-2">
                     <p><strong>Example.</strong> The conclusion can fail on an open interval.</p>
                     <p>The function \(f:(0,1)\to\mathbb{R}\) given by</p>
@@ -8539,13 +8629,85 @@
                     \]
                     <p>Thus \(f\) is unbounded above and below, so it achieves neither an absolute maximum nor an absolute minimum.</p>
                   </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-hypotheses-2-graph">
+                    <div class="hypotheses-example-graph" role="figure" aria-label="The continuous graph of 1/x minus 1/(1-x) on (0,1) decreases through (1/2,0). It rises without bound as x approaches zero from the right and falls without bound as x approaches one from the left. Blue continuation arrows mark the cropped ends. The vertical axis and the dashed line at x=1 are asymptotes." style="margin:.25em auto 0;font-size:clamp(1.2em,min(2.88vw,5.04vh),1.38em);">
+                      <!-- Native MathJax only. X=2.4+12x, Y=.4(1/x−1/(1−x)); visible |f(x)|≤10. Blue arrows continue toward the vertical asymptotes; no endpoint values are included. -->
+                      \[
+                        {
+                        \rlap{\kern3.48117658em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.03074265em}{#2em}$}}
+                        \C3.849/.179;\C3.731/.172;\C3.62/.166;\C3.514/.161;\C3.414/.156;\C3.318/.151;\C3.227/.146;\C3.14/.142;\C3.056/.138;\C2.977/.135;
+                        \C2.901/.131;\C2.828/.128;\C2.758/.125;\C2.69/.122;\C2.626/.12;\C2.564/.117;\C2.504/.115;\C2.446/.113;\C2.39/.111;\C2.337/.109;
+                        \C2.285/.107;\C2.235/.105;\C2.187/.103;\C2.14/.102;\C2.095/.1;\C2.051/.099;\C2.008/.098;\C1.967/.096;\C1.927/.095;\C1.888/.094;
+                        \C1.851/.093;\C1.814/.092;\C1.778/.091;\C1.744/.09;\C1.71/.089;\C1.677/.088;\C1.645/.087;\C1.614/.086;\C1.584/.085;\C1.554/.085;
+                        \C1.525/.084;\C1.497/.083;\C1.47/.082;\C1.443/.082;\C1.417/.081;\C1.391/.081;\C1.366/.08;\C1.342/.079;\C1.318/.079;\C1.294/.078;
+                        \C1.271/.078;\C1.249/.077;\C1.227/.077;\C1.205/.077;\C1.184/.076;\C1.163/.076;\C1.143/.075;\C1.123/.075;\C1.103/.075;\C1.084/.074;
+                        \C1.065/.074;\C1.047/.074;\C1.029/.073;\C1.011/.073;\C.993/.073;\C.976/.072;\C.959/.072;\C.942/.072;\C.926/.071;\C.91/.071;
+                        \C.894/.071;\C.878/.071;\C.863/.07;\C.847/.07;\C.832/.07;\C.818/.07;\C.803/.07;\C.789/.069;\C.775/.069;\C.761/.069;
+                        \C.747/.069;\C.733/.069;\C.72/.068;\C.707/.068;\C.694/.068;\C.681/.068;\C.668/.068;\C.656/.068;\C.643/.067;\C.631/.067;
+                        \C.619/.067;\C.607/.067;\C.595/.067;\C.583/.067;\C.572/.067;\C.56/.066;\C.549/.066;\C.538/.066;\C.527/.066;\C.516/.066;
+                        \C.505/.066;\C.494/.066;\C.483/.066;\C.473/.066;\C.462/.065;\C.452/.065;\C.442/.065;\C.431/.065;\C.421/.065;\C.411/.065;
+                        \C.401/.065;\C.391/.065;\C.382/.065;\C.372/.065;\C.362/.065;\C.353/.065;\C.343/.065;\C.334/.064;\C.324/.064;\C.315/.064;
+                        \C.306/.064;\C.296/.064;\C.287/.064;\C.278/.064;\C.269/.064;\C.26/.064;\C.251/.064;\C.242/.064;\C.233/.064;\C.224/.064;
+                        \C.216/.064;\C.207/.064;\C.198/.064;\C.19/.064;\C.181/.064;\C.172/.064;\C.164/.064;\C.155/.064;\C.147/.064;\C.138/.063;
+                        \C.13/.063;\C.121/.063;\C.113/.063;\C.105/.063;\C.096/.063;\C.088/.063;\C.08/.063;\C.071/.063;\C.063/.063;\C.055/.063;
+                        \C.046/.063;\C.038/.063;\C.03/.063;\C.022/.063;\C.014/.063;\C.005/.063;\C-.003/.063;\C-.011/.063;\C-.019/.063;\C-.028/.063;
+                        $}}
+                        \rlap{\kern8.40000058em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.03074265em}{#2em}$}}
+                        \C-.036/.063;\C-.044/.063;\C-.052/.063;\C-.06/.063;\C-.069/.063;\C-.077/.063;\C-.085/.063;\C-.093/.063;\C-.101/.063;\C-.11/.063;
+                        \C-.118/.063;\C-.126/.063;\C-.135/.063;\C-.143/.063;\C-.151/.063;\C-.16/.063;\C-.168/.063;\C-.176/.063;\C-.185/.063;\C-.193/.063;
+                        \C-.202/.063;\C-.21/.064;\C-.219/.064;\C-.227/.064;\C-.236/.064;\C-.245/.064;\C-.253/.064;\C-.262/.064;\C-.271/.064;\C-.279/.064;
+                        \C-.288/.064;\C-.297/.064;\C-.306/.064;\C-.315/.064;\C-.324/.064;\C-.333/.064;\C-.342/.064;\C-.351/.064;\C-.361/.064;\C-.37/.064;
+                        \C-.379/.064;\C-.389/.064;\C-.398/.064;\C-.408/.065;\C-.417/.065;\C-.427/.065;\C-.437/.065;\C-.446/.065;\C-.456/.065;\C-.466/.065;
+                        \C-.476/.065;\C-.486/.065;\C-.497/.065;\C-.507/.065;\C-.517/.065;\C-.528/.065;\C-.538/.066;\C-.549/.066;\C-.56/.066;\C-.571/.066;
+                        \C-.582/.066;\C-.593/.066;\C-.604/.066;\C-.615/.066;\C-.627/.066;\C-.638/.067;\C-.65/.067;\C-.662/.067;\C-.674/.067;\C-.686/.067;
+                        \C-.698/.067;\C-.711/.067;\C-.723/.068;\C-.736/.068;\C-.749/.068;\C-.762/.068;\C-.775/.068;\C-.788/.068;\C-.802/.069;\C-.816/.069;
+                        \C-.83/.069;\C-.844/.069;\C-.858/.069;\C-.873/.07;\C-.887/.07;\C-.902/.07;\C-.918/.07;\C-.933/.07;\C-.949/.071;\C-.965/.071;
+                        \C-.981/.071;\C-.997/.071;\C-1.014/.072;\C-1.031/.072;\C-1.048/.072;\C-1.066/.073;\C-1.084/.073;\C-1.102/.073;\C-1.12/.074;\C-1.139/.074;
+                        \C-1.158/.074;\C-1.178/.075;\C-1.198/.075;\C-1.218/.075;\C-1.239/.076;\C-1.26/.076;\C-1.282/.077;\C-1.304/.077;\C-1.326/.077;\C-1.349/.078;
+                        \C-1.373/.078;\C-1.397/.079;\C-1.421/.079;\C-1.446/.08;\C-1.472/.081;\C-1.498/.081;\C-1.525/.082;\C-1.552/.082;\C-1.58/.083;\C-1.609/.084;
+                        \C-1.639/.085;\C-1.669/.085;\C-1.7/.086;\C-1.732/.087;\C-1.765/.088;\C-1.799/.089;\C-1.833/.09;\C-1.869/.091;\C-1.906/.092;\C-1.943/.093;
+                        \C-1.982/.094;\C-2.022/.095;\C-2.063/.096;\C-2.106/.098;\C-2.15/.099;\C-2.195/.1;\C-2.242/.102;\C-2.29/.103;\C-2.34/.105;\C-2.392/.107;
+                        \C-2.445/.109;\C-2.501/.111;\C-2.559/.113;\C-2.619/.115;\C-2.681/.117;\C-2.745/.12;\C-2.813/.122;\C-2.883/.125;\C-2.956/.128;\C-3.032/.131;
+                        \C-3.111/.135;\C-3.195/.138;\C-3.282/.142;\C-3.373/.146;\C-3.469/.151;\C-3.569/.156;\C-3.675/.161;\C-3.786/.166;\C-3.904/.172;\C-4.027/.179;
+                        $}}
+                        \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                        \def\H#1/#2/#3;{\P{#1}{#2}{\rule{#3em}{.022em}}}
+                        \def\V#1/#2/#3;{\P{#1}{#2}{\rule{.022em}{#3em}}}
+                        \P{1.7}{0}{\rule{13.85em}{.025em}}
+                        \P{2.4}{-4.4}{\rule{.025em}{8.8em}}
+                        \P{2.23}{4.25}{\scriptscriptstyle\blacktriangle}
+                        \P{15.42}{-.14}{\scriptscriptstyle\blacktriangleright}
+                        \P{15.75}{-.18}{\scriptstyle x}
+                        \P{1.83}{-.64}{\scriptstyle 0}
+                        \P{14.22}{-.64}{\scriptstyle 1}
+                        \P{8.11}{-.8}{\scriptstyle\tfrac12}
+                        \P{8.4}{-.1}{\rule{.025em}{.2em}}
+                        \P{14.4}{-.1}{\rule{.025em}{.2em}}
+                        {\color{#929292}
+                        \V14.4/-4.35/.14;\V14.4/-4.05/.14;\V14.4/-3.75/.14;\V14.4/-3.45/.14;\V14.4/-3.15/.14;\V14.4/-2.85/.14;\V14.4/-2.55/.14;\V14.4/-2.25/.14;
+                        \V14.4/-1.95/.14;\V14.4/-1.65/.14;\V14.4/-1.35/.14;\V14.4/-1.05/.1;
+                        \V14.4/.25/.14;\V14.4/.55/.14;\V14.4/.85/.14;\V14.4/1.15/.14;\V14.4/1.45/.14;\V14.4/1.75/.14;\V14.4/2.05/.14;\V14.4/2.35/.14;
+                        \V14.4/2.65/.14;\V14.4/2.95/.14;\V14.4/3.25/.14;\V14.4/3.55/.14;\V14.4/3.85/.14;\V14.4/4.15/.14;
+                        }
+                        \P{3.30618}{3.9}{\color{#3f6286}\scriptscriptstyle\blacktriangle}
+                        \P{13.14382}{-4.15}{\color{#3f6286}\scriptscriptstyle\blacktriangledown}
+                        \phantom{\rule[-4.8em]{17em}{9.6em}}
+                        }
+                      \]
+                    </div>
+                  </div>
                 </div>
               </details>
               <details class="lecture-node lecture16-single-spaced" id="lecture16-zero">
                 <summary>
                   <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">a-zero-between-opposite-signs/</span>
+                  <span class="lecture-label">the-weak-intermediate-value-theorem/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture16-zero-1">
@@ -8557,17 +8719,19 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-idea">
-                    <p><strong>Proof.</strong></p>
-                    <p>Roughly speaking, in order to show \(\exists c\in[a,b]\) s.t. \(f(c)=0\), we construct a converging sequence \(\{z_n\}\) satisfying</p>
+                    <p><strong>Proof.</strong> Roughly speaking, we construct monotone sequences \(\{a_n\},\{b_n\}\subset[a,b]\) satisfying</p>
                     \[
-                      z_n\to c\in[a,b]\quad\text{and}\quad f(z_n)\to0.
+                      \begin{gathered}
+                      a_n\to c,\qquad b_n\to c,\qquad c\in[a,b],\\
+                      \forall n\in\mathbb{N},\qquad f(a_n)&lt;0\leq f(b_n).
+                      \end{gathered}
                     \]
-                    <p>Using continuity of \(f\) on \([a,b]\), we can then conclude \(f(c)=0\).</p>
-                    <p>(We really construct two suitable monotone sequences.)</p>
+                    <p>Continuity and preservation of order give \(f(c)\leq0\leq f(c)\), hence \(f(c)=0\).</p>
+                    <p>Since \(f(a)&lt;0&lt;f(b)\), \(c\in(a,b)\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-2">
-                    <p>We define two sequences \(\{a_n\},\{b_n\}\subseteq[a,b]\) inductively:</p>
+                    <p>We define the two sequences \(\{a_n\},\{b_n\}\subseteq[a,b]\) inductively:</p>
                     <ol>
                       <li>Define \(a_1=a\) and \(b_1=b\).</li>
                       <li>Given \(a_n\) and \(b_n\), define
@@ -8587,6 +8751,83 @@
                     </ol>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-zero-construction-diagram">
+                    <p><strong>Example.</strong> One possible construction.</p>
+                    <p>Signs indicate the sign of \(f\); double segments are retained.</p>
+                    <div role="figure" aria-label="Five stages of bisection on a shared horizontal scale. The midpoint signs are positive, negative, positive, negative, so the retained halves are left, right, left, right. Each point label has its function sign beneath it. Double segments mark the retained halves; the fifth row is the resulting interval. All left endpoint values are negative and all right endpoint values are positive in this example.">
+                      <!-- Native MathJax only: full interval length 20em, halved at each stage.
+                           Labels, function signs, ticks, and single/double segments are all TeX.
+                           Five stage baselines are 12, 9, 6, 3, 0em; no external image or renderer. -->
+                      \[
+                        {
+                          \def\BisectionPlace#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                          % Stage 1
+                          \BisectionPlace{1}{11.93}{\rule{10em}{0.035em}}
+                          \BisectionPlace{1}{12.07}{\rule{10em}{0.035em}}
+                          \BisectionPlace{11}{12}{\rule{10em}{0.035em}}
+                          \BisectionPlace{0.9825}{11.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{0.52}{13.5}{a_1}
+                          \BisectionPlace{0.61}{12.55}{-}
+                          \BisectionPlace{10.9825}{11.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{10.34}{13.5}{m_1=\tfrac12(a_1+b_1)}
+                          \BisectionPlace{10.61}{12.55}{+}
+                          \BisectionPlace{20.9825}{11.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{20.55}{13.5}{b_1}
+                          \BisectionPlace{20.61}{12.55}{+}
+                          % Stage 2
+                          \BisectionPlace{6}{8.93}{\rule{5em}{0.035em}}
+                          \BisectionPlace{6}{9.07}{\rule{5em}{0.035em}}
+                          \BisectionPlace{1}{9}{\rule{5em}{0.035em}}
+                          \BisectionPlace{0.9825}{8.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{0.52}{10.5}{a_2}
+                          \BisectionPlace{0.61}{9.55}{-}
+                          \BisectionPlace{5.9825}{8.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{5.34}{10.5}{m_2}
+                          \BisectionPlace{5.61}{9.55}{-}
+                          \BisectionPlace{10.9825}{8.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{10.55}{10.5}{b_2}
+                          \BisectionPlace{10.61}{9.55}{+}
+                          % Stage 3
+                          \BisectionPlace{6}{5.93}{\rule{2.5em}{0.035em}}
+                          \BisectionPlace{6}{6.07}{\rule{2.5em}{0.035em}}
+                          \BisectionPlace{8.5}{6}{\rule{2.5em}{0.035em}}
+                          \BisectionPlace{5.9825}{5.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{5.52}{7.5}{a_3}
+                          \BisectionPlace{5.61}{6.55}{-}
+                          \BisectionPlace{8.4825}{5.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{7.84}{7.5}{m_3}
+                          \BisectionPlace{8.11}{6.55}{+}
+                          \BisectionPlace{10.9825}{5.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{10.55}{7.5}{b_3}
+                          \BisectionPlace{10.61}{6.55}{+}
+                          % Stage 4
+                          \BisectionPlace{7.25}{2.93}{\rule{1.25em}{0.035em}}
+                          \BisectionPlace{7.25}{3.07}{\rule{1.25em}{0.035em}}
+                          \BisectionPlace{6}{3}{\rule{1.25em}{0.035em}}
+                          \BisectionPlace{5.9825}{2.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{5.52}{4.5}{a_4}
+                          \BisectionPlace{5.61}{3.55}{-}
+                          \BisectionPlace{7.2325}{2.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{6.59}{4.5}{m_4}
+                          \BisectionPlace{6.86}{3.55}{-}
+                          \BisectionPlace{8.4825}{2.84}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{8.05}{4.5}{b_4}
+                          \BisectionPlace{8.11}{3.55}{+}
+                          % Stage 5
+                          \BisectionPlace{7.25}{0}{\rule{1.25em}{0.035em}}
+                          \BisectionPlace{7.2325}{-0.16}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{6.77}{1.5}{a_5}
+                          \BisectionPlace{6.86}{0.55}{-}
+                          \BisectionPlace{8.4825}{-0.16}{\rule{0.035em}{0.32em}}
+                          \BisectionPlace{8.05}{1.5}{b_5}
+                          \BisectionPlace{8.11}{0.55}{+}
+                          \phantom{\rule[-0.3em]{22em}{14.7em}}
+                        }
+                      \]
+                    </div>
+                    <p>Heuristically: the sequences \(\{a_n\},\{b_n\}\) so constructed are monotonically converging to a common point.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-3">
                     <p>Observe that \(\forall n\in\mathbb{N}\),</p>
                     <ol>
@@ -8596,8 +8837,9 @@
                         \]
                         <p>Indeed,</p>
                         \[
-                          a_n\leq\frac{a_n+b_n}{2}\leq b_n.
+                          a_n\leq\frac{a_n+b_n}{2}\leq b_n
                         \]
+                        <p>and at least one of \(a_{n+1}\) or \(b_{n+1}\) is \(\frac{a_n+b_n}{2}\) by construction.</p>
                       </li>
                     </ol>
                   </div>
@@ -8622,11 +8864,14 @@
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-3-signs">
                     <ol start="3">
-                      <li>The endpoints satisfy
+                      <li>The endpoints \(a_n\) and \(b_n\) satisfy
                         \[
                           f(a_n)&lt;0\leq f(b_n).
                         \]
-                        <p>Indeed, this holds for \(n=1\). If it holds for \(n\), then:</p>
+                        <p>This can be proved by induction:</p>
+                        <p>The case \(n=1\) holds by hypothesis on \(a\) and \(b\).</p>
+                        <p>For the inductive step, suppose it holds for \(n\).</p>
+                        <p>Then</p>
                         <ul>
                           <li>If \(f(m_n)\geq0\), then \((a_{n+1},b_{n+1})=(a_n,m_n)\), so
                             \[
@@ -8645,7 +8890,6 @@
                             \]
                           </li>
                         </ul>
-                        <p>Hence (3) holds by induction.</p>
                       </li>
                     </ol>
                   </div>
@@ -8673,34 +8917,29 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-4">
-                    <p>By (1), \(\{a_n\}\) is nondecreasing and \(\{b_n\}\) is nonincreasing, and both are bounded.</p>
-                    <p>The Monotone Convergence Theorem gives \(c,d\in[a,b]\) such that</p>
+                    <p>By 1., \(\{a_n\},\{b_n\}\) are monotonic and bounded.</p>
+                    <p>Monotone Convergence Theorem \(\implies\exists c,d\in[a,b]\) s.t.</p>
                     \[
                       a_n\to c,\qquad b_n\to d.
                     \]
-                    <p>Iterating (2),</p>
+                    <p>Iterating 2.:</p>
                     \[
-                      b_n-a_n=\frac{b-a}{2^{n-1}}\to0.
-                    \]
-                    <p>Thus</p>
-                    \[
-                      d-c=\lim_{n\to\infty}(b_n-a_n)=0,
+                      \begin{gathered}
+                      b_{n+1}-a_{n+1}=2^{-n}(b-a)\to0,\\
+                      d-c=\lim(b_{n+1}-a_{n+1})=0,
+                      \end{gathered}
                     \]
                     <p>and so \(d=c\).</p>
+                    <p>Consequently \(a_n,b_n\to c\in[a,b]\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-zero-5">
-                    <p>Altogether, \(a_n\to c\) and \(b_n\to c\), with \(c\in[a,b]\).</p>
-                    <p>By continuity of \(f\), (3), and preservation of order,</p>
+                    <p>By continuity of \(f\), 3. and limits respecting order:</p>
                     \[
-                      \begin{aligned}
-                      f(c)&amp;=\lim_{n\to\infty}f(a_n)\leq0,\\
-                      f(c)&amp;=\lim_{n\to\infty}f(b_n)\geq0.
-                      \end{aligned}
+                      f(c)=\lim_{n\to\infty}f(a_n)\leq0\leq\lim_{n\to\infty}f(b_n)=f(c)
                     \]
-                    <p>Hence \(f(c)=0\).</p>
-                    <p>Since \(f(a)&lt;0&lt;f(b)\), we have \(c\neq a,b\).</p>
-                    <p>Therefore \(c\in(a,b)\), as required.</p>
+                    <p>and so \(f(c)=0\).</p>
+                    <p>Lastly: since \(c\in[a,b]\) and \(f(a)&lt;0&lt;f(b)\), it follows that \(c\neq a,b\) and therefore \(c\in(a,b)\).</p>
                   </div>
                 </div>
               </details>
@@ -8719,22 +8958,97 @@
                       f(a)&lt;y&lt;f(b)\quad\text{or}\quad f(b)&lt;y&lt;f(a),
                     \]
                     <p>then \(\exists c\in(a,b)\) such that \(f(c)=y\).</p>
-                    <p><strong>Remark.</strong> Without continuity, the conclusion need not hold.</p>
+                    <div class="bolzano-ivt-graph" role="figure" aria-label="A blue continuous curve on [a,b] has f(a) below y and f(b) above y. A horizontal dashed line at height y meets the curve at a marked interior point c, with a vertical guide to c on the horizontal axis. Gray guides mark the endpoint values f(a) and f(b). The curve is not monotone and the marked point is one possible choice of c." style="margin:.25em auto 0;font-size:clamp(1.38em,min(3.312vw,5.796vh),1.587em);">
+                      <!-- Native MathJax, matching the recent closed-interval graphs.
+                           F(t)=2.75+2.5t^3−1.5t on [−1,1], X=7.05+4.55t, Y=F(t).
+                           Endpoint heights: 1.75 and 3.75. Chosen level: 2.75, chosen c=0.
+                           The continuous curve uses 260 contiguous .035em TeX rule strips. -->
+                      \[
+                        {
+                        \rlap{\kern2.5em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.035em}{#2em}$}}
+                        \C1.722/.101;\C1.768/.1;\C1.813/.099;\C1.857/.098;\C1.9/.097;\C1.942/.096;\C1.984/.096;\C2.024/.095;\C2.064/.094;\C2.103/.093;\C2.141/.092;\C2.178/.091;\C2.214/.091;\C2.25/.09;\C2.285/.089;\C2.319/.088;\C2.352/.087;\C2.384/.087;\C2.416/.086;\C2.447/.085;
+                        \C2.477/.084;\C2.507/.084;\C2.535/.083;\C2.563/.082;\C2.59/.081;\C2.617/.081;\C2.643/.08;\C2.668/.079;\C2.692/.079;\C2.715/.078;\C2.738/.077;\C2.761/.077;\C2.782/.076;\C2.803/.075;\C2.823/.075;\C2.843/.074;\C2.862/.073;\C2.88/.073;\C2.898/.072;\C2.915/.071;
+                        \C2.931/.071;\C2.947/.07;\C2.962/.07;\C2.977/.069;\C2.991/.068;\C3.004/.068;\C3.017/.067;\C3.03/.067;\C3.041/.066;\C3.052/.066;\C3.063/.065;\C3.073/.064;\C3.083/.064;\C3.091/.063;\C3.1/.063;\C3.108/.062;\C3.115/.062;\C3.122/.061;\C3.129/.061;\C3.134/.06;
+                        \C3.14/.06;\C3.145/.059;\C3.149/.059;\C3.153/.059;\C3.157/.058;\C3.16/.058;\C3.163/.057;\C3.165/.057;\C3.167/.056;\C3.168/.056;\C3.169/.056;\C3.17/.055;\C3.169/.055;\C3.169/.056;\C3.168/.056;\C3.166/.056;\C3.165/.057;\C3.163/.057;\C3.16/.057;\C3.157/.058;
+                        \C3.154/.058;\C3.151/.059;\C3.147/.059;\C3.143/.059;\C3.138/.059;\C3.133/.06;\C3.128/.06;\C3.123/.06;\C3.117/.061;\C3.111/.061;\C3.105/.061;\C3.099/.061;\C3.092/.062;\C3.085/.062;\C3.078/.062;\C3.07/.062;\C3.062/.063;\C3.054/.063;\C3.046/.063;\C3.038/.063;
+                        \C3.029/.064;\C3.021/.064;\C3.012/.064;\C3.002/.064;\C2.993/.064;\C2.984/.064;\C2.974/.065;\C2.964/.065;\C2.954/.065;\C2.944/.065;\C2.934/.065;\C2.924/.065;\C2.913/.065;\C2.902/.066;\C2.892/.066;\C2.881/.066;\C2.87/.066;\C2.859/.066;\C2.848/.066;\C2.837/.066;
+                        \C2.826/.066;\C2.814/.066;\C2.803/.066;\C2.791/.066;\C2.78/.066;\C2.769/.066;\C2.757/.066;\C2.746/.067;\C2.734/.067;\C2.723/.067;\C2.711/.067;\C2.699/.067;\C2.688/.067;\C2.676/.066;\C2.665/.066;\C2.654/.066;\C2.642/.066;\C2.631/.066;\C2.619/.066;\C2.608/.066;
+                        \C2.597/.066;\C2.586/.066;\C2.575/.066;\C2.564/.066;\C2.553/.066;\C2.543/.066;\C2.532/.066;\C2.521/.065;\C2.511/.065;\C2.501/.065;\C2.491/.065;\C2.481/.065;\C2.471/.065;\C2.461/.065;\C2.452/.064;\C2.443/.064;\C2.433/.064;\C2.424/.064;\C2.416/.064;\C2.407/.064;
+                        \C2.399/.063;\C2.391/.063;\C2.383/.063;\C2.375/.063;\C2.367/.062;\C2.36/.062;\C2.353/.062;\C2.346/.062;\C2.34/.061;\C2.334/.061;\C2.328/.061;\C2.322/.061;\C2.317/.06;\C2.312/.06;\C2.307/.06;\C2.302/.059;\C2.298/.059;\C2.294/.059;\C2.291/.059;\C2.288/.058;
+                        \C2.285/.058;\C2.282/.057;\C2.28/.057;\C2.279/.057;\C2.277/.056;\C2.276/.056;\C2.276/.056;\C2.275/.055;\C2.275/.055;\C2.275/.056;\C2.276/.056;\C2.277/.056;\C2.278/.057;\C2.28/.057;\C2.282/.058;\C2.285/.058;\C2.288/.059;\C2.292/.059;\C2.296/.059;\C2.3/.06;
+                        \C2.305/.06;\C2.311/.061;\C2.316/.061;\C2.323/.062;\C2.33/.062;\C2.337/.063;\C2.345/.063;\C2.354/.064;\C2.362/.064;\C2.372/.065;\C2.382/.066;\C2.393/.066;\C2.404/.067;\C2.415/.067;\C2.428/.068;\C2.441/.068;\C2.454/.069;\C2.468/.07;\C2.483/.07;\C2.498/.071;
+                        \C2.514/.071;\C2.53/.072;\C2.547/.073;\C2.565/.073;\C2.583/.074;\C2.602/.075;\C2.622/.075;\C2.642/.076;\C2.663/.077;\C2.684/.077;\C2.707/.078;\C2.73/.079;\C2.753/.079;\C2.777/.08;\C2.803/.081;\C2.828/.081;\C2.855/.082;\C2.882/.083;\C2.91/.084;\C2.938/.084;
+                        \C2.968/.085;\C2.998/.086;\C3.029/.087;\C3.061/.087;\C3.093/.088;\C3.126/.089;\C3.16/.09;\C3.195/.091;\C3.231/.091;\C3.267/.092;\C3.304/.093;\C3.342/.094;\C3.381/.095;\C3.421/.096;\C3.461/.096;\C3.503/.097;\C3.545/.098;\C3.588/.099;\C3.632/.1;\C3.677/.101;
+                        $}}
+                        \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                        \def\H#1/#2/#3;{\P{#1}{#2}{\rule{#3em}{.022em}}}
+                        \def\V#1/#2/#3;{\P{#1}{#2}{\rule{.022em}{#3em}}}
+                        \P{1.95}{0}{\rule{10.35em}{.025em}}
+                        \P{1.95}{0}{\rule{.025em}{4.2em}}
+                        \P{1.78}{4.05}{\scriptscriptstyle\blacktriangle}
+                        \P{12.17}{-.14}{\scriptscriptstyle\blacktriangleright}
+                        \P{12.4}{-.18}{\scriptstyle x}
+                        {\color{#929292}
+                        \H2.05/1.75/.14;\H2.33/1.75/.07;\H2.05/3.75/.14;\H2.33/3.75/.14;\H2.61/3.75/.14;\H2.89/3.75/.14;
+                        \H3.17/3.75/.14;\H3.45/3.75/.14;\H3.73/3.75/.14;\H4.01/3.75/.14;\H4.29/3.75/.14;\H4.57/3.75/.14;
+                        \H4.85/3.75/.14;\H5.13/3.75/.14;\H5.41/3.75/.14;\H5.69/3.75/.14;\H5.97/3.75/.14;\H6.25/3.75/.14;
+                        \H6.53/3.75/.14;\H6.81/3.75/.14;\H7.09/3.75/.14;\H7.37/3.75/.14;\H7.65/3.75/.14;\H7.93/3.75/.14;
+                        \H8.21/3.75/.14;\H8.49/3.75/.14;\H8.77/3.75/.14;\H9.05/3.75/.14;\H9.33/3.75/.14;\H9.61/3.75/.14;
+                        \H9.89/3.75/.14;\H10.17/3.75/.14;\H10.45/3.75/.14;\H10.73/3.75/.14;\H11.01/3.75/.14;\H11.29/3.75/.14;
+                        \V2.5/.14/.14;\V2.5/.42/.14;\V2.5/.7/.14;\V2.5/.98/.14;\V2.5/1.26/.14;\V2.5/1.54/.11;
+                        \V11.6/.14/.14;\V11.6/.42/.14;\V11.6/.7/.14;\V11.6/.98/.14;\V11.6/1.26/.14;\V11.6/1.54/.14;
+                        \V11.6/1.82/.14;\V11.6/2.1/.14;\V11.6/2.38/.14;\V11.6/2.66/.14;\V11.6/2.94/.14;\V11.6/3.22/.14;
+                        \V11.6/3.5/.14;
+                        }
+                        \H2.05/2.75/.14;\H2.33/2.75/.14;\H2.61/2.75/.14;\H2.89/2.75/.14;\H3.17/2.75/.14;\H3.45/2.75/.14;
+                        \H3.73/2.75/.14;\H4.01/2.75/.14;\H4.29/2.75/.14;\H4.57/2.75/.14;\H4.85/2.75/.14;\H5.13/2.75/.14;
+                        \H5.41/2.75/.14;\H5.69/2.75/.14;\H5.97/2.75/.14;\H6.25/2.75/.14;\H6.53/2.75/.14;\H6.81/2.75/.14;
+                        \H7.09/2.75/.14;\H7.37/2.75/.14;\H7.65/2.75/.14;\H7.93/2.75/.14;\H8.21/2.75/.14;\H8.49/2.75/.14;
+                        \H8.77/2.75/.14;\H9.05/2.75/.14;\H9.33/2.75/.14;\H9.61/2.75/.14;\H9.89/2.75/.14;\H10.17/2.75/.14;
+                        \H10.45/2.75/.14;\H10.73/2.75/.14;\H11.01/2.75/.14;\H11.29/2.75/.14;\H11.57/2.75/.13;\V7.05/.14/.14;
+                        \V7.05/.42/.14;\V7.05/.7/.14;\V7.05/.98/.14;\V7.05/1.26/.14;\V7.05/1.54/.14;\V7.05/1.82/.14;
+                        \V7.05/2.1/.14;\V7.05/2.38/.14;
+                        \P{2.487}{-.13}{\rule{.025em}{.26em}}
+                        \P{2.375}{1.625}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{2.3}{-.7}{\scriptstyle a}
+                        \P{7.037}{-.13}{\rule{.025em}{.26em}}
+                        \P{6.925}{2.625}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{6.85}{-.7}{\scriptstyle c}
+                        \P{11.588}{-.13}{\rule{.025em}{.26em}}
+                        \P{11.475}{3.625}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{11.4}{-.7}{\scriptstyle b}
+                        \P{1.85}{1.75}{\rule{.2em}{.025em}}
+                        \P{.45}{1.57}{\scriptstyle f(a)}
+                        \P{1.85}{2.75}{\rule{.2em}{.025em}}
+                        \P{1.15}{2.57}{\scriptstyle y}
+                        \P{1.85}{3.75}{\rule{.2em}{.025em}}
+                        \P{.45}{3.57}{\scriptstyle f(b)}
+                        \phantom{\rule[-1em]{13em}{5.5em}}
+                        }
+                      \]
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-ivt-idea">
+                    <p><strong>Proof.</strong></p>
+                    <p>Suppose \(f(a)&lt;y&lt;f(b)\) and observe then \(f(a)-y&lt;0&lt;f(b)-y\).</p>
+                    <p>This suggests introducing \(g(x)=f(x)-y\) and appealing to the preceding weak intermediate value theorem.</p>
+                    <p>The case \(f(b)&lt;y&lt;f(a)\) is similarly handled.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-ivt-2">
-                    <p><strong>Proof.</strong> Suppose \(f(a)&lt;y&lt;f(b)\).</p>
                     <p>Define \(g:[a,b]\to\mathbb{R}\) by \(g(x)=f(x)-y\).</p>
-                    <p>Then \(g\) is continuous, and</p>
+                    <p>Then \(g\) is continuous and</p>
                     \[
                       g(a)=f(a)-y&lt;0&lt;f(b)-y=g(b).
                     \]
-                    <p>By the preceding theorem, \(\exists c\in(a,b)\) such that</p>
+                    <p>By the weak intermediate value theorem: \(\exists c\in(a,b)\) s.t.</p>
                     \[
-                      0=g(c)=f(c)-y.
+                      0=g(c)=f(c)-y
                     \]
-                    <p>Hence \(f(c)=y\).</p>
-                    <p>The case \(f(b)&lt;y&lt;f(a)\) follows by applying the same argument to \(-f\) and \(-y\).</p>
+                    <p>and so \(f(c)=y\).</p>
                   </div>
                 </div>
               </details>
@@ -8746,26 +9060,260 @@
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture16-image-1">
-                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous.</p>
-                    <p>Suppose \(f\) achieves its absolute minimum at \(c\in[a,b]\) and its absolute maximum at \(d\in[a,b]\).</p>
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a\leq b\), and let \(c,d\in[a,b]\).</p>
+                    <p>Let \(f:[a,b]\to\mathbb{R}\) be continuous with minimum \(f(c)\) and maximum \(f(d)\).</p>
                     <p>Then</p>
                     \[
                       f([a,b])=[f(c),f(d)].
                     \]
-                    <p>Thus every value between the absolute minimum and maximum values is attained.</p>
+                    <div class="closed-interval-image-graph" role="figure" aria-label="A blue continuous curve has its minimum at c and maximum at d, both strictly inside [a,b]. The closed domain interval from a to b is shown as a bold dark segment on the horizontal axis. Its full image from f(c) to f(d) is shown as a bold dark segment on the vertical axis. Dashed horizontal guides connect the extrema to the range endpoints. All highlighted endpoints are filled." style="margin:.5em auto 0;font-size:clamp(1.32em,min(3.168vw,5.544vh),1.518em);">
+                      <!-- Native MathJax, matching the proof graphs. Curve: 1+x−x^3 on [−1,1].
+                           X=8.55+4.55x, Y=3f(x); 260 contiguous .035em TeX rule strips.
+                           Bold dark axes segments mark the closed domain and its complete image. -->
+                      \[
+                        {
+                        \rlap{\kern4em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2;{\raise#1em\hbox{$\rule{.035em}{#2em}$}}
+                        \C2.927/.101;\C2.882/.1;\C2.839/.099;\C2.796/.097;\C2.755/.096;\C2.714/.095;\C2.675/.094;\C2.637/.093;\C2.599/.092;\C2.563/.091;\C2.527/.09;\C2.493/.089;\C2.46/.088;\C2.427/.088;\C2.395/.087;\C2.365/.086;\C2.335/.085;\C2.306/.084;\C2.278/.083;\C2.252/.082;
+                        \C2.225/.081;\C2.2/.08;\C2.176/.079;\C2.153/.078;\C2.13/.078;\C2.109/.077;\C2.088/.076;\C2.068/.075;\C2.049/.074;\C2.03/.073;\C2.013/.072;\C1.996/.072;\C1.98/.071;\C1.965/.07;\C1.951/.069;\C1.937/.069;\C1.925/.068;\C1.913/.067;\C1.901/.066;\C1.891/.065;
+                        \C1.881/.065;\C1.872/.064;\C1.864/.063;\C1.856/.063;\C1.85/.062;\C1.843/.061;\C1.838/.06;\C1.833/.06;\C1.829/.059;\C1.825/.058;\C1.823/.058;\C1.82/.057;\C1.819/.057;\C1.818/.056;\C1.818/.055;\C1.818/.055;\C1.818/.056;\C1.819/.057;\C1.821/.057;\C1.823/.058;
+                        \C1.825/.058;\C1.829/.059;\C1.833/.059;\C1.837/.06;\C1.842/.061;\C1.847/.061;\C1.854/.062;\C1.86/.062;\C1.867/.063;\C1.875/.063;\C1.883/.064;\C1.891/.064;\C1.9/.065;\C1.91/.065;\C1.92/.065;\C1.93/.066;\C1.941/.066;\C1.953/.067;\C1.964/.067;\C1.977/.068;
+                        \C1.989/.068;\C2.002/.068;\C2.016/.069;\C2.03/.069;\C2.044/.07;\C2.058/.07;\C2.073/.07;\C2.089/.071;\C2.104/.071;\C2.12/.071;\C2.137/.072;\C2.154/.072;\C2.171/.072;\C2.188/.073;\C2.205/.073;\C2.223/.073;\C2.242/.073;\C2.26/.074;\C2.279/.074;\C2.298/.074;
+                        \C2.317/.075;\C2.337/.075;\C2.356/.075;\C2.376/.075;\C2.397/.075;\C2.417/.076;\C2.438/.076;\C2.458/.076;\C2.479/.076;\C2.501/.076;\C2.522/.077;\C2.543/.077;\C2.565/.077;\C2.587/.077;\C2.609/.077;\C2.631/.077;\C2.653/.077;\C2.676/.077;\C2.698/.078;\C2.72/.078;
+                        \C2.743/.078;\C2.766/.078;\C2.789/.078;\C2.811/.078;\C2.834/.078;\C2.857/.078;\C2.88/.078;\C2.903/.078;\C2.926/.078;\C2.949/.078;\C2.973/.078;\C2.996/.078;\C3.019/.078;\C3.042/.078;\C3.065/.078;\C3.088/.078;\C3.111/.078;\C3.134/.078;\C3.156/.078;\C3.179/.078;
+                        \C3.202/.078;\C3.225/.078;\C3.247/.077;\C3.27/.077;\C3.292/.077;\C3.314/.077;\C3.336/.077;\C3.358/.077;\C3.38/.077;\C3.402/.077;\C3.423/.076;\C3.444/.076;\C3.466/.076;\C3.487/.076;\C3.507/.076;\C3.528/.075;\C3.548/.075;\C3.569/.075;\C3.589/.075;\C3.608/.075;
+                        \C3.628/.074;\C3.647/.074;\C3.666/.074;\C3.685/.073;\C3.703/.073;\C3.722/.073;\C3.74/.073;\C3.757/.072;\C3.774/.072;\C3.792/.072;\C3.808/.071;\C3.825/.071;\C3.841/.071;\C3.856/.07;\C3.872/.07;\C3.887/.07;\C3.901/.069;\C3.915/.069;\C3.929/.068;\C3.943/.068;
+                        \C3.956/.068;\C3.968/.067;\C3.98/.067;\C3.992/.066;\C4.004/.066;\C4.015/.065;\C4.025/.065;\C4.035/.065;\C4.045/.064;\C4.054/.064;\C4.062/.063;\C4.07/.063;\C4.078/.062;\C4.085/.062;\C4.091/.061;\C4.098/.061;\C4.103/.06;\C4.108/.059;\C4.112/.059;\C4.116/.058;
+                        \C4.12/.058;\C4.122/.057;\C4.124/.057;\C4.126/.056;\C4.127/.055;\C4.127/.055;\C4.126/.056;\C4.124/.057;\C4.122/.057;\C4.12/.058;\C4.116/.058;\C4.112/.059;\C4.107/.06;\C4.102/.06;\C4.095/.061;\C4.089/.062;\C4.081/.063;\C4.073/.063;\C4.064/.064;\C4.054/.065;
+                        \C4.043/.065;\C4.032/.066;\C4.02/.067;\C4.008/.068;\C3.994/.069;\C3.98/.069;\C3.965/.07;\C3.949/.071;\C3.932/.072;\C3.915/.072;\C3.896/.073;\C3.877/.074;\C3.857/.075;\C3.836/.076;\C3.815/.077;\C3.792/.078;\C3.769/.078;\C3.745/.079;\C3.72/.08;\C3.693/.081;
+                        \C3.667/.082;\C3.639/.083;\C3.61/.084;\C3.58/.085;\C3.55/.086;\C3.518/.087;\C3.486/.088;\C3.452/.088;\C3.418/.089;\C3.382/.09;\C3.346/.091;\C3.308/.092;\C3.27/.093;\C3.231/.094;\C3.19/.095;\C3.149/.096;\C3.106/.097;\C3.063/.099;\C3.018/.1;\C2.973/.101;
+                        $}}
+                        \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                        \P{3.45}{0}{\rule{10.35em}{.025em}}
+                        \P{3.45}{0}{\rule{.025em}{4.65em}}
+                        \P{3.28}{4.5}{\scriptscriptstyle\blacktriangle}
+                        \P{13.67}{-0.14}{\scriptscriptstyle\blacktriangleright}
+                        \P{2.95}{4.9}{\scriptstyle f(x)}
+                        \P{13.9}{-0.18}{\scriptstyle x}
+                        \P{3.55}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{3.83}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{4.11}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{4.39}{1.845}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{4.67}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{4.95}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{5.23}{1.845}{\color{#929292}\rule{0.14em}{.022em}}\P{5.51}{1.845}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{5.79}{1.845}{\color{#929292}\rule{0.033em}{.022em}}\P{3.55}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{3.83}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{4.11}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{4.39}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{4.67}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{4.95}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{5.23}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{5.51}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{5.79}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{6.07}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{6.35}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{6.63}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{6.91}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{7.19}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{7.47}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{7.75}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{8.03}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{8.31}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{8.59}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{8.87}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{9.15}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{9.43}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{9.71}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{9.99}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{10.27}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{10.55}{4.155}{\color{#929292}\rule{0.14em}{.022em}}\P{10.83}{4.155}{\color{#929292}\rule{0.14em}{.022em}}
+                        \P{4}{-.06}{\rule{9.1em}{.12em}}
+                        \P{3.39}{1.845}{\rule{.12em}{2.309em}}
+                        \P{3.875}{-0.125}{\scriptscriptstyle\bullet}
+                        \P{12.975}{-0.125}{\scriptscriptstyle\bullet}
+                        \P{3.325}{1.72}{\scriptscriptstyle\bullet}
+                        \P{3.325}{4.03}{\scriptscriptstyle\bullet}
+                        \P{3.875}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{5.911}{-0.13}{\rule{.025em}{.26em}}
+                        \P{5.798}{1.72}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{11.164}{-0.13}{\rule{.025em}{.26em}}
+                        \P{11.052}{4.03}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{12.975}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                        \P{3.8}{-0.7}{\scriptstyle a}
+                        \P{12.9}{-0.7}{\scriptstyle b}
+                        \P{5.723}{-0.7}{\scriptstyle c}
+                        \P{10.977}{-0.7}{\scriptstyle d}
+                        \P{1.95}{1.665}{\scriptstyle f(c)}
+                        \P{1.95}{3.975}{\scriptstyle f(d)}
+                        \phantom{\rule[-1.6em]{14.5em}{7.2em}}
+                        }
+                      \]
+                    </div>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-image-2">
-                    <p><strong>Proof.</strong> By the definitions of minimum and maximum,</p>
+                    <p><strong>Proof.</strong> Since</p>
+                    \[
+                      \forall x\in[a,b],\quad f(c)\leq f(x)\leq f(d),
+                    \]
+                    <p>there holds</p>
                     \[
                       f([a,b])\subseteq[f(c),f(d)].
                     \]
+                    <p>To achieve equality, we prove \([f(c),f(d)]\subseteq f([a,b])\); i.e.,</p>
+                    \[
+                      \forall y\in[f(c),f(d)],\quad \exists z\in[a,b]\text{ s.t. }f(z)=y.
+                    \]
+                    <p>This will follow from IVT.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-image-3">
                     <p>Let \(y\in[f(c),f(d)]\).</p>
-                    <p>If \(y=f(c)\) or \(y=f(d)\), then \(y\in f([a,b])\).</p>
-                    <p>Otherwise, \(f(c)&lt;y&lt;f(d)\), so \(c\neq d\).</p>
-                    <p>Set \(u=\min\{c,d\}\) and \(v=\max\{c,d\}\).</p>
-                    <p>By the IVT on \([u,v]\subseteq[a,b]\), \(\exists z\in(u,v)\) with \(f(z)=y\).</p>
-                    <p>Thus \([f(c),f(d)]\subseteq f([a,b])\), proving equality.</p>
+                    <p>If \(y=f(c)\) or \(y=f(d)\), then \(y\in f([a,b])\) and we are done.</p>
+                    <p>Suppose otherwise: \(f(c)&lt;y&lt;f(d)\), noting this implies \(c\neq d\).</p>
+                    <p>Let \(u=\min\{c,d\},\ v=\max\{c,d\}\), noting \([u,v]\subseteq[a,b]\).</p>
+                    <div class="closed-interval-order-graphs" role="figure" aria-label="Two reflected continuous graphs with both extrema strictly inside [a,b]. Left: c is less than d, so u=c and v=d. Right: d is less than c, so u=d and v=c. In both cases a is less than u, u is less than v, and v is less than b. A marked point near the center of each curve is labeled y, at a height strictly between f(c) and f(d). Dashed guides mark the extrema; blue segments mark [u,v]." style="display:flex;flex-wrap:wrap;justify-content:center;column-gap:1em;margin-top:.5em;font-size:clamp(1.2em,min(2.88vw,5.04vh),1.38em);">
+                      <!-- Native MathJax only. Curves: 1 ± (x − x^3), −1 ≤ x ≤ 1.
+                           X=4.4+3.25x; Y=3f(x). Each curve uses 260 contiguous TeX rule strips.
+                           The short curve parser is isolated in its own hbox; no global MathJax settings change. -->
+                      <div style="flex:0 0 auto;max-width:100%;">
+                        \[
+                          {
+                            \rlap{\kern1.15em\hbox{$
+                              \color{#3f6286}
+                              \def\C#1/#2;{\raise#1em\hbox{$\rule{.025em}{#2em}$}}
+                          \C2.927/.101;\C2.882/.1;\C2.839/.099;\C2.796/.097;\C2.755/.096;\C2.714/.095;\C2.675/.094;\C2.637/.093;\C2.599/.092;\C2.563/.091;\C2.527/.09;\C2.493/.089;\C2.46/.088;\C2.427/.088;\C2.395/.087;\C2.365/.086;\C2.335/.085;\C2.306/.084;\C2.278/.083;\C2.252/.082;
+                          \C2.225/.081;\C2.2/.08;\C2.176/.079;\C2.153/.078;\C2.13/.078;\C2.109/.077;\C2.088/.076;\C2.068/.075;\C2.049/.074;\C2.03/.073;\C2.013/.072;\C1.996/.072;\C1.98/.071;\C1.965/.07;\C1.951/.069;\C1.937/.069;\C1.925/.068;\C1.913/.067;\C1.901/.066;\C1.891/.065;
+                          \C1.881/.065;\C1.872/.064;\C1.864/.063;\C1.856/.063;\C1.85/.062;\C1.843/.061;\C1.838/.06;\C1.833/.06;\C1.829/.059;\C1.825/.058;\C1.823/.058;\C1.82/.057;\C1.819/.057;\C1.818/.056;\C1.818/.055;\C1.818/.055;\C1.818/.056;\C1.819/.057;\C1.821/.057;\C1.823/.058;
+                          \C1.825/.058;\C1.829/.059;\C1.833/.059;\C1.837/.06;\C1.842/.061;\C1.847/.061;\C1.854/.062;\C1.86/.062;\C1.867/.063;\C1.875/.063;\C1.883/.064;\C1.891/.064;\C1.9/.065;\C1.91/.065;\C1.92/.065;\C1.93/.066;\C1.941/.066;\C1.953/.067;\C1.964/.067;\C1.977/.068;
+                          \C1.989/.068;\C2.002/.068;\C2.016/.069;\C2.03/.069;\C2.044/.07;\C2.058/.07;\C2.073/.07;\C2.089/.071;\C2.104/.071;\C2.12/.071;\C2.137/.072;\C2.154/.072;\C2.171/.072;\C2.188/.073;\C2.205/.073;\C2.223/.073;\C2.242/.073;\C2.26/.074;\C2.279/.074;\C2.298/.074;
+                          \C2.317/.075;\C2.337/.075;\C2.356/.075;\C2.376/.075;\C2.397/.075;\C2.417/.076;\C2.438/.076;\C2.458/.076;\C2.479/.076;\C2.501/.076;\C2.522/.077;\C2.543/.077;\C2.565/.077;\C2.587/.077;\C2.609/.077;\C2.631/.077;\C2.653/.077;\C2.676/.077;\C2.698/.078;\C2.72/.078;
+                          \C2.743/.078;\C2.766/.078;\C2.789/.078;\C2.811/.078;\C2.834/.078;\C2.857/.078;\C2.88/.078;\C2.903/.078;\C2.926/.078;\C2.949/.078;\C2.973/.078;\C2.996/.078;\C3.019/.078;\C3.042/.078;\C3.065/.078;\C3.088/.078;\C3.111/.078;\C3.134/.078;\C3.156/.078;\C3.179/.078;
+                          \C3.202/.078;\C3.225/.078;\C3.247/.077;\C3.27/.077;\C3.292/.077;\C3.314/.077;\C3.336/.077;\C3.358/.077;\C3.38/.077;\C3.402/.077;\C3.423/.076;\C3.444/.076;\C3.466/.076;\C3.487/.076;\C3.507/.076;\C3.528/.075;\C3.548/.075;\C3.569/.075;\C3.589/.075;\C3.608/.075;
+                          \C3.628/.074;\C3.647/.074;\C3.666/.074;\C3.685/.073;\C3.703/.073;\C3.722/.073;\C3.74/.073;\C3.757/.072;\C3.774/.072;\C3.792/.072;\C3.808/.071;\C3.825/.071;\C3.841/.071;\C3.856/.07;\C3.872/.07;\C3.887/.07;\C3.901/.069;\C3.915/.069;\C3.929/.068;\C3.943/.068;
+                          \C3.956/.068;\C3.968/.067;\C3.98/.067;\C3.992/.066;\C4.004/.066;\C4.015/.065;\C4.025/.065;\C4.035/.065;\C4.045/.064;\C4.054/.064;\C4.062/.063;\C4.07/.063;\C4.078/.062;\C4.085/.062;\C4.091/.061;\C4.098/.061;\C4.103/.06;\C4.108/.059;\C4.112/.059;\C4.116/.058;
+                          \C4.12/.058;\C4.122/.057;\C4.124/.057;\C4.126/.056;\C4.127/.055;\C4.127/.055;\C4.126/.056;\C4.124/.057;\C4.122/.057;\C4.12/.058;\C4.116/.058;\C4.112/.059;\C4.107/.06;\C4.102/.06;\C4.095/.061;\C4.089/.062;\C4.081/.063;\C4.073/.063;\C4.064/.064;\C4.054/.065;
+                          \C4.043/.065;\C4.032/.066;\C4.02/.067;\C4.008/.068;\C3.994/.069;\C3.98/.069;\C3.965/.07;\C3.949/.071;\C3.932/.072;\C3.915/.072;\C3.896/.073;\C3.877/.074;\C3.857/.075;\C3.836/.076;\C3.815/.077;\C3.792/.078;\C3.769/.078;\C3.745/.079;\C3.72/.08;\C3.693/.081;
+                          \C3.667/.082;\C3.639/.083;\C3.61/.084;\C3.58/.085;\C3.55/.086;\C3.518/.087;\C3.486/.088;\C3.452/.088;\C3.418/.089;\C3.382/.09;\C3.346/.091;\C3.308/.092;\C3.27/.093;\C3.231/.094;\C3.19/.095;\C3.149/.096;\C3.106/.097;\C3.063/.099;\C3.018/.1;\C2.973/.101;
+                            $}}
+                            \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \P{.6}{0}{\rule{7.65em}{.025em}}
+                            \P{.6}{0}{\rule{.025em}{4.65em}}
+                            \P{.43}{4.5}{\scriptscriptstyle\blacktriangle}
+                            \P{8.12}{-.14}{\scriptscriptstyle\blacktriangleright}
+                            \P{.1}{4.9}{\scriptstyle f(x)}
+                            \P{8.35}{-.18}{\scriptstyle x}
+                            \P{3.7}{-2.5}{c&lt;d}
+                            \P{2.524}{.12}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.4}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.68}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.96}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{1.24}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{1.52}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.12}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.4}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.68}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.96}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{1.24}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{1.52}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{1.8}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{2.08}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{2.36}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{2.64}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{2.92}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{3.2}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{3.48}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{3.76}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{4.04}{\color{#929292}\rule{.022em}{.035em}}
+                            \P{2.524}{-.025}{\color{#3f6286}\rule{3.753em}{.075em}}
+                            \P{1.138}{-.13}{\rule{.025em}{.26em}}
+                            \P{1.025}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{2.511}{-.13}{\rule{.025em}{.26em}}
+                            \P{2.399}{1.72}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{6.264}{-.13}{\rule{.025em}{.26em}}
+                            \P{6.151}{4.03}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{7.638}{-.13}{\rule{.025em}{.26em}}
+                            \P{7.525}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{4.275}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{4.64}{2.4}{\scriptstyle y}
+                            \P{.95}{-.7}{\scriptstyle a}
+                            \P{7.45}{-.7}{\scriptstyle b}
+                            \P{1.674}{-.7}{\scriptstyle u=c}
+                            \P{5.426}{-.7}{\scriptstyle v=d}
+                            \P{2.764}{1.295}{\scriptstyle f(c)}
+                            \P{6.516}{4.455}{\scriptstyle f(d)}
+                            \P{3.7}{-1.35}{\scriptstyle [u,v]}
+                            \phantom{\rule[-2.8em]{8.9em}{8.8em}}
+                          }
+                        \]
+                      </div>
+                      <div style="flex:0 0 auto;max-width:100%;">
+                        \[
+                          {
+                            \rlap{\kern1.15em\hbox{$
+                              \color{#3f6286}
+                              \def\C#1/#2;{\raise#1em\hbox{$\rule{.025em}{#2em}$}}
+                          \C2.973/.101;\C3.018/.1;\C3.063/.099;\C3.106/.097;\C3.149/.096;\C3.19/.095;\C3.231/.094;\C3.27/.093;\C3.308/.092;\C3.346/.091;\C3.382/.09;\C3.418/.089;\C3.452/.088;\C3.485/.088;\C3.518/.087;\C3.55/.086;\C3.58/.085;\C3.61/.084;\C3.639/.083;\C3.667/.082;
+                          \C3.693/.081;\C3.72/.08;\C3.745/.079;\C3.769/.078;\C3.792/.078;\C3.815/.077;\C3.836/.076;\C3.857/.075;\C3.877/.074;\C3.896/.073;\C3.915/.072;\C3.932/.072;\C3.949/.071;\C3.965/.07;\C3.98/.069;\C3.994/.069;\C4.008/.068;\C4.02/.067;\C4.032/.066;\C4.043/.065;
+                          \C4.054/.065;\C4.064/.064;\C4.073/.063;\C4.081/.063;\C4.089/.062;\C4.095/.061;\C4.102/.06;\C4.107/.06;\C4.112/.059;\C4.116/.058;\C4.12/.058;\C4.122/.057;\C4.124/.057;\C4.126/.056;\C4.127/.055;\C4.127/.055;\C4.126/.056;\C4.124/.057;\C4.122/.057;\C4.12/.058;
+                          \C4.116/.058;\C4.112/.059;\C4.108/.059;\C4.103/.06;\C4.098/.061;\C4.091/.061;\C4.085/.062;\C4.078/.062;\C4.07/.063;\C4.062/.063;\C4.054/.064;\C4.045/.064;\C4.035/.065;\C4.025/.065;\C4.015/.065;\C4.004/.066;\C3.992/.066;\C3.981/.067;\C3.968/.067;\C3.956/.068;
+                          \C3.943/.068;\C3.929/.068;\C3.915/.069;\C3.901/.069;\C3.887/.07;\C3.872/.07;\C3.856/.07;\C3.841/.071;\C3.825/.071;\C3.808/.071;\C3.792/.072;\C3.774/.072;\C3.757/.072;\C3.74/.073;\C3.722/.073;\C3.703/.073;\C3.685/.073;\C3.666/.074;\C3.647/.074;\C3.628/.074;
+                          \C3.608/.075;\C3.589/.075;\C3.569/.075;\C3.548/.075;\C3.528/.075;\C3.507/.076;\C3.487/.076;\C3.466/.076;\C3.444/.076;\C3.423/.076;\C3.402/.077;\C3.38/.077;\C3.358/.077;\C3.336/.077;\C3.314/.077;\C3.292/.077;\C3.269/.077;\C3.247/.077;\C3.225/.078;\C3.202/.078;
+                          \C3.179/.078;\C3.156/.078;\C3.134/.078;\C3.111/.078;\C3.088/.078;\C3.065/.078;\C3.042/.078;\C3.019/.078;\C2.996/.078;\C2.973/.078;\C2.949/.078;\C2.926/.078;\C2.903/.078;\C2.88/.078;\C2.857/.078;\C2.834/.078;\C2.811/.078;\C2.789/.078;\C2.766/.078;\C2.743/.078;
+                          \C2.72/.078;\C2.698/.078;\C2.675/.077;\C2.653/.077;\C2.631/.077;\C2.609/.077;\C2.587/.077;\C2.565/.077;\C2.543/.077;\C2.522/.077;\C2.501/.076;\C2.479/.076;\C2.458/.076;\C2.438/.076;\C2.417/.076;\C2.397/.075;\C2.376/.075;\C2.356/.075;\C2.337/.075;\C2.317/.075;
+                          \C2.298/.074;\C2.279/.074;\C2.26/.074;\C2.242/.073;\C2.223/.073;\C2.205/.073;\C2.188/.073;\C2.171/.072;\C2.154/.072;\C2.137/.072;\C2.12/.071;\C2.104/.071;\C2.089/.071;\C2.073/.07;\C2.058/.07;\C2.044/.07;\C2.03/.069;\C2.016/.069;\C2.002/.068;\C1.989/.068;
+                          \C1.977/.068;\C1.964/.067;\C1.953/.067;\C1.941/.066;\C1.93/.066;\C1.92/.065;\C1.91/.065;\C1.9/.065;\C1.891/.064;\C1.883/.064;\C1.875/.063;\C1.867/.063;\C1.86/.062;\C1.854/.062;\C1.847/.061;\C1.842/.061;\C1.837/.06;\C1.833/.059;\C1.829/.059;\C1.825/.058;
+                          \C1.823/.058;\C1.821/.057;\C1.819/.057;\C1.818/.056;\C1.818/.055;\C1.818/.055;\C1.818/.056;\C1.819/.057;\C1.82/.057;\C1.823/.058;\C1.825/.058;\C1.829/.059;\C1.833/.06;\C1.838/.06;\C1.843/.061;\C1.85/.062;\C1.856/.063;\C1.864/.063;\C1.872/.064;\C1.881/.065;
+                          \C1.891/.065;\C1.901/.066;\C1.913/.067;\C1.925/.068;\C1.937/.069;\C1.951/.069;\C1.965/.07;\C1.98/.071;\C1.996/.072;\C2.013/.072;\C2.03/.073;\C2.049/.074;\C2.068/.075;\C2.088/.076;\C2.109/.077;\C2.13/.078;\C2.153/.078;\C2.176/.079;\C2.2/.08;\C2.225/.081;
+                          \C2.252/.082;\C2.278/.083;\C2.306/.084;\C2.335/.085;\C2.365/.086;\C2.395/.087;\C2.427/.088;\C2.459/.088;\C2.493/.089;\C2.527/.09;\C2.563/.091;\C2.599/.092;\C2.637/.093;\C2.675/.094;\C2.714/.095;\C2.755/.096;\C2.796/.097;\C2.839/.099;\C2.882/.1;\C2.927/.101;
+                            $}}
+                            \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \P{.6}{0}{\rule{7.65em}{.025em}}
+                            \P{.6}{0}{\rule{.025em}{4.65em}}
+                            \P{.43}{4.5}{\scriptscriptstyle\blacktriangle}
+                            \P{8.12}{-.14}{\scriptscriptstyle\blacktriangleright}
+                            \P{.1}{4.9}{\scriptstyle f(x)}
+                            \P{8.35}{-.18}{\scriptstyle x}
+                            \P{3.7}{-2.5}{d&lt;c}
+                            \P{2.524}{.12}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.4}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.68}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{.96}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{1.24}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{1.52}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{1.8}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{2.08}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{2.36}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{2.64}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{2.92}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{3.2}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{3.48}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{3.76}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{4.04}{\color{#929292}\rule{.022em}{.035em}}
+                            \P{6.276}{.12}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.4}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.68}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{.96}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{1.24}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{6.276}{1.52}{\color{#929292}\rule{.022em}{.14em}}
+                            \P{2.524}{-.025}{\color{#3f6286}\rule{3.753em}{.075em}}
+                            \P{1.138}{-.13}{\rule{.025em}{.26em}}
+                            \P{1.025}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{2.511}{-.13}{\rule{.025em}{.26em}}
+                            \P{2.399}{4.03}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{6.264}{-.13}{\rule{.025em}{.26em}}
+                            \P{6.151}{1.72}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{7.638}{-.13}{\rule{.025em}{.26em}}
+                            \P{7.525}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{4.275}{2.875}{\color{#3f6286}\scriptscriptstyle\bullet}
+                            \P{4.64}{3.35}{\scriptstyle y}
+                            \P{.95}{-.7}{\scriptstyle a}
+                            \P{7.45}{-.7}{\scriptstyle b}
+                            \P{1.674}{-.7}{\scriptstyle u=d}
+                            \P{5.426}{-.7}{\scriptstyle v=c}
+                            \P{2.764}{4.455}{\scriptstyle f(d)}
+                            \P{6.516}{1.295}{\scriptstyle f(c)}
+                            \P{3.7}{-1.35}{\scriptstyle [u,v]}
+                            \phantom{\rule[-2.8em]{8.9em}{8.8em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture16-image-4">
+                    <p>Since \(\{u,v\}=\{c,d\}\), we have</p>
+                    \[
+                      f(u)&lt;y&lt;f(v)\quad\text{or}\quad f(v)&lt;y&lt;f(u).
+                    \]
+                    <p>Also, \(u&lt;v\) and \(f\) is continuous on \([u,v]\subseteq[a,b]\).</p>
+                    <p>By IVT, \(\exists z\in(u,v)\subseteq[a,b]\) s.t. \(f(z)=y\).</p>
+                    <p>Thus \(\exists z\in[a,b]\) s.t. \(f(z)=y\), which is what we needed to conclude</p>
+                    \[
+                      [f(c),f(d)]\subseteq f([a,b])
+                    \]
+                    <p>and whence</p>
+                    \[
+                      f([a,b])=[f(c),f(d)].
+                    \]
                   </div>
                 </div>
               </details>
@@ -8779,21 +9327,21 @@
                   <div class="lecture-block" id="lecture16-polynomial-root-1">
                     <p><strong>Theorem.</strong> The polynomial</p>
                     \[
-                      f(x)=x^{2021}+x^{2020}+9.03x+1
+                      f(x)=x^5-x-1
                     \]
                     <p>has at least one real root.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture16-polynomial-root-2">
-                    <p><strong>Proof.</strong> Since \(f\) is a polynomial, it is continuous on \([-1,0]\).</p>
+                    <p><strong>Proof.</strong> Since \(f\) is a polynomial, it is continuous on \([1,2]\).</p>
                     <p>Observe</p>
                     \[
                       \begin{aligned}
-                      f(-1)&amp;=-1+1-9.03+1=-8.03&lt;0,\\
-                      f(0)&amp;=1&gt;0.
+                      f(1)&amp;=1-1-1=-1&lt;0,\\
+                      f(2)&amp;=32-2-1=29&gt;0.
                       \end{aligned}
                     \]
-                    <p>By the IVT, \(\exists c\in(-1,0)\) such that \(f(c)=0\).</p>
+                    <p>By the IVT, \(\exists c\in(1,2)\) such that \(f(c)=0\).</p>
                   </div>
                 </div>
               </details>
@@ -8803,7 +9351,7 @@
           <!-- Begin Lecture 17 uniform continuity -->
           <details class="lecture-node lecture-chapter lecture17-single-spaced" id="lecture-17">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">uniform-continuity/</span>
             </summary>
@@ -8821,54 +9369,188 @@
                     \[
                       |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
                     \]
-                    <p>Here \(\delta\) may depend on both \(\epsilon\) and \(c\).</p>
-                    <p>We write \(\delta=\delta(\epsilon,c)\) to indicate this dependence.</p>
-                  </div>
-                </div>
-              </details>
-              <details class="lecture-node lecture17-single-spaced" id="lecture17-reciprocal-continuity">
-                <summary>
-                  <span class="lecture-branch">├──</span>
-                  <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">continuity-of-the-reciprocal/</span>
-                </summary>
-                <div class="lecture-note">
-                  <div class="lecture-block" id="lecture17-reciprocal-continuity-1">
-                    <p><strong>Example.</strong> The function \(f:(0,1)\to\mathbb{R}\) given by</p>
-                    \[
-                      f(x)=\frac1x
-                    \]
-                    <p>is continuous on \((0,1)\).</p>
+                    <p>When \(f\) is nonconstant and \(\epsilon&gt;0\) is small, \(\delta\) will typically depend on \(\epsilon\).</p>
+                    <p>In general, \(\delta\) may also depend on the point of continuity \(c\).</p>
+                    <p>When \(\delta\) depends on both \(\epsilon\) and \(c\), we write \(\delta=\delta(\epsilon,c)\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture17-reciprocal-continuity-2">
-                    <p><strong>Proof.</strong> Fix \(c\in(0,1)\) and let \(\epsilon&gt;0\).</p>
-                    <p>Choose</p>
+                  <div class="lecture-block" id="lecture17-continuity-recall-remark">
+                    <p><strong>Example 1.</strong></p>
+                    <p>Consider \(f(x)=\sin x\), observing</p>
                     \[
-                      \delta=\min\left\{\frac c2,\frac{c^2\epsilon}{2}\right\}&gt;0.
+                      |f(x)-f(y)|\leq|x-y|,\qquad x,y\in\mathbb{R}.
                     \]
-                    <p>Let \(x\in(0,1)\) satisfy \(|x-c|&lt;\delta\).</p>
-                    <p>Since \(\delta\leq c/2\),</p>
+                    <p>So, if <em>any</em> \(x\) and \(y\) are close, so too are the outputs \(f(x)\) and \(f(y).\)</p>
+                    <p>In particular, \(\forall\epsilon&gt;0\) and \(\forall c\in\mathbb{R}\), if \(\delta=\epsilon\), then</p>
                     \[
-                      |x|\geq c-|x-c|&gt;\frac c2.
+                      \forall x\in\mathbb{R},\quad |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
                     \]
-                    <p>Hence \(1/|x|&lt;2/c\).</p>
+                    <p>In particular, \(\delta\) is independent of \(c\) and \(x\): all outputs \(f(x),f(c)\) are uniformly \(\epsilon\)-close if the inputs \(x,c\) are uniformly \(\delta\)-close.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture17-reciprocal-continuity-3">
-                    <p>Using \(|x-c|&lt;\delta\), \(1/|x|&lt;2/c\), and \(c&gt;0\),</p>
+                  <div class="lecture-block" id="lecture17-continuity-recall-remark-2">
+                    <p><strong>Example 2.</strong> Let \(g(x)=\sin(1/x)\) on \((0,\infty)\). For \(k=1,3,5,\ldots\),</p>
                     \[
                       \begin{aligned}
-                      \left|\frac1x-\frac1c\right|
-                        &amp;=\frac{|x-c|}{|x|c}\\
-                        &amp;&lt;\frac{\delta}{|x|c}
-                         &lt;\frac{2\delta}{c^2}\\
-                        &amp;\leq\frac{2}{c^2}\cdot\frac{c^2\epsilon}{2}=\epsilon.
+                      \left|g\left(\frac{2}{k\pi}\right)-g\left(\frac{1}{k\pi}\right)\right|&amp;=1,\\
+                      \left|\frac{2}{k\pi}-\frac{1}{k\pi}\right|&amp;=\frac{1}{k\pi}\longrightarrow0.
                       \end{aligned}
                     \]
-                    <p>Thus \(f\) is continuous at \(c\).</p>
-                    <p>Since \(c\in(0,1)\) was arbitrary, \(f\) is continuous on \((0,1)\).</p>
-                    <p><strong>Remark.</strong> The chosen \(\delta\) depends on both \(\epsilon\) and \(c\).</p>
+                    <p>Yet \(g\) is continuous on \((0,\infty)\).</p>
+                    <p>Given a small \(\epsilon&gt;0\), the smaller \(c&gt;0\) is, the smaller \(\delta&gt;0\) must be to get:</p>
+                    \[
+                      \forall x&gt;0,\quad |x-c|&lt;\delta\implies |g(x)-g(c)|&lt;\epsilon.
+                    \]
+                    <p>Thus \(\delta=\delta(\epsilon,c)\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-continuity-recall-sine-zoom">
+                    <div class="uniform-sine-zoom-graph" role="figure" aria-label="A close-up of sin(1/x) on [1/(15 pi),1/(10 pi)], showing two and a half oscillations. A break in the horizontal axis omits the interval between zero and the displayed window. A filled point at x=2/(25 pi) has height one; the neighboring filled point at x=1/(12 pi) has height zero. Gray guides connect the marked points to their staggered input labels. The curve uses the true linear x scale within the displayed window." style="margin:.25em auto 0;font-size:clamp(1em,min(2.4vw,4.2vh),1.15em);">
+                      <!-- Native MathJax only. X=3.2+14(x−1/(15π))/(1/(10π)−1/(15π)), Y=3 sin(1/x).
+                           The display shows the selected k=10 zoom window, not the odd-k witness sequence.
+                           The broken horizontal axis distinguishes the true origin from the positive crop.
+                           Exact zeros and extrema are sample boundaries; short inner hboxes isolate curve parsers. -->
+                      \[
+                        {
+                        \rlap{\kern3.2em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C-.027/.02/.156;\C.073/.02/.156;\C.174/.02/.155;\C.274/.02/.155;\C.374/.02/.154;\C.473/.02/.153;\C.572/.02/.153;\C.669/.02/.152;\C.766/.02/.151;\C.862/.02/.15;
+                        \C.957/.02/.148;\C1.05/.02/.147;\C1.142/.02/.146;\C1.233/.02/.144;\C1.322/.02/.143;\C1.41/.02/.141;\C1.495/.02/.139;\C1.58/.02/.137;\C1.662/.02/.135;\C1.742/.02/.133;
+                        \C1.821/.02/.131;\C1.897/.02/.129;\C1.971/.02/.127;\C2.043/.02/.125;\C2.112/.02/.122;\C2.18/.02/.12;\C2.244/.02/.117;\C2.307/.02/.115;\C2.367/.02/.112;\C2.424/.02/.11;
+                        \C2.478/.02/.107;\C2.53/.02/.104;\C2.579/.02/.101;\C2.626/.02/.099;\C2.669/.02/.096;\C2.71/.02/.093;\C2.748/.02/.09;\C2.783/.02/.087;\C2.815/.02/.084;\C2.844/.02/.081;
+                        \C2.87/.02/.078;\C2.893/.02/.075;\C2.914/.02/.072;\C2.931/.02/.069;\C2.945/.02/.066;\C2.957/.02/.063;\C2.965/.02/.06;\C2.97/.02/.057;\C2.972/.00552/.055;\C2.972/.01448/.056;
+                        \C2.968/.02/.059;\C2.962/.02/.062;\C2.952/.02/.064;\C2.94/.02/.067;\C2.924/.02/.07;\C2.906/.02/.073;\C2.885/.02/.076;\C2.862/.02/.079;\C2.835/.02/.081;\C2.806/.02/.084;
+                        \C2.774/.02/.087;\C2.739/.02/.09;\C2.702/.02/.092;\C2.663/.02/.095;\C2.621/.02/.097;\C2.576/.02/.1;\C2.529/.02/.102;\C2.48/.02/.104;\C2.428/.02/.107;\C2.374/.02/.109;
+                        \C2.318/.02/.111;\C2.26/.02/.113;\C2.2/.02/.115;\C2.137/.02/.117;\C2.073/.02/.119;\C2.007/.02/.121;\C1.94/.02/.123;\C1.87/.02/.124;\C1.799/.02/.126;\C1.727/.02/.128;
+                        \C1.652/.02/.129;\C1.577/.02/.131;\C1.5/.02/.132;\C1.422/.02/.133;\C1.342/.02/.134;\C1.262/.02/.136;\C1.18/.02/.137;\C1.098/.02/.138;\C1.014/.02/.138;\C.93/.02/.139;
+                        \C.845/.02/.14;\C.76/.02/.141;\C.673/.02/.141;\C.587/.02/.142;\C.5/.02/.142;\C.412/.02/.142;\C.324/.02/.143;\C.237/.02/.143;\C.149/.02/.143;\C.061/.02/.143;
+                        \C-.028/.02/.143;\C-.115/.02/.143;\C-.203/.02/.143;\C-.291/.02/.142;\C-.378/.02/.142;\C-.464/.02/.142;\C-.55/.02/.141;\C-.636/.02/.141;\C-.721/.02/.14;\C-.805/.02/.139;
+                        \C-.889/.02/.139;\C-.972/.02/.138;\C-1.054/.02/.137;\C-1.134/.02/.136;\C-1.214/.02/.135;\C-1.293/.02/.134;\C-1.371/.02/.133;\C-1.447/.02/.131;\C-1.522/.02/.13;\C-1.596/.02/.129;
+                        \C-1.668/.02/.127;\C-1.739/.02/.126;\C-1.809/.02/.125;\C-1.877/.02/.123;\C-1.943/.02/.121;\C-2.008/.02/.12;\C-2.071/.02/.118;\C-2.132/.02/.116;\C-2.192/.02/.115;\C-2.25/.02/.113;
+                        \C-2.306/.02/.111;\C-2.36/.02/.109;\C-2.412/.02/.107;\C-2.462/.02/.105;\C-2.51/.02/.103;\C-2.557/.02/.101;\C-2.601/.02/.099;\C-2.643/.02/.097;\C-2.683/.02/.095;\C-2.721/.02/.093;
+                        $}}
+                        \rlap{\kern5.98em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C-2.756/.02/.091;\C-2.79/.02/.089;\C-2.821/.02/.086;\C-2.851/.02/.084;\C-2.878/.02/.082;\C-2.902/.02/.08;\C-2.925/.02/.078;\C-2.945/.02/.075;\C-2.963/.02/.073;\C-2.979/.02/.071;
+                        \C-2.993/.02/.069;\C-3.004/.02/.066;\C-3.013/.02/.064;\C-3.02/.02/.062;\C-3.025/.02/.06;\C-3.027/.02/.057;\C-3.027/.01111/.055;\C-3.027/.00889/.055;\C-3.027/.02/.057;\C-3.025/.02/.059;
+                        \C-3.021/.02/.062;\C-3.014/.02/.064;\C-3.006/.02/.066;\C-2.995/.02/.068;\C-2.982/.02/.07;\C-2.967/.02/.072;\C-2.949/.02/.074;\C-2.93/.02/.076;\C-2.908/.02/.079;\C-2.885/.02/.081;
+                        \C-2.859/.02/.083;\C-2.832/.02/.085;\C-2.802/.02/.087;\C-2.77/.02/.088;\C-2.737/.02/.09;\C-2.702/.02/.092;\C-2.665/.02/.094;\C-2.626/.02/.096;\C-2.585/.02/.098;\C-2.542/.02/.099;
+                        \C-2.498/.02/.101;\C-2.452/.02/.103;\C-2.405/.02/.104;\C-2.355/.02/.106;\C-2.305/.02/.107;\C-2.252/.02/.109;\C-2.199/.02/.11;\C-2.144/.02/.112;\C-2.087/.02/.113;\C-2.029/.02/.114;
+                        \C-1.97/.02/.115;\C-1.91/.02/.117;\C-1.848/.02/.118;\C-1.785/.02/.119;\C-1.721/.02/.12;\C-1.656/.02/.121;\C-1.59/.02/.122;\C-1.523/.02/.123;\C-1.455/.02/.124;\C-1.387/.02/.125;
+                        \C-1.317/.02/.125;\C-1.247/.02/.126;\C-1.176/.02/.127;\C-1.104/.02/.127;\C-1.031/.02/.128;\C-.958/.02/.128;\C-.885/.02/.129;\C-.811/.02/.129;\C-.737/.02/.13;\C-.662/.02/.13;
+                        \C-.587/.02/.13;\C-.512/.02/.131;\C-.436/.02/.131;\C-.36/.02/.131;\C-.284/.02/.131;\C-.209/.02/.131;\C-.133/.02/.131;\C-.057/.00769/.084;\C-.028/.01231/.102;\C.019/.02/.131;
+                        \C.095/.02/.131;\C.17/.02/.13;\C.246/.02/.13;\C.321/.02/.13;\C.396/.02/.129;\C.47/.02/.129;\C.544/.02/.129;\C.617/.02/.128;\C.69/.02/.127;\C.763/.02/.127;
+                        \C.835/.02/.126;\C.906/.02/.126;\C.977/.02/.125;\C1.047/.02/.124;\C1.116/.02/.123;\C1.184/.02/.123;\C1.252/.02/.122;\C1.319/.02/.121;\C1.384/.02/.12;\C1.449/.02/.119;
+                        \C1.513/.02/.118;\C1.576/.02/.117;\C1.638/.02/.116;\C1.698/.02/.115;\C1.758/.02/.113;\C1.817/.02/.112;\C1.874/.02/.111;\C1.93/.02/.11;\C1.985/.02/.109;\C2.038/.02/.107;
+                        \C2.091/.02/.106;\C2.142/.02/.105;\C2.191/.02/.103;\C2.24/.02/.102;\C2.287/.02/.1;\C2.332/.02/.099;\C2.376/.02/.098;\C2.419/.02/.096;\C2.46/.02/.095;\C2.5/.02/.093;
+                        \C2.538/.02/.092;\C2.574/.02/.09;\C2.609/.02/.089;\C2.643/.02/.087;\C2.675/.02/.085;\C2.705/.02/.084;\C2.734/.02/.082;\C2.761/.02/.081;\C2.787/.02/.079;\C2.811/.02/.077;
+                        \C2.833/.02/.076;\C2.854/.02/.074;\C2.873/.02/.072;\C2.89/.02/.071;\C2.906/.02/.069;\C2.92/.02/.067;\C2.932/.02/.066;\C2.943/.02/.064;\C2.952/.02/.062;\C2.959/.02/.061;
+                        $}}
+                        \rlap{\kern8.74em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C2.965/.02/.059;\C2.969/.02/.057;\C2.972/.02/.056;\C2.972/.02/.056;\C2.969/.02/.057;\C2.965/.02/.059;\C2.959/.02/.061;\C2.952/.02/.062;\C2.943/.02/.064;\C2.933/.02/.065;
+                        \C2.921/.02/.067;\C2.907/.02/.069;\C2.892/.02/.07;\C2.875/.02/.072;\C2.857/.02/.073;\C2.837/.02/.075;\C2.816/.02/.076;\C2.793/.02/.078;\C2.769/.02/.079;\C2.743/.02/.081;
+                        \C2.716/.02/.082;\C2.688/.02/.083;\C2.658/.02/.085;\C2.627/.02/.086;\C2.594/.02/.088;\C2.56/.02/.089;\C2.525/.02/.09;\C2.489/.02/.091;\C2.451/.02/.093;\C2.412/.02/.094;
+                        \C2.372/.02/.095;\C2.331/.02/.096;\C2.288/.02/.097;\C2.245/.02/.099;\C2.2/.02/.1;\C2.154/.02/.101;\C2.107/.02/.102;\C2.06/.02/.103;\C2.011/.02/.104;\C1.961/.02/.105;
+                        \C1.91/.02/.106;\C1.859/.02/.107;\C1.806/.02/.108;\C1.753/.02/.108;\C1.698/.02/.109;\C1.643/.02/.11;\C1.588/.02/.111;\C1.531/.02/.111;\C1.474/.02/.112;\C1.416/.02/.113;
+                        \C1.358/.02/.113;\C1.299/.02/.114;\C1.239/.02/.115;\C1.179/.02/.115;\C1.118/.02/.116;\C1.057/.02/.116;\C.995/.02/.117;\C.933/.02/.117;\C.871/.02/.117;\C.808/.02/.118;
+                        \C.745/.02/.118;\C.681/.02/.118;\C.617/.02/.119;\C.553/.02/.119;\C.489/.02/.119;\C.425/.02/.119;\C.361/.02/.119;\C.296/.02/.12;\C.231/.02/.12;\C.167/.02/.12;
+                        \C.102/.02/.12;\C.037/.02/.12;\C-.028/.02/.12;\C-.092/.02/.12;\C-.157/.02/.119;\C-.221/.02/.119;\C-.285/.02/.119;\C-.349/.02/.119;\C-.413/.02/.119;\C-.476/.02/.119;
+                        \C-.54/.02/.118;\C-.603/.02/.118;\C-.665/.02/.118;\C-.727/.02/.117;\C-.789/.02/.117;\C-.851/.02/.116;\C-.912/.02/.116;\C-.972/.02/.116;\C-1.032/.02/.115;\C-1.092/.02/.115;
+                        \C-1.151/.02/.114;\C-1.209/.02/.113;\C-1.267/.02/.113;\C-1.324/.02/.112;\C-1.381/.02/.112;\C-1.437/.02/.111;\C-1.492/.02/.11;\C-1.547/.02/.11;\C-1.6/.02/.109;\C-1.653/.02/.108;
+                        \C-1.706/.02/.107;\C-1.757/.02/.106;\C-1.808/.02/.106;\C-1.858/.02/.105;\C-1.907/.02/.104;\C-1.955/.02/.103;\C-2.002/.02/.102;\C-2.049/.02/.101;\C-2.094/.02/.1;\C-2.139/.02/.1;
+                        \C-2.182/.02/.099;\C-2.225/.02/.098;\C-2.266/.02/.097;\C-2.307/.02/.096;\C-2.347/.02/.095;\C-2.385/.02/.094;\C-2.423/.02/.093;\C-2.459/.02/.092;\C-2.495/.02/.09;\C-2.529/.02/.089;
+                        \C-2.562/.02/.088;\C-2.594/.02/.087;\C-2.626/.02/.086;\C-2.656/.02/.085;\C-2.684/.02/.084;\C-2.712/.02/.083;\C-2.739/.02/.082;\C-2.764/.02/.08;\C-2.789/.02/.079;\C-2.812/.02/.078;
+                        \C-2.834/.02/.077;\C-2.855/.02/.076;\C-2.874/.02/.075;\C-2.893/.02/.073;\C-2.91/.02/.072;\C-2.926/.02/.071;\C-2.941/.02/.07;\C-2.955/.02/.069;\C-2.967/.02/.068;\C-2.979/.02/.066;
+                        $}}
+                        \rlap{\kern11.54em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C-2.989/.02/.065;\C-2.998/.02/.064;\C-3.006/.02/.063;\C-3.012/.02/.062;\C-3.018/.02/.06;\C-3.022/.02/.059;\C-3.025/.02/.058;\C-3.027/.02/.057;\C-3.027/.02/.056;\C-3.027/.00174/.055;
+                        \C-3.027/.01826/.055;\C-3.027/.02/.057;\C-3.025/.02/.058;\C-3.023/.02/.059;\C-3.019/.02/.06;\C-3.013/.02/.061;\C-3.007/.02/.062;\C-3/.02/.064;\C-2.991/.02/.065;\C-2.981/.02/.066;
+                        \C-2.971/.02/.067;\C-2.959/.02/.068;\C-2.946/.02/.069;\C-2.931/.02/.07;\C-2.916/.02/.071;\C-2.9/.02/.072;\C-2.883/.02/.073;\C-2.864/.02/.074;\C-2.845/.02/.076;\C-2.824/.02/.077;
+                        \C-2.803/.02/.078;\C-2.78/.02/.079;\C-2.756/.02/.08;\C-2.732/.02/.081;\C-2.706/.02/.082;\C-2.68/.02/.082;\C-2.652/.02/.083;\C-2.624/.02/.084;\C-2.595/.02/.085;\C-2.564/.02/.086;
+                        \C-2.533/.02/.087;\C-2.501/.02/.088;\C-2.468/.02/.089;\C-2.434/.02/.09;\C-2.4/.02/.09;\C-2.364/.02/.091;\C-2.328/.02/.092;\C-2.291/.02/.093;\C-2.253/.02/.094;\C-2.215/.02/.094;
+                        \C-2.175/.02/.095;\C-2.135/.02/.096;\C-2.095/.02/.096;\C-2.053/.02/.097;\C-2.011/.02/.098;\C-1.968/.02/.098;\C-1.925/.02/.099;\C-1.881/.02/.1;\C-1.836/.02/.1;\C-1.791/.02/.101;
+                        \C-1.745/.02/.101;\C-1.699/.02/.102;\C-1.652/.02/.102;\C-1.604/.02/.103;\C-1.556/.02/.103;\C-1.508/.02/.104;\C-1.459/.02/.104;\C-1.41/.02/.105;\C-1.36/.02/.105;\C-1.31/.02/.106;
+                        \C-1.259/.02/.106;\C-1.208/.02/.106;\C-1.157/.02/.107;\C-1.105/.02/.107;\C-1.054/.02/.107;\C-1.001/.02/.107;\C-.949/.02/.108;\C-.896/.02/.108;\C-.843/.02/.108;\C-.79/.02/.108;
+                        \C-.737/.02/.109;\C-.683/.02/.109;\C-.629/.02/.109;\C-.575/.02/.109;\C-.521/.02/.109;\C-.467/.02/.109;\C-.413/.02/.109;\C-.359/.02/.109;\C-.304/.02/.109;\C-.25/.02/.109;
+                        \C-.196/.02/.109;\C-.141/.02/.109;\C-.087/.02/.109;\C-.032/.00182/.06;\C-.027/.01818/.104;\C.022/.02/.109;\C.076/.02/.109;\C.13/.02/.109;\C.184/.02/.109;\C.238/.02/.109;
+                        \C.292/.02/.109;\C.345/.02/.108;\C.399/.02/.108;\C.452/.02/.108;\C.505/.02/.108;\C.558/.02/.108;\C.61/.02/.107;\C.663/.02/.107;\C.715/.02/.107;\C.766/.02/.106;
+                        \C.818/.02/.106;\C.869/.02/.106;\C.92/.02/.105;\C.97/.02/.105;\C1.02/.02/.105;\C1.07/.02/.104;\C1.119/.02/.104;\C1.168/.02/.103;\C1.216/.02/.103;\C1.264/.02/.103;
+                        \C1.312/.02/.102;\C1.359/.02/.102;\C1.405/.02/.101;\C1.451/.02/.101;\C1.497/.02/.1;\C1.542/.02/.1;\C1.587/.02/.099;\C1.631/.02/.098;\C1.674/.02/.098;\C1.717/.02/.097;
+                        \C1.759/.02/.097;\C1.801/.02/.096;\C1.842/.02/.096;\C1.883/.02/.095;\C1.923/.02/.094;\C1.962/.02/.094;\C2.001/.02/.093;\C2.038/.02/.092;\C2.076/.02/.092;\C2.112/.02/.091;
+                        $}}
+                        \rlap{\kern14.3em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C2.148/.02/.09;\C2.184/.02/.09;\C2.218/.02/.089;\C2.252/.02/.088;\C2.286/.02/.087;\C2.318/.02/.087;\C2.35/.02/.086;\C2.381/.02/.085;\C2.411/.02/.085;\C2.441/.02/.084;
+                        \C2.469/.02/.083;\C2.497/.02/.082;\C2.525/.02/.082;\C2.551/.02/.081;\C2.577/.02/.08;\C2.602/.02/.079;\C2.626/.02/.078;\C2.649/.02/.078;\C2.672/.02/.077;\C2.694/.02/.076;
+                        \C2.715/.02/.075;\C2.735/.02/.074;\C2.754/.02/.074;\C2.773/.02/.073;\C2.791/.02/.072;\C2.808/.02/.071;\C2.824/.02/.07;\C2.839/.02/.069;\C2.853/.02/.069;\C2.867/.02/.068;
+                        \C2.88/.02/.067;\C2.892/.02/.066;\C2.903/.02/.065;\C2.913/.02/.064;\C2.923/.02/.064;\C2.931/.02/.063;\C2.939/.02/.062;\C2.946/.02/.061;\C2.952/.02/.06;\C2.958/.02/.06;
+                        \C2.962/.02/.059;\C2.966/.02/.058;\C2.969/.02/.057;\C2.971/.02/.056;\C2.972/.02/.055;\C2.972/.02/.055;\C2.971/.02/.056;\C2.969/.02/.057;\C2.966/.02/.058;\C2.962/.02/.059;
+                        \C2.958/.02/.059;\C2.953/.02/.06;\C2.947/.02/.061;\C2.94/.02/.062;\C2.932/.02/.063;\C2.924/.02/.063;\C2.915/.02/.064;\C2.905/.02/.065;\C2.894/.02/.066;\C2.883/.02/.066;
+                        \C2.87/.02/.067;\C2.857/.02/.068;\C2.844/.02/.069;\C2.829/.02/.069;\C2.814/.02/.07;\C2.798/.02/.071;\C2.781/.02/.072;\C2.764/.02/.072;\C2.746/.02/.073;\C2.727/.02/.074;
+                        \C2.708/.02/.074;\C2.688/.02/.075;\C2.667/.02/.076;\C2.645/.02/.077;\C2.623/.02/.077;\C2.6/.02/.078;\C2.577/.02/.078;\C2.553/.02/.079;\C2.528/.02/.08;\C2.503/.02/.08;
+                        \C2.477/.02/.081;\C2.45/.02/.082;\C2.423/.02/.082;\C2.395/.02/.083;\C2.367/.02/.083;\C2.338/.02/.084;\C2.308/.02/.085;\C2.278/.02/.085;\C2.247/.02/.086;\C2.216/.02/.086;
+                        \C2.185/.02/.087;\C2.152/.02/.087;\C2.12/.02/.088;\C2.086/.02/.088;\C2.053/.02/.089;\C2.019/.02/.089;\C1.984/.02/.09;\C1.949/.02/.09;\C1.913/.02/.091;\C1.877/.02/.091;
+                        \C1.841/.02/.091;\C1.804/.02/.092;\C1.767/.02/.092;\C1.729/.02/.093;\C1.691/.02/.093;\C1.653/.02/.093;\C1.614/.02/.094;\C1.575/.02/.094;\C1.535/.02/.094;\C1.495/.02/.095;
+                        \C1.455/.02/.095;\C1.415/.02/.095;\C1.374/.02/.096;\C1.333/.02/.096;\C1.292/.02/.096;\C1.25/.02/.097;\C1.208/.02/.097;\C1.166/.02/.097;\C1.124/.02/.097;\C1.081/.02/.098;
+                        \C1.038/.02/.098;\C.995/.02/.098;\C.952/.02/.098;\C.909/.02/.098;\C.865/.02/.099;\C.821/.02/.099;\C.777/.02/.099;\C.733/.02/.099;\C.689/.02/.099;\C.645/.02/.099;
+                        \C.6/.02/.099;\C.556/.02/.1;\C.511/.02/.1;\C.467/.02/.1;\C.422/.02/.1;\C.377/.02/.1;\C.332/.02/.1;\C.287/.02/.1;\C.242/.02/.1;\C.197/.02/.1;
+                        $}}
+                        \rlap{\kern17.1em\hbox{$
+                        \color{#3f6286}
+                        \def\C#1/#2/#3;{\raise#1em\hbox{$\rule{#2em}{#3em}$}}
+                        \C.152/.02/.1;\C.107/.02/.1;\C.062/.02/.1;\C.017/.02/.1;\C-.028/.02/.1;
+                        $}}
+                        \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                        \def\H#1/#2/#3;{\P{#1}{#2}{\rule{#3em}{.022em}}}
+                        \def\V#1/#2/#3;{\P{#1}{#2}{\rule{.022em}{#3em}}}
+                        \P{1.2}{-3.35}{\rule{.025em}{7em}}
+                        \P{1.03}{3.5}{\scriptscriptstyle\blacktriangle}
+                        \P{1.2}{0}{\rule{.75em}{.025em}}
+                        \P{2.7}{0}{\rule{15.35em}{.025em}}
+                        \P{2.05}{-.175}{\scriptstyle /\!/}
+                        \P{17.92}{-.14}{\scriptscriptstyle\blacktriangleright}
+                        \P{18.25}{-.18}{\scriptstyle x}
+                        \P{.7}{-.65}{\scriptstyle 0}
+                        \P{.55}{2.85}{\scriptstyle 1}
+                        \P{.2}{-3.15}{\scriptstyle -1}
+                        \P{1.1}{3}{\rule{.2em}{.025em}}
+                        \P{1.1}{-3}{\rule{.2em}{.025em}}
+                        \P{3.2}{-.1}{\rule{.025em}{.2em}}
+                        \P{8.8}{-.1}{\rule{.025em}{.2em}}
+                        \P{10.2}{-.1}{\rule{.025em}{.2em}}
+                        \P{17.2}{-.1}{\rule{.025em}{.2em}}
+                        {\color{#929292}
+                        \H1.45/3/.13;\H1.74/3/.13;\H2.03/3/.13;\H2.32/3/.13;\H2.61/3/.13;\H2.9/3/.13;\H3.19/3/.13;\H3.48/3/.13;
+                        \H3.77/3/.13;\H4.06/3/.13;\H4.35/3/.13;\H4.64/3/.13;\H4.93/3/.13;\H5.22/3/.13;\H5.51/3/.13;\H5.8/3/.13;
+                        \H6.09/3/.13;\H6.38/3/.13;\H6.67/3/.13;\H6.96/3/.13;\H7.25/3/.13;\H7.54/3/.13;\H7.83/3/.13;\H8.12/3/.13;
+                        \H8.41/3/.13;
+                        \V8.8/-4.15/.13;\V8.8/-3.86/.13;\V8.8/-3.57/.13;\V8.8/-3.28/.13;\V8.8/-2.99/.13;\V8.8/-2.7/.13;\V8.8/-2.41/.13;\V8.8/-2.12/.13;
+                        \V8.8/-1.83/.13;\V8.8/-1.54/.13;\V8.8/-1.25/.13;\V8.8/-.96/.13;\V8.8/-.67/.13;\V8.8/-.38/.13;\V8.8/-.09/.13;\V8.8/.2/.13;
+                        \V8.8/.49/.13;\V8.8/.78/.13;\V8.8/1.07/.13;\V8.8/1.36/.13;\V8.8/1.65/.13;\V8.8/1.94/.13;\V8.8/2.23/.13;\V8.8/2.52/.13;
+                        \V10.2/-3.2/.13;\V10.2/-2.91/.13;\V10.2/-2.62/.13;\V10.2/-2.33/.13;\V10.2/-2.04/.13;\V10.2/-1.75/.13;\V10.2/-1.46/.13;\V10.2/-1.17/.13;
+                        \V10.2/-.88/.13;\V10.2/-.59/.13;\V10.2/-.3/.07;
+                        \V3.2/-3.2/.13;\V3.2/-2.91/.13;\V3.2/-2.62/.13;\V3.2/-2.33/.13;\V3.2/-2.04/.13;\V3.2/-1.75/.13;\V3.2/-1.46/.13;\V3.2/-1.17/.13;
+                        \V3.2/-.88/.13;\V3.2/-.59/.13;\V3.2/-.3/.07;
+                        \V17.2/-3.2/.13;\V17.2/-2.91/.13;\V17.2/-2.62/.13;\V17.2/-2.33/.13;\V17.2/-2.04/.13;\V17.2/-1.75/.13;\V17.2/-1.46/.13;\V17.2/-1.17/.13;
+                        \V17.2/-.88/.13;\V17.2/-.59/.13;\V17.2/-.3/.07;
+                        }
+                        \P{2.6}{-3.85}{\scriptstyle\frac1{15\pi}}
+                        \P{16.6}{-3.85}{\scriptstyle\frac1{10\pi}}
+                        \P{8.2}{-4.85}{\scriptstyle\frac2{25\pi}}
+                        \P{9.6}{-3.85}{\scriptstyle\frac1{12\pi}}
+                        \P{8.625}{2.825}{\color{#3f6286}\scriptstyle\bullet}
+                        \P{10.025}{-.175}{\color{#3f6286}\scriptstyle\bullet}
+                        \phantom{\rule[-5.35em]{19.2em}{9.45em}}
+                        }
+                      \]
+                    </div>
                   </div>
                 </div>
               </details>
@@ -8881,12 +9563,11 @@
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture17-uniform-definition-1">
                     <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
-                    <p>We say \(f\) is <strong>uniformly continuous</strong> on \(S\) if \(\forall\epsilon&gt;0\), \(\exists\delta&gt;0\) s.t. \(\forall x,c\in S\),</p>
+                    <p>We say \(f\) is <strong>uniformly continuous</strong> on \(S\) if \(\forall\epsilon&gt;0\), \(\exists\delta&gt;0\) s.t. \(\forall x,y\in S\),</p>
                     \[
-                      |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                      |x-y|&lt;\delta\implies |f(x)-f(y)|&lt;\epsilon.
                     \]
-                    <p><strong>Remark.</strong> Here \(\delta=\delta(\epsilon)\) depends only on \(\epsilon\).</p>
-                    <p>The same \(\delta\) must work for every pair \(x,c\in S\).</p>
+                    <p><strong>Remark.</strong> Here \(\delta=\delta(\epsilon)\) depends only on \(\epsilon\): the outputs \(f(x),f(y)\) are uniformly \(\epsilon\)-close whenever the inputs \(x,y\) are uniformly \(\delta\)-close.</p>
                   </div>
                 </div>
               </details>
@@ -8907,12 +9588,12 @@
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-square-2">
                     <p><strong>Proof.</strong> Let \(\epsilon&gt;0\) and choose \(\delta=\epsilon/2&gt;0\).</p>
-                    <p>Let \(x,c\in[0,1]\) satisfy \(|x-c|&lt;\delta\).</p>
-                    <p>Since \(|x+c|\leq2\),</p>
+                    <p>Let \(x,y\in[0,1]\) satisfy \(|x-y|&lt;\delta\).</p>
+                    <p>Since \(|x+y|\leq2\),</p>
                     \[
                       \begin{aligned}
-                      |x^2-c^2|&amp;=|x+c||x-c|\\
-                               &amp;\leq2|x-c|&lt;2\delta=\epsilon.
+                      |x^2-y^2|&amp;=|x+y||x-y|\\
+                               &amp;\leq2|x-y|&lt;2\delta=\epsilon.
                       \end{aligned}
                     \]
                     <p>Thus \(f\) is uniformly continuous on \([0,1]\).</p>
@@ -8928,48 +9609,13 @@
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture17-uniform-negation-1">
                     <p><strong>Negation.</strong> Let \(S\subseteq\mathbb{R}\) and let \(f:S\to\mathbb{R}\).</p>
-                    <p>Then \(f\) is <strong>not uniformly continuous</strong> on \(S\) if and only if \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0\), \(\exists x,c\in S\) with</p>
+                    <p>Then \(f\) is <strong>not uniformly continuous</strong> on \(S\) if and only if \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0\), \(\exists x,y\in S\) with</p>
                     \[
-                      |x-c|&lt;\delta
+                      |x-y|&lt;\delta
                       \quad\text{and}\quad
-                      |f(x)-f(c)|\geq\epsilon_0.
+                      |f(x)-f(y)|\geq\epsilon_0.
                     \]
-                  </div>
-                </div>
-              </details>
-              <details class="lecture-node lecture17-single-spaced" id="lecture17-reciprocal-not-uniform">
-                <summary>
-                  <span class="lecture-branch">├──</span>
-                  <span class="lecture-toggle" aria-hidden="true"></span>
-                  <span class="lecture-label">the-reciprocal-is-not-uniformly-continuous/</span>
-                </summary>
-                <div class="lecture-note">
-                  <div class="lecture-block" id="lecture17-reciprocal-not-uniform-1">
-                    <p><strong>Example.</strong> The function \(f:(0,1)\to\mathbb{R}\) given by</p>
-                    \[
-                      f(x)=\frac1x
-                    \]
-                    <p>is continuous but not uniformly continuous on \((0,1)\).</p>
-                    <p><strong>Remark.</strong> We will use \(\epsilon_0=2\); any \(\epsilon_0&gt;0\) could be used with a suitable choice of \(x,c\).</p>
-                  </div>
-                  <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture17-reciprocal-not-uniform-2">
-                    <p><strong>Proof.</strong> Choose \(\epsilon_0=2\) and let \(\delta&gt;0\).</p>
-                    <p>Set</p>
-                    \[
-                      c=\min\left\{\delta,\frac12\right\},\qquad x=\frac c2.
-                    \]
-                    <p>Then \(0&lt;x&lt;c\leq1/2&lt;1\), so \(x,c\in(0,1)\).</p>
-                    <p>Moreover,</p>
-                    \[
-                      |x-c|=\frac c2\leq\frac\delta2&lt;\delta,
-                    \]
-                    <p>whereas</p>
-                    \[
-                      \left|\frac1x-\frac1c\right|
-                      =\left|\frac2c-\frac1c\right|=\frac1c\geq2=\epsilon_0.
-                    \]
-                    <p>Thus \(f\) is not uniformly continuous on \((0,1)\).</p>
+                    <p><strong>Remark.</strong> \(f\) not being uniformly continuous does not prevent \(f\) from being continuous.</p>
                   </div>
                 </div>
               </details>
@@ -8985,52 +9631,63 @@
                     <p>Then \(f\) is continuous on \([a,b]\) if and only if \(f\) is uniformly continuous on \([a,b]\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
-                  <div class="lecture-block" id="lecture17-uniform-closed-interval-2">
-                    <p><strong>Proof (\(\Leftarrow\)).</strong> Exercise.</p>
-                    <p><strong>Proof (\(\Rightarrow\)).</strong> Suppose \(f\) is continuous but not uniformly continuous.</p>
-                    <p>Fix \(\epsilon_0&gt;0\) from the negation.</p>
-                    <p>Taking \(\delta=1/n\), for each \(n\in\mathbb{N}\) choose \(x_n,c_n\in[a,b]\) s.t.</p>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-continuity">
+                    <p><strong>Proof (\(\Leftarrow\)).</strong> Suppose \(f\) is uniformly continuous.</p>
+                    <p>Fix \(c\in[a,b]\) and \(\epsilon&gt;0\).</p>
+                    <p>Uniform continuity \(\implies\exists\delta&gt;0\) s.t.</p>
                     \[
-                      |x_n-c_n|&lt;\frac1n
+                      \forall x,y\in[a,b],\qquad |x-y|&lt;\delta\implies |f(x)-f(y)|&lt;\epsilon.
+                    \]
+                    <p>Taking \(y=c\), we obtain</p>
+                    \[
+                      \forall x\in[a,b],\qquad |x-c|&lt;\delta\implies |f(x)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Thus \(f\) is continuous at \(c\).</p>
+                    <p>Since \(c\in[a,b]\) was arbitrary, \(f\) is continuous on \([a,b]\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-closed-interval-2">
+                    <p><strong>Proof (\(\Rightarrow\)).</strong> Suppose \(f\) is continuous.</p>
+                    <p>For the sake of contradiction, suppose \(f\) is not uniformly continuous.</p>
+                    <p>Fix \(\epsilon_0&gt;0\) from the negation.</p>
+                    <p>Taking \(\delta=1/n\), for each \(n\in\mathbb{N}\) choose \(x_n,y_n\in[a,b]\) s.t.</p>
+                    \[
+                      |x_n-y_n|&lt;\frac1n
                       \quad\text{and}\quad
-                      |f(x_n)-f(c_n)|\geq\epsilon_0.
+                      |f(x_n)-f(y_n)|\geq\epsilon_0.
                     \]
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-3">
-                    <p>By Bolzano–Weierstrass, there is a subsequence \(\{x_{n_k}\}\) such that \(x_{n_k}\to x\).</p>
-                    <p>Apply Bolzano–Weierstrass to the bounded sequence \(\{c_{n_k}\}\).</p>
-                    <p>There is a subsequence \(\{c_{n_{k_j}}\}\) converging to \(c\).</p>
-                    <p>The corresponding subsequence of \(\{x_{n_k}\}\) still converges to \(x\):</p>
-                    \[
-                      x_{n_{k_j}}\to x,\qquad c_{n_{k_j}}\to c.
-                    \]
-                    <p>Both sequences lie in \([a,b]\), so preservation of order gives \(x,c\in[a,b]\).</p>
+                    <p>Observe \(\{x_n\},\{y_n\}\) are bounded.</p>
+                    <p>Bolzano–Weierstrass on \(\{x_n\}\) \(\implies\exists\) subsequence \(\{x_{n_k}\}\) and \(x\in[a,b]\) s.t. \(x_{n_k}\to x\).</p>
+                    <p>Bolzano–Weierstrass on \(\{y_{n_k}\}\) \(\implies\exists\) subsequence \(\{y_{n_{k_j}}\}\) and \(y\in[a,b]\) s.t. \(y_{n_{k_j}}\to y\).</p>
+                    <p>Note \(x_{n_{k_j}}\to x\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-4">
                     <p>Since \(n_{k_j}\geq k_j\geq j\), we have \(1/n_{k_j}\to0\).</p>
-                    <p>Using \(|x_n-c_n|&lt;1/n\) along the common subsequence,</p>
+                    <p>Using \(|x_n-y_n|&lt;1/n\) along the common subsequence,</p>
                     \[
                       \begin{aligned}
-                      0\leq |x-c|
-                      &amp;=\lim_{j\to\infty}|x_{n_{k_j}}-c_{n_{k_j}}|\\
+                      0\leq |x-y|
+                      &amp;=\lim_{j\to\infty}|x_{n_{k_j}}-y_{n_{k_j}}|\\
                       &amp;\leq\lim_{j\to\infty}\frac1{n_{k_j}}=0.
                       \end{aligned}
                     \]
-                    <p>Thus \(x=c\), and both subsequences converge to \(c\in[a,b]\).</p>
+                    <p>Thus \(x=y\), and both subsequences converge to \(y\in[a,b]\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-5">
-                    <p>By continuity of \(f\) at \(c\) and the sequential characterization,</p>
+                    <p>By continuity of \(f\) at \(y\) and the sequential characterization,</p>
                     \[
-                      f(x_{n_{k_j}})\to f(c),\qquad f(c_{n_{k_j}})\to f(c).
+                      f(x_{n_{k_j}})\to f(y),\qquad f(y_{n_{k_j}})\to f(y).
                     \]
                     <p>Hence</p>
                     \[
                       \begin{aligned}
-                      0=|f(c)-f(c)|
-                      &amp;=\lim_{j\to\infty}|f(x_{n_{k_j}})-f(c_{n_{k_j}})|\\
+                      0=|f(y)-f(y)|
+                      &amp;=\lim_{j\to\infty}|f(x_{n_{k_j}})-f(y_{n_{k_j}})|\\
                       &amp;\geq\epsilon_0&gt;0,
                       \end{aligned}
                     \]
@@ -9042,6 +9699,135 @@
             </div>
           </details>
           <!-- End Lecture 17 uniform continuity -->
+          <!-- Begin Lecture 17 derivatives -->
+          <details class="lecture-node lecture-chapter lecture17-single-spaced" id="lecture-17-derivatives">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">derivatives/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-derivative-definition">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">definition-of-the-derivative/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-derivative-definition-1">
+                    <p><strong>Definition.</strong> Let \(I\subseteq\mathbb{R}\) be an interval containing more than one point, let \(f:I\to\mathbb{R}\), and let \(c\in I\).</p>
+                    <p>We say \(f\) is <strong>differentiable at \(c\)</strong> if the limit</p>
+                    \[
+                      \lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}
+                    \]
+                    <p>exists in \(\mathbb{R}\), with \(x\in I\setminus\{c\}\).</p>
+                    <p>In this case, the <strong>derivative of \(f\) at \(c\)</strong> is</p>
+                    \[
+                      f'(c):=\lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-derivative-definition-2">
+                    <p><strong>Notation.</strong> If \(f\) is differentiable at every \(c\in I\), we say \(f\) is <strong>differentiable on \(I\)</strong>.</p>
+                    <p>Its derivative is the function</p>
+                    \[
+                      f':I\to\mathbb{R},\qquad c\mapsto f'(c).
+                    \]
+                    <p>We also write \(\dfrac{\mathrm{d}f}{\mathrm{d}x}\) for \(f'\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-affine-derivative">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">derivatives-of-affine-functions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-affine-derivative-1">
+                    <p><strong>Example.</strong> Let \(a,b\in\mathbb{R}\) and define \(f:\mathbb{R}\to\mathbb{R}\) by</p>
+                    \[
+                      f(x)=ax+b.
+                    \]
+                    <p>Then \(f\) is differentiable on \(\mathbb{R}\), and \(\forall c\in\mathbb{R}\),</p>
+                    \[
+                      f'(c)=a.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-affine-derivative-2">
+                    <p><strong>Proof.</strong> Let \(c\in\mathbb{R}\).</p>
+                    <p>For \(x\neq c\),</p>
+                    \[
+                      \frac{f(x)-f(c)}{x-c}
+                      =\frac{ax+b-(ac+b)}{x-c}
+                      =a.
+                    \]
+                    <p>Hence</p>
+                    \[
+                      f'(c)=\lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}
+                      =\lim\limits_{x\to c}a=a.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture17-single-spaced" id="lecture17-power-rule">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-power-rule/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture17-power-rule-1">
+                    <p><strong>Example (The Power Rule).</strong> Let \(\alpha\in\mathbb{R}\), let \(n\in\mathbb{N}\), and define \(f:\mathbb{R}\to\mathbb{R}\) by</p>
+                    \[
+                      f(x)=\alpha x^n.
+                    \]
+                    <p>Then \(f\) is differentiable on \(\mathbb{R}\), and \(\forall c\in\mathbb{R}\),</p>
+                    \[
+                      f'(c)=\alpha n c^{n-1}.
+                    \]
+                    <p>For \(n=1\), this means \(f'(c)=\alpha\), including at \(c=0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-power-rule-2">
+                    <p><strong>Proof.</strong> The case \(n=1\) follows from the preceding example.</p>
+                    <p>For \(n\geq2\), observe</p>
+                    \[
+                      \begin{aligned}
+                      &amp;(x-c)\sum_{j=0}^{n-1}x^{n-1-j}c^j\\
+                      &amp;\quad=\sum_{j=0}^{n-1}x^{n-j}c^j
+                      -\sum_{j=0}^{n-1}x^{n-1-j}c^{j+1}\\
+                      &amp;\quad=\sum_{j=0}^{n-1}x^{n-j}c^j
+                      -\sum_{\ell=1}^{n}x^{n-\ell}c^{\ell}\\
+                      &amp;\quad=x^n-c^n.
+                      \end{aligned}
+                    \]
+                    <p>The second equality uses \(\ell=j+1\); the common terms then cancel.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-power-rule-3">
+                    <p>Let \(c\in\mathbb{R}\).</p>
+                    <p>For \(x\neq c\), the identity gives</p>
+                    \[
+                      \frac{\alpha x^n-\alpha c^n}{x-c}
+                      =\alpha\sum_{j=0}^{n-1}x^{n-1-j}c^j.
+                    \]
+                    <p>By the limit laws,</p>
+                    \[
+                      \begin{aligned}
+                      f'(c)
+                      &amp;=\lim\limits_{x\to c}\frac{\alpha x^n-\alpha c^n}{x-c}\\
+                      &amp;=\alpha\sum_{j=0}^{n-1}c^{n-1-j}c^j\\
+                      &amp;=\alpha n c^{n-1}.
+                      \end{aligned}
+                    \]
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 17 derivatives -->
         </div>
     </div>
   </main>
