@@ -628,6 +628,100 @@
       .lecture17-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
     /* End Lecture 17 geometry */
+    /* Begin Lecture 18 geometry */
+    /* Lecture 18 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture18-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture18-single-spaced .lecture-note p,
+    .lecture18-single-spaced .lecture-note ol,
+    .lecture18-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture18-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture18-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture18-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture18-single-spaced {
+      --lecture18-slide-height: 90vh;
+      --lecture18-slide-gap: 10vh;
+      --lecture18-slide-inset: 3vh;
+    }
+    .lecture18-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture18-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture18-single-spaced {
+        --lecture18-slide-height: 90dvh;
+        --lecture18-slide-gap: 10dvh;
+        --lecture18-slide-inset: 3dvh;
+      }
+      .lecture18-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture18-single-spaced .lecture-block {
+        height: var(--lecture18-slide-height);
+        padding-block: var(--lecture18-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture18-slide-inset);
+      }
+      .lecture18-single-spaced .presentation-break {
+        height: var(--lecture18-slide-gap);
+      }
+      .lecture18-single-spaced[open],
+      .lecture18-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 18 geometry */
+    /* Begin Lecture 19 geometry */
+    /* Lecture 19 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture19-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture19-single-spaced .lecture-note p,
+    .lecture19-single-spaced .lecture-note ol,
+    .lecture19-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture19-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture19-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture19-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture19-single-spaced {
+      --lecture19-slide-height: 90vh;
+      --lecture19-slide-gap: 10vh;
+      --lecture19-slide-inset: 3vh;
+    }
+    .lecture19-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture19-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture19-single-spaced {
+        --lecture19-slide-height: 90dvh;
+        --lecture19-slide-gap: 10dvh;
+        --lecture19-slide-inset: 3dvh;
+      }
+      .lecture19-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture19-single-spaced .lecture-block {
+        height: var(--lecture19-slide-height);
+        padding-block: var(--lecture19-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture19-slide-inset);
+      }
+      .lecture19-single-spaced .presentation-break {
+        height: var(--lecture19-slide-gap);
+      }
+      .lecture19-single-spaced[open],
+      .lecture19-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 19 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -9617,6 +9711,17 @@
                     \]
                     <p><strong>Remark.</strong> \(f\) not being uniformly continuous does not prevent \(f\) from being continuous.</p>
                   </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-uniform-negation-scale-remark">
+                    <p><strong>Remark.</strong> If a function is not uniformly continuous, it is somewhat pathological: for some fixed \(\epsilon_0&gt;0\), no matter the scale \(\delta&gt;0\) we choose, we can always find \(x,y\in S\) s.t.</p>
+                    \[
+                      \text{“}x\text{ is }\delta\text{-close to }y\text{”}
+                      \quad\nRightarrow\quad
+                      \text{“}f(x)\text{ is }\epsilon_0\text{-close to }f(y)\text{”}.
+                    \]
+                    <p>E.g., \(\sin(1/x)\) is not uniformly continuous on \((0,1)\): excluding \(0\) gives \(\sin(1/x)\) room to oscillate arbitrarily fast.</p>
+                    <p>In general: if an interval \(I\subseteq\mathbb{R}\) does not contain an endpoint, a continuous \(f:I\to\mathbb{R}\) need not be uniformly continuous.</p>
+                  </div>
                 </div>
               </details>
               <details class="lecture-node lecture17-single-spaced" id="lecture17-uniform-closed-interval">
@@ -9648,21 +9753,28 @@
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-2">
                     <p><strong>Proof (\(\Rightarrow\)).</strong> Suppose \(f\) is continuous.</p>
-                    <p>For the sake of contradiction, suppose \(f\) is not uniformly continuous.</p>
-                    <p>Fix \(\epsilon_0&gt;0\) from the negation.</p>
-                    <p>Taking \(\delta=1/n\), for each \(n\in\mathbb{N}\) choose \(x_n,y_n\in[a,b]\) s.t.</p>
+                    <p>Suppose for contradiction \(f\) is not uniformly continuous: \(\exists\epsilon_0&gt;0\) s.t. \(\forall\delta&gt;0\), \(\exists x,y\in[a,b]\) s.t.</p>
+                    \[
+                      |x-y|&lt;\delta
+                      \quad\text{and}\quad
+                      |f(x)-f(y)|\geq\epsilon_0.
+                    \]
+                    <p>Fixing \(\epsilon_0\):</p>
+                    <p>\(\forall n\in\mathbb{N}\), \(\exists x_n,y_n\in[a,b]\) s.t.</p>
                     \[
                       |x_n-y_n|&lt;\frac1n
                       \quad\text{and}\quad
                       |f(x_n)-f(y_n)|\geq\epsilon_0.
                     \]
+                    <p>Fix such sequences \(\{x_n\},\{y_n\}\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-3">
-                    <p>Observe \(\{x_n\},\{y_n\}\) are bounded.</p>
+                    <p>Observe \(\{x_n\},\{y_n\}\) are bounded: \(\{x_n\},\{y_n\}\subseteq[a,b]\).</p>
                     <p>Bolzano–Weierstrass on \(\{x_n\}\) \(\implies\exists\) subsequence \(\{x_{n_k}\}\) and \(x\in[a,b]\) s.t. \(x_{n_k}\to x\).</p>
                     <p>Bolzano–Weierstrass on \(\{y_{n_k}\}\) \(\implies\exists\) subsequence \(\{y_{n_{k_j}}\}\) and \(y\in[a,b]\) s.t. \(y_{n_{k_j}}\to y\).</p>
                     <p>Note \(x_{n_{k_j}}\to x\).</p>
+                    <p><strong>Remark.</strong> This is where \([a,b]\) being bounded and containing \(a\) and \(b\) is used. Without either, the proof fails here.</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-4">
@@ -9679,7 +9791,7 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-uniform-closed-interval-5">
-                    <p>By continuity of \(f\) at \(y\) and the sequential characterization,</p>
+                    <p>By continuity of \(f\) at \(y\) and the sequential characterization of continuity:</p>
                     \[
                       f(x_{n_{k_j}})\to f(y),\qquad f(y_{n_{k_j}})\to f(y).
                     \]
@@ -9702,7 +9814,7 @@
           <!-- Begin Lecture 17 derivatives -->
           <details class="lecture-node lecture-chapter lecture17-single-spaced" id="lecture-17-derivatives">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">derivatives/</span>
             </summary>
@@ -9715,16 +9827,31 @@
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture17-derivative-definition-1">
-                    <p><strong>Definition.</strong> Let \(I\subseteq\mathbb{R}\) be an interval containing more than one point, let \(f:I\to\mathbb{R}\), and let \(c\in I\).</p>
-                    <p>We say \(f\) is <strong>differentiable at \(c\)</strong> if the limit</p>
+                    <p><strong>Definition.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, let \(f:I\to\mathbb{R}\), and let \(c\in I\).</p>
+                    <p>Define the difference quotient \(q_c:I\setminus\{c\}\to\mathbb{R}\) by</p>
+                    \[
+                      q_c(x)=\frac{f(x)-f(c)}{x-c}.
+                    \]
+                    <p>We say \(f\) is <strong>differentiable at \(c\)</strong> if \(\lim\limits_{x\to c}q_c(x)\) exists in \(\mathbb{R}\).</p>
+                    <p>In this case, the <strong>derivative of \(f\) at \(c\)</strong> is</p>
+                    \[
+                      f'(c):=\lim\limits_{x\to c}q_c(x)
+                      =\lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-derivative-definition-domain-remark">
+                    <p><strong>Remark.</strong> Since \(q_c(c)\) is not well-defined, care is needed in understanding what</p>
                     \[
                       \lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}
                     \]
-                    <p>exists in \(\mathbb{R}\), with \(x\in I\setminus\{c\}\).</p>
-                    <p>In this case, the <strong>derivative of \(f\) at \(c\)</strong> is</p>
+                    <p>actually means.</p>
+                    <p>Indeed, a sequence in \(I\) converging to \(c\) may take on the value \(c\).</p>
+                    <p>This is why \(q_c\) is introduced as a function on \(I\setminus\{c\}\): when \(c\) is a cluster point of this domain, we can ask whether the limit</p>
                     \[
-                      f'(c):=\lim\limits_{x\to c}\frac{f(x)-f(c)}{x-c}.
+                      \lim\limits_{x\to c}q_c(x)
                     \]
+                    <p>exists in \(\mathbb{R}\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-derivative-definition-2">
@@ -9773,21 +9900,21 @@
               </details>
               <details class="lecture-node lecture17-single-spaced" id="lecture17-power-rule">
                 <summary>
-                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
                   <span class="lecture-label">the-power-rule/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture17-power-rule-1">
-                    <p><strong>Example (The Power Rule).</strong> Let \(\alpha\in\mathbb{R}\), let \(n\in\mathbb{N}\), and define \(f:\mathbb{R}\to\mathbb{R}\) by</p>
+                    <p><strong>Example (The Power Rule).</strong> Let \(n\in\mathbb{N}\) and define \(f:\mathbb{R}\to\mathbb{R}\) by</p>
                     \[
-                      f(x)=\alpha x^n.
+                      f(x)=x^n.
                     \]
                     <p>Then \(f\) is differentiable on \(\mathbb{R}\), and \(\forall c\in\mathbb{R}\),</p>
                     \[
-                      f'(c)=\alpha n c^{n-1}.
+                      f'(c)=n c^{n-1}.
                     \]
-                    <p>For \(n=1\), this means \(f'(c)=\alpha\), including at \(c=0\).</p>
+                    <p>For \(n=1\), this means \(f'(c)=1\), including at \(c=0\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture17-power-rule-2">
@@ -9810,16 +9937,555 @@
                     <p>Let \(c\in\mathbb{R}\).</p>
                     <p>For \(x\neq c\), the identity gives</p>
                     \[
-                      \frac{\alpha x^n-\alpha c^n}{x-c}
-                      =\alpha\sum_{j=0}^{n-1}x^{n-1-j}c^j.
+                      \frac{x^n-c^n}{x-c}
+                      =\sum_{j=0}^{n-1}x^{n-1-j}c^j.
                     \]
                     <p>By the limit laws,</p>
                     \[
                       \begin{aligned}
                       f'(c)
-                      &amp;=\lim\limits_{x\to c}\frac{\alpha x^n-\alpha c^n}{x-c}\\
-                      &amp;=\alpha\sum_{j=0}^{n-1}c^{n-1-j}c^j\\
-                      &amp;=\alpha n c^{n-1}.
+                      &amp;=\lim\limits_{x\to c}\frac{x^n-c^n}{x-c}\\
+                      &amp;=\sum_{j=0}^{n-1}c^{n-1-j}c^j\\
+                      &amp;=n c^{n-1}.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture17-power-rule-remark">
+                    <p><strong>Remark.</strong> How would one think to use the identity</p>
+                    \[
+                      x^n-c^n=(x-c)\sum_{j=0}^{n-1}x^{n-1-j}c^j\,?
+                    \]
+                    <p>One might be inspired by</p>
+                    \[
+                      \begin{aligned}
+                      x^2-c^2&amp;=(x+c)(x-c)\\
+                      &amp;\implies\lim\limits_{x\to c}\frac{x^2-c^2}{x-c}=2c,\\[4pt]
+                      x^3-c^3&amp;=(x-c)(x^2+xc+c^2)\\
+                      &amp;\implies\lim\limits_{x\to c}\frac{x^3-c^3}{x-c}=3c^2,
+                      \end{aligned}
+                    \]
+                    <p>to look for a general formula for \(x^n-c^n\) to use.</p>
+                  </div>
+                </div>
+              </details>
+              <!-- Begin Lecture 18 differentiability and continuity -->
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-differentiable-continuous">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">differentiability-implies-continuity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-differentiable-continuous-1">
+                    <p><strong>Theorem.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, let \(f:I\to\mathbb{R}\), and let \(c\in I\).</p>
+                    <p>If \(f\) is differentiable at \(c\), then \(f\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-differentiable-continuous-2">
+                    <p><strong>Proof.</strong> Differentiability implies \(c\) is a cluster point of \(I\), so it suffices to show \(\lim\limits_{x\to c}f(x)=f(c)\).</p>
+                    <p>For \(x\in I\setminus\{c\}\), observe</p>
+                    \[
+                      f(x)=(x-c)\frac{f(x)-f(c)}{x-c}+f(c).
+                    \]
+                    <p>Differentiability and the limit laws give</p>
+                    \[
+                      \begin{aligned}
+                      \lim\limits_{x\to c}f(x)
+                      &amp;=\lim\limits_{x\to c}\left((x-c)\frac{f(x)-f(c)}{x-c}+f(c)\right)\\
+                      &amp;=0\cdot f'(c)+f(c)=f(c).
+                      \end{aligned}
+                    \]
+                    <p>Thus \(f\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-differentiable-continuous-remark">
+                    <p><strong>Remark.</strong> For \(x\in I\setminus\{c\}\), how might one think to use the identity</p>
+                    \[
+                      f(x)=(x-c)\frac{f(x)-f(c)}{x-c}+f(c)\,?
+                    \]
+                    <p>To use differentiability, we want the difference quotient to appear.</p>
+                    <p><strong>Idea.</strong> For each such \(x\), look for \(\alpha,\beta\) s.t.</p>
+                    \[
+                      f(x)=\alpha\frac{f(x)-f(c)}{x-c}+\beta.
+                    \]
+                    <p>Taking \(\alpha=x-c\) cancels the denominator, leaving</p>
+                    \[
+                      f(x)=f(x)-f(c)+\beta\implies\beta=f(c).
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-absolute-not-differentiable">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">continuity-does-not-imply-differentiability/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-absolute-not-differentiable-1">
+                    <p><strong>Question.</strong> If \(f\) is continuous at \(c\), must \(f\) be differentiable at \(c\)?</p>
+                    <p><strong>Example.</strong> The function \(f:\mathbb{R}\to\mathbb{R}\) given by</p>
+                    \[
+                      f(x)=|x|
+                    \]
+                    <p>is continuous on \(\mathbb{R}\), but is not differentiable at \(0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-absolute-not-differentiable-2">
+                    <p><strong>Proof.</strong> Let \(x_n=(-1)^n/n\).</p>
+                    <p>Then \(x_n\neq0\), \(x_n\to0\), and</p>
+                    \[
+                      \frac{f(x_n)-f(0)}{x_n-0}
+                      =\frac{|(-1)^n/n|}{(-1)^n/n}=(-1)^n.
+                    \]
+                    <p>The sequence \(\{(-1)^n\}\) does not converge.</p>
+                    <p>By the sequential characterization of limits, \(\lim\limits_{x\to0}\dfrac{f(x)-f(0)}{x-0}\) does not exist.</p>
+                    <p>Thus \(f\) is not differentiable at \(0\).</p>
+                  </div>
+                </div>
+              </details>
+              <!-- End Lecture 18 differentiability and continuity -->
+            </div>
+          </details>
+          <!-- End Lecture 17 derivatives -->
+          <!-- Begin Lecture 19 differentiation rules and mean value theorem -->
+          <details class="lecture-node lecture-chapter lecture19-single-spaced" id="lecture-19-rules">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">differentiation-rules/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-derivative-algebra">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">algebra-of-derivatives/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-derivative-algebra-1">
+                    <p><strong>Theorem.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, and let \(f,g:I\to\mathbb{R}\) be differentiable at \(c\in I\).</p>
+                    <ol>
+                      <li><strong>Linearity.</strong> For every \(\alpha\in\mathbb{R}\), \(\alpha f+g\) is differentiable at \(c\), and
+                        \[
+                          (\alpha f+g)'(c)=\alpha f'(c)+g'(c).
+                        \]
+                      </li>
+                      <li><strong>Product Rule.</strong> \(fg\) is differentiable at \(c\), and
+                        \[
+                          (fg)'(c)=f'(c)g(c)+f(c)g'(c).
+                        \]
+                      </li>
+                      <li><strong>Quotient Rule.</strong> If \(g(x)\neq0\) for all \(x\in I\), then \(f/g\) is differentiable at \(c\), and
+                        \[
+                          \left(\frac fg\right)'(c)=\frac{f'(c)g(c)-f(c)g'(c)}{g(c)^2}.
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-algebra-2">
+                    <p><strong>Proof (Linearity).</strong> Fix \(\alpha\in\mathbb{R}\).</p>
+                    <p>For \(x\in I\setminus\{c\}\),</p>
+                    \[
+                      \frac{(\alpha f+g)(x)-(\alpha f+g)(c)}{x-c}
+                      =\alpha\frac{f(x)-f(c)}{x-c}+\frac{g(x)-g(c)}{x-c}.
+                    \]
+                    <p>Differentiability of \(f,g\) and the limit laws give</p>
+                    \[
+                      \lim\limits_{x\to c}\frac{(\alpha f+g)(x)-(\alpha f+g)(c)}{x-c}
+                      =\alpha f'(c)+g'(c).
+                    \]
+                    <p>Thus \(\alpha f+g\) is differentiable at \(c\), with the claimed derivative.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-algebra-3">
+                    <p><strong>Proof (Product Rule).</strong> For \(x\in I\setminus\{c\}\), add and subtract \(f(c)g(x)\):</p>
+                    \[
+                      \begin{aligned}
+                      f(x)g(x)-f(c)g(c)
+                      &amp;=(f(x)-f(c))g(x)\\
+                      &amp;\quad+f(c)(g(x)-g(c)).
+                      \end{aligned}
+                    \]
+                    <p>Dividing by \(x-c\),</p>
+                    \[
+                      \frac{f(x)g(x)-f(c)g(c)}{x-c}
+                      =\frac{f(x)-f(c)}{x-c}g(x)+f(c)\frac{g(x)-g(c)}{x-c}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-algebra-4">
+                    <p>Since \(g\) is differentiable at \(c\), it is continuous at \(c\).</p>
+                    <p>Thus \(\lim\limits_{x\to c}g(x)=g(c)\), and the limit laws give</p>
+                    \[
+                      \begin{aligned}
+                      &amp;\lim\limits_{x\to c}\frac{f(x)g(x)-f(c)g(c)}{x-c}\\
+                      &amp;\quad=\lim\limits_{x\to c}\left(\frac{f(x)-f(c)}{x-c}g(x)
+                           +f(c)\frac{g(x)-g(c)}{x-c}\right)\\
+                      &amp;\quad=f'(c)g(c)+f(c)g'(c).
+                      \end{aligned}
+                    \]
+                    <p>Hence \(fg\) is differentiable at \(c\), with the claimed derivative.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-product-rule-remark">
+                    <p><strong>Remark.</strong> How might one think to add and subtract \(f(c)g(x)\)?</p>
+                    <p>To use differentiability, we want the differences \(f(x)-f(c)\) and \(g(x)-g(c)\).</p>
+                    <p><strong>Idea.</strong> For each \(x\in I\setminus\{c\}\), look for \(\alpha,\beta\) s.t.</p>
+                    \[
+                      \begin{aligned}
+                      f(x)g(x)-f(c)g(c)&amp;=\alpha(f(x)-f(c))+\beta(g(x)-g(c))\\
+                      &amp;=\alpha f(x)-\alpha f(c)+\beta g(x)-\beta g(c).
+                      \end{aligned}
+                    \]
+                    <p>We see \(\alpha=g(x),\ \beta=f(c)\) works.</p>
+                    <p>Dividing by \(x-c\) gives the identity used in the proof.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-algebra-5">
+                    <p><strong>Proof (Quotient Rule).</strong> Let \(h=f/g\).</p>
+                    <p>For \(x\in I\setminus\{c\}\), combining fractions gives</p>
+                    \[
+                      \frac{h(x)-h(c)}{x-c}
+                      =\frac{g(c)\dfrac{f(x)-f(c)}{x-c}-f(c)\dfrac{g(x)-g(c)}{x-c}}{g(x)g(c)}.
+                    \]
+                    <p>Since \(g\) is differentiable at \(c\), \(\lim\limits_{x\to c}g(x)=g(c)\neq0\).</p>
+                    <p>The limit laws therefore give</p>
+                    \[
+                      \lim\limits_{x\to c}\frac{h(x)-h(c)}{x-c}
+                      =\frac{g(c)f'(c)-f(c)g'(c)}{g(c)^2}.
+                    \]
+                    <p>Thus \(h=f/g\) is differentiable at \(c\), with the claimed derivative.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-chain-rule">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-chain-rule/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-chain-rule-1">
+                    <p><strong>Theorem (Chain Rule).</strong> Let \(I_1,I_2\subseteq\mathbb{R}\) be intervals.</p>
+                    <p>Suppose \(g:I_1\to I_2\) is differentiable at \(c\in I_1\), and \(f:I_2\to\mathbb{R}\) is differentiable at \(g(c)\).</p>
+                    <p>Then \(f\circ g\) is differentiable at \(c\), and</p>
+                    \[
+                      (f\circ g)'(c)=f'(g(c))g'(c).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-chain-rule-2">
+                    <p><strong>Proof.</strong> Let \(h=f\circ g\) and \(d=g(c)\).</p>
+                    <p>We aim to show \(h'(c)=f'(d)g'(c)\).</p>
+                    <p>Define \(u:I_2\to\mathbb{R}\) and \(v:I_1\to\mathbb{R}\) by</p>
+                    \[
+                      u(y)=\begin{cases}
+                        \dfrac{f(y)-f(d)}{y-d},&amp;y\neq d,\\[4pt]
+                        f'(d),&amp;y=d,
+                      \end{cases}
+                    \]
+                    \[
+                      v(x)=\begin{cases}
+                        \dfrac{g(x)-g(c)}{x-c},&amp;x\neq c,\\[4pt]
+                        g'(c),&amp;x=c.
+                      \end{cases}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-chain-rule-3">
+                    <p>Differentiability of \(f\) at \(d\) gives</p>
+                    \[
+                      \lim\limits_{y\to d}u(y)
+                      =\lim\limits_{y\to d}\frac{f(y)-f(d)}{y-d}
+                      =f'(d)=u(d).
+                    \]
+                    <p>Similarly, differentiability of \(g\) at \(c\) gives</p>
+                    \[
+                      \lim\limits_{x\to c}v(x)
+                      =\lim\limits_{x\to c}\frac{g(x)-g(c)}{x-c}
+                      =g'(c)=v(c).
+                    \]
+                    <p>Thus \(u\) is continuous at \(d\), and \(v\) is continuous at \(c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-chain-rule-4">
+                    <p>Observe that</p>
+                    \[
+                      \begin{aligned}
+                      f(y)-f(d)&amp;=u(y)(y-d) &&amp;\forall y\in I_2,\\
+                      g(x)-g(c)&amp;=v(x)(x-c) &&amp;\forall x\in I_1.
+                      \end{aligned}
+                    \]
+                    <p>Consequently, for every \(x\in I_1\),</p>
+                    \[
+                      \begin{aligned}
+                      h(x)-h(c)&amp;=f(g(x))-f(d)\\
+                               &amp;=u(g(x))(g(x)-g(c))\\
+                               &amp;=u(g(x))v(x)(x-c).
+                      \end{aligned}
+                    \]
+                    <p>This identity also holds when \(g(x)=d\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-chain-rule-5">
+                    <p>Differentiability of \(g\) implies continuity at \(c\).</p>
+                    <p>Since \(u\) is continuous at \(g(c)=d\), composition gives continuity of \(u\circ g\) at \(c\).</p>
+                    <p>For \(x\in I_1\setminus\{c\}\), the identity gives</p>
+                    \[
+                      \frac{h(x)-h(c)}{x-c}=u(g(x))v(x).
+                    \]
+                    <p>Hence, by continuity and the product limit law,</p>
+                    \[
+                      \begin{aligned}
+                      \lim\limits_{x\to c}\frac{h(x)-h(c)}{x-c}
+                      &amp;=u(g(c))v(c)\\
+                      &amp;=f'(g(c))g'(c).
+                      \end{aligned}
+                    \]
+                    <p>Thus \(h=f\circ g\) is differentiable at \(c\), with the claimed derivative.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <details class="lecture-node lecture-chapter lecture19-single-spaced" id="lecture-19-mvt">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">mean-value-theorem-and-applications/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-relative-extrema">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">relative-minima-and-maxima/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-relative-extrema-1">
+                    <p><strong>Definition.</strong> Let \(S\subseteq\mathbb{R}\), let \(f:S\to\mathbb{R}\), and let \(c\in S\).</p>
+                    <p>We say \(f\) has a <strong>relative maximum</strong> at \(c\) if \(\exists\delta&gt;0\) s.t.</p>
+                    \[
+                      \forall x\in S,\qquad |x-c|&lt;\delta\implies f(x)\leq f(c).
+                    \]
+                    <p>We say \(f\) has a <strong>relative minimum</strong> at \(c\) if \(\exists\delta&gt;0\) s.t.</p>
+                    \[
+                      \forall x\in S,\qquad |x-c|&lt;\delta\implies f(x)\geq f(c).
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-derivative-at-extremum">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">derivative-at-an-interior-extremum/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-derivative-at-extremum-1">
+                    <p><strong>Theorem.</strong> Let \(a,b\in\mathbb{R}\) with \(a&lt;b\), and let \(f:[a,b]\to\mathbb{R}\).</p>
+                    <p>If \(f\) has a relative maximum or minimum at \(c\in(a,b)\) and is differentiable at \(c\), then</p>
+                    \[
+                      f'(c)=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-at-extremum-2">
+                    <p><strong>Proof.</strong> Suppose \(f\) has a relative maximum at \(c\).</p>
+                    <p>Choose \(\delta&gt;0\) s.t. \((c-\delta,c+\delta)\subseteq(a,b)\) and \(f(x)\leq f(c)\) for every \(x\in(c-\delta,c+\delta)\).</p>
+                    <p>Let</p>
+                    \[
+                      x_n=c-\frac{\delta}{2n}\in(c-\delta,c).
+                    \]
+                    <p>Then \(x_n\neq c\), \(x_n\to c\), and \(\forall n\in\mathbb{N}\),</p>
+                    \[
+                      \frac{f(x_n)-f(c)}{x_n-c}\geq0.
+                    \]
+                    <p>The sequential characterization of limits and preservation of order give</p>
+                    \[
+                      f'(c)=\lim_{n\to\infty}\frac{f(x_n)-f(c)}{x_n-c}\geq0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-derivative-at-extremum-3">
+                    <p>Now let</p>
+                    \[
+                      y_n=c+\frac{\delta}{2n}\in(c,c+\delta).
+                    \]
+                    <p>Then \(y_n\neq c\), \(y_n\to c\), and \(\forall n\in\mathbb{N}\),</p>
+                    \[
+                      \frac{f(y_n)-f(c)}{y_n-c}\leq0.
+                    \]
+                    <p>As before,</p>
+                    \[
+                      f'(c)=\lim_{n\to\infty}\frac{f(y_n)-f(c)}{y_n-c}\leq0.
+                    \]
+                    <p>Thus \(0\leq f'(c)\leq0\), so \(f'(c)=0\).</p>
+                    <p><strong>Proof (Relative Minimum).</strong> Exercise.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-rolle">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">rolles-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-rolle-1">
+                    <p><strong>Theorem (Rolle's Theorem).</strong> Let \(a,b\in\mathbb{R}\) with \(a&lt;b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous on \([a,b]\) and differentiable on \((a,b)\).</p>
+                    <p>If \(f(a)=f(b)\), then \(\exists c\in(a,b)\) s.t.</p>
+                    \[
+                      f'(c)=0.
+                    \]
+                    <p><strong>Remark.</strong> Are all the hypotheses necessary? Exercise.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-rolle-2">
+                    <p><strong>Proof.</strong> Let \(K=f(a)=f(b)\).</p>
+                    <p>By the Extreme Value Theorem, \(\exists c_1,c_2\in[a,b]\) s.t.</p>
+                    \[
+                      \forall x\in[a,b],\qquad f(c_2)\leq f(x)\leq f(c_1).
+                    \]
+                    <p>If \(f(c_1)&gt;K\), then \(c_1\neq a,b\), so \(c_1\in(a,b)\).</p>
+                    <p>Here \(f\) has a relative maximum at \(c_1\), so the preceding theorem gives \(f'(c_1)=0\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-rolle-3">
+                    <p>If \(f(c_2)&lt;K\), then \(c_2\in(a,b)\), and the relative-minimum case gives \(f'(c_2)=0\).</p>
+                    <p>If neither case occurs, then \(f(c_1)\leq K\leq f(c_2)\), and hence</p>
+                    \[
+                      \forall x\in[a,b],\qquad
+                      K\leq f(c_2)\leq f(x)\leq f(c_1)\leq K.
+                    \]
+                    <p>Thus \(f(x)=K\) for every \(x\in[a,b]\).</p>
+                    <p>Taking \(c=(a+b)/2\in(a,b)\), we again obtain \(f'(c)=0\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-mean-value">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-mean-value-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-mean-value-1">
+                    <p><strong>Theorem (Mean Value Theorem).</strong> Let \(a,b\in\mathbb{R}\) with \(a&lt;b\), and let \(f:[a,b]\to\mathbb{R}\) be continuous on \([a,b]\) and differentiable on \((a,b)\).</p>
+                    <p>Then \(\exists c\in(a,b)\) s.t.</p>
+                    \[
+                      f(b)-f(a)=f'(c)(b-a).
+                    \]
+                    <p><strong>Remark.</strong> We abbreviate the Mean Value Theorem as MVT.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-mean-value-2">
+                    <p><strong>Proof.</strong> Define \(g:[a,b]\to\mathbb{R}\) by</p>
+                    \[
+                      g(x)=f(x)-f(b)+\frac{f(b)-f(a)}{b-a}(b-x).
+                    \]
+                    <p>Then \(g\) is continuous on \([a,b]\) and differentiable on \((a,b)\), with \(g(a)=g(b)=0\).</p>
+                    <p>By Rolle's theorem, \(\exists c\in(a,b)\) s.t.</p>
+                    \[
+                      0=g'(c)=f'(c)-\frac{f(b)-f(a)}{b-a}.
+                    \]
+                    <p>Therefore \(f(b)-f(a)=f'(c)(b-a)\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-zero-derivative">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">zero-derivative-implies-constant/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-zero-derivative-1">
+                    <p><strong>Theorem.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, and let \(f:I\to\mathbb{R}\) be differentiable.</p>
+                    <p>If \(f'(x)=0\) for every \(x\in I\), then \(f\) is constant.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-zero-derivative-2">
+                    <p><strong>Proof.</strong> Let \(a,b\in I\) with \(a&lt;b\).</p>
+                    <p>Since \(I\) is an interval, \([a,b]\subseteq I\).</p>
+                    <p>Differentiability implies \(f\) is continuous on \([a,b]\), and \(f\) is differentiable on \((a,b)\).</p>
+                    <p>By MVT, \(\exists c\in(a,b)\) s.t.</p>
+                    \[
+                      f(b)-f(a)=(b-a)f'(c)=0.
+                    \]
+                    <p>Thus \(f(a)=f(b)\) for all \(a,b\in I\), so \(f\) is constant.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture19-single-spaced" id="lecture19-monotonicity">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">derivative-signs-and-monotonicity/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture19-monotonicity-1">
+                    <p><strong>Definition.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, and let \(f:I\to\mathbb{R}\).</p>
+                    <p>We say \(f\) is <strong>increasing</strong> on \(I\) if</p>
+                    \[
+                      \forall a,b\in I,\qquad a&lt;b\implies f(a)\leq f(b).
+                    \]
+                    <p>We say \(f\) is <strong>decreasing</strong> on \(I\) if</p>
+                    \[
+                      \forall a,b\in I,\qquad a&lt;b\implies f(a)\geq f(b).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-monotonicity-2">
+                    <p><strong>Theorem.</strong> Let \(I\subseteq\mathbb{R}\) be an interval, and let \(f:I\to\mathbb{R}\) be differentiable.</p>
+                    <ol>
+                      <li>\(f\) is increasing if and only if \(f'(x)\geq0\) for every \(x\in I\).</li>
+                      <li>\(f\) is decreasing if and only if \(f'(x)\leq0\) for every \(x\in I\).</li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-monotonicity-3">
+                    <p><strong>Proof (1, \(\Leftarrow\)).</strong> Suppose \(f'(x)\geq0\) for every \(x\in I\).</p>
+                    <p>Let \(a,b\in I\) with \(a&lt;b\).</p>
+                    <p>Since \([a,b]\subseteq I\), differentiability implies \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\).</p>
+                    <p>By MVT, \(\exists c\in(a,b)\) s.t.</p>
+                    \[
+                      f(b)-f(a)=(b-a)f'(c)\geq0.
+                    \]
+                    <p>Thus \(f(a)\leq f(b)\), so \(f\) is increasing.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-monotonicity-4">
+                    <p><strong>Proof (1, \(\Rightarrow\)).</strong> Suppose \(f\) is increasing, and fix \(c\in I\).</p>
+                    <p>Differentiability makes \(c\) a cluster point of \(I\setminus\{c\}\).</p>
+                    <p>Let \(\{x_n\}\) be any sequence in \(I\setminus\{c\}\) with \(x_n\to c\).</p>
+                    <p>For every \(n\in\mathbb{N}\),</p>
+                    <ul>
+                      <li>if \(x_n&lt;c\), then \(f(x_n)-f(c)\leq0\) and \(x_n-c&lt;0\);</li>
+                      <li>if \(x_n&gt;c\), then \(f(x_n)-f(c)\geq0\) and \(x_n-c&gt;0\).</li>
+                    </ul>
+                    <p>In either case,</p>
+                    \[
+                      \frac{f(x_n)-f(c)}{x_n-c}\geq0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture19-monotonicity-5">
+                    <p>The sequential characterization of limits and preservation of order give</p>
+                    \[
+                      f'(c)=\lim_{n\to\infty}\frac{f(x_n)-f(c)}{x_n-c}\geq0.
+                    \]
+                    <p>Since \(c\in I\) was arbitrary, this proves 1.</p>
+                    <p><strong>Proof (2).</strong> Apply 1. to \(-f\), noting that \((-f)'=-f'\):</p>
+                    \[
+                      \begin{aligned}
+                      f\text{ is decreasing}
+                      &amp;\iff -f\text{ is increasing}\\
+                      &amp;\iff\forall x\in I,\ (-f)'(x)\geq0\\
+                      &amp;\iff\forall x\in I,\ f'(x)\leq0.
                       \end{aligned}
                     \]
                   </div>
@@ -9827,7 +10493,7 @@
               </details>
             </div>
           </details>
-          <!-- End Lecture 17 derivatives -->
+          <!-- End Lecture 19 differentiation rules and mean value theorem -->
         </div>
     </div>
   </main>
