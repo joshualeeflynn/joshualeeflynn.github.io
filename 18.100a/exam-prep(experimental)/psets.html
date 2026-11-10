@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Practice with Psets 4–6 and reveal useful topics for each problem.">
+  <title>Psets · Exam 2 · 18.100A</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="confidence.css">
+  <link rel="stylesheet" href="psets.css">
+  <script src="data.js" defer></script>
+  <script src="psets-data.js" defer></script>
+  <script src="psets-model.js" defer></script>
+  <script src="confidence.js" defer></script>
+  <script src="confidence-controls.js" defer></script>
+  <script src="math.js" defer></script>
+  <script src="psets.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#psets-main">Skip to problem sets</a>
+  <header class="masthead">
+    <div class="course-mark">18.100A</div>
+    <div class="masthead-title">Exam 2 <span aria-hidden="true">/</span> dependency map</div>
+    <div class="masthead-actions">
+      <nav class="page-nav" aria-label="Map pages"><a href="index.html">Topics</a><a href="overview.html">Big picture</a><a href="checklist.html">Checklist</a><a href="psets.html" aria-current="page">Psets</a></nav>
+      <button id="reset-confidence" class="reset-confidence" type="button" title="Mark every topic and problem Unsure">Reset Confidence</button>
+    </div>
+  </header>
+  <p id="math-status" class="math-status" role="status" hidden></p>
+  <main id="psets-main" class="psets-main" tabindex="-1">
+    <header class="psets-intro">
+      <h1>Psets</h1>
+      <p>Use the thumbs for a problem or a whole Pset. Open “Useful topics” for hints.</p>
+    </header>
+    <noscript><p>Enable JavaScript to view the problems and their topic links.</p></noscript>
+    <p id="psets-storage-note" class="confidence-note" role="status"></p>
+    <div id="pset-list"></div>
+  </main>
+  <div id="psets-announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

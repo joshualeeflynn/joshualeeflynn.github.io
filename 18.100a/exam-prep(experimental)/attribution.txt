@@ -1,0 +1,19 @@
+Exam 2 dependency map — MIT 18.100A, Fall 2026
+
+Scope: exam2-theory-outline-high-level.txt in the course workspace.
+Statements, complete proofs, and proof connections were checked against the current course lecture
+slides, their working TeX references, and Pset 6 Problem 7.
+
+The working source notes originate from:
+MIT OpenCourseWare, 18.100A Real Analysis, Fall 2020, Dr. Casey Rodriguez.
+https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/
+License: Creative Commons Attribution-NonCommercial-ShareAlike.
+https://ocw.mit.edu/terms/
+
+This prototype presents the mathematical statements and concise complete proofs, and adds
+dependency descriptions. Adapted educational content retains
+the source's Attribution-NonCommercial-ShareAlike terms. This attribution does not
+assert a license over the instructor's independent course materials or over the
+application code.
+
+No affiliation or endorsement beyond the original course/source attribution is implied.

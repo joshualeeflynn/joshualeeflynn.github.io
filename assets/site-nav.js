@@ -50,6 +50,11 @@
           id: "18-100a-ai-use",
           label: "ai-use/",
           href: "/18.100a/ai-use/"
+        },
+        {
+          id: "18-100a-exam-prep",
+          label: "exam-prep(experimental)/",
+          href: "/18.100a/exam-prep(experimental)/"
         }
       ]
     },
