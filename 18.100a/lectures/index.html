@@ -722,6 +722,105 @@
       .lecture19-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
     /* End Lecture 19 geometry */
+    /* Begin Lecture 20 geometry */
+    /* Lecture 20 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture20-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture20-single-spaced .lecture-note p,
+    .lecture20-single-spaced .lecture-note ol,
+    .lecture20-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture20-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture20-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture20-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture20-single-spaced {
+      --lecture20-slide-height: 90vh;
+      --lecture20-slide-gap: 10vh;
+      --lecture20-slide-inset: 3vh;
+    }
+    .lecture20-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture20-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture20-single-spaced {
+        --lecture20-slide-height: 90dvh;
+        --lecture20-slide-gap: 10dvh;
+        --lecture20-slide-inset: 3dvh;
+      }
+      .lecture20-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture20-single-spaced .lecture-block {
+        height: var(--lecture20-slide-height);
+        padding-block: var(--lecture20-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture20-slide-inset);
+      }
+      .lecture20-single-spaced .presentation-break {
+        height: var(--lecture20-slide-gap);
+      }
+      .lecture20-single-spaced[open],
+      .lecture20-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 20 geometry */
+    /* Begin Lecture 21 geometry */
+    /* Lecture 21 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture21-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture21-single-spaced .lecture-note p,
+    .lecture21-single-spaced .lecture-note ol,
+    .lecture21-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture21-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture21-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture21-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture21-single-spaced {
+      --lecture21-slide-height: 90vh;
+      --lecture21-slide-gap: 10vh;
+      --lecture21-slide-inset: 3vh;
+    }
+    .lecture21-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture21-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture21-single-spaced {
+        --lecture21-slide-height: 90dvh;
+        --lecture21-slide-gap: 10dvh;
+        --lecture21-slide-inset: 3dvh;
+      }
+      .lecture21-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture21-single-spaced .lecture-block {
+        height: var(--lecture21-slide-height);
+        padding-block: var(--lecture21-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture21-slide-inset);
+      }
+      .lecture21-single-spaced .presentation-break {
+        height: var(--lecture21-slide-gap);
+      }
+      .lecture21-single-spaced[open],
+      .lecture21-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* Indent the proof navigation while keeping its slides aligned with the theorem. */
+    #lecture21-integral-theorem > .lecture-children,
+    #lecture21-convergence-proof > .lecture-children { padding-left: 0; }
+    #lecture21-convergence-proof > summary { padding-left: 2ch; }
+    #lecture21-convergence-proof > .lecture-children > .lecture-node > summary { padding-left: 4ch; }
+    /* End Lecture 21 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -10253,7 +10352,7 @@
           </details>
           <details class="lecture-node lecture-chapter lecture19-single-spaced" id="lecture-19-mvt">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">mean-value-theorem-and-applications/</span>
             </summary>
@@ -10494,6 +10593,1353 @@
             </div>
           </details>
           <!-- End Lecture 19 differentiation rules and mean value theorem -->
+          <!-- Begin Lecture 18 Weierstrass function -->
+          <details class="lecture-node lecture-chapter lecture18-single-spaced" id="lecture-18">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">a-continuous-nowhere-differentiable-function/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-nowhere-differentiable-question">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-question/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-question-1">
+                    <p><strong>Question.</strong> If \(f:\mathbb{R}\to\mathbb{R}\) is continuous, must \(f\) be differentiable at some \(c\in\mathbb{R}\)?</p>
+                    <p>No. Weierstrass constructed a continuous function that is nowhere differentiable.</p>
+                    <p>The idea is to build a continuous function as a sum of highly oscillating functions.</p>
+                    <p>We first prove three theorems to use in the construction.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-cosine-estimates">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">two-cosine-estimates/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-cosine-estimates-1">
+                    <p><strong>Theorem I.</strong></p>
+                    <ol>
+                      <li>For all \(x,y\in\mathbb{R}\),
+                        \[
+                          |\cos x-\cos y|\leq|x-y|.
+                        \]
+                      </li>
+                      <li>For every \(c\in\mathbb{R}\) and \(K\in\mathbb{N}\), there exists
+                        \[
+                          y\in\left(c+\frac{\pi}{K},c+\frac{3\pi}{K}\right)
+                        \]
+                        s.t. \(|\cos(Kc)-\cos(Ky)|\geq1\).
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-cosine-estimates-2">
+                    <p><strong>Proof (1).</strong> Recall that \(|\sin u-\sin v|\leq|u-v|\) for all \(u,v\in\mathbb{R}\).</p>
+                    <p>Consequently,</p>
+                    \[
+                      \begin{aligned}
+                      |\cos x-\cos y|
+                      &amp;=|\sin(x+\pi/2)-\sin(y+\pi/2)|\\
+                      &amp;\leq|(x+\pi/2)-(y+\pi/2)|\\
+                      &amp;=|x-y|.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-cosine-estimates-3">
+                    <p><strong>Proof (2).</strong> Fix \(c\in\mathbb{R}\) and \(K\in\mathbb{N}\), and set</p>
+                    \[
+                      q=\cos(Kc),\qquad J=\left(c+\frac{\pi}{K},c+\frac{3\pi}{K}\right).
+                    \]
+                    <p>The function \(x\mapsto\cos(Kx)\) traverses one period on \(J\), with value \(-q\) at both endpoints.</p>
+                    <p>Suppose \(|q|&lt;1\).</p>
+                    <p>Both \(-1\) and \(1\) are attained inside \(J\), since neither endpoint is an extremum.</p>
+                    <p>Choose \(y\in J\) with \(\cos(Ky)=-1\) if \(q\geq0\), and \(\cos(Ky)=1\) if \(q&lt;0\).</p>
+                    \[
+                      |\cos(Kc)-\cos(Ky)|=1+|q|\geq1.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-cosine-estimates-4">
+                    <p>If \(|q|=|\cos(Kc)|=1\), then \(\sin(Kc)=0\).</p>
+                    <p>Choose</p>
+                    \[
+                      y=c+\frac{3\pi}{2K}\in\left(c+\frac{\pi}{K},c+\frac{3\pi}{K}\right).
+                    \]
+                    <p>Then</p>
+                    \[
+                      \cos(Ky)=\cos(Kc+3\pi/2)=\sin(Kc)=0,
+                    \]
+                    <p>and hence \(|\cos(Kc)-\cos(Ky)|=1\).</p>
+                    <p>This proves (2) in every case.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-triangle-lower-bound">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-lower-bound-from-the-triangle-inequality/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-triangle-lower-bound-1">
+                    <p><strong>Theorem II.</strong> For all \(a,b,c\in\mathbb{R}\),</p>
+                    \[
+                      |a+b+c|\geq|a|-|b|-|c|.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-triangle-lower-bound-2">
+                    <p><strong>Proof.</strong> Apply the triangle inequality twice:</p>
+                    \[
+                      \begin{aligned}
+                      |a|&amp;=|(a+b+c)-(b+c)|\\
+                         &amp;\leq|a+b+c|+|b+c|\\
+                         &amp;\leq|a+b+c|+|b|+|c|.
+                      \end{aligned}
+                    \]
+                    <p>Rearranging gives the claim.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-weierstrass-continuity">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">a-bounded-continuous-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-weierstrass-continuity-1">
+                    <p><strong>Theorem III.</strong> For every \(x\in\mathbb{R}\), the series</p>
+                    \[
+                      \sum_{k=0}^{\infty}\frac{\cos(160^k x)}{4^k}
+                    \]
+                    <p>converges absolutely.</p>
+                    <p>Its sum defines a bounded continuous function</p>
+                    \[
+                      f:\mathbb{R}\to\mathbb{R},\qquad
+                      f(x)=\sum_{k=0}^{\infty}\frac{\cos(160^k x)}{4^k}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-weierstrass-continuity-2">
+                    <p><strong>Proof (Absolute Convergence and Boundedness).</strong> For every \(x\in\mathbb{R}\) and \(k\geq0\),</p>
+                    \[
+                      \left|\frac{\cos(160^k x)}{4^k}\right|\leq4^{-k}.
+                    \]
+                    <p>Since \(\sum_{k=0}^{\infty}4^{-k}=4/3\), the comparison test gives absolute convergence.</p>
+                    <p>Moreover, taking limits in the finite triangle inequality gives</p>
+                    \[
+                      |f(x)|\leq\sum_{k=0}^{\infty}\frac{|\cos(160^k x)|}{4^k}
+                      \leq\frac43.
+                    \]
+                    <p>Thus \(f\) is bounded on \(\mathbb{R}\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-weierstrass-continuity-3">
+                    <p><strong>Proof (Continuity).</strong> Fix \(c\in\mathbb{R}\) and a sequence \(x_n\to c\).</p>
+                    <p>Since \(0\leq|f(x_n)-f(c)|\leq8/3\), the limsup criterion gives</p>
+                    \[
+                      |f(x_n)-f(c)|\to0
+                      \iff\limsup_{n\to\infty}|f(x_n)-f(c)|=0.
+                    \]
+                    <p>Let \(\epsilon&gt;0\).</p>
+                    <p>Choose an integer \(M\geq0\) s.t.</p>
+                    \[
+                      \sum_{k=M+1}^{\infty}4^{-k}&lt;\frac\epsilon2.
+                    \]
+                    <p>We estimate the finite initial sum and the remaining tail separately.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-weierstrass-continuity-4">
+                    <p>By Theorem I(1), for every \(k\geq0\),</p>
+                    \[
+                      |\cos(160^k x_n)-\cos(160^k c)|
+                      \leq160^k|x_n-c|.
+                    \]
+                    <p>Absolute convergence and the triangle inequality therefore give</p>
+                    \[
+                      \begin{aligned}
+                      |f(x_n)-f(c)|
+                      &amp;\leq\sum_{k=0}^{M}4^{-k}|\cos(160^k x_n)-\cos(160^k c)|\\
+                      &amp;\quad+2\sum_{k=M+1}^{\infty}4^{-k}\\
+                      &amp;\leq\left(\sum_{k=0}^{M}40^k\right)|x_n-c|+\epsilon.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-weierstrass-continuity-5">
+                    <p>Since \(M\) is fixed and \(x_n\to c\),</p>
+                    \[
+                      \left(\sum_{k=0}^{M}40^k\right)|x_n-c|+\epsilon\longrightarrow\epsilon.
+                    \]
+                    <p>Apply the preceding bound along a subsequence approaching the limsup:</p>
+                    \[
+                      0\leq\limsup_{n\to\infty}|f(x_n)-f(c)|\leq\epsilon.
+                    \]
+                    <p>Since \(\epsilon&gt;0\) was arbitrary, this limsup is \(0\).</p>
+                    <p>Consequently \(f(x_n)\to f(c)\).</p>
+                    <p>The sequential characterization implies \(f\) is continuous at \(c\), and hence on \(\mathbb{R}\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture18-single-spaced" id="lecture18-nowhere-differentiable">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">weierstrass-nowhere-differentiable-function/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-1">
+                    <p><strong>Theorem (Weierstrass).</strong> The function \(f:\mathbb{R}\to\mathbb{R}\) defined by</p>
+                    \[
+                      f(x)=\sum_{k=0}^{\infty}\frac{\cos(160^k x)}{4^k}
+                    \]
+                    <p>is nowhere differentiable.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-2">
+                    <p><strong>Proof.</strong> Fix \(c\in\mathbb{R}\). We will find a sequence approaching \(c\) whose difference quotients are unbounded.</p>
+                    <p>By Theorem I(2), for each \(n\in\mathbb{N}\) choose \(x_n\) s.t.</p>
+                    \[
+                      \begin{aligned}
+                      &amp;\frac{\pi}{160^n}&lt;x_n-c&lt;\frac{3\pi}{160^n},\\
+                      &amp;|\cos(160^n c)-\cos(160^n x_n)|\geq1.
+                      \end{aligned}
+                    \]
+                    <p>Thus \(x_n\neq c\) and \(x_n\to c\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-3">
+                    <p>Let \(f_k(x)=4^{-k}\cos(160^k x)\). Fix \(n\in\mathbb{N}\) and set</p>
+                    \[
+                      \begin{aligned}
+                      a_n&amp;=f_n(c)-f_n(x_n),\\
+                      b_n&amp;=\sum_{k=0}^{n-1}\bigl(f_k(c)-f_k(x_n)\bigr),\\
+                      c_n&amp;=\sum_{k=n+1}^{\infty}\bigl(f_k(c)-f_k(x_n)\bigr).
+                      \end{aligned}
+                    \]
+                    <p>Absolute convergence gives \(f(c)-f(x_n)=a_n+b_n+c_n\).</p>
+                    <p>By Theorem II,</p>
+                    \[
+                      |f(c)-f(x_n)|\geq |a_n|-|b_n|-|c_n|.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-4">
+                    <p>By choice of \(x_n\),</p>
+                    \[
+                      |a_n|=4^{-n}|\cos(160^n c)-\cos(160^n x_n)|\geq4^{-n}.
+                    \]
+                    <p>By Theorem I(1),</p>
+                    \[
+                      \begin{aligned}
+                      |b_n|&amp;\leq\sum_{k=0}^{n-1}4^{-k}|\cos(160^k c)-\cos(160^k x_n)|\\
+                           &amp;\leq |x_n-c|\sum_{k=0}^{n-1}40^k.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-5">
+                    <p>Since \(|x_n-c|&lt;3\pi/160^n\) and \(\pi&lt;4\),</p>
+                    \[
+                      \begin{aligned}
+                      |b_n|&amp;\leq\frac{3\pi}{160^n}\sum_{k=0}^{n-1}40^k\\
+                           &amp;=\frac{3\pi}{160^n}\frac{40^n-1}{39}\\
+                           &amp;\leq\frac{\pi}{13}\,4^{-n}\\
+                           &amp;\leq\frac4{13}\,4^{-n}.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-6">
+                    <p>For the remaining tail, \(|\cos t|\leq1\) gives</p>
+                    \[
+                      \begin{aligned}
+                      |c_n|&amp;\leq\sum_{k=n+1}^{\infty}4^{-k}
+                        \bigl(|\cos(160^k c)|+|\cos(160^k x_n)|\bigr)\\
+                           &amp;\leq2\sum_{k=n+1}^{\infty}4^{-k}\\
+                           &amp;=2\cdot4^{-n-1}\frac{1}{1-1/4}\\
+                           &amp;=\frac23\,4^{-n}.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-7">
+                    <p>Altogether,</p>
+                    \[
+                      \begin{aligned}
+                      |f(c)-f(x_n)|
+                      &amp;\geq4^{-n}\left(1-\frac4{13}-\frac23\right)\\
+                      &amp;=\frac{4^{-n}}{39}.
+                      \end{aligned}
+                    \]
+                    <p>Since \(0&lt;|x_n-c|&lt;3\pi/160^n\),</p>
+                    \[
+                      \left|\frac{f(x_n)-f(c)}{x_n-c}\right|
+                      \geq\frac{160^n}{3\pi}\frac{4^{-n}}{39}
+                      =\frac{40^n}{117\pi}\longrightarrow\infty.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture18-nowhere-differentiable-8">
+                    <p>If \(f\) were differentiable at \(c\), the sequential characterization of limits would give</p>
+                    \[
+                      \frac{f(x_n)-f(c)}{x_n-c}\longrightarrow f'(c).
+                    \]
+                    <p>The difference quotients would then form a bounded sequence, a contradiction.</p>
+                    <p>Since \(c\in\mathbb{R}\) was arbitrary, \(f\) is nowhere differentiable.</p>
+                    <p><strong>Remark.</strong> Together with Theorem III, this gives a continuous function that is nowhere differentiable.</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 18 Weierstrass function -->
+          <!-- Begin Lecture 20 Taylor's theorem and second derivative test -->
+          <details class="lecture-node lecture-chapter lecture20-single-spaced" id="lecture-20">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">taylors-theorem-and-applications/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-higher-derivatives">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">higher-derivatives/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-higher-derivatives-1">
+                    <p><strong>Definition.</strong> Let \(I\subseteq\mathbb{R}\) be an interval and let \(f:I\to\mathbb{R}\).</p>
+                    <p>Starting with \(f^{(0)}=f\), define the <strong>\(k\)th derivative</strong> by</p>
+                    \[
+                      f^{(k)}=\bigl(f^{(k-1)}\bigr)'\qquad(k\geq1)
+                    \]
+                    <p>where the derivative exists.</p>
+                    <p>In particular, \(f^{(1)}=f'\) and \(f^{(2)}=f''\).</p>
+                    <p>For \(n\in\mathbb{N}\) and \(J\subseteq I\), we say \(f\) is <strong>\(n\) times differentiable</strong> on \(J\) if \(f^{(k)}\) exists at every point of \(J\) for each \(1\leq k\leq n\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-taylor-polynomial">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">taylor-polynomials/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-tangent">
+                    <p><strong>Goal.</strong> Approximate \(f\) to order \(n\) at \(x_0\).</p>
+                    <p>If \(f\) is \(n\) times differentiable at \(x_0\), seek a polynomial \(P\) of degree at most \(n\) satisfying</p>
+                    \[
+                      P^{(k)}(x_0)=f^{(k)}(x_0)\qquad(k=0,\ldots,n).
+                    \]
+                    <p><strong>Why?</strong> Polynomials are easier to work with.</p>
+                    <p><strong>Recall.</strong> The tangent line</p>
+                    \[
+                      P_1(x)=f(x_0)+f'(x_0)(x-x_0)
+                    \]
+                    <p>gives a first-order approximation to \(f\) near \(x_0\).</p>
+                    <p>What about higher-order approximations?</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-2">
+                    <p><strong>Observe.</strong></p>
+                    \[
+                      \begin{aligned}
+                      P_1(x_0)&amp;=f(x_0)+f'(x_0)(x_0-x_0)=f(x_0),\\
+                      P_1'(x_0)&amp;=f'(x_0)\cdot 1=f'(x_0).
+                      \end{aligned}
+                    \]
+                    <p><strong>Idea.</strong> Add a quadratic term and evaluate at \(x_0\).</p>
+                    \[
+                      \begin{aligned}
+                      P_2(x)&amp;=f(x_0)+f'(x_0)(x-x_0)+c(x-x_0)^2,\\
+                      P_2(x_0)&amp;=f(x_0)+f'(x_0)(x_0-x_0)+c(x_0-x_0)^2=f(x_0),\\
+                      P_2'(x_0)&amp;=f'(x_0)\cdot 1+2c(x_0-x_0)=f'(x_0),\\
+                      P_2''(x_0)&amp;=2c\cdot 1=2c.
+                      \end{aligned}
+                    \]
+                    <p>If \(f''(x_0)\) exists, then \(P_2''(x_0)=f''(x_0)\iff c=f''(x_0)/2\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-question">
+                    <p><strong>Question.</strong> Suppose \(f\) is \(n\) times differentiable at \(x_0\).</p>
+                    <p>Which polynomial \(Q\) of degree at most \(n\) satisfies</p>
+                    \[
+                      Q^{(k)}(x_0)=f^{(k)}(x_0)\qquad(0\leq k\leq n)\,?
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-coefficients">
+                    <p><strong>Observe.</strong> Write \(h=x-x_0\), so \(Q(x)=a_0+a_1h+\cdots+a_nh^n\).</p>
+                    <p>Differentiate \(k\) times with respect to \(x.\)</p>
+                    \[
+                      \begin{aligned}
+                      Q^{(k)}(x)
+                      &amp;=\underbrace{\bigl(a_0+\cdots+a_{k-1}h^{k-1}\bigr)^{(k)}}_{0}
+                      +\underbrace{\bigl(a_k h^k\bigr)^{(k)}}_{k!\,a_k}\\
+                      &amp;\quad+\underbrace{\bigl(a_{k+1}h^{k+1}+\cdots+a_nh^n\bigr)^{(k)}}_{\text{each term still has a factor of }h}.
+                      \end{aligned}
+                    \]
+                    <p>At \(x=x_0\), \(h=0\), so \(Q^{(k)}(x_0)=k!\,a_k\).</p>
+                    <p>Matching \(f^{(k)}(x_0)\) forces \(a_k=f^{(k)}(x_0)/k!\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-1">
+                    <p><strong>Definition.</strong> Let \(f:I\to\mathbb{R}\), fix \(x_0\in I\), and let \(n\geq 0\) be an integer.</p>
+                    <p>Suppose \(f\) is \(n\) times differentiable at \(x_0\).</p>
+                    <p>The <strong>Taylor polynomial of order \(n\)</strong> for \(f\) at \(x_0\) is</p>
+                    \[
+                      P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
+                    \]
+                    <p>The <strong>remainder</strong> at \(x\in I\) is \(R_n(x)=f(x)-P_n(x)\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-example">
+                    <p><strong>Example.</strong> Let \(f(x)=x^2\) and \(x_0=1\).</p>
+                    <p>Here \(f(1)=1\), \(f'(1)=2\), and \(f''(1)=2\).</p>
+                    \[
+                      \begin{aligned}
+                      P_1(x)&amp;=1+2(x-1),\\
+                      R_1(x)&amp;=x^2-P_1(x)=(x-1)^2.
+                      \end{aligned}
+                    \]
+                    <p>Since \(f''(1)/2!=1\), the quadratic term is exactly \(R_1(x)\).</p>
+                    \[
+                      \begin{aligned}
+                      P_2(x)&amp;=P_1(x)+(x-1)^2=x^2,\\
+                      R_2(x)&amp;=0.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-polynomial-error">
+                    <p>We found a polynomial \(P_n\) satisfying</p>
+                    \[
+                      P_n^{(k)}(x_0)=f^{(k)}(x_0)\qquad(0\leq k\leq n).
+                    \]
+                    <p><strong>So what?</strong></p>
+                    <p>How large can the error \(\lvert f(x)-P_n(x)\rvert\) be when \(x\) is close to \(x_0\)?</p>
+                    <p>Taylor’s theorem gives a formula for this error.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-taylor">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">taylors-theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-taylor-1">
+                    <p><strong>Taylor’s theorem.</strong> Let \(a&lt;b\) and let \(n\ge 0\) be an integer.
+                      Suppose \(f,f',\ldots,f^{(n)}\) are continuous on \([a,b]\) and \(f^{(n+1)}\) exists on \((a,b).\)
+                      Fix \(x_0\in[a,b]\) and let</p>
+                    \[
+                      R_n=f-P_n,
+                    \]
+                    <p>where \(P_n\) is the Taylor polynomial at \(x_0.\)</p>
+                    <p>At the center, \(R_n(x_0)=0.\)
+                      At any other \(x\in[a,b]\), \(\exists c\in(x,x_0)\) or \((x_0,x)\) such that</p>
+                    \[
+                      R_n(x)=\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-remark">
+                    <p><strong>Remark.</strong></p>
+                    <ol>
+                      <li>For \(n=0\) this gives the MVT formula \(f(x)-f(x_0)=f'(c)(x-x_0).\)</li>
+                      <li>
+                        <p>In general, \(c\) depends on \(x\) and \(x_0\) and need not be unique.</p>
+                        <p>Thus, we are not claiming \(f-P_n\) is literally a polynomial.</p>
+                        <p>In general, it is not.</p>
+                      </li>
+                      <li>If \(\lvert f^{(n+1)}\rvert\leq B\) on \([a,b]\), then for every \(x\in[a,b]\),
+                        \[
+                          \lvert f(x)-P_n(x)\rvert=\lvert R_n(x)\rvert
+                          \leq\frac{B}{(n+1)!}\lvert x-x_0\rvert^{n+1}.
+                        \]
+                        <p>In particular, if \(f^{(k)}\) is continuous on \([a,b]\) for every \(k\in\mathbb{N}\), then \(f\) can be nicely approximated near \(x_0\) by polynomials of arbitrarily high degree.</p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-2">
+                    <p>If \(x=x_0\), then \(R_n(x_0)=f(x_0)-P_n(x_0)=0.\)</p>
+                    <p>Suppose \(x_0&lt;x\), the case \(x&lt;x_0\) being similar.</p>
+                    <p><strong>Observe.</strong> With \(x\) and \(x_0\) fixed, Taylor’s conclusion is equivalent to</p>
+                    \[
+                      \exists c\in(x_0,x)\quad\text{s.t.}\quad
+                      f^{(n+1)}(c)=\frac{(n+1)!\,R_n(x)}{(x-x_0)^{n+1}}.
+                    \]
+                    <p>Equivalently, writing \(R_n(x)=M(x-x_0)^{n+1}\), we must show</p>
+                    \[
+                      \exists c\in(x_0,x)\quad\text{s.t.}\quad
+                      M=\frac{f^{(n+1)}(c)}{(n+1)!}.
+                    \]
+                    <p>This will follow from Rolle's theorem.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-3">
+                    <p><strong>Idea.</strong> Consider \(g:[a,b]\to\mathbb{R}\) defined by</p>
+                    \[
+                      g(s)=R_n(s)-M(s-x_0)^{n+1},\qquad s\in[a,b],
+                    \]
+                    <p>and observe that</p>
+                    \[
+                      R_n^{(n+1)}(s)=f^{(n+1)}(s)\qquad(s\in(a,b)).
+                    \]
+                    <p>If we can show that \(\exists c\in(x_0,x)\) s.t.</p>
+                    \[
+                      0=g^{(n+1)}(c)=R_n^{(n+1)}(c)-M(n+1)!,
+                    \]
+                    <p>then \(M=\dfrac{f^{(n+1)}(c)}{(n+1)!}\), as desired.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-proof-setup">
+                    <p><strong>Proof.</strong></p>
+                    <p>Fix \(x,x_0\in[a,b]\) with \(x_0&lt;x.\)</p>
+                    <p>Define \(M\) by</p>
+                    \[
+                      M=\frac{R_n(x)}{(x-x_0)^{n+1}}.
+                    \]
+                    <p>Define \(g:[a,b]\to\mathbb{R}\) by</p>
+                    \[
+                      g(s)=R_n(s)-M(s-x_0)^{n+1},\qquad s\in[a,b],
+                    \]
+                    <p>noting</p>
+                    \[
+                      \begin{aligned}
+                      g(x)&amp;=R_n(x)-M(x-x_0)^{n+1}=0,\\
+                      g(x_0)&amp;=R_n(x_0)-M(x_0-x_0)^{n+1}=0.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-first-rolle">
+                    <p>Since \(g(x)=g(x_0)=0\) and \(g\) is continuous on \([x_0,x]\) and differentiable on \((x_0,x)\), Rolle's theorem gives</p>
+                    \[
+                      \exists t_1\in(x_0,x)\quad\text{s.t.}\quad g'(t_1)=0.
+                    \]
+                    <p>If \(n=0\), we can take \(c=t_1.\)</p>
+                    <p>Otherwise, assume \(n\geq1.\)</p>
+                    <p>Observing that \(n+1-k\geq1\) for \(0\leq k\leq n\), we have</p>
+                    \[
+                      \begin{aligned}
+                      g^{(k)}(x_0)
+                      &amp;=R_n^{(k)}(x_0)-M\frac{(n+1)!}{(n+1-k)!}(x_0-x_0)^{n+1-k}\\
+                      &amp;=f^{(k)}(x_0)-P_n^{(k)}(x_0)=0.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-4">
+                    <p>Since</p>
+                    <ul>
+                      <li>\(g,g',\ldots,g^{(n)}\) are continuous on \([x_0,x]\) and differentiable on \((x_0,x),\)</li>
+                      <li>\(g(x_0)=g'(x_0)=\cdots=g^{(n)}(x_0)=0,\) and</li>
+                      <li>\(\exists t_1\in(x_0,x)\) s.t. \(g'(t_1)=0,\)</li>
+                    </ul>
+                    <p>we may iteratively apply Rolle's theorem to find, for each \(2\leq k\leq n+1\),</p>
+                    \[
+                      t_k\in(x_0,t_{k-1})\quad\text{s.t.}\quad g^{(k)}(t_k)=0.
+                    \]
+                    <p>In particular, taking \(c=t_{n+1}\in(x_0,x)\) gives</p>
+                    \[
+                      g^{(n+1)}(c)=g^{(n+1)}(t_{n+1})=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-taylor-5">
+                    <p>Since \(P_n\) has degree at most \(n\), \(P_n^{(n+1)}=0.\)</p>
+                    <p>Differentiating \(g\) at order \(n+1\) and evaluating at \(c\) gives</p>
+                    \[
+                      0=g^{(n+1)}(c)=f^{(n+1)}(c)-(n+1)!\,M.
+                    \]
+                    <p>By the choice of \(M\),</p>
+                    \[
+                      R_n(x)=M(x-x_0)^{n+1}
+                      =\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
+                    \]
+                    <p>This concludes the proof.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-second-derivative-test">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">the-second-derivative-test/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-second-derivative-test-1">
+                    <p><strong>Theorem (Second Derivative Test).</strong> Suppose \(f:(a,b)\to\mathbb{R}\) has two continuous derivatives.</p>
+                    <p>If \(x_0\in(a,b)\) satisfies</p>
+                    \[
+                      f'(x_0)=0\qquad\text{and}\qquad f''(x_0)&gt;0,
+                    \]
+                    <p>then \(f\) has a <strong>strict relative minimum</strong> at \(x_0\).</p>
+                    <p>That is, \(\exists\delta&gt;0\) s.t. \(\forall x\in(a,b)\),</p>
+                    \[
+                      0&lt;|x-x_0|&lt;\delta\implies f(x)&gt;f(x_0).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-second-derivative-test-2">
+                    <p><strong>Proof.</strong> Take \(\epsilon=\tfrac12 f''(x_0)&gt;0.\)</p>
+                    <p>By continuity of \(f''\) at \(x_0\), \(\exists\delta&gt;0\) s.t. for all \(t\in(a,b)\),</p>
+                    \[
+                      |t-x_0|&lt;\delta
+                      \implies |f''(t)-f''(x_0)|&lt;\epsilon.
+                    \]
+                    <p>Hence for every such \(t\) with \(|t-x_0|&lt;\delta\),</p>
+                    \[
+                      f''(t)&gt;f''(x_0)-\epsilon=\tfrac12 f''(x_0)&gt;0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-second-derivative-test-3">
+                    <p>Fix \(x\in(a,b)\) with \(0&lt;|x-x_0|&lt;\delta.\)</p>
+                    \[
+                      P_1(x)=f(x_0)+\underbrace{f'(x_0)}_{0}(x-x_0)=f(x_0).
+                    \]
+                    <p>By Taylor's theorem with \(n=1\), \(\exists c\in(x,x_0)\) or \((x_0,x)\) s.t.</p>
+                    \[
+                      f(x)-f(x_0)=R_1(x)=\frac{f''(c)}{2!}(x-x_0)^2.
+                    \]
+                    <p>Now \(|c-x_0|&lt;|x-x_0|&lt;\delta\) gives \(f''(c)&gt;\tfrac12 f''(x_0)\), so</p>
+                    \[
+                      f(x)-f(x_0)&gt;\frac{f''(x_0)}{4}(x-x_0)^2&gt;0.
+                    \]
+                    <p>Hence \(f\) has a strict relative minimum at \(x_0.\)</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 20 Taylor's theorem and second derivative test -->
+          <!-- Begin Lecture 20 Riemann sums -->
+          <details class="lecture-node lecture-chapter lecture20-single-spaced" id="lecture-20-integral">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">the-riemann-integral/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-partitions">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">partitions-and-mesh/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-partitions-1">
+                    <p><strong>Definition.</strong> For real \(a&lt;b\), a <strong>partition</strong> of \([a,b]\) is a finite set \(\underline{x}=\{x_0,\ldots,x_n\}\) with \(n\in\mathbb{N}\) and</p>
+                    \[
+                      a=x_0&lt;x_1&lt;\cdots&lt;x_n=b.
+                    \]
+                    <p>Write \(\Delta x_k=x_k-x_{k-1}\) for the length of the \(k\)th subinterval.</p>
+                    <div role="figure" aria-label="Partition of the closed interval from a to b. From left to right the figure shows the first, kth, and last subintervals. Braces mark their respective widths Δx₁, Δxₖ, and Δxₙ. Dots stand for omitted partition points." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.25cqw);">
+                        \[
+                          {
+                            \def\PartAt#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \def\PartTick#1{\PartAt{#1}{-.18}{\kern-.025em\rule{.05em}{.40em}}}
+                            \def\PartWidth#1#2#3{\PartAt{#1}{-1.16}{\underbrace{\rule{#2em}{0pt}}_{\Delta x_{#3}}}}
+                            \PartAt{1.4}{0}{\rule{3.75em}{.055em}}
+                            \PartAt{5.98}{-.14}{\scriptstyle\cdots}
+                            \PartAt{7.65}{0}{\rule{5.10em}{.055em}}
+                            \PartAt{13.58}{-.14}{\scriptstyle\cdots}
+                            \PartAt{15.25}{0}{\rule{4.95em}{.055em}}
+                            \PartTick{1.4}\PartTick{4.6}\PartTick{8.2}
+                            \PartTick{12.2}\PartTick{15.8}\PartTick{20.2}
+                            \PartAt{.45}{-.82}{\scriptstyle a=x_0}
+                            \PartAt{4.23}{-.82}{\scriptstyle x_1}
+                            \PartAt{7.56}{-.82}{\scriptstyle x_{k-1}}
+                            \PartAt{11.82}{-.82}{\scriptstyle x_k}
+                            \PartAt{15.13}{-.82}{\scriptstyle x_{n-1}}
+                            \PartAt{19.29}{-.82}{\scriptstyle x_n=b}
+                            \PartWidth{1.4}{3.2}{1}
+                            \PartWidth{8.2}{4.0}{k}
+                            \PartWidth{15.8}{4.4}{n}
+                            \phantom{\rule[-2.95em]{21.5em}{4.3em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                    <p>The <strong>mesh</strong> (or <strong>norm</strong>) of \(\underline{x}\) is</p>
+                    \[
+                      \lVert\underline{x}\rVert:=\max_{1\leq k\leq n}\Delta x_k.
+                    \]
+                    <p>Thus \(\lVert\underline{x}\rVert&lt;\delta\) precisely when every subinterval has length less than \(\delta\).</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-tagged-partitions">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">tagged-partitions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-tagged-partitions-1">
+                    <p><strong>Definition.</strong> Let \(\underline{x}=\{x_0,\ldots,x_n\}\) be a partition of \([a,b]\).</p>
+                    <p>Choose one <strong>tag</strong> \(\xi_k\) in each subinterval, so that</p>
+                    \[
+                      x_{k-1}\leq\xi_k\leq x_k,\qquad 1\leq k\leq n.
+                    \]
+                    <p>Write \(\underline{\xi}=(\xi_1,\ldots,\xi_n)\).</p>
+                    <p>The pair \((\underline{x},\underline{\xi})\) is a <strong>tagged partition</strong> of \([a,b]\).</p>
+                    <div role="figure" aria-label="Partition of the closed interval from a to b. From left to right the figure shows the first, kth, and last subintervals. Braces mark their respective widths Δx₁, Δxₖ, and Δxₙ. Dots stand for omitted partition points. One sample tag is marked in each displayed subinterval: ξ₁, ξₖ, and ξₙ, respectively." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.25cqw);">
+                        \[
+                          {
+                            \def\PartAt#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \def\PartTick#1{\PartAt{#1}{-.18}{\kern-.025em\rule{.05em}{.40em}}}
+                            \def\PartWidth#1#2#3{\PartAt{#1}{-1.16}{\underbrace{\rule{#2em}{0pt}}_{\Delta x_{#3}}}}
+                            \PartAt{1.4}{0}{\rule{3.75em}{.055em}}
+                            \PartAt{5.98}{-.14}{\scriptstyle\cdots}
+                            \PartAt{7.65}{0}{\rule{5.10em}{.055em}}
+                            \PartAt{13.58}{-.14}{\scriptstyle\cdots}
+                            \PartAt{15.25}{0}{\rule{4.95em}{.055em}}
+                            \PartTick{1.4}\PartTick{4.6}\PartTick{8.2}
+                            \PartTick{12.2}\PartTick{15.8}\PartTick{20.2}
+                            \PartAt{.45}{-.82}{\scriptstyle a=x_0}
+                            \PartAt{4.23}{-.82}{\scriptstyle x_1}
+                            \PartAt{7.56}{-.82}{\scriptstyle x_{k-1}}
+                            \PartAt{11.82}{-.82}{\scriptstyle x_k}
+                            \PartAt{15.13}{-.82}{\scriptstyle x_{n-1}}
+                            \PartAt{19.29}{-.82}{\scriptstyle x_n=b}
+                            {\color[rgb]{0.247,0.384,0.525}
+                              \def\PartTag#1{\PartAt{#1}{-.14}{\kern-.20em\scriptstyle\bullet}}
+                              \PartTag{2.35}\PartTag{10.85}\PartTag{17.55}
+                              \PartAt{2.02}{.60}{\scriptstyle \xi_1}
+                              \PartAt{10.52}{.60}{\scriptstyle \xi_k}
+                              \PartAt{17.19}{.60}{\scriptstyle \xi_n}
+                            }
+                            \PartWidth{1.4}{3.2}{1}
+                            \PartWidth{8.2}{4.0}{k}
+                            \PartWidth{15.8}{4.4}{n}
+                            \phantom{\rule[-2.95em]{21.5em}{4.3em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-tagged-partitions-2">
+                    <p><strong>Example.</strong> Consider the partition \(\underline{x}=\{0,1,4,6\}\) of \([0,6]\).</p>
+                    <p>Can we take \(\underline{\xi}=(1,1,5)\) as our tags?</p>
+                    \[
+                      1\in[0,1],\qquad 1\in[1,4],\qquad 5\in[4,6].
+                    \]
+                    <p>The first two subintervals can both use \(1\) because it is their shared endpoint.</p>
+                    <p>The three widths are \(1,3,2\), so the mesh is \(\lVert\underline{x}\rVert=3\).</p>
+                    <div role="figure" aria-label="A number line from 0 to 6 has partition points at 0, 1, 4, and 6. The first two tags coincide at their shared endpoint 1. The third tag is 5. Braces show the three subinterval widths in order: 1, 3, and 2." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.3cqw);">
+                        <!-- Linear scale X=1.3+3x em; all marks, braces, and labels belong to one TeX display. -->
+                        \[
+                          {
+                            \def\TagPlace#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \def\TagTick#1{\TagPlace{#1}{-.18}{\kern-.025em\rule{.05em}{.40em}}}
+                            \def\TagDot#1{\TagPlace{#1}{-.14}{\kern-.20em\scriptstyle\bullet}}
+                            \def\TagWidth#1#2#3{\TagPlace{#1}{-1.16}{\underbrace{\rule{#2em}{0pt}}_{#3}}}
+                            \TagPlace{1.3}{0}{\rule{18em}{.055em}}
+                            \TagTick{1.3}\TagTick{4.3}\TagTick{13.3}\TagTick{19.3}
+                            \TagPlace{.37}{-.82}{\scriptstyle x_0=0}
+                            \TagPlace{3.37}{-.82}{\scriptstyle x_1=1}
+                            \TagPlace{12.37}{-.82}{\scriptstyle x_2=4}
+                            \TagPlace{18.37}{-.82}{\scriptstyle x_3=6}
+                            {\color[rgb]{0.247,0.384,0.525}
+                              \TagDot{4.3}\TagDot{16.3}
+                              \TagPlace{2.73}{.60}{\scriptstyle \xi_1=\xi_2=1}
+                              \TagPlace{15.42}{.60}{\scriptstyle \xi_3=5}
+                            }
+                            \TagWidth{1.3}{3}{\Delta x_1=1}
+                            \TagWidth{4.3}{9}{\Delta x_2=3}
+                            \TagWidth{13.3}{6}{\Delta x_3=2}
+                            \phantom{\rule[-2.95em]{20.6em}{4.3em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture20-single-spaced" id="lecture20-riemann-sums">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">riemann-sums/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture20-riemann-sums-1">
+                    <p><strong>Definition.</strong> Let \(f:[a,b]\to\mathbb{R}\), and let \((\underline{x},\underline{\xi})\) be a tagged partition of \([a,b]\).</p>
+                    <p>The corresponding <strong>Riemann sum</strong> is</p>
+                    \[
+                      S_f(\underline{x},\underline{\xi})
+                      :=\sum_{k=1}^{n} f(\xi_k)\,\Delta x_k.
+                    \]
+                    <div role="figure" aria-label="Five outlined rectangles for a positive curve y equals f of x on an uneven partition of [a,b]. The top of each rectangle meets the curve at the marked tag. The third rectangle extends from x₂ to x₃, with width Δx₃ = x₃ − x₂ and height f(ξ₃)." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.25cqw);">
+                        <!-- Native TeX on the same 21.5em frame as the partition figures.
+                             With t=(X-1.4)/18, the illustrative curve is Y=2.85+1.42 sin(2.2πt-.35)+.55t.
+                             Each rectangle uses the curve ordinate at its own tag. -->
+                        \[
+                          {
+                            \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \rlap{\hbox{$
+                              \def\Top#1#2#3{\P{#1}{#3}{\rule{#2em}{.036em}}}
+                              \def\Side#1#2{\P{#1}{0}{\kern-.018em\rule{.036em}{#2em}}}
+                              {\color[rgb]{.43,.47,.50}
+                                \Top{1.4}{2.8}{3.101}\Top{4.2}{3.4}{4.423}\Top{7.6}{5.2}{3.673}
+                                \Top{12.8}{3}{1.844}\Top{15.8}{3.6}{2.571}
+                                \Side{1.4}{3.101}\Side{4.2}{4.423}\Side{7.6}{4.423}
+                                \Side{12.8}{3.673}\Side{15.8}{2.571}\Side{19.4}{2.571}
+                              }
+                              {\color[rgb]{.56,.60,.64}
+                                \def\D#1#2{\P{#1}{#2}{\kern-.014em\rule{.028em}{.13em}}}
+                                \D{2.7}{.84}\D{2.7}{1.18}\D{2.7}{1.52}\D{2.7}{1.86}\D{2.7}{2.2}\D{2.7}{2.54}
+                                \D{6.4}{.84}\D{6.4}{1.18}\D{6.4}{1.52}\D{6.4}{1.86}\D{6.4}{2.2}\D{6.4}{2.54}\D{6.4}{2.88}\D{6.4}{3.22}\D{6.4}{3.56}\D{6.4}{3.9}
+                                \D{9.4}{.84}\D{9.4}{1.18}\D{9.4}{1.52}\D{9.4}{1.86}\D{9.4}{2.2}\D{9.4}{2.54}\D{9.4}{2.88}\D{9.4}{3.22}
+                                \D{14.8}{.84}\D{14.8}{1.18}\D{14.8}{1.52}
+                                \D{17.2}{.84}\D{17.2}{1.18}\D{17.2}{1.52}\D{17.2}{1.86}\D{17.2}{2.2}
+                              }
+                            $}}
+                            \rlap{\kern1.4em\hbox{$
+                              \color[rgb]{.247,.384,.525}
+                              \def\C#1/#2;{\raise#1em\hbox{$\rule{.08em}{#2em}$}}
+                              \C2.333/.104;\C2.377/.104;\C2.421/.104;\C2.465/.105;\C2.51/.105;\C2.555/.105;\C2.6/.106;\C2.646/.106;\C2.692/.106;\C2.738/.106;\C2.784/.106;\C2.83/.106;\C2.876/.106;\C2.922/.106;\C2.968/.106;
+                              \C3.014/.106;\C3.059/.106;\C3.105/.105;\C3.15/.105;\C3.195/.105;\C3.24/.104;\C3.284/.104;\C3.328/.104;\C3.372/.103;\C3.415/.103;\C3.457/.102;\C3.499/.101;\C3.541/.101;\C3.582/.1;\C3.622/.099;
+                              \C3.661/.099;\C3.7/.098;\C3.738/.097;\C3.775/.096;\C3.812/.096;\C3.847/.095;\C3.882/.094;\C3.916/.093;\C3.948/.092;\C3.98/.091;\C4.011/.09;\C4.041/.089;\C4.07/.088;\C4.097/.087;\C4.124/.085;
+                              \C4.149/.084;\C4.173/.083;\C4.196/.082;\C4.218/.081;\C4.239/.079;\C4.258/.078;\C4.277/.077;\C4.293/.076;\C4.309/.074;\C4.324/.073;\C4.337/.072;\C4.348/.07;\C4.359/.069;\C4.368/.068;\C4.376/.066;
+                              \C4.382/.065;\C4.388/.064;\C4.391/.062;\C4.394/.061;\C4.395/.06;\C4.393/.062;\C4.39/.063;\C4.386/.064;\C4.381/.066;\C4.374/.067;\C4.366/.068;\C4.356/.069;\C4.346/.071;\C4.334/.072;\C4.32/.073;
+                              \C4.306/.074;\C4.29/.076;\C4.273/.077;\C4.255/.078;\C4.236/.079;\C4.216/.08;\C4.194/.082;\C4.171/.083;\C4.148/.084;\C4.123/.085;\C4.097/.086;\C4.07/.087;\C4.042/.088;\C4.013/.089;\C3.984/.09;
+                              \C3.953/.091;\C3.922/.091;\C3.889/.092;\C3.856/.093;\C3.823/.094;\C3.788/.095;\C3.753/.095;\C3.717/.096;\C3.68/.097;\C3.643/.097;\C3.606/.098;\C3.567/.098;\C3.529/.099;\C3.49/.099;\C3.45/.099;
+                              \C3.41/.1;\C3.37/.1;\C3.33/.1;\C3.289/.101;\C3.248/.101;\C3.208/.101;\C3.166/.101;\C3.125/.101;\C3.084/.101;\C3.043/.101;\C3.002/.101;\C2.961/.101;\C2.92/.101;\C2.879/.101;\C2.839/.1;
+                              \C2.799/.1;\C2.759/.1;\C2.719/.1;\C2.68/.099;\C2.641/.099;\C2.603/.098;\C2.565/.098;\C2.528/.097;\C2.491/.097;\C2.455/.096;\C2.419/.095;\C2.385/.095;\C2.351/.094;\C2.317/.093;\C2.285/.093;
+                              \C2.253/.092;\C2.222/.091;\C2.192/.09;\C2.163/.089;\C2.135/.088;\C2.108/.087;\C2.081/.086;\C2.056/.085;\C2.032/.084;\C2.009/.083;\C1.987/.082;\C1.966/.081;\C1.947/.08;\C1.928/.078;\C1.911/.077;
+                              \C1.895/.076;\C1.88/.075;\C1.866/.074;\C1.854/.072;\C1.843/.071;\C1.833/.07;\C1.824/.069;\C1.817/.067;\C1.811/.066;\C1.807/.065;\C1.803/.063;\C1.801/.062;\C1.801/.061;\C1.801/.061;\C1.801/.062;
+                              \C1.803/.063;\C1.807/.065;\C1.811/.066;\C1.818/.067;\C1.825/.069;\C1.834/.07;\C1.844/.071;\C1.855/.073;\C1.868/.074;\C1.882/.075;\C1.897/.077;\C1.913/.078;\C1.931/.079;\C1.95/.08;\C1.97/.081;
+                              \C1.992/.083;\C2.015/.084;\C2.038/.085;\C2.063/.086;\C2.09/.087;\C2.117/.088;\C2.145/.089;\C2.175/.09;\C2.205/.091;\C2.237/.092;\C2.269/.093;\C2.302/.094;\C2.337/.095;\C2.372/.096;\C2.408/.097;
+                              \C2.445/.098;\C2.483/.099;\C2.521/.099;\C2.56/.1;\C2.6/.101;\C2.641/.101;\C2.682/.102;\C2.724/.102;\C2.767/.103;\C2.809/.103;\C2.853/.104;\C2.897/.104;\C2.941/.105;\C2.986/.105;\C3.03/.105;
+                              \C3.076/.105;\C3.121/.106;\C3.167/.106;\C3.213/.106;\C3.259/.106;\C3.305/.106;\C3.351/.106;\C3.397/.106;\C3.443/.106;\C3.489/.106;\C3.534/.106;\C3.58/.105;\C3.625/.105;\C3.671/.105;\C3.716/.105;
+                            $}}
+                            \P{.95}{0}{\rule{19.30em}{.05em}}
+                            \P{20.12}{-.15}{\scriptscriptstyle\blacktriangleright}
+                            \P{20.71}{-.13}{\scriptstyle x}
+                            \def\Tick#1{\P{#1}{-.18}{\kern-.022em\rule{.044em}{.32em}}}
+                            \Tick{1.4}\Tick{4.2}\Tick{7.6}\Tick{12.8}\Tick{15.8}\Tick{19.4}
+                            \P{.45}{-.85}{\scriptstyle a=x_0}
+                            \P{3.83}{-.85}{\scriptstyle x_1}
+                            \P{7.23}{-.85}{\scriptstyle x_2}
+                            \P{12.43}{-.85}{\scriptstyle x_3}
+                            \P{15.43}{-.85}{\scriptstyle x_4}
+                            \P{18.49}{-.85}{\scriptstyle x_5=b}
+                            {\color[rgb]{.247,.384,.525}
+                              \def\Sample#1#2{\P{#1}{#2}{\kern-.20em\raise-.17em\hbox{$\scriptstyle\bullet$}}}
+                              \Sample{2.7}{3.101}\Sample{6.4}{4.423}\Sample{9.4}{3.673}
+                              \Sample{14.8}{1.844}\Sample{17.2}{2.571}
+                              \def\Tag#1#2{\P{#1}{0}{\kern-.018em\rule{.036em}{.17em}}
+                                             \P{#1}{.28}{\kern-.35em\scriptstyle\xi_{#2}}}
+                              \Tag{2.7}{1}\Tag{6.4}{2}\Tag{9.4}{3}\Tag{14.8}{4}\Tag{17.2}{5}
+                              \P{17.38}{4.24}{\scriptstyle y=f(x)}
+                            }
+                            \P{10.21}{1.55}{\scriptstyle f(\xi_3)}
+                            \P{7.6}{-1.13}{\underbrace{\rule{5.2em}{0pt}}_{\Delta x_3=x_3-x_2}}
+                            \phantom{\rule[-2.9em]{21.5em}{7.95em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-riemann-sums-example">
+                    <p><strong>Example.</strong> Let \(f:[0,6]\to\mathbb{R}\).</p>
+                    <p>Use the tagged partition</p>
+                    \[
+                      \underline{x}=\{0,1,4,6\},\qquad \underline{\xi}=(1,1,5).
+                    \]
+                    <p>The widths of \([0,1]\), \([1,4]\), and \([4,6]\) are \(\Delta x_1=1\), \(\Delta x_2=3\), and \(\Delta x_3=2\).</p>
+                    <p>Since \(\xi_1=\xi_2=1\),</p>
+                    \[
+                      \begin{aligned}
+                      S_f(\underline{x},\underline{\xi})
+                      &amp;=f(1)\cdot 1+f(1)\cdot 3+f(5)\cdot 2\\
+                      &amp;=4f(1)+2f(5).
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-riemann-sums-2">
+                    <div role="figure" aria-label="One possible graph of f on [0,6]. The outlined rectangles on [0,1] and [1,4] share the tag 1 and height f(1). A vertical edge at 1 separates their widths of 1 and 3. The rectangle on [4,6] has tag 5, width 2, and height f(5)." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.25cqw);">
+                        <!-- X=1.4+3x em. The illustrative curve uses the same scale and ordinates as the definition figure, with t=x/6. -->
+                        \[
+                          {
+                            \def\P#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \rlap{\hbox{$
+                              \def\Top#1#2#3{\P{#1}{#3}{\rule{#2em}{.036em}}}
+                              \def\Side#1#2{\P{#1}{0}{\kern-.018em\rule{.036em}{#2em}}}
+                              {\color[rgb]{.43,.47,.50}
+                                \Top{1.4}{3}{3.962}\Top{4.4}{9}{3.962}\Top{13.4}{6}{2.220}
+                                \Side{1.4}{3.962}\Side{4.4}{3.962}\Side{13.4}{3.962}\Side{19.4}{2.220}
+                              }
+                              {\color[rgb]{.56,.60,.64}
+                                \def\Dash#1{\P{16.4}{#1}{\kern-.014em\rule{.028em}{.13em}}}
+                                \Dash{.22}\Dash{.56}\Dash{.90}\Dash{1.24}\Dash{1.58}\Dash{1.92}
+                              }
+                            $}}
+                            \rlap{\kern1.4em\hbox{$
+                              \color[rgb]{.247,.384,.525}
+                              \def\C#1/#2;{\raise#1em\hbox{$\rule{.08em}{#2em}$}}
+                              \C2.333/.104;\C2.377/.104;\C2.421/.104;\C2.465/.105;\C2.51/.105;\C2.555/.105;\C2.6/.106;\C2.646/.106;\C2.692/.106;\C2.738/.106;\C2.784/.106;\C2.83/.106;\C2.876/.106;\C2.922/.106;\C2.968/.106;
+                              \C3.014/.106;\C3.059/.106;\C3.105/.105;\C3.15/.105;\C3.195/.105;\C3.24/.104;\C3.284/.104;\C3.328/.104;\C3.372/.103;\C3.415/.103;\C3.457/.102;\C3.499/.101;\C3.541/.101;\C3.582/.1;\C3.622/.099;
+                              \C3.661/.099;\C3.7/.098;\C3.738/.097;\C3.775/.096;\C3.812/.096;\C3.847/.095;\C3.882/.094;\C3.916/.093;\C3.948/.092;\C3.98/.091;\C4.011/.09;\C4.041/.089;\C4.07/.088;\C4.097/.087;\C4.124/.085;
+                              \C4.149/.084;\C4.173/.083;\C4.196/.082;\C4.218/.081;\C4.239/.079;\C4.258/.078;\C4.277/.077;\C4.293/.076;\C4.309/.074;\C4.324/.073;\C4.337/.072;\C4.348/.07;\C4.359/.069;\C4.368/.068;\C4.376/.066;
+                              \C4.382/.065;\C4.388/.064;\C4.391/.062;\C4.394/.061;\C4.395/.06;\C4.393/.062;\C4.39/.063;\C4.386/.064;\C4.381/.066;\C4.374/.067;\C4.366/.068;\C4.356/.069;\C4.346/.071;\C4.334/.072;\C4.32/.073;
+                              \C4.306/.074;\C4.29/.076;\C4.273/.077;\C4.255/.078;\C4.236/.079;\C4.216/.08;\C4.194/.082;\C4.171/.083;\C4.148/.084;\C4.123/.085;\C4.097/.086;\C4.07/.087;\C4.042/.088;\C4.013/.089;\C3.984/.09;
+                              \C3.953/.091;\C3.922/.091;\C3.889/.092;\C3.856/.093;\C3.823/.094;\C3.788/.095;\C3.753/.095;\C3.717/.096;\C3.68/.097;\C3.643/.097;\C3.606/.098;\C3.567/.098;\C3.529/.099;\C3.49/.099;\C3.45/.099;
+                              \C3.41/.1;\C3.37/.1;\C3.33/.1;\C3.289/.101;\C3.248/.101;\C3.208/.101;\C3.166/.101;\C3.125/.101;\C3.084/.101;\C3.043/.101;\C3.002/.101;\C2.961/.101;\C2.92/.101;\C2.879/.101;\C2.839/.1;
+                              \C2.799/.1;\C2.759/.1;\C2.719/.1;\C2.68/.099;\C2.641/.099;\C2.603/.098;\C2.565/.098;\C2.528/.097;\C2.491/.097;\C2.455/.096;\C2.419/.095;\C2.385/.095;\C2.351/.094;\C2.317/.093;\C2.285/.093;
+                              \C2.253/.092;\C2.222/.091;\C2.192/.09;\C2.163/.089;\C2.135/.088;\C2.108/.087;\C2.081/.086;\C2.056/.085;\C2.032/.084;\C2.009/.083;\C1.987/.082;\C1.966/.081;\C1.947/.08;\C1.928/.078;\C1.911/.077;
+                              \C1.895/.076;\C1.88/.075;\C1.866/.074;\C1.854/.072;\C1.843/.071;\C1.833/.07;\C1.824/.069;\C1.817/.067;\C1.811/.066;\C1.807/.065;\C1.803/.063;\C1.801/.062;\C1.801/.061;\C1.801/.061;\C1.801/.062;
+                              \C1.803/.063;\C1.807/.065;\C1.811/.066;\C1.818/.067;\C1.825/.069;\C1.834/.07;\C1.844/.071;\C1.855/.073;\C1.868/.074;\C1.882/.075;\C1.897/.077;\C1.913/.078;\C1.931/.079;\C1.95/.08;\C1.97/.081;
+                              \C1.992/.083;\C2.015/.084;\C2.038/.085;\C2.063/.086;\C2.09/.087;\C2.117/.088;\C2.145/.089;\C2.175/.09;\C2.205/.091;\C2.237/.092;\C2.269/.093;\C2.302/.094;\C2.337/.095;\C2.372/.096;\C2.408/.097;
+                              \C2.445/.098;\C2.483/.099;\C2.521/.099;\C2.56/.1;\C2.6/.101;\C2.641/.101;\C2.682/.102;\C2.724/.102;\C2.767/.103;\C2.809/.103;\C2.853/.104;\C2.897/.104;\C2.941/.105;\C2.986/.105;\C3.03/.105;
+                              \C3.076/.105;\C3.121/.106;\C3.167/.106;\C3.213/.106;\C3.259/.106;\C3.305/.106;\C3.351/.106;\C3.397/.106;\C3.443/.106;\C3.489/.106;\C3.534/.106;\C3.58/.105;\C3.625/.105;\C3.671/.105;\C3.716/.105;
+                            $}}
+                            \P{.95}{0}{\rule{19.3em}{.05em}}
+                            \P{20.12}{-.15}{\scriptscriptstyle\blacktriangleright}
+                            \P{20.71}{-.13}{\scriptstyle x}
+                            \def\Tick#1{\P{#1}{-.18}{\kern-.022em\rule{.044em}{.32em}}}
+                            \Tick{1.4}\Tick{4.4}\Tick{13.4}\Tick{19.4}
+                            \P{1.20}{-.82}{\scriptstyle 0}
+                            \P{13.20}{-.82}{\scriptstyle 4}
+                            \P{19.20}{-.82}{\scriptstyle 6}
+                            {\color[rgb]{.247,.384,.525}
+                              \def\Sample#1#2{\P{#1}{#2}{\kern-.20em\raise-.17em\hbox{$\scriptstyle\bullet$}}}
+                              \Sample{4.4}{3.962}\Sample{16.4}{2.220}
+                              \Tick{16.4}
+                              \P{2.83}{-.82}{\scriptstyle \xi_1=\xi_2=1}
+                              \P{15.52}{-.82}{\scriptstyle \xi_3=5}
+                              \P{17.38}{4.24}{\scriptstyle y=f(x)}
+                            }
+                            \P{2.52}{4.12}{\scriptstyle f(1)}
+                            \P{14.63}{2.39}{\scriptstyle f(5)}
+                            \def\Width#1#2#3{\P{#1}{-1.16}{\underbrace{\rule{#2em}{0pt}}_{#3}}}
+                            \Width{1.4}{3}{\Delta x_1=1}
+                            \Width{4.4}{9}{\Delta x_2=3}
+                            \Width{13.4}{6}{\Delta x_3=2}
+                            \phantom{\rule[-2.95em]{21.5em}{8em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+              <!-- End Lecture 20 Riemann sums -->
+              <!-- Begin Lecture 21 existence of the Riemann integral -->
+              <details class="lecture-node lecture21-single-spaced" id="lecture21-integral-theorem">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">convergence-of-riemann-sums/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture21-integral-goal">
+                    <p><strong>Goal.</strong></p>
+                    <p>Let \(a&lt;b\) and set</p>
+                    \[
+                      C([a,b])=\{f:[a,b]\to\mathbb{R}\mid f\text{ is continuous}\}.
+                    \]
+                    <p>Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be a sequence of tagged partitions of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0\) as \(r\to\infty\).</p>
+                    <p>For \(f\in C([a,b])\), we study the convergence of the Riemann sums</p>
+                    \[
+                      S_f(\underline{x}^{\,r},\underline{\xi}^{\,r}).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture21-integral-theorem-1">
+                    <p><strong>Theorem (Riemann Integral).</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
+                    <p>There exists a unique \(L\in\mathbb{R}\) s.t. for every sequence of tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b]\),</p>
+                    \[
+                      \lVert\underline{x}^{\,r}\rVert\to 0
+                      \implies S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\to L
+                      \qquad(r\to\infty).
+                    \]
+                    <p>This \(L\) is the <strong>Riemann integral</strong> of \(f\) on \([a,b]\), denoted \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</p>
+                  </div>
+                </div>
+                <div class="lecture-children">
+                  <details class="lecture-node" id="lecture21-convergence-proof">
+                    <summary>
+                      <span class="lecture-branch">└──</span>
+                      <span class="lecture-toggle" aria-hidden="true"></span>
+                      <span class="lecture-label">proof/</span>
+                    </summary>
+                    <div class="lecture-children">
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-proof-outline">
+                        <summary>
+                          <span class="lecture-branch">├──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">outline/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-proof-outline-1">
+                            <p><strong>Outline.</strong> Fix \(a&lt;b\) and \(f\in C([a,b])\).</p>
+                            <p>For each \(r\in\mathbb{N}\), divide \([a,b]\) into \(r\) equal subintervals of width \(h_r=(b-a)/r\).</p>
+                            <p>Taking the left endpoints \(a,a+h_r,\ldots,a+(r-1)h_r\) as tags gives the sum</p>
+                            \[
+                              T_r:=h_r\sum_{k=0}^{r-1} f(a+kh_r).
+                            \]
+                            <p><strong>Uniqueness.</strong> Since \(h_r\to0\), any number satisfying the theorem's convergence property must be the limit of this same sequence \(\{T_r\}\).</p>
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-proof-outline-2">
+                            <p><strong>Existence.</strong> Using the modulus of continuity and a common refinement, we will show that for every \(\epsilon&gt;0\) there is a \(\delta&gt;0\) with the following property.</p>
+                            <p>For any two tagged partitions of \([a,b]\) with meshes \(h,h'\) and sums \(S,S'\),</p>
+                            \[
+                              \max\{h,h'\}&lt;\delta\implies |S-S'|&lt;\epsilon.
+                            \]
+                            <p>Apply this estimate twice.</p>
+                            <ol>
+                              <li>Compare \(T_r\) and \(T_s\) for large \(r,s\) to show that \(\{T_r\}\) is Cauchy, hence converges to some \(L\in\mathbb{R}\).</li>
+                              <li>For any sequence of tagged partitions with mesh tending to zero, compare its sums \(S_r\) with \(T_r\) to obtain \(|S_r-T_r|\to0\), hence \(S_r\to L\).</li>
+                            </ol>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-uniqueness">
+                        <summary>
+                          <span class="lecture-branch">├──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">0-uniqueness/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-integral-theorem-2">
+                            <p><strong>Proof.</strong> Let \(L,L'\in\mathbb{R}\) satisfy the theorem's convergence property.</p>
+                            <p>Take \(\underline{x}^{\,r}\) to be the partition of \([a,b]\) into \(r\) equal subintervals with left endpoint tags.</p>
+                            \[
+                              h_r=\frac{b-a}{r},\qquad
+                              T_r=h_r\sum_{k=0}^{r-1}f(a+kh_r).
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-uniqueness-2">
+                            <p>By hypothesis,</p>
+                            \[
+                              \lVert\underline{x}^{\,r}\rVert=h_r\to0
+                              \quad\implies\quad
+                              \begin{cases}
+                                T_r\to L,\\
+                                T_r\to L'.
+                              \end{cases}
+                            \]
+                            <p>By uniqueness of sequence limits, \(L=L'\).</p>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-modulus">
+                        <summary>
+                          <span class="lecture-branch">├──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">1-control-the-change-in-f/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-modulus-1">
+                            <p><strong>Definition.</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
+                            <p>For \(\eta&gt;0\), the <strong>modulus of continuity</strong> of \(f\) is</p>
+                            \[
+                              w_f(\eta)=\sup_{\substack{x,y\in[a,b]\\ |x-y|\leq\eta}} |f(x)-f(y)|.
+                            \]
+                            <p>Taking \(x=y\) gives \(0\).</p>
+                            <p>Boundedness of \(f\) gives \(|f|\leq B\) on \([a,b]\) for some \(B\), so \(|f(x)-f(y)|\leq |f(x)|+|f(y)|\leq 2B\).</p>
+                            <p>Thus the supremum exists.</p>
+                            <p>In particular, for all \(x,y\in[a,b]\),</p>
+                            \[
+                              |x-y|\leq\eta\implies |f(x)-f(y)|\leq w_f(\eta).
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-modulus-2">
+                            <p><strong>Lemma (Vanishing modulus of continuity).</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
+                            <p>Then</p>
+                            \[
+                              \lim\limits_{\eta\to0^+} w_f(\eta)=0.
+                            \]
+                            <p>That is, for every \(\epsilon&gt;0\) there exists \(\delta&gt;0\) s.t.</p>
+                            \[
+                              0&lt;\eta&lt;\delta\implies w_f(\eta)&lt;\epsilon.
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-modulus-3">
+                            <p><strong>Proof.</strong> Fix \(\epsilon&gt;0\).</p>
+                            <p>Since \(f\) is continuous on \([a,b]\), it is uniformly continuous there.</p>
+                            <p>Choose \(\delta&gt;0\) s.t. for all \(x,y\in[a,b]\),</p>
+                            \[
+                              |x-y|&lt;\delta\implies |f(x)-f(y)|&lt;\epsilon/2.
+                            \]
+                            <p>Fix \(0&lt;\eta&lt;\delta\).</p>
+                            <p>Every pair in the supremum satisfies \(|x-y|\leq\eta&lt;\delta\), so \(\epsilon/2\) is an upper bound.</p>
+                            <p>Hence</p>
+                            \[
+                              0\leq w_f(\eta)\leq\epsilon/2&lt;\epsilon.
+                            \]
+                          </div>
+                        </div>
+                      </details>
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-refinement">
+                        <summary>
+                          <span class="lecture-branch">├──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">2-compare-a-partition-with-a-refinement/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-refinement-1">
+                            <p><strong>Definition.</strong> A partition \(\underline{x}'\) of \([a,b]\) is a <strong>refinement</strong> of a partition \(\underline{x}\) of the same interval if</p>
+                            \[
+                              \underline{x}\subseteq\underline{x}'.
+                            \]
+                            <p>Each subinterval of \(\underline{x}\) is therefore a union of consecutive subintervals of \(\underline{x}'\).</p>
+                            <p>The two partitions may be tagged independently.</p>
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-refinement-2">
+                            <p><strong>Lemma (Refinement estimate).</strong> Let \(a&lt;b\), \(f\in C([a,b])\), and let \((\underline{x},\underline{\xi})\), \((\underline{x}',\underline{\xi}')\) be tagged partitions of \([a,b]\).</p>
+                            <p>If \(\underline{x}'\) refines \(\underline{x}\), then</p>
+                            \[
+                              \bigl|S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')\bigr|
+                              \leq w_f(\lVert\underline{x}\rVert)(b-a).
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-refinement-3">
+                            <p><strong>Proof.</strong> Fix one coarse subinterval \([x_{k-1},x_k]\).</p>
+                            <p>Its endpoints occur in the refinement, say</p>
+                            \[
+                              x_{k-1}=x'_\ell,\qquad x_k=x'_m,\qquad \ell&lt;m.
+                            \]
+                            <p>Write \(\Delta x'_j=x'_j-x'_{j-1}\) and \(h=\lVert\underline{x}\rVert\).</p>
+                            <p>Observe</p>
+                            <ol>
+                              <li>The fine widths telescope to the coarse width,
+                                \[
+                                  \sum_{j=\ell+1}^{m}\Delta x'_j=x'_m-x'_\ell=\Delta x_k.
+                                \]
+                              </li>
+                              <li>For \(\ell&lt;j\leq m\), both tags lie in \([x_{k-1},x_k]\), so \(|\xi_k-\xi'_j|\leq\Delta x_k\leq h\).</li>
+                            </ol>
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-refinement-4">
+                            <p>Let \(E_k\) be the difference between the coarse and fine sums on \([x_{k-1},x_k]\).</p>
+                            <p>By the width identity,</p>
+                            \[
+                              \begin{aligned}
+                              E_k&amp;=f(\xi_k)\Delta x_k-\sum_{j=\ell+1}^m f(\xi'_j)\Delta x'_j\\
+                                 &amp;=\sum_{j=\ell+1}^m\bigl(f(\xi_k)-f(\xi'_j)\bigr)\Delta x'_j.
+                              \end{aligned}
+                            \]
+                            <p>Since the tags are at most \(h\) apart, \(|f(\xi_k)-f(\xi'_j)|\leq w_f(h)\).</p>
+                            <p>The triangle inequality now gives</p>
+                            \[
+                              |E_k|\leq w_f(h)\sum_{j=\ell+1}^m\Delta x'_j
+                                   =w_f(h)\Delta x_k.
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-refinement-5">
+                            <p>Summing \(E_k\) over all \(n\) coarse subintervals counts each fine contribution once.</p>
+                            <p>Thus</p>
+                            \[
+                              S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')
+                              =\sum_{k=1}^n E_k.
+                            \]
+                            <p>Using the bound on each \(|E_k|\),</p>
+                            \[
+                              \begin{aligned}
+                              \left|\sum_{k=1}^n E_k\right|
+                              &amp;\leq\sum_{k=1}^n |E_k|\\
+                              &amp;\leq w_f(h)\sum_{k=1}^n\Delta x_k\\
+                              &amp;=w_f(h)(b-a).
+                              \end{aligned}
+                            \]
+                            <p>Since \(h=\lVert\underline{x}\rVert\), this proves the refinement estimate.</p>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-common-refinement">
+                        <summary>
+                          <span class="lecture-branch">├──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">3-compare-any-two-partitions/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-common-refinement-1">
+                            <p><strong>Lemma (Common-refinement estimate).</strong> Let \(a&lt;b\), \(f\in C([a,b])\), and let \((\underline{x},\underline{\xi})\), \((\underline{x}',\underline{\xi}')\) be any two tagged partitions of \([a,b]\).</p>
+                            <p>Write \(h=\lVert\underline{x}\rVert\) and \(h'=\lVert\underline{x}'\rVert\).</p>
+                            <p>Then</p>
+                            \[
+                              \bigl|S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')\bigr|
+                              \leq (b-a)\bigl(w_f(h)+w_f(h')\bigr).
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-common-refinement-2">
+                            <p><strong>Proof.</strong> The union \(\underline{x}''=\underline{x}\cup\underline{x}'\) refines both partitions.</p>
+                            <p>Choose tags \(\underline{\xi}''\) for this refinement and write \(S''=S_f(\underline{x}'',\underline{\xi}'')\).</p>
+                            <p>Writing \(S,S'\) for the two original sums, apply the refinement estimate to each with this same \(S''\).</p>
+                            \[
+                              \begin{aligned}
+                              |S-S''|&amp;\leq(b-a)w_f(h),\\
+                              |S'-S''|&amp;\leq(b-a)w_f(h').
+                              \end{aligned}
+                            \]
+                            <p>By the triangle inequality,</p>
+                            \[
+                              \begin{aligned}
+                              |S-S'|&amp;\leq |S-S''|+|S''-S'|\\
+                                     &amp;\leq (b-a)\bigl(w_f(h)+w_f(h')\bigr).
+                              \end{aligned}
+                            \]
+                          </div>
+                        </div>
+                      </details>
+                      <details class="lecture-node lecture21-single-spaced" id="lecture21-integral-proof">
+                        <summary>
+                          <span class="lecture-branch">└──</span>
+                          <span class="lecture-toggle" aria-hidden="true"></span>
+                          <span class="lecture-label">4-existence/</span>
+                        </summary>
+                        <div class="lecture-note">
+                          <div class="lecture-block" id="lecture21-integral-proof-1">
+                            <p><strong>Proof (Existence).</strong> Let \(T_r\) be the left endpoint sum for \(r\) equal subintervals of \([a,b]\), with mesh \(h_r=(b-a)/r\).</p>
+                            <p><strong>Claim 1.</strong> \(\{T_r\}\) is Cauchy.</p>
+                            <p>Fix \(\epsilon&gt;0\).</p>
+                            <p>By the common-refinement estimate,</p>
+                            \[
+                              |T_r-T_s|\leq (b-a)w_f(h_r)+(b-a)w_f(h_s).
+                            \]
+                            <p>To make each term smaller than \(\epsilon/2\), it suffices to find \(N\) s.t.</p>
+                            \[
+                              \forall r\geq N,\qquad w_f(h_r)&lt;\frac{\epsilon}{2(b-a)}.
+                            \]
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-integral-proof-2">
+                            <p>By the modulus-of-continuity lemma, choose \(\delta&gt;0\) s.t.</p>
+                            \[
+                              0&lt;\eta&lt;\delta\implies w_f(\eta)&lt;\frac{\epsilon}{2(b-a)}.
+                            \]
+                            <p>Since \(h_r=(b-a)/r\to0\), choose \(N\in\mathbb{N}\) s.t. \(r\geq N\implies 0&lt;h_r&lt;\delta\).</p>
+                            <p>Then for \(r,s\geq N\),</p>
+                            \[
+                              \begin{aligned}
+                              |T_r-T_s|&amp;\leq(b-a)w_f(h_r)+(b-a)w_f(h_s)\\
+                                       &amp;&lt;\epsilon/2+\epsilon/2=\epsilon.
+                              \end{aligned}
+                            \]
+                            <p>Thus \(\{T_r\}\) is Cauchy.</p>
+                            <p>Completeness of \(\mathbb{R}\) gives \(L\in\mathbb{R}\) s.t. \(T_r\to L\).</p>
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-integral-proof-3">
+                            <p><strong>Claim 2.</strong> Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be any sequence of tagged partitions of \([a,b]\) with \(d_r=\lVert\underline{x}^{\,r}\rVert\to0\).</p>
+                            <p>We wish to show</p>
+                            \[
+                              S_r=S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\to L.
+                            \]
+                            <p>Compare \(S_r\) with \(T_r\).</p>
+                            <p>By the common-refinement estimate,</p>
+                            \[
+                              0\leq |S_r-T_r|\leq(b-a)\bigl(w_f(d_r)+w_f(h_r)\bigr).
+                            \]
+                            <p>Both meshes tend to zero, so the modulus-of-continuity lemma gives \(w_f(d_r)\to0\) and \(w_f(h_r)\to0\).</p>
+                            <p>By the squeeze theorem, \(|S_r-T_r|\to0\).</p>
+                          </div>
+                          <div class="presentation-break" aria-hidden="true"></div>
+                          <div class="lecture-block" id="lecture21-integral-proof-4">
+                            <p>By Claim 1, \(T_r\to L\).</p>
+                            <p>Since \(|S_r-T_r|\to0\), the triangle inequality gives</p>
+                            \[
+                              0\leq |S_r-L|\leq |S_r-T_r|+|T_r-L|\to0.
+                            \]
+                            <p>Thus \(S_r\to L\) as \(r\to\infty\) for every sequence of tagged partitions whose mesh tends to zero.</p>
+                            <p>By definition,</p>
+                            \[
+                              \int_a^b f(x)\,\mathrm{d}x=L.
+                            \]
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                  </details>
+                </div>
+              </details>
+              <!-- End Lecture 21 existence of the Riemann integral -->
+            </div>
+          </details>
+          <!-- Begin Lecture 21 properties of the Riemann integral -->
+          <details class="lecture-node lecture-chapter lecture21-single-spaced" id="lecture-21-properties">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">properties-of-the-riemann-integral/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture21-single-spaced" id="lecture21-linearity">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">linearity-of-the-integral/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture21-linearity-1">
+                    <p><strong>Theorem (Linearity).</strong> Let \(a&lt;b\), \(f,g\in C([a,b])\), and \(\alpha\in\mathbb{R}\).</p>
+                    <p>Then</p>
+                    \[
+                      \int_a^b(\alpha f+g)=\alpha\int_a^b f+\int_a^b g.
+                    \]
+                    <p>Here \(\displaystyle\int_a^b f\) abbreviates \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture21-linearity-2">
+                    <p><strong>Proof.</strong> Fix a sequence of tagged partitions with mesh tending to zero.</p>
+                    <p>Write \(S_u^{\,r}\) for the sum of \(u\) on partition \(r\).</p>
+                    <p>At each tag, \((\alpha f+g)(\xi_k)=\alpha f(\xi_k)+g(\xi_k)\).</p>
+                    <p>Multiplying by \(\Delta x_k\) and summing over \(k\) gives</p>
+                    \[
+                      S_{\alpha f+g}^{\,r}=\alpha S_f^{\,r}+S_g^{\,r}.
+                    \]
+                    <p>Since \(\alpha f+g\) is continuous on \([a,b]\), the integral theorem and the limit laws give</p>
+                    \[
+                      \begin{aligned}
+                      \int_a^b(\alpha f+g)
+                      &amp;=\lim_{r\to\infty}S_{\alpha f+g}^{\,r}\\
+                      &amp;=\alpha\lim_{r\to\infty}S_f^{\,r}+\lim_{r\to\infty}S_g^{\,r}\\
+                      &amp;=\alpha\int_a^b f+\int_a^b g.
+                      \end{aligned}
+                    \]
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 21 properties of the Riemann integral -->
         </div>
     </div>
   </main>
