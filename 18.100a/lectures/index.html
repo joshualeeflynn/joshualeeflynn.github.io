@@ -769,6 +769,10 @@
       .lecture20-single-spaced .lecture-node[open] { padding-bottom: 0; }
     }
     /* End Lecture 20 geometry */
+    #lecture20-second-derivative-test-3 mjx-container[jax="CHTML"][display="true"],
+    #lecture20-second-derivative-test-4 mjx-container[jax="CHTML"][display="true"] {
+      overflow: visible;
+    }
     /* Begin Lecture 21 geometry */
     /* Lecture 21 uses Lecture 10's current spacing, font size, and geometry. */
     .lecture21-single-spaced .lecture-note { line-height: 1.2; }
@@ -821,6 +825,108 @@
     #lecture21-convergence-proof > summary { padding-left: 2ch; }
     #lecture21-convergence-proof > .lecture-children > .lecture-node > summary { padding-left: 4ch; }
     /* End Lecture 21 geometry */
+    /* Begin Lecture 22 geometry */
+    /* Lecture 22 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture22-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture22-single-spaced .lecture-note p,
+    .lecture22-single-spaced .lecture-note ol,
+    .lecture22-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture22-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture22-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture22-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .lecture22-single-spaced {
+      --lecture22-slide-height: 90vh;
+      --lecture22-slide-gap: 10vh;
+      --lecture22-slide-inset: 3vh;
+    }
+    .lecture22-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture22-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture22-single-spaced {
+        --lecture22-slide-height: 90dvh;
+        --lecture22-slide-gap: 10dvh;
+        --lecture22-slide-inset: 3dvh;
+      }
+      .lecture22-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture22-single-spaced .lecture-block {
+        height: var(--lecture22-slide-height);
+        padding-block: var(--lecture22-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture22-slide-inset);
+      }
+      .lecture22-single-spaced .presentation-break {
+        height: var(--lecture22-slide-gap);
+      }
+      .lecture22-single-spaced[open],
+      .lecture22-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 22 geometry */
+    #lecture22-additivity mjx-container[jax="CHTML"][display="true"],
+    #lecture22-integral-bounds-2 mjx-container[jax="CHTML"][display="true"],
+    #lecture22-integral-bounds-3 mjx-container[jax="CHTML"][display="true"],
+    #lecture22-integral-inequalities-2 mjx-container[jax="CHTML"][display="true"],
+    #lecture22-monotonicity-limit mjx-container[jax="CHTML"][display="true"],
+    #lecture22-integral-inequalities-3 mjx-container[jax="CHTML"][display="true"],
+    #lecture-22-ftc mjx-container[jax="CHTML"][display="true"] {
+      overflow: visible;
+    }
+    /* Begin Lecture 23 geometry */
+    /* Lecture 23 uses Lecture 10's current spacing, font size, and geometry. */
+    .lecture23-single-spaced .lecture-note { line-height: 1.2; }
+    .lecture23-single-spaced .lecture-note p,
+    .lecture23-single-spaced .lecture-note ol,
+    .lecture23-single-spaced .lecture-note ul { margin-bottom: 8px; line-height: 1.2; }
+    .lecture23-single-spaced .lecture-note li { margin: 2px 0; }
+    .lecture23-single-spaced .lecture-label { overflow-wrap: anywhere; }
+    .lecture23-single-spaced .lecture-note mjx-container[jax="CHTML"][display="true"] {
+      margin: 0.55em 0 !important;
+      max-width: 100%;
+      overflow: visible;
+    }
+    .lecture23-single-spaced {
+      --lecture23-slide-height: 90vh;
+      --lecture23-slide-gap: 10vh;
+      --lecture23-slide-inset: 3vh;
+    }
+    .lecture23-single-spaced .lecture-note {
+      font-size: clamp(24px, calc(4px + 2.3vh), 26px);
+    }
+    .lecture23-single-spaced .note-heading { font-size: 1.05em; }
+    @supports (height: 100dvh) {
+      .lecture23-single-spaced {
+        --lecture23-slide-height: 90dvh;
+        --lecture23-slide-gap: 10dvh;
+        --lecture23-slide-inset: 3dvh;
+      }
+      .lecture23-single-spaced .lecture-note {
+        font-size: clamp(24px, calc(4px + 2.3dvh), 26px);
+      }
+    }
+    @media screen and (min-width: 821px) and (min-height: 600px) {
+      .lecture23-single-spaced .lecture-block {
+        height: var(--lecture23-slide-height);
+        padding-block: var(--lecture23-slide-inset);
+        display: flow-root;
+        scroll-margin-block-start: var(--lecture23-slide-inset);
+      }
+      .lecture23-single-spaced .presentation-break {
+        height: var(--lecture23-slide-gap);
+      }
+      .lecture23-single-spaced[open],
+      .lecture23-single-spaced .lecture-node[open] { padding-bottom: 0; }
+    }
+    /* End Lecture 23 geometry */
   </style>
   <script>
     window.MathJax = {
@@ -11188,40 +11294,78 @@
                     \[
                       f'(x_0)=0\qquad\text{and}\qquad f''(x_0)&gt;0,
                     \]
-                    <p>then \(f\) has a <strong>strict relative minimum</strong> at \(x_0\).</p>
-                    <p>That is, \(\exists\delta&gt;0\) s.t. \(\forall x\in(a,b)\),</p>
+                    <p>then \(f\) has a <strong>strict relative minimum</strong> at \(x_0.\)</p>
+                    <p>That is, \(\exists\delta&gt;0\) s.t. \(\forall x\in(a,b),\)</p>
                     \[
                       0&lt;|x-x_0|&lt;\delta\implies f(x)&gt;f(x_0).
                     \]
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-second-derivative-test-idea">
+                    <p><strong>Observe.</strong> The conditions</p>
+                    \[
+                      f'(x_0)=0\qquad\text{and}\qquad f''(x_0)&gt;0
+                    \]
+                    <p>on the first two derivatives of \(f\) suggest using Taylor's theorem.</p>
+                    <p><strong>Idea.</strong> Apply Taylor's theorem with \(n=1.\)</p>
+                    <p>For each \(x\in(a,b)\) with \(x\neq x_0,\) there exists \(c\) strictly between \(x_0\) and \(x\) s.t.</p>
+                    \[
+                      f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(c)}{2!}(x-x_0)^2.
+                    \]
+                    <p>Since \(f'(x_0)=0,\) this gives</p>
+                    \[
+                      f(x)-f(x_0)=\frac{f''(c)}{2!}(x-x_0)^2.
+                    \]
+                    <p>Thus it suffices to show that \(f''(c)&gt;0\) for \(x\) sufficiently close to \(x_0.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture20-second-derivative-test-2">
-                    <p><strong>Proof.</strong> Take \(\epsilon=\tfrac12 f''(x_0)&gt;0.\)</p>
-                    <p>By continuity of \(f''\) at \(x_0\), \(\exists\delta&gt;0\) s.t. for all \(t\in(a,b)\),</p>
+                    <p><strong>Proof.</strong> We show that \(f''(x_0)&gt;0\) implies \(f''(t)&gt;0\) for \(t\) sufficiently close to \(x_0.\)</p>
+                    <p>Take \(\epsilon=\tfrac12 f''(x_0)&gt;0.\)</p>
+                    <p>By continuity of \(f''\) at \(x_0,\) \(\exists\delta&gt;0\) s.t. for all \(t\in(a,b),\)</p>
                     \[
                       |t-x_0|&lt;\delta
                       \implies |f''(t)-f''(x_0)|&lt;\epsilon.
                     \]
-                    <p>Hence for every such \(t\) with \(|t-x_0|&lt;\delta\),</p>
+                    <p>Hence for every such \(t\) with \(|t-x_0|&lt;\delta,\)</p>
                     \[
                       f''(t)&gt;f''(x_0)-\epsilon=\tfrac12 f''(x_0)&gt;0.
                     \]
+                    <p>Fix such a \(\delta&gt;0.\)</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture20-second-derivative-test-3">
                     <p>Fix \(x\in(a,b)\) with \(0&lt;|x-x_0|&lt;\delta.\)</p>
+                    <p>Observe</p>
                     \[
-                      P_1(x)=f(x_0)+\underbrace{f'(x_0)}_{0}(x-x_0)=f(x_0).
+                      P_1(x)=f(x_0)+f'(x_0)(x-x_0)=f(x_0).
                     \]
-                    <p>By Taylor's theorem with \(n=1\), \(\exists c\in(x,x_0)\) or \((x_0,x)\) s.t.</p>
+                    <p>Taylor's theorem \(\implies\exists c\in(x,x_0)\) or \((x_0,x)\) s.t.</p>
                     \[
                       f(x)-f(x_0)=R_1(x)=\frac{f''(c)}{2!}(x-x_0)^2.
                     \]
-                    <p>Now \(|c-x_0|&lt;|x-x_0|&lt;\delta\) gives \(f''(c)&gt;\tfrac12 f''(x_0)\), so</p>
+                    <p>But \(|c-x_0|&lt;|x-x_0|,\) so the previous slide gives</p>
                     \[
-                      f(x)-f(x_0)&gt;\frac{f''(x_0)}{4}(x-x_0)^2&gt;0.
+                      f''(c)&gt;\tfrac12 f''(x_0).
                     \]
-                    <p>Hence \(f\) has a strict relative minimum at \(x_0.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture20-second-derivative-test-4">
+                    <p>Altogether we have:</p>
+                    <ul>
+                      <li>\(0&lt;|x-x_0|&lt;\delta,\)</li>
+                      <li>\(\exists c\in(x,x_0)\) or \((x_0,x)\) s.t. \(f(x)-f(x_0)=\dfrac{f''(c)}{2}(x-x_0)^2,\)</li>
+                      <li>\(|t-x_0|&lt;\delta \implies f''(t)&gt;\tfrac12 f''(x_0)&gt;0,\)</li>
+                      <li>\(|c-x_0|&lt;|x-x_0|.\)</li>
+                    </ul>
+                    <p>We conclude</p>
+                    \[
+                      0&lt;|x-x_0|&lt;\delta\implies
+                      \begin{aligned}
+                        f(x)-f(x_0) &amp;&gt; \frac{f''(x_0)}{4}(x-x_0)^2\\
+                                    &amp;&gt; 0.
+                      \end{aligned}
+                    \]
                   </div>
                 </div>
               </details>
@@ -11244,7 +11388,7 @@
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture20-partitions-1">
-                    <p><strong>Definition.</strong> For real \(a&lt;b\), a <strong>partition</strong> of \([a,b]\) is a finite set \(\underline{x}=\{x_0,\ldots,x_n\}\) with \(n\in\mathbb{N}\) and</p>
+                    <p><strong>Definition.</strong> For real \(a&lt;b,\) a <strong>partition</strong> of \([a,b]\) is a finite set \(\underline{x}=\{x_0,\ldots,x_n\}\) with \(n\in\mathbb{N}\) and</p>
                     \[
                       a=x_0&lt;x_1&lt;\cdots&lt;x_n=b.
                     \]
@@ -11281,7 +11425,7 @@
                     \[
                       \lVert\underline{x}\rVert:=\max_{1\leq k\leq n}\Delta x_k.
                     \]
-                    <p>Thus \(\lVert\underline{x}\rVert&lt;\delta\) precisely when every subinterval has length less than \(\delta\).</p>
+                    <p>Thus \(\lVert\underline{x}\rVert&lt;\delta\) precisely when every subinterval has length less than \(\delta.\)</p>
                   </div>
                 </div>
               </details>
@@ -11293,13 +11437,13 @@
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture20-tagged-partitions-1">
-                    <p><strong>Definition.</strong> Let \(\underline{x}=\{x_0,\ldots,x_n\}\) be a partition of \([a,b]\).</p>
+                    <p><strong>Definition.</strong> Let \(\underline{x}=\{x_0,\ldots,x_n\}\) be a partition of \([a,b].\)</p>
                     <p>Choose one <strong>tag</strong> \(\xi_k\) in each subinterval, so that</p>
                     \[
                       x_{k-1}\leq\xi_k\leq x_k,\qquad 1\leq k\leq n.
                     \]
-                    <p>Write \(\underline{\xi}=(\xi_1,\ldots,\xi_n)\).</p>
-                    <p>The pair \((\underline{x},\underline{\xi})\) is a <strong>tagged partition</strong> of \([a,b]\).</p>
+                    <p>Write \(\underline{\xi}=(\xi_1,\ldots,\xi_n).\)</p>
+                    <p>The pair \((\underline{x},\underline{\xi})\) is a <strong>tagged partition</strong> of \([a,b].\)</p>
                     <div role="figure" aria-label="Partition of the closed interval from a to b. From left to right the figure shows the first, kth, and last subintervals. Braces mark their respective widths Δx₁, Δxₖ, and Δxₙ. Dots stand for omitted partition points. One sample tag is marked in each displayed subinterval: ξ₁, ξₖ, and ξₙ, respectively." style="container-type:inline-size;">
                       <div style="font-size:min(1em,4.25cqw);">
                         \[
@@ -11338,13 +11482,13 @@
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture20-tagged-partitions-2">
-                    <p><strong>Example.</strong> Consider the partition \(\underline{x}=\{0,1,4,6\}\) of \([0,6]\).</p>
+                    <p><strong>Example.</strong> Consider the partition \(\underline{x}=\{0,1,4,6\}\) of \([0,6].\)</p>
                     <p>Can we take \(\underline{\xi}=(1,1,5)\) as our tags?</p>
                     \[
                       1\in[0,1],\qquad 1\in[1,4],\qquad 5\in[4,6].
                     \]
                     <p>The first two subintervals can both use \(1\) because it is their shared endpoint.</p>
-                    <p>The three widths are \(1,3,2\), so the mesh is \(\lVert\underline{x}\rVert=3\).</p>
+                    <p>The three widths are \(1,3,2,\) so the mesh is \(\lVert\underline{x}\rVert=3.\)</p>
                     <div role="figure" aria-label="A number line from 0 to 6 has partition points at 0, 1, 4, and 6. The first two tags coincide at their shared endpoint 1. The third tag is 5. Braces show the three subinterval widths in order: 1, 3, and 2." style="container-type:inline-size;">
                       <div style="font-size:min(1em,4.3cqw);">
                         <!-- Linear scale X=1.3+3x em; all marks, braces, and labels belong to one TeX display. -->
@@ -11384,7 +11528,7 @@
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture20-riemann-sums-1">
-                    <p><strong>Definition.</strong> Let \(f:[a,b]\to\mathbb{R}\), and let \((\underline{x},\underline{\xi})\) be a tagged partition of \([a,b]\).</p>
+                    <p><strong>Definition.</strong> Let \(f:[a,b]\to\mathbb{R},\) and let \((\underline{x},\underline{\xi})\) be a tagged partition of \([a,b].\)</p>
                     <p>The corresponding <strong>Riemann sum</strong> is</p>
                     \[
                       S_f(\underline{x},\underline{\xi})
@@ -11462,16 +11606,17 @@
                         \]
                       </div>
                     </div>
+                    <p><strong>Note.</strong> \(S_f(\underline{x},\underline{\xi})\) is a sum of signed rectangular areas, with \(\underline{\xi}\) determining the signed heights \(f(\xi_k)\) and \(\underline{x}\) the widths \(\Delta x_k.\)</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture20-riemann-sums-example">
-                    <p><strong>Example.</strong> Let \(f:[0,6]\to\mathbb{R}\).</p>
+                    <p><strong>Example.</strong> Let \(f:[0,6]\to\mathbb{R}.\)</p>
                     <p>Use the tagged partition</p>
                     \[
                       \underline{x}=\{0,1,4,6\},\qquad \underline{\xi}=(1,1,5).
                     \]
-                    <p>The widths of \([0,1]\), \([1,4]\), and \([4,6]\) are \(\Delta x_1=1\), \(\Delta x_2=3\), and \(\Delta x_3=2\).</p>
-                    <p>Since \(\xi_1=\xi_2=1\),</p>
+                    <p>The widths of \([0,1],\) \([1,4],\) and \([4,6]\) are \(\Delta x_1=1,\) \(\Delta x_2=3,\) and \(\Delta x_3=2.\)</p>
+                    <p>Since \(\xi_1=\xi_2=1,\)</p>
                     \[
                       \begin{aligned}
                       S_f(\underline{x},\underline{\xi})
@@ -11564,22 +11709,26 @@
                     \[
                       C([a,b])=\{f:[a,b]\to\mathbb{R}\mid f\text{ is continuous}\}.
                     \]
-                    <p>Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be a sequence of tagged partitions of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0\) as \(r\to\infty\).</p>
-                    <p>For \(f\in C([a,b])\), we study the convergence of the Riemann sums</p>
+                    <p>Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be a sequence of tagged partitions of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0\) as \(r\to\infty.\)</p>
+                    <p>For \(f\in C([a,b]),\) we study the convergence of the Riemann sums</p>
                     \[
                       S_f(\underline{x}^{\,r},\underline{\xi}^{\,r}).
                     \]
+                    <p>Intuitively, \(S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\) ought to converge to the “signed area” determined by \(f.\)</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture21-integral-theorem-1">
-                    <p><strong>Theorem (Riemann Integral).</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
-                    <p>There exists a unique \(L\in\mathbb{R}\) s.t. for every sequence of tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b]\),</p>
+                    <p><strong>Theorem (Riemann Integral).</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                    <p>There exists a unique \(L\in\mathbb{R}\) s.t. for every sequence of tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b],\)</p>
                     \[
                       \lVert\underline{x}^{\,r}\rVert\to 0
                       \implies S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\to L
                       \qquad(r\to\infty).
                     \]
-                    <p>This \(L\) is the <strong>Riemann integral</strong> of \(f\) on \([a,b]\), denoted \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</p>
+                    <p>This \(L\) is the <strong>Riemann integral</strong> of \(f\) on \([a,b],\) denoted</p>
+                    \[
+                      \int_a^b f(x)\,\mathrm{d}x \qquad\text{or}\qquad \int_a^b f.
+                    \]
                   </div>
                 </div>
                 <div class="lecture-children">
@@ -11598,25 +11747,25 @@
                         </summary>
                         <div class="lecture-note">
                           <div class="lecture-block" id="lecture21-proof-outline-1">
-                            <p><strong>Outline.</strong> Fix \(a&lt;b\) and \(f\in C([a,b])\).</p>
-                            <p>For each \(r\in\mathbb{N}\), divide \([a,b]\) into \(r\) equal subintervals of width \(h_r=(b-a)/r\).</p>
+                            <p><strong>Outline.</strong> Fix \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                            <p>For each \(r\in\mathbb{N},\) divide \([a,b]\) into \(r\) equal subintervals of width \(h_r=(b-a)/r.\)</p>
                             <p>Taking the left endpoints \(a,a+h_r,\ldots,a+(r-1)h_r\) as tags gives the sum</p>
                             \[
                               T_r:=h_r\sum_{k=0}^{r-1} f(a+kh_r).
                             \]
-                            <p><strong>Uniqueness.</strong> Since \(h_r\to0\), any number satisfying the theorem's convergence property must be the limit of this same sequence \(\{T_r\}\).</p>
+                            <p><strong>Uniqueness.</strong> Since \(h_r\to0,\) any number satisfying the theorem's convergence property must be the limit of this same sequence \(\{T_r\}.\)</p>
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-proof-outline-2">
                             <p><strong>Existence.</strong> Using the modulus of continuity and a common refinement, we will show that for every \(\epsilon&gt;0\) there is a \(\delta&gt;0\) with the following property.</p>
-                            <p>For any two tagged partitions of \([a,b]\) with meshes \(h,h'\) and sums \(S,S'\),</p>
+                            <p>For any two tagged partitions of \([a,b]\) with meshes \(h,h'\) and sums \(S,S',\)</p>
                             \[
                               \max\{h,h'\}&lt;\delta\implies |S-S'|&lt;\epsilon.
                             \]
                             <p>Apply this estimate twice.</p>
                             <ol>
-                              <li>Compare \(T_r\) and \(T_s\) for large \(r,s\) to show that \(\{T_r\}\) is Cauchy, hence converges to some \(L\in\mathbb{R}\).</li>
-                              <li>For any sequence of tagged partitions with mesh tending to zero, compare its sums \(S_r\) with \(T_r\) to obtain \(|S_r-T_r|\to0\), hence \(S_r\to L\).</li>
+                              <li>Compare \(T_r\) and \(T_s\) for large \(r,s\) to show that \(\{T_r\}\) is Cauchy, hence converges to some \(L\in\mathbb{R}.\)</li>
+                              <li>For any sequence of tagged partitions with mesh tending to zero, compare its sums \(S_r\) with \(T_r\) to obtain \(|S_r-T_r|\to0,\) hence \(S_r\to L.\)</li>
                             </ol>
                           </div>
                         </div>
@@ -11647,7 +11796,7 @@
                                 T_r\to L'.
                               \end{cases}
                             \]
-                            <p>By uniqueness of sequence limits, \(L=L'\).</p>
+                            <p>By uniqueness of sequence limits, \(L=L'.\)</p>
                           </div>
                         </div>
                       </details>
@@ -11659,22 +11808,22 @@
                         </summary>
                         <div class="lecture-note">
                           <div class="lecture-block" id="lecture21-modulus-1">
-                            <p><strong>Definition.</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
-                            <p>For \(\eta&gt;0\), the <strong>modulus of continuity</strong> of \(f\) is</p>
+                            <p><strong>Definition.</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                            <p>For \(\eta&gt;0,\) the <strong>modulus of continuity</strong> of \(f\) is</p>
                             \[
                               w_f(\eta)=\sup_{\substack{x,y\in[a,b]\\ |x-y|\leq\eta}} |f(x)-f(y)|.
                             \]
-                            <p>Taking \(x=y\) gives \(0\).</p>
-                            <p>Boundedness of \(f\) gives \(|f|\leq B\) on \([a,b]\) for some \(B\), so \(|f(x)-f(y)|\leq |f(x)|+|f(y)|\leq 2B\).</p>
+                            <p>Taking \(x=y\) gives \(0.\)</p>
+                            <p>Boundedness of \(f\) gives \(|f|\leq B\) on \([a,b]\) for some \(B,\) so \(|f(x)-f(y)|\leq |f(x)|+|f(y)|\leq 2B.\)</p>
                             <p>Thus the supremum exists.</p>
-                            <p>In particular, for all \(x,y\in[a,b]\),</p>
+                            <p>In particular, for all \(x,y\in[a,b],\)</p>
                             \[
                               |x-y|\leq\eta\implies |f(x)-f(y)|\leq w_f(\eta).
                             \]
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-modulus-2">
-                            <p><strong>Lemma (Vanishing modulus of continuity).</strong> Let \(a&lt;b\) and \(f\in C([a,b])\).</p>
+                            <p><strong>Lemma (Vanishing modulus of continuity).</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
                             <p>Then</p>
                             \[
                               \lim\limits_{\eta\to0^+} w_f(\eta)=0.
@@ -11686,14 +11835,14 @@
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-modulus-3">
-                            <p><strong>Proof.</strong> Fix \(\epsilon&gt;0\).</p>
-                            <p>Since \(f\) is continuous on \([a,b]\), it is uniformly continuous there.</p>
-                            <p>Choose \(\delta&gt;0\) s.t. for all \(x,y\in[a,b]\),</p>
+                            <p><strong>Proof.</strong> Fix \(\epsilon&gt;0.\)</p>
+                            <p>Since \(f\) is continuous on \([a,b],\) it is uniformly continuous there.</p>
+                            <p>Choose \(\delta&gt;0\) s.t. for all \(x,y\in[a,b],\)</p>
                             \[
                               |x-y|&lt;\delta\implies |f(x)-f(y)|&lt;\epsilon/2.
                             \]
-                            <p>Fix \(0&lt;\eta&lt;\delta\).</p>
-                            <p>Every pair in the supremum satisfies \(|x-y|\leq\eta&lt;\delta\), so \(\epsilon/2\) is an upper bound.</p>
+                            <p>Fix \(0&lt;\eta&lt;\delta.\)</p>
+                            <p>Every pair in the supremum satisfies \(|x-y|\leq\eta&lt;\delta,\) so \(\epsilon/2\) is an upper bound.</p>
                             <p>Hence</p>
                             \[
                               0\leq w_f(\eta)\leq\epsilon/2&lt;\epsilon.
@@ -11713,13 +11862,13 @@
                             \[
                               \underline{x}\subseteq\underline{x}'.
                             \]
-                            <p>Each subinterval of \(\underline{x}\) is therefore a union of consecutive subintervals of \(\underline{x}'\).</p>
+                            <p>Each subinterval of \(\underline{x}\) is therefore a union of consecutive subintervals of \(\underline{x}'.\)</p>
                             <p>The two partitions may be tagged independently.</p>
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-refinement-2">
-                            <p><strong>Lemma (Refinement estimate).</strong> Let \(a&lt;b\), \(f\in C([a,b])\), and let \((\underline{x},\underline{\xi})\), \((\underline{x}',\underline{\xi}')\) be tagged partitions of \([a,b]\).</p>
-                            <p>If \(\underline{x}'\) refines \(\underline{x}\), then</p>
+                            <p><strong>Lemma (Refinement estimate).</strong> Let \(a&lt;b,\) \(f\in C([a,b]),\) and let \((\underline{x},\underline{\xi}),\) \((\underline{x}',\underline{\xi}')\) be tagged partitions of \([a,b].\)</p>
+                            <p>If \(\underline{x}'\) refines \(\underline{x},\) then</p>
                             \[
                               \bigl|S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')\bigr|
                               \leq w_f(\lVert\underline{x}\rVert)(b-a).
@@ -11727,12 +11876,12 @@
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-refinement-3">
-                            <p><strong>Proof.</strong> Fix one coarse subinterval \([x_{k-1},x_k]\).</p>
+                            <p><strong>Proof.</strong> Fix one coarse subinterval \([x_{k-1},x_k].\)</p>
                             <p>Its endpoints occur in the refinement, say</p>
                             \[
                               x_{k-1}=x'_\ell,\qquad x_k=x'_m,\qquad \ell&lt;m.
                             \]
-                            <p>Write \(\Delta x'_j=x'_j-x'_{j-1}\) and \(h=\lVert\underline{x}\rVert\).</p>
+                            <p>Write \(\Delta x'_j=x'_j-x'_{j-1}\) and \(h=\lVert\underline{x}\rVert.\)</p>
                             <p>Observe</p>
                             <ol>
                               <li>The fine widths telescope to the coarse width,
@@ -11740,12 +11889,12 @@
                                   \sum_{j=\ell+1}^{m}\Delta x'_j=x'_m-x'_\ell=\Delta x_k.
                                 \]
                               </li>
-                              <li>For \(\ell&lt;j\leq m\), both tags lie in \([x_{k-1},x_k]\), so \(|\xi_k-\xi'_j|\leq\Delta x_k\leq h\).</li>
+                              <li>For \(\ell&lt;j\leq m,\) both tags lie in \([x_{k-1},x_k],\) so \(|\xi_k-\xi'_j|\leq\Delta x_k\leq h.\)</li>
                             </ol>
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-refinement-4">
-                            <p>Let \(E_k\) be the difference between the coarse and fine sums on \([x_{k-1},x_k]\).</p>
+                            <p>Let \(E_k\) be the difference between the coarse and fine sums on \([x_{k-1},x_k].\)</p>
                             <p>By the width identity,</p>
                             \[
                               \begin{aligned}
@@ -11753,7 +11902,7 @@
                                  &amp;=\sum_{j=\ell+1}^m\bigl(f(\xi_k)-f(\xi'_j)\bigr)\Delta x'_j.
                               \end{aligned}
                             \]
-                            <p>Since the tags are at most \(h\) apart, \(|f(\xi_k)-f(\xi'_j)|\leq w_f(h)\).</p>
+                            <p>Since the tags are at most \(h\) apart, \(|f(\xi_k)-f(\xi'_j)|\leq w_f(h).\)</p>
                             <p>The triangle inequality now gives</p>
                             \[
                               |E_k|\leq w_f(h)\sum_{j=\ell+1}^m\Delta x'_j
@@ -11768,7 +11917,7 @@
                               S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')
                               =\sum_{k=1}^n E_k.
                             \]
-                            <p>Using the bound on each \(|E_k|\),</p>
+                            <p>Using the bound on each \(|E_k|,\)</p>
                             \[
                               \begin{aligned}
                               \left|\sum_{k=1}^n E_k\right|
@@ -11777,7 +11926,7 @@
                               &amp;=w_f(h)(b-a).
                               \end{aligned}
                             \]
-                            <p>Since \(h=\lVert\underline{x}\rVert\), this proves the refinement estimate.</p>
+                            <p>Since \(h=\lVert\underline{x}\rVert,\) this proves the refinement estimate.</p>
                           </div>
                         </div>
                       </details>
@@ -11789,8 +11938,8 @@
                         </summary>
                         <div class="lecture-note">
                           <div class="lecture-block" id="lecture21-common-refinement-1">
-                            <p><strong>Lemma (Common-refinement estimate).</strong> Let \(a&lt;b\), \(f\in C([a,b])\), and let \((\underline{x},\underline{\xi})\), \((\underline{x}',\underline{\xi}')\) be any two tagged partitions of \([a,b]\).</p>
-                            <p>Write \(h=\lVert\underline{x}\rVert\) and \(h'=\lVert\underline{x}'\rVert\).</p>
+                            <p><strong>Lemma (Common-refinement estimate).</strong> Let \(a&lt;b,\) \(f\in C([a,b]),\) and let \((\underline{x},\underline{\xi}),\) \((\underline{x}',\underline{\xi}')\) be any two tagged partitions of \([a,b].\)</p>
+                            <p>Write \(h=\lVert\underline{x}\rVert\) and \(h'=\lVert\underline{x}'\rVert.\)</p>
                             <p>Then</p>
                             \[
                               \bigl|S_f(\underline{x},\underline{\xi})-S_f(\underline{x}',\underline{\xi}')\bigr|
@@ -11800,8 +11949,8 @@
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-common-refinement-2">
                             <p><strong>Proof.</strong> The union \(\underline{x}''=\underline{x}\cup\underline{x}'\) refines both partitions.</p>
-                            <p>Choose tags \(\underline{\xi}''\) for this refinement and write \(S''=S_f(\underline{x}'',\underline{\xi}'')\).</p>
-                            <p>Writing \(S,S'\) for the two original sums, apply the refinement estimate to each with this same \(S''\).</p>
+                            <p>Choose tags \(\underline{\xi}''\) for this refinement and write \(S''=S_f(\underline{x}'',\underline{\xi}'').\)</p>
+                            <p>Writing \(S,S'\) for the two original sums, apply the refinement estimate to each with this same \(S''.\)</p>
                             \[
                               \begin{aligned}
                               |S-S''|&amp;\leq(b-a)w_f(h),\\
@@ -11826,14 +11975,14 @@
                         </summary>
                         <div class="lecture-note">
                           <div class="lecture-block" id="lecture21-integral-proof-1">
-                            <p><strong>Proof (Existence).</strong> Let \(T_r\) be the left endpoint sum for \(r\) equal subintervals of \([a,b]\), with mesh \(h_r=(b-a)/r\).</p>
+                            <p><strong>Proof (Existence).</strong> Let \(T_r\) be the left endpoint sum for \(r\) equal subintervals of \([a,b],\) with mesh \(h_r=(b-a)/r.\)</p>
                             <p><strong>Claim 1.</strong> \(\{T_r\}\) is Cauchy.</p>
-                            <p>Fix \(\epsilon&gt;0\).</p>
+                            <p>Fix \(\epsilon&gt;0.\)</p>
                             <p>By the common-refinement estimate,</p>
                             \[
                               |T_r-T_s|\leq (b-a)w_f(h_r)+(b-a)w_f(h_s).
                             \]
-                            <p>To make each term smaller than \(\epsilon/2\), it suffices to find \(N\) s.t.</p>
+                            <p>To make each term smaller than \(\epsilon/2,\) it suffices to find \(N\) s.t.</p>
                             \[
                               \forall r\geq N,\qquad w_f(h_r)&lt;\frac{\epsilon}{2(b-a)}.
                             \]
@@ -11844,8 +11993,8 @@
                             \[
                               0&lt;\eta&lt;\delta\implies w_f(\eta)&lt;\frac{\epsilon}{2(b-a)}.
                             \]
-                            <p>Since \(h_r=(b-a)/r\to0\), choose \(N\in\mathbb{N}\) s.t. \(r\geq N\implies 0&lt;h_r&lt;\delta\).</p>
-                            <p>Then for \(r,s\geq N\),</p>
+                            <p>Since \(h_r=(b-a)/r\to0,\) choose \(N\in\mathbb{N}\) s.t. \(r\geq N\implies 0&lt;h_r&lt;\delta.\)</p>
+                            <p>Then for \(r,s\geq N,\)</p>
                             \[
                               \begin{aligned}
                               |T_r-T_s|&amp;\leq(b-a)w_f(h_r)+(b-a)w_f(h_s)\\
@@ -11853,27 +12002,27 @@
                               \end{aligned}
                             \]
                             <p>Thus \(\{T_r\}\) is Cauchy.</p>
-                            <p>Completeness of \(\mathbb{R}\) gives \(L\in\mathbb{R}\) s.t. \(T_r\to L\).</p>
+                            <p>Completeness of \(\mathbb{R}\) gives \(L\in\mathbb{R}\) s.t. \(T_r\to L.\)</p>
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-integral-proof-3">
-                            <p><strong>Claim 2.</strong> Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be any sequence of tagged partitions of \([a,b]\) with \(d_r=\lVert\underline{x}^{\,r}\rVert\to0\).</p>
+                            <p><strong>Claim 2.</strong> Let \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) be any sequence of tagged partitions of \([a,b]\) with \(d_r=\lVert\underline{x}^{\,r}\rVert\to0.\)</p>
                             <p>We wish to show</p>
                             \[
                               S_r=S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\to L.
                             \]
-                            <p>Compare \(S_r\) with \(T_r\).</p>
+                            <p>Compare \(S_r\) with \(T_r.\)</p>
                             <p>By the common-refinement estimate,</p>
                             \[
                               0\leq |S_r-T_r|\leq(b-a)\bigl(w_f(d_r)+w_f(h_r)\bigr).
                             \]
-                            <p>Both meshes tend to zero, so the modulus-of-continuity lemma gives \(w_f(d_r)\to0\) and \(w_f(h_r)\to0\).</p>
-                            <p>By the squeeze theorem, \(|S_r-T_r|\to0\).</p>
+                            <p>Both meshes tend to zero, so the modulus-of-continuity lemma gives \(w_f(d_r)\to0\) and \(w_f(h_r)\to0.\)</p>
+                            <p>By the squeeze theorem, \(|S_r-T_r|\to0.\)</p>
                           </div>
                           <div class="presentation-break" aria-hidden="true"></div>
                           <div class="lecture-block" id="lecture21-integral-proof-4">
-                            <p>By Claim 1, \(T_r\to L\).</p>
-                            <p>Since \(|S_r-T_r|\to0\), the triangle inequality gives</p>
+                            <p>By Claim 1, \(T_r\to L.\)</p>
+                            <p>Since \(|S_r-T_r|\to0,\) the triangle inequality gives</p>
                             \[
                               0\leq |S_r-L|\leq |S_r-T_r|+|T_r-L|\to0.
                             \]
@@ -11892,53 +12041,900 @@
               <!-- End Lecture 21 existence of the Riemann integral -->
             </div>
           </details>
-          <!-- Begin Lecture 21 properties of the Riemann integral -->
+          <!-- Begin Lectures 21–22 properties of the Riemann integral -->
           <details class="lecture-node lecture-chapter lecture21-single-spaced" id="lecture-21-properties">
             <summary>
-              <span class="lecture-branch">└──</span>
+              <span class="lecture-branch">├──</span>
               <span class="lecture-toggle" aria-hidden="true"></span>
               <span class="lecture-label">properties-of-the-riemann-integral/</span>
             </summary>
             <div class="lecture-children">
               <details class="lecture-node lecture21-single-spaced" id="lecture21-linearity">
                 <summary>
-                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-branch">├──</span>
                   <span class="lecture-toggle" aria-hidden="true"></span>
                   <span class="lecture-label">linearity-of-the-integral/</span>
                 </summary>
                 <div class="lecture-note">
                   <div class="lecture-block" id="lecture21-linearity-1">
-                    <p><strong>Theorem (Linearity).</strong> Let \(a&lt;b\), \(f,g\in C([a,b])\), and \(\alpha\in\mathbb{R}\).</p>
+                    <p><strong>Theorem (Linearity).</strong> Let \(a&lt;b,\) \(f,g\in C([a,b]),\) and \(\alpha\in\mathbb{R}.\)</p>
                     <p>Then</p>
                     \[
                       \int_a^b(\alpha f+g)=\alpha\int_a^b f+\int_a^b g.
                     \]
-                    <p>Here \(\displaystyle\int_a^b f\) abbreviates \(\displaystyle\int_a^b f(x)\,\mathrm{d}x\).</p>
                   </div>
                   <div class="presentation-break" aria-hidden="true"></div>
                   <div class="lecture-block" id="lecture21-linearity-2">
-                    <p><strong>Proof.</strong> Fix a sequence of tagged partitions with mesh tending to zero.</p>
-                    <p>Write \(S_u^{\,r}\) for the sum of \(u\) on partition \(r\).</p>
-                    <p>At each tag, \((\alpha f+g)(\xi_k)=\alpha f(\xi_k)+g(\xi_k)\).</p>
-                    <p>Multiplying by \(\Delta x_k\) and summing over \(k\) gives</p>
+                    <p><strong>Proof.</strong> Fix a tagged partition \((\underline{x},\underline{\xi})\) of \([a,b]\) with \(n\) subintervals.</p>
+                    <p>At each tag \(\xi_k,\) we have</p>
                     \[
-                      S_{\alpha f+g}^{\,r}=\alpha S_f^{\,r}+S_g^{\,r}.
+                      (\alpha f+g)(\xi_k)=\alpha f(\xi_k)+g(\xi_k).
                     \]
-                    <p>Since \(\alpha f+g\) is continuous on \([a,b]\), the integral theorem and the limit laws give</p>
+                    <p>Multiplying by the width \(\Delta x_k\) and summing gives</p>
                     \[
                       \begin{aligned}
-                      \int_a^b(\alpha f+g)
-                      &amp;=\lim_{r\to\infty}S_{\alpha f+g}^{\,r}\\
-                      &amp;=\alpha\lim_{r\to\infty}S_f^{\,r}+\lim_{r\to\infty}S_g^{\,r}\\
-                      &amp;=\alpha\int_a^b f+\int_a^b g.
+                      S_{\alpha f+g}(\underline{x},\underline{\xi})
+                      &amp;=\sum_{k=1}^n\bigl(\alpha f(\xi_k)+g(\xi_k)\bigr)\Delta x_k\\
+                      &amp;=\alpha\sum_{k=1}^n f(\xi_k)\Delta x_k
+                        +\sum_{k=1}^n g(\xi_k)\Delta x_k\\
+                      &amp;=\alpha S_f(\underline{x},\underline{\xi})+S_g(\underline{x},\underline{\xi}).
                       \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture21-linearity-3">
+                    <p>Take tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0.\)</p>
+                    <p>For each of the continuous functions \(u=f,g,\alpha f+g,\) the Riemann Integral Theorem gives</p>
+                    \[
+                      S_u(\underline{x}^{\,r},\underline{\xi}^{\,r})\to\int_a^b u.
+                    \]
+                    <p>Taking limits in the preceding slide’s identity gives</p>
+                    \[
+                      \int_a^b(\alpha f+g)=\alpha\int_a^b f+\int_a^b g.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-additivity">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">additivity-of-the-integral/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-additivity-1">
+                    <p><strong>Theorem (Additivity).</strong> Let \(a&lt;c&lt;b\) and \(f\in C([a,b]).\)</p>
+                    <p>Then</p>
+                    \[
+                      \int_a^b f=\int_a^c f+\int_c^b f.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-additivity-2">
+                    <p><strong>Proof.</strong> Fix tagged partitions \((\underline{y},\underline{\zeta})\) of \([a,c]\) and \((\underline{z},\underline{\eta})\) of \([c,b].\)</p>
+                    <div role="figure" aria-label="Two tagged partitions, each with two subintervals, are shown separately above and joined below. The right endpoint of the first and the left endpoint of the second are both c. They become the single point x₂ in the joined partition. The tags ζ₁, ζ₂, η₁, η₂ become ξ₁, ξ₂, ξ₃, ξ₄ in order, with the same positions in the same subintervals." style="container-type:inline-size;">
+                      <div style="font-size:min(1em,4.25cqw);">
+                        \[
+                          {
+                            \def\JoinAt#1#2#3{\rlap{\kern#1em\raise#2em\hbox{$#3$}}}
+                            \def\JoinTick#1{\JoinAt{#1}{-.18}{\kern-.025em\rule{.05em}{.40em}}}
+                            \def\JoinPoint#1#2{\JoinAt{#1}{-.85}{\scriptstyle #2}}
+                            \def\JoinTag#1#2#3{{
+                              \color[rgb]{0.247,0.384,0.525}
+                              \JoinAt{#1}{-.14}{\kern-.20em\scriptstyle\bullet}
+                              \JoinAt{#2}{.48}{\scriptstyle #3}
+                            }}
+                            \JoinAt{0}{3.15}{
+                              \JoinAt{1.35}{0}{\rule{8em}{.055em}}
+                              \JoinAt{12.35}{0}{\rule{8em}{.055em}}
+                              \JoinTick{1.35}\JoinTick{4.55}\JoinTick{9.35}
+                              \JoinTick{12.35}\JoinTick{16.95}\JoinTick{20.35}
+                              \JoinPoint{.40}{a=y_0}\JoinPoint{4.20}{y_1}\JoinPoint{8.44}{y_2=c}
+                              \JoinPoint{11.43}{c=z_0}\JoinPoint{16.60}{z_1}\JoinPoint{19.43}{z_2=b}
+                              \JoinTag{2.50}{2.20}{\zeta_1}\JoinTag{7.25}{6.95}{\zeta_2}
+                              \JoinTag{13.85}{13.55}{\eta_1}\JoinTag{18.85}{18.55}{\eta_2}
+                            }
+                            \JoinAt{10.44}{1.53}{\scriptstyle\Downarrow}
+                            \JoinAt{2.85}{0}{\rule{16em}{.055em}}
+                            \JoinTick{2.85}\JoinTick{6.05}\JoinTick{10.85}\JoinTick{15.45}\JoinTick{18.85}
+                            \JoinPoint{1.90}{a=x_0}\JoinPoint{5.70}{x_1}\JoinPoint{9.92}{x_2=c}
+                            \JoinPoint{15.10}{x_3}\JoinPoint{17.93}{x_4=b}
+                            \JoinTag{4.00}{3.05}{\xi_1=\zeta_1}\JoinTag{8.75}{7.80}{\xi_2=\zeta_2}
+                            \JoinTag{12.35}{11.40}{\xi_3=\eta_1}\JoinTag{17.35}{16.40}{\xi_4=\eta_2}
+                            \phantom{\rule[-1.20em]{21.5em}{5.65em}}
+                          }
+                        \]
+                      </div>
+                    </div>
+                    <p>In the joined partition \((\underline{x},\underline{\xi}),\) write \(x_m=c\) and \(x_{m+n}=b.\)</p>
+                    <p>More precisely,</p>
+                    \[
+                      x_k=
+                      \begin{cases}
+                        y_k, &amp; 0\leq k\leq m,\\
+                        z_{k-m}, &amp; m&lt;k\leq m+n,
+                      \end{cases}
+                      \qquad
+                      \xi_k=
+                      \begin{cases}
+                        \zeta_k, &amp; 1\leq k\leq m,\\
+                        \eta_{k-m}, &amp; m&lt;k\leq m+n.
+                      \end{cases}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-additivity-split-sum">
+                    <p>Split the sum at \(k=m\) and reindex:</p>
+                    \[
+                      \begin{aligned}
+                      S_f(\underline{x},\underline{\xi})
+                      &amp;=\sum_{k=1}^{m+n} f(\xi_k)\,\Delta x_k\\
+                      &amp;=\sum_{k=1}^{m} f(\xi_k)\,\Delta x_k
+                        +\sum_{k=m+1}^{m+n} f(\xi_k)\,\Delta x_k\\
+                      &amp;=\sum_{k=1}^{m} f(\zeta_k)\,\Delta y_k
+                        +\sum_{j=1}^{n} f(\eta_j)\,\Delta z_j\\
+                      &amp;=S_f(\underline{y},\underline{\zeta})+S_f(\underline{z},\underline{\eta}).
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-additivity-3">
+                    <p>Now take sequences of tagged partitions on \([a,c]\) and \([c,b]\) with \(\lVert\underline{y}^{\,r}\rVert\to0\) and \(\lVert\underline{z}^{\,r}\rVert\to0.\)</p>
+                    <p>(Recall \(\lVert\underline{x}\rVert=\max_k\Delta x_k\text{.)}\)</p>
+                    <p>Joining the partitions at each \(r\) gives</p>
+                    \[
+                      \lVert\underline{x}^{\,r}\rVert
+                      =\max\{\lVert\underline{y}^{\,r}\rVert,\lVert\underline{z}^{\,r}\rVert\}\to0.
+                    \]
+                    <p>By the Riemann Integral Theorem on all three intervals, taking limits in the sum identity gives</p>
+                    \[
+                      \int_a^b f=\int_a^c f+\int_c^b f.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-integral-bounds">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">bounds-for-the-integral/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-integral-bounds-1">
+                    <p><strong>Theorem.</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                    <p>Write</p>
+                    \[
+                      \begin{aligned}
+                      m_f&amp;=\inf\{f(x)\mid x\in[a,b]\},\\
+                      M_f&amp;=\sup\{f(x)\mid x\in[a,b]\}.
+                      \end{aligned}
+                    \]
+                    <p>Both are finite by the Extreme Value Theorem.</p>
+                    <p>Then</p>
+                    \[
+                      m_f(b-a)\leq\int_a^b f\leq M_f(b-a).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-integral-bounds-2">
+                    <p><strong>Proof.</strong> Fix a tagged partition \((\underline{x},\underline{\xi})\) of \([a,b]\) with \(n\) subintervals.</p>
+                    <p>At each tag, \(m_f\leq f(\xi_k)\leq M_f.\)</p>
+                    <p>Multiplying by the positive width \(\Delta x_k\) gives</p>
+                    \[
+                      m_f\Delta x_k\leq f(\xi_k)\Delta x_k\leq M_f\Delta x_k.
+                    \]
+                    <p>Summing over \(k\) gives</p>
+                    \[
+                      m_f\underbrace{\sum_{k=1}^n\Delta x_k}_{b-a}
+                      \leq\underbrace{\sum_{k=1}^n f(\xi_k)\,\Delta x_k}_{S_f(\underline{x},\underline{\xi})}
+                      \leq M_f\underbrace{\sum_{k=1}^n\Delta x_k}_{b-a}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-integral-bounds-3">
+                    <p>Take tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0.\)</p>
+                    <p>By the preceding estimate, for every \(r,\)</p>
+                    \[
+                      m_f(b-a)\leq S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})\leq M_f(b-a).
+                    \]
+                    <p>By the Riemann Integral Theorem, the middle term converges to</p>
+                    \[
+                      \int_a^b f.
+                    \]
+                    <p>Passing to the limit gives</p>
+                    \[
+                      m_f(b-a)\leq\int_a^b f\leq M_f(b-a).
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-integral-inequalities">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">monotonicity-and-the-triangle-inequality/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-integral-inequalities-1">
+                    <p><strong>Theorem.</strong> Let \(a&lt;b\) and \(f,g\in C([a,b]).\)</p>
+                    <ol>
+                      <li><strong>Monotonicity:</strong> if \(f(x)\leq g(x)\) for every \(x\in[a,b],\) then
+                        \[
+                          \int_a^b f\leq\int_a^b g.
+                        \]
+                      </li>
+                      <li><strong>Triangle inequality:</strong>
+                        \[
+                          \left|\int_a^b f\right|\leq\int_a^b |f|.
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-integral-inequalities-2">
+                    <p><strong>Proof (Monotonicity).</strong> Fix a tagged partition \((\underline{x},\underline{\xi})\) of \([a,b]\) with \(n\) subintervals.</p>
+                    <p>At each tag \(\xi_k,\) the hypothesis gives \(f(\xi_k)\leq g(\xi_k).\)</p>
+                    <p>Since \(\Delta x_k&gt;0,\)</p>
+                    \[
+                      f(\xi_k)\,\Delta x_k\leq g(\xi_k)\,\Delta x_k.
+                    \]
+                    <p>Summing over \(k\) gives</p>
+                    \[
+                      \underbrace{\sum_{k=1}^n f(\xi_k)\,\Delta x_k}_{S_f(\underline{x},\underline{\xi})}
+                      \leq
+                      \underbrace{\sum_{k=1}^n g(\xi_k)\,\Delta x_k}_{S_g(\underline{x},\underline{\xi})}.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-monotonicity-limit">
+                    <p>Take tagged partitions \((\underline{x}^{\,r},\underline{\xi}^{\,r})\) of \([a,b]\) with \(\lVert\underline{x}^{\,r}\rVert\to0.\)</p>
+                    <p>For every \(r,\) the preceding estimate gives</p>
+                    \[
+                      S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})
+                      \leq S_g(\underline{x}^{\,r},\underline{\xi}^{\,r}).
+                    \]
+                    <p>By the Riemann Integral Theorem, taking limits on both sides gives</p>
+                    \[
+                      \int_a^b f\leq\int_a^b g.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-integral-inequalities-3">
+                    <p><strong>Proof (Triangle inequality).</strong> For every \(x\in[a,b],\)</p>
+                    \[
+                      -|f(x)|\leq f(x)\leq |f(x)|.
+                    \]
+                    <p>Since \(-|f|,f,|f|\) are continuous, monotonicity gives</p>
+                    \[
+                      \int_a^b(-|f|)\leq\int_a^b f\leq\int_a^b |f|.
+                    \]
+                    <p>By linearity, the left side equals \(\displaystyle-\int_a^b |f|.\)</p>
+                    <p>Thus the two inequalities say exactly that</p>
+                    \[
+                      \left|\int_a^b f\right|\leq\int_a^b |f|.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-endpoint-conventions">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">endpoint-conventions/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-endpoint-conventions-1">
+                    <p><strong>Remark.</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                    <p>We use the conventions</p>
+                    \[
+                      \int_a^a f:=0,\qquad
+                      \int_b^a f:=-\int_a^b f.
+                    \]
+                    <p>To see why the first convention is natural, let \(M=\max_{t\in[a,b]}|f(t)|.\)</p>
+                    <p>For \(a&lt;x\leq b,\) the bounds for the integral give</p>
+                    \[
+                      0\leq\left|\int_a^x f\right|\leq M(x-a).
+                    \]
+                    <p>Thus \(\displaystyle\lim\limits_{x\to a^+}\left|\int_a^x f\right|=0.\)</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lectures 21–22 properties of the Riemann integral -->
+          <!-- Begin Lecture 22 Fundamental Theorem of Calculus and applications -->
+          <details class="lecture-node lecture-chapter lecture22-single-spaced" id="lecture-22-ftc">
+            <summary>
+              <span class="lecture-branch">├──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">fundamental-theorem-of-calculus/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-ftc">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">theorem/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-ftc-1">
+                    <p><strong>Theorem (Fundamental Theorem of Calculus).</strong> Let \(a&lt;b\) and \(f\in C([a,b]).\)</p>
+                    <ol>
+                      <li>If \(F:[a,b]\to\mathbb{R}\) is differentiable and \(F'=f,\) then
+                        \[
+                          \int_a^b f=F(b)-F(a).
+                        \]
+                      </li>
+                      <li>The function \(\displaystyle G(x)=\int_a^x f\) is differentiable on \([a,b],\) with
+                        \[
+                          G'=f,\qquad G(a)=0.
+                        \]
+                      </li>
+                    </ol>
+                    <p><strong>Remark.</strong> We abbreviate the Fundamental Theorem of Calculus to FTOC. A differentiable function \(F\) is called an <strong>antiderivative</strong> of \(f\) on \([a,b]\) if \(F'=f\) on \([a,b].\)</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-ftc-part-1">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">proof-of-part-1/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-ftc-part-1-1">
+                    <p><strong>Proof idea.</strong> We want to choose tags for a partition \(\underline{x}\) so that</p>
+                    \[
+                      S_f(\underline{x},\underline{\xi})=F(b)-F(a).
+                    \]
+                    <p>The sum will telescope if, on each subinterval,</p>
+                    \[
+                      f(\xi_k)\,\Delta x_k=F(x_k)-F(x_{k-1}).
+                    \]
+                    <p>Since \(f=F',\) the Mean Value Theorem gives precisely such a tag.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-1-goal">
+                    <p><strong>Proof (1).</strong> We want to show:</p>
+                    <p>If \(F:[a,b]\to\mathbb{R}\) is differentiable and \(F'=f,\) then</p>
+                    \[
+                      \int_a^b f=F(b)-F(a).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-1-tags">
+                    <p>Fix a partition \(\underline{x}=\{x_0,\ldots,x_n\}\) of \([a,b].\)</p>
+                    <p>For each \(1\leq k\leq n,\) \(F\) is continuous on \([x_{k-1},x_k]\) and differentiable on \((x_{k-1},x_k).\)</p>
+                    <p>By the Mean Value Theorem, choose \(\xi_k\in(x_{k-1},x_k)\) s.t.</p>
+                    \[
+                      \begin{aligned}
+                      F(x_k)-F(x_{k-1})
+                      &amp;=F'(\xi_k)(x_k-x_{k-1})\\
+                      &amp;=f(\xi_k)\,\Delta x_k.
+                      \end{aligned}
+                    \]
+                    <p>With \(\underline{\xi}=(\xi_1,\ldots,\xi_n),\) the pair \((\underline{x},\underline{\xi})\) is a tagged partition of \([a,b].\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-1-2">
+                    <p>Summing the Mean Value Theorem identities gives</p>
+                    \[
+                      \begin{aligned}
+                      S_f(\underline{x},\underline{\xi})
+                      &amp;=\sum_{k=1}^{n} f(\xi_k)\,\Delta x_k\\
+                      &amp;=\sum_{k=1}^{n}\bigl(F(x_k)-F(x_{k-1})\bigr)\\
+                      &amp;=F(x_n)-F(x_0)\\
+                      &amp;=F(b)-F(a).
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-1-limit">
+                    <p>Take a sequence of partitions \(\underline{x}^{\,r}\) with \(\lVert\underline{x}^{\,r}\rVert\to0.\)</p>
+                    <p>On each partition choose the tags \(\underline{\xi}^{\,r}\) as above, so that for every \(r,\)</p>
+                    \[
+                      S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})=F(b)-F(a).
+                    \]
+                    <p>Since \(f\in C([a,b]),\) the Riemann Integral Theorem gives</p>
+                    \[
+                      \int_a^b f
+                      =\lim_{r\to\infty}S_f(\underline{x}^{\,r},\underline{\xi}^{\,r})
+                      =F(b)-F(a).
+                    \]
+                    <p>Here the theorem is used for existence of the limit.</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-ftc-part-2">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">proof-of-part-2/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-ftc-part-2-goal">
+                    <p><strong>Proof (2).</strong> We want to show:</p>
+                    <p>The function \(\displaystyle G(x)=\int_a^x f(t)\,\mathrm{d}t\) is differentiable on \([a,b],\) with</p>
+                    \[
+                      G'=f,\qquad G(a)=0.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-2-1">
+                    <p>By convention,</p>
+                    \[
+                      G(a)=\int_a^a f=0.
+                    \]
+                    <p>Fixing \(c\in[a,b],\) we wish to show</p>
+                    \[
+                      \lim\limits_{x\to c}\frac{G(x)-G(c)}{x-c}=f(c).
+                    \]
+                    <p>By additivity and the convention for reversed limits, for \(x\in[a,b]\setminus\{c\},\)</p>
+                    \[
+                      G(x)-G(c)=\int_a^x f-\int_a^c f=\int_c^x f.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-2-2">
+                    <p>Fix \(\epsilon&gt;0.\)</p>
+                    <p>\(f\) continuous at \(c\) \(\implies\exists\delta&gt;0\) s.t.</p>
+                    \[
+                      |t-c|&lt;\delta\implies |f(t)-f(c)|&lt;\epsilon/2.
+                    \]
+                    <p>Fix \(x\in[a,b]\) with \(0&lt;|x-c|&lt;\delta.\)</p>
+                    <p>For every \(t\) between \(c\) and \(x,\)</p>
+                    \[
+                      |t-c|\leq |x-c| \quad\text{and so}\quad |f(t)-f(c)|&lt;\epsilon/2.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-2-3">
+                    <p><strong>Case 1.</strong> Suppose \(c&lt;x.\)</p>
+                    <p>Since \(\displaystyle\int_c^x f(c)\,\mathrm{d}t=f(c)(x-c),\) linearity gives</p>
+                    \[
+                      \begin{aligned}
+                      \left|\frac{G(x)-G(c)}{x-c}-f(c)\right|
+                      &amp;=\frac{1}{x-c}\left|\int_c^x \bigl(f(t)-f(c)\bigr)\,\mathrm{d}t\right|\\
+                      &amp;\leq\frac{1}{x-c}\int_c^x |f(t)-f(c)|\,\mathrm{d}t\\
+                      &amp;\leq\frac{1}{x-c}\cdot\frac{\epsilon}{2}(x-c)=\frac{\epsilon}{2}.
+                      \end{aligned}
+                    \]
+                    <p>Here we used the triangle inequality for integrals and</p>
+                    \[
+                      t\in[c,x]\implies |f(t)-f(c)|&lt;\epsilon/2.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-2-4">
+                    <p><strong>Case 2.</strong> Suppose \(x&lt;c.\)</p>
+                    <p>Reversing the limits and using \(x-c=-(c-x)\) gives</p>
+                    \[
+                      \frac{G(x)-G(c)}{x-c}=\frac{1}{c-x}\int_x^c f(t)\,\mathrm{d}t.
+                    \]
+                    <p>By the same argument as in Case 1,</p>
+                    \[
+                      \begin{aligned}
+                      \left|\frac{G(x)-G(c)}{x-c}-f(c)\right|
+                      &amp;\leq\frac{1}{c-x}\int_x^c |f(t)-f(c)|\,\mathrm{d}t\\
+                      &amp;\leq\frac{1}{c-x}\cdot\frac{\epsilon}{2}(c-x)=\frac{\epsilon}{2}.
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ftc-part-2-conclusion">
+                    <p>In both cases, for \(x\in[a,b],\)</p>
+                    \[
+                      0&lt;|x-c|&lt;\delta
+                      \implies\left|\frac{G(x)-G(c)}{x-c}-f(c)\right|\leq\frac{\epsilon}{2}&lt;\epsilon.
+                    \]
+                    <p>Hence \(G'(c)=f(c)\) for every \(c\in[a,b],\) with the right-hand limit at \(a\) and the left-hand limit at \(b.\)</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-ibp">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">integration-by-parts/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-ibp-1">
+                    <p><strong>Theorem (Integration by Parts).</strong> Let \(a&lt;b.\)</p>
+                    <p>Suppose \(f,g\) are differentiable on \([a,b]\) and \(f',g'\in C([a,b]).\)</p>
+                    <p>Then</p>
+                    \[
+                      \int_a^b f'g=f(b)g(b)-f(a)g(a)-\int_a^b fg'.
+                    \]
+                    <p><strong>Remark.</strong> We sometimes abbreviate integration by parts as IBP.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-ibp-2">
+                    <p><strong>Proof.</strong> By the product rule,</p>
+                    \[
+                      (fg)'=f'g+fg'.
+                    \]
+                    <p>Both terms on the right are continuous, so integrating and using linearity gives</p>
+                    \[
+                      \underbrace{\int_a^b(fg)'}_{f(b)g(b)-f(a)g(a)\;\text{(FTOC)}}
+                      =\int_a^b f'g+\int_a^b fg'.
+                    \]
+                    <p>Subtracting \(\displaystyle\int_a^b fg'\) gives</p>
+                    \[
+                      \int_a^b f'g=f(b)g(b)-f(a)g(a)-\int_a^b fg'.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-fourier">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">fourier-coefficients-and-the-riemann-lebesgue-lemma/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-fourier-1">
+                    <p><strong>Lemma (Riemann–Lebesgue).</strong> Let \(f:\mathbb{R}\to\mathbb{R}\) be \(2\pi\)-periodic and continuously differentiable on \([-\pi,\pi].\)</p>
+                    <p>For \(n\in\mathbb{N}\cup\{0\},\) let</p>
+                    \[
+                      \begin{aligned}
+                      a_n&amp;=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)\,\mathrm{d}x,\\
+                      b_n&amp;=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)\,\mathrm{d}x.
+                      \end{aligned}
+                    \]
+                    <p>Then \(a_n\to0\) and \(b_n\to0\) as \(n\to\infty.\)</p>
+                    <p><strong>Definition.</strong> The numbers \(a_n,b_n\) are called the <strong>Fourier coefficients</strong> of \(f.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-fourier-2">
+                    <p><strong>Proof.</strong> Fix \(n\geq1.\)</p>
+                    <p>Integrating the trigonometric factor introduces a factor of \(1/n.\)</p>
+                    <p>For \(b_n,\) use \(\cos(nx)=\bigl(\sin(nx)/n\bigr)'\) in integration by parts.</p>
+                    \[
+                      \begin{aligned}
+                      b_n
+                      &amp;=\left.\frac{f(x)\sin(nx)}{\pi n}\right|_{-\pi}^{\pi}\\
+                      &amp;\quad-\frac{1}{\pi n}\int_{-\pi}^{\pi}f'(x)\sin(nx)\,\mathrm{d}x.
+                      \end{aligned}
+                    \]
+                    <p>Since \(\sin(n\pi)=\sin(-n\pi)=0,\) both endpoint values are zero.</p>
+                    <p>Thus</p>
+                    \[
+                      b_n=-\frac{1}{\pi n}\int_{-\pi}^{\pi}f'(x)\sin(nx)\,\mathrm{d}x.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-fourier-3">
+                    <p>For \(a_n,\) use \(\sin(nx)=\bigl(-\cos(nx)/n\bigr)'\) in integration by parts.</p>
+                    \[
+                      \begin{aligned}
+                      a_n
+                      &amp;=-\left.\frac{f(x)\cos(nx)}{\pi n}\right|_{-\pi}^{\pi}\\
+                      &amp;\quad+\frac{1}{\pi n}\int_{-\pi}^{\pi}f'(x)\cos(nx)\,\mathrm{d}x.
+                      \end{aligned}
+                    \]
+                    <p>Since \(\cos(n\pi)=\cos(-n\pi)=(-1)^n\) and \(f(\pi)=f(-\pi)\) by periodicity, the two endpoint values agree.</p>
+                    <p>Thus</p>
+                    \[
+                      a_n=\frac{1}{\pi n}\int_{-\pi}^{\pi}f'(x)\cos(nx)\,\mathrm{d}x.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-fourier-4">
+                    <p>By continuity of \(f',\)</p>
+                    \[
+                      C:=\frac{1}{\pi}\int_{-\pi}^{\pi}|f'(x)|\,\mathrm{d}x&lt;\infty.
+                    \]
+                    <p>By the triangle inequality for integrals and the bounds \(|\sin(nx)|\leq1,\) \(|\cos(nx)|\leq1,\)</p>
+                    \[
+                      |a_n|\leq\frac{C}{n},\qquad |b_n|\leq\frac{C}{n}.
+                    \]
+                    <p>Since \(C/n\to0,\) the squeeze theorem gives \(a_n\to0\) and \(b_n\to0.\)</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture22-single-spaced" id="lecture22-change-of-variables">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">change-of-variables/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture22-change-of-variables-1">
+                    <p><strong>Theorem (Change of Variables).</strong> Let \(a&lt;b,\) \(c&lt;d,\) and \(f\in C([c,d]).\)</p>
+                    <p>Suppose \(\varphi:[a,b]\to[c,d]\) is continuously differentiable with</p>
+                    \[
+                      \begin{gathered}
+                      \varphi'(x)&gt;0\quad (x\in[a,b]),\\
+                      \varphi(a)=c,\qquad\varphi(b)=d.
+                      \end{gathered}
+                    \]
+                    <p>Then</p>
+                    \[
+                      \int_c^d f(u)\,\mathrm{d}u
+                      =\int_a^b f(\varphi(x))\varphi'(x)\,\mathrm{d}x.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-change-of-variables-2">
+                    <p><strong>Proof.</strong> We seek an antiderivative of \(f(\varphi(x))\varphi'(x)\) on \([a,b].\)</p>
+                    <p>The chain rule suggests \(F\circ\varphi,\) where \(F'=f\) on \([c,d].\)</p>
+                    <p>Take</p>
+                    \[
+                      F(u)=\int_c^u f(t)\,\mathrm{d}t,\qquad u\in[c,d].
+                    \]
+                    <p>By part (2) of the FTOC, \(F'=f,\) so</p>
+                    \[
+                      \begin{aligned}
+                      (F\circ\varphi)'(x)&amp;=F'(\varphi(x))\varphi'(x)\\
+                      &amp;=f(\varphi(x))\varphi'(x).
+                      \end{aligned}
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture22-change-of-variables-endpoints">
+                    <p>Since \((F\circ\varphi)'\) is continuous, part (1) of the FTOC gives</p>
+                    \[
+                      \begin{aligned}
+                      \int_a^b f(\varphi(x))\varphi'(x)\,\mathrm{d}x
+                      &amp;=F(\varphi(b))-F(\varphi(a))\\
+                      &amp;=F(d)-F(c).
+                      \end{aligned}
+                    \]
+                    <p>By the definition of \(F,\) \(F(c)=0\) and \(\displaystyle F(d)=\int_c^d f(u)\,\mathrm{d}u.\)</p>
+                    <p>Consequently,</p>
+                    \[
+                      \int_c^d f(u)\,\mathrm{d}u
+                      =\int_a^b f(\varphi(x))\varphi'(x)\,\mathrm{d}x.
                     \]
                   </div>
                 </div>
               </details>
             </div>
           </details>
-          <!-- End Lecture 21 properties of the Riemann integral -->
+          <!-- End Lecture 22 Fundamental Theorem of Calculus and applications -->
+          <!-- Begin Lecture 23 sequences of functions -->
+          <details class="lecture-node lecture-chapter lecture23-single-spaced" id="lecture-23-sequences-of-functions">
+            <summary>
+              <span class="lecture-branch">└──</span>
+              <span class="lecture-toggle" aria-hidden="true"></span>
+              <span class="lecture-label">sequences-of-functions/</span>
+            </summary>
+            <div class="lecture-children">
+              <details class="lecture-node lecture23-single-spaced" id="lecture23-power-series">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">power-series/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture23-power-series-1">
+                    <p><strong>Definition.</strong> A <strong>power series</strong> centered at \(x_0\in\mathbb{R}\) is a series of the form</p>
+                    \[
+                      \sum_{m=0}^{\infty}a_m(x-x_0)^m,
+                    \]
+                    <p>where \(a_0,a_1,\ldots\in\mathbb{R}\) are the coefficients.</p>
+                    <p>The partial sums are polynomials in \(x,\) so they form a sequence of functions.</p>
+                    <p><strong>Question.</strong> For which \(x\in\mathbb{R}\) does the series converge?</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture23-single-spaced" id="lecture23-radius-of-convergence">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">radius-of-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture23-radius-1">
+                    <p><strong>Theorem.</strong> Suppose the limit \(R=\lim_{m\to\infty}|a_m|^{1/m}\) exists in \(\mathbb{R}.\)</p>
+                    <p>Set</p>
+                    \[
+                      p=\begin{cases}
+                        1/R, &amp; R&gt;0,\\
+                        \infty, &amp; R=0.
+                      \end{cases}
+                    \]
+                    <ol>
+                      <li>If \(|x-x_0|&lt;p,\) then \(\sum_{m=0}^{\infty}a_m(x-x_0)^m\) converges absolutely.</li>
+                      <li>If \(|x-x_0|&gt;p,\) then the series diverges.</li>
+                    </ol>
+                    <p>We call \(p\) the <strong>radius of convergence</strong> of the power series.</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-radius-2">
+                    <p><strong>Proof.</strong> Fix \(x\in\mathbb{R}.\)</p>
+                    <p>To apply the Root Test, we want to compare the limit of the \(m\)th roots with \(1.\)</p>
+                    <p>For \(m\geq1,\) observe</p>
+                    \[
+                      \bigl|a_m(x-x_0)^m\bigr|^{1/m}
+                      =|a_m|^{1/m}\,|x-x_0|.
+                    \]
+                    <p>Since \(|x-x_0|\) is constant in \(m,\)</p>
+                    \[
+                      \lim_{m\to\infty}\bigl|a_m(x-x_0)^m\bigr|^{1/m}
+                      =R|x-x_0|.
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-radius-3">
+                    <p><strong>Case 1.</strong> Suppose \(R&gt;0,\) so \(p=1/R.\)</p>
+                    <p>By the Root Test,</p>
+                    <ul>
+                      <li>\(|x-x_0|&lt;p \implies R|x-x_0|&lt;1,\) so the series converges absolutely.</li>
+                      <li>\(|x-x_0|&gt;p \implies R|x-x_0|&gt;1,\) so the series diverges.</li>
+                    </ul>
+                    <p>When \(|x-x_0|=p,\) the root limit is \(1\) and the test is inconclusive.</p>
+                    <p><strong>Case 2.</strong> Suppose \(R=0,\) so \(p=\infty.\)</p>
+                    <p>Then \(R|x-x_0|=0&lt;1\) for every \(x\in\mathbb{R},\) so the series converges absolutely for every \(x.\)</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture23-single-spaced" id="lecture23-partial-sums">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">polynomial-partial-sums/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture23-partial-sums-1">
+                    <p>Suppose \(\sum_{m=0}^{\infty}a_m(x-x_0)^m\) has radius of convergence \(p.\)</p>
+                    <p>On \(I=(x_0-p,x_0+p),\) define</p>
+                    \[
+                      f(x)=\sum_{m=0}^{\infty}a_m(x-x_0)^m.
+                    \]
+                    <p>For each \(n\geq 0,\) the \(n\)th partial sum is the polynomial</p>
+                    \[
+                      f_n(x)=\sum_{m=0}^n a_m(x-x_0)^m.
+                    \]
+                    <p>By the definition of a convergent series, for every \(x\in I,\)</p>
+                    \[
+                      \lim_{n\to\infty}f_n(x)=f(x).
+                    \]
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-partial-sums-2">
+                    <p><strong>Example.</strong> Take \(x_0=0\) and \(a_m=1\) for every \(m\geq 0,\) so \(p=1.\)</p>
+                    <p>For \(x\in(-1,1),\) the finite geometric sum formula gives</p>
+                    \[
+                      f_n(x)=\sum_{m=0}^n x^m=\frac{1-x^{n+1}}{1-x}.
+                    \]
+                    <p>Since \(x^{n+1}\to 0\) as \(n\to\infty,\)</p>
+                    \[
+                      f(x)=\sum_{m=0}^{\infty}x^m
+                      =\lim_{n\to\infty}f_n(x)=\frac{1}{1-x}.
+                    \]
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture23-single-spaced" id="lecture23-pointwise-convergence">
+                <summary>
+                  <span class="lecture-branch">├──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">pointwise-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture23-pointwise-questions">
+                    <p>Recall that on \(I=(x_0-p,x_0+p),\) the polynomial partial sums \(f_n\) of a power series satisfy</p>
+                    \[
+                      \lim_{n\to\infty} f_n(x)=f(x)
+                      \qquad \text{for every }x\in I.
+                    \]
+                    <p><strong>Questions.</strong></p>
+                    <ol>
+                      <li>Is \(f\) continuous on \(I?\)</li>
+                      <li>Is \(f\) differentiable on \(I,\) with \(\displaystyle f'(x)=\lim_{n\to\infty}f_n'(x)\) for every \(x\in I?\)</li>
+                      <li>If \(f\) is continuous, does the following hold for every \([a,b]\subseteq I?\)
+                        \[
+                          \int_a^b f=\lim_{n\to\infty}\int_a^b f_n
+                        \]
+                      </li>
+                    </ol>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-pointwise-definition">
+                    <p><strong>Definition.</strong> Let \(f_n:S\to\mathbb{R}\) for \(n\in\mathbb{N},\) and let \(f:S\to\mathbb{R}.\)</p>
+                    <p>We say that \(\{f_n\}\) <strong>converges pointwise</strong> to \(f\) on \(S\) if for every \(x\in S,\)</p>
+                    \[
+                      \lim_{n\to\infty} f_n(x)=f(x).
+                    \]
+                    <p>Equivalently, for each \(x\in S\) and each \(\epsilon&gt;0,\) there exists \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      n\ge M \implies |f_n(x)-f(x)|&lt;\epsilon.
+                    \]
+                    <p>Here \(M\) may depend on both \(x\) and \(\epsilon.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-pointwise-powers">
+                    <p><strong>Example 1.</strong> Let \(f_n(x)=x^n\) on \([0,1].\)</p>
+                    <p>For \(0\le x&lt;1,\) we have \(x^n\to 0.\) At \(x=1,\) we have \(f_n(1)=1\) for every \(n.\)</p>
+                    <p>Thus \(\{f_n\}\) converges pointwise to</p>
+                    \[
+                      f(x)=\begin{cases}
+                        0, &amp; 0\le x&lt;1,\\
+                        1, &amp; x=1.
+                      \end{cases}
+                    \]
+                    <p>Each \(f_n\) is continuous on \([0,1].\) The limit \(f\) is discontinuous at \(1,\) since \(\lim\limits_{x\to 1^-} f(x)=0\ne f(1).\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-pointwise-geometric">
+                    <p><strong>Example 2.</strong> Let \(\displaystyle f_n(x)=\sum_{m=0}^n x^m\) on \((-1,1).\)</p>
+                    <p>Recall that for each \(x\in(-1,1),\)</p>
+                    \[
+                      f_n(x)=\frac{1-x^{n+1}}{1-x}
+                      \longrightarrow \frac{1}{1-x}.
+                    \]
+                    <p>Thus the geometric partial sums converge pointwise to \(f(x)=1/(1-x)\) on \((-1,1).\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-pointwise-piecewise">
+                    <p><strong>Example 3.</strong> For \(n\in\mathbb{N},\) define \(f_n:[0,1]\to\mathbb{R}\) by</p>
+                    \[
+                      f_n(x)=\begin{cases}
+                        4n^2x, &amp; 0\le x\le \frac{1}{2n},\\[3pt]
+                        4n-4n^2x, &amp; \frac{1}{2n}&lt;x&lt;\frac{1}{n},\\[3pt]
+                        0, &amp; \frac{1}{n}\le x\le 1.
+                      \end{cases}
+                    \]
+                    <p>Observe</p>
+                    \[
+                      f_n(0)=0,\qquad f_n\!\left(\frac{1}{2n}\right)=2n,\qquad
+                      f_n(x)=0\ \text{ on }\ [1/n,1].
+                    \]
+                    <p><strong>Claim.</strong> \(\{f_n\}\) converges pointwise to \(0\) on \([0,1].\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-pointwise-piecewise-proof">
+                    <p><strong>Proof.</strong> Fix \(x\in[0,1].\) We wish to show \(f_n(x)\to 0.\)</p>
+                    <p>If \(x=0,\) then \(f_n(x)=0\) for every \(n.\)</p>
+                    <p>If \(x&gt;0,\) choose \(N\in\mathbb{N}\) such that \(1/N&lt;x.\) Then</p>
+                    \[
+                      n\ge N \implies \frac{1}{n}\le\frac{1}{N}&lt;x
+                      \implies f_n(x)=0.
+                    \]
+                    <p>Thus for each \(x\in[0,1],\) the sequence \(\{f_n(x)\}\) is eventually zero, so \(f_n(x)\to 0.\)</p>
+                  </div>
+                </div>
+              </details>
+              <details class="lecture-node lecture23-single-spaced" id="lecture23-uniform-convergence">
+                <summary>
+                  <span class="lecture-branch">└──</span>
+                  <span class="lecture-toggle" aria-hidden="true"></span>
+                  <span class="lecture-label">uniform-convergence/</span>
+                </summary>
+                <div class="lecture-note">
+                  <div class="lecture-block" id="lecture23-uniform-definition">
+                    <p><strong>Definition.</strong> Let \(f_n:S\to\mathbb{R}\) for \(n\in\mathbb{N},\) and let \(f:S\to\mathbb{R}.\)</p>
+                    <p>We say that \(\{f_n\}\) <strong>converges uniformly</strong> to \(f\) on \(S\) if for each \(\epsilon&gt;0,\) there exists \(M\in\mathbb{N}\) such that</p>
+                    \[
+                      n\ge M \implies |f_n(x)-f(x)|&lt;\epsilon
+                      \quad\text{for every }x\in S.
+                    \]
+                    <p>The same \(M\) must work for every \(x\in S.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-uniform-theorem">
+                    <p><strong>Theorem.</strong> Let \(f_n:S\to\mathbb{R}\) for \(n\in\mathbb{N},\) and let \(f:S\to\mathbb{R}.\)</p>
+                    <p>If \(\{f_n\}\) converges uniformly to \(f\) on \(S,\) then \(\{f_n\}\) converges pointwise to \(f\) on \(S.\)</p>
+                  </div>
+                  <div class="presentation-break" aria-hidden="true"></div>
+                  <div class="lecture-block" id="lecture23-uniform-proof">
+                    <p><strong>Proof.</strong> Fix \(c\in S.\) We wish to show \(\lim_{n\to\infty}f_n(c)=f(c).\)</p>
+                    <p>Fix \(\epsilon&gt;0.\) By uniform convergence, there exists \(M\in\mathbb{N}\) such that for every \(n\ge M,\)</p>
+                    \[
+                      |f_n(x)-f(x)|&lt;\epsilon \qquad\text{for every }x\in S.
+                    \]
+                    <p>Taking \(x=c\) gives</p>
+                    \[
+                      n\ge M \implies |f_n(c)-f(c)|&lt;\epsilon.
+                    \]
+                    <p>Thus \(f_n(c)\to f(c).\) Since \(c\in S\) was arbitrary, the convergence is pointwise on \(S.\)</p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </details>
+          <!-- End Lecture 23 sequences of functions -->
         </div>
     </div>
   </main>
