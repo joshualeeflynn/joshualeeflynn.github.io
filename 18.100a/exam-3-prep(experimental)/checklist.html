@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Track your confidence in the definitions and theorems for MIT 18.100A Exam 3.">
+  <title>Checklist · Exam 3 · 18.100A</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="confidence.css">
+  <script src="data.js" defer></script>
+  <script src="psets-data.js" defer></script>
+  <script src="practice-data.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="confidence.js" defer></script>
+  <script src="confidence-controls.js" defer></script>
+  <script src="study-navigation.js" defer></script>
+  <script src="view-memory.js" defer></script>
+  <script src="checklist.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#checklist-main">Skip to checklist</a>
+  <header class="masthead">
+    <div class="course-mark">18.100A</div>
+    <div class="masthead-title">Exam 3 <span aria-hidden="true">/</span> dependency map</div>
+    <div class="masthead-actions">
+      <nav class="page-nav" aria-label="Map pages"><a href="index.html#resume">Topics</a><a href="overview.html">Big picture</a><a href="checklist.html" aria-current="page">Checklist</a><a href="psets.html">Psets</a><a href="practice.html#resume">Practice</a></nav>
+      <button id="reset-confidence" class="reset-confidence" type="button" title="Mark every topic and problem Unsure">Reset Confidence</button>
+    </div>
+  </header>
+  <main id="checklist-main" class="checklist-main" tabindex="-1">
+    <header class="checklist-intro">
+      <h1>Checklist</h1>
+      <p>Open a unit. Thumbs down: Unsure. Thumbs up: Confident.</p>
+    </header>
+    <noscript><p>Enable JavaScript to view the checklist and save confidence selections.</p></noscript>
+    <section class="checklist-summary" aria-label="Your confidence summary">
+      <div class="confidence-progress"><label id="confidence-progress-label" for="confidence-progress"></label><progress id="confidence-progress" value="0"></progress></div>
+      <p id="checklist-storage-note" class="confidence-note" role="status"></p>
+    </section>
+    <section class="checklist-layout" aria-labelledby="checklist-heading">
+      <div class="checklist-section-heading"><h2 id="checklist-heading">Topic checklist</h2><button id="start-review" class="study-navigation-button" type="button" disabled>Start review →</button></div>
+      <div id="checklist-groups"></div>
+    </section>
+  </main>
+  <div id="checklist-announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

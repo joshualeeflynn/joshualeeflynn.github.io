@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Explore the definitions, theorems, proofs, and their dependencies for MIT 18.100A Exam 3.">
+  <title>Exam 3 dependency map · 18.100A</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="confidence.css">
+  <script src="data.js" defer></script>
+  <script src="psets-data.js" defer></script>
+  <script src="practice-data.js" defer></script>
+  <script src="psets-model.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="confidence.js" defer></script>
+  <script src="confidence-controls.js" defer></script>
+  <script src="study-navigation.js" defer></script>
+  <script src="math.js" defer></script>
+  <script src="view-memory.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to selected topic</a>
+  <header class="masthead">
+    <div class="course-mark">18.100A</div>
+    <div class="masthead-title">Exam 3 <span aria-hidden="true">/</span> dependency map</div>
+    <div class="masthead-actions">
+      <nav class="page-nav" aria-label="Map pages"><a href="index.html" aria-current="page">Topics</a><a href="overview.html">Big picture</a><a href="checklist.html#resume">Checklist</a><a href="psets.html">Psets</a><a href="practice.html#resume">Practice</a></nav>
+      <button id="reset-confidence" class="reset-confidence" type="button" title="Mark every topic and problem Unsure">Reset Confidence</button>
+    </div>
+  </header>
+  <p id="math-status" class="math-status" role="status" hidden></p>
+  <noscript><p class="noscript">Enable JavaScript to explore the dependency map. The course lecture notes remain available separately.</p></noscript>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Topic index">
+      <div class="index-heading"><h2>Topics</h2><span id="topic-count" class="small-label"></span></div>
+      <label class="search-label" for="search">Find a topic</label>
+      <div class="search-wrap"><input id="search" type="search" placeholder="Try “Rolle”" autocomplete="off" spellcheck="false"><button id="clear-search" type="button" aria-label="Clear search" hidden>×</button></div>
+      <p id="search-status" class="search-status" role="status"></p>
+      <nav id="topic-index" aria-label="Topics by unit"></nav>
+    </aside>
+    <main id="main" tabindex="-1">
+      <div class="workspace-toolbar">
+        <span class="eyebrow" id="topic-group"></span>
+      </div>
+      <h1 id="topic-title"></h1>
+      <p id="expectation" class="expectation"></p>
+      <section class="result-confidence" aria-label="Your confidence in this topic">
+        <div id="result-confidence"></div>
+        <a id="topic-checklist-link" href="checklist.html">Edit checklist →</a>
+        <div id="study-navigation" class="study-navigation" role="group" aria-label="Navigate unsure topics">
+          <button id="first-unsure" class="study-navigation-button" type="button" disabled>First unsure</button>
+          <button id="previous-unsure" class="study-navigation-button" type="button" disabled>← Previous unsure</button>
+          <button id="next-unsure" class="study-navigation-button" type="button" disabled>Next unsure →</button>
+          <span id="unsure-count" class="unsure-count" role="status"></span>
+        </div>
+        <p id="result-storage-note" class="confidence-note" role="status"></p>
+      </section>
+      <section id="explore-panel" aria-label="Explore this topic">
+        <section class="map-section" aria-labelledby="map-heading">
+          <div class="section-heading"><h2 id="map-heading">Local connections</h2></div>
+          <p class="map-help">Select a topic to follow it. Select a line to see how it is used.</p>
+          <div id="graph" class="dependency-graph">
+            <svg id="connections-svg" aria-hidden="true"><defs><marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><g id="edge-paths"></g></svg>
+            <div class="graph-lane" id="incoming-lane"><h3>Builds on</h3><div id="incoming-nodes" class="lane-nodes"></div></div>
+            <div class="graph-lane selected-lane"><h3>Selected topic</h3><div id="selected-node" class="lane-nodes"></div></div>
+            <div class="graph-lane" id="outgoing-lane"><h3>Used by</h3><div id="outgoing-nodes" class="lane-nodes"></div></div>
+          </div>
+          <div class="map-legend"><span><i class="line-sample" aria-hidden="true"></i>Used in the proof</span><span><i class="line-sample definition-line" aria-hidden="true"></i>Definition / meaning</span></div>
+          <div id="edge-explanation" class="edge-explanation" hidden></div>
+        </section>
+        <div class="study-columns">
+          <section class="statement-section" aria-labelledby="statement-heading">
+            <div class="section-heading"><h2 id="statement-heading">Statement</h2></div>
+            <div id="statement" class="math-copy"></div>
+            <div id="negation-block" class="supplement" hidden><h3>Negation</h3><div id="negation" class="math-copy"></div></div>
+            <div id="caution-block" class="supplement" hidden><h3>Watch the hypotheses</h3><p id="caution"></p></div>
+          </section>
+          <section class="idea-section" aria-labelledby="idea-heading"><h2 id="idea-heading">Main idea</h2><div id="idea" class="math-copy"></div></section>
+        </div>
+        <section id="proof-section" class="proof-section" aria-labelledby="proof-heading"><h2 id="proof-heading">Proof</h2><div id="proof" class="math-copy proof-copy"></div></section>
+        <section id="practice-section" class="practice-section" aria-labelledby="practice-heading" hidden><h2 id="practice-heading">Related practice</h2><ul id="practice-links" class="practice-links"></ul></section>
+      </section>
+    </main>
+  </div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

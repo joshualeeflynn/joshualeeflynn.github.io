@@ -1,0 +1,48 @@
+.psets-main { max-width: 1050px; margin: 0 auto; padding: 24px clamp(20px, 4vw, 55px) 36px; }
+.psets-intro h1 { margin: 6px 0 10px; }
+.psets-intro p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.psets-intro .practice-warning { margin-top: 12px; color: var(--ink); }
+.psets-intro .practice-credit { margin-top: 4px; font-size: 13px; }
+#psets-storage-note { margin-top: 12px; }
+#pset-list { margin-top: 26px; }
+.pset-group-row, .practice-unit-row { position: relative; border-top: 1px solid var(--line); }
+.pset-group-row:last-child, .practice-unit-row:last-child { border-bottom: 1px solid var(--line); }
+.pset-group-row > .confidence-control { position: absolute; top: 13px; right: 8px; }
+.pset-group > summary, .practice-unit > summary { cursor: pointer; padding: 13px 88px 13px 8px; font-size: 15px; line-height: 1.6; }
+.practice-unit > summary { font-weight: 600; }
+.pset-title { font-weight: 650; }
+.pset-count { display: block; margin: 2px 0 0 17px; color: var(--muted); font-size: 11px; }
+.pset-group[open] > summary, .practice-unit[open] > summary { color: var(--accent); background: var(--soft); }
+.practice-unit-row > .confidence-control { position: absolute; top: 9px; right: 8px; }
+.pset-problem-row { position: relative; margin: 0 10px; border-top: 1px solid var(--line); }
+.pset-problem-row > .confidence-control { position: absolute; top: 7px; right: 5px; }
+.pset-problem > summary { cursor: pointer; min-height: 46px; padding: 11px 85px 11px 5px; font-size: 13px; line-height: 1.6; scroll-margin-top: 16px; }
+.problem-number { font-weight: 650; margin-right: 12px; }
+.problem-title, .problem-tags { color: var(--muted); }
+[data-collection="practice"] .problem-number { margin-right: 0; }
+.problem-scope-badge { display: inline-block; margin-left: 10px; font-size: 10px; color: #805c25; }
+.problem-body { padding: 0 21px 22px; min-width: 0; }
+.problem-scope-note { color: #805c25; font-size: 12px; line-height: 1.6; margin-bottom: 14px; }
+.problem-statement ol, .solution-copy ol { padding-left: 24px; }
+.problem-statement li, .solution-copy li { margin: 12px 0; }
+.useful-topics { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 8px; }
+.useful-topics > summary { cursor: pointer; padding: 8px 0; font-size: 13px; font-weight: 600; line-height: 1.6; }
+.useful-topics-count { display: block; margin-left: 17px; font-size: 11px; font-weight: 400; color: var(--muted); }
+.useful-topics h3 { font-size: 12px; margin: 13px 0 8px; font-weight: 600; }
+.useful-topics-list { list-style: none; padding: 0; margin: 0; }
+.useful-topics-list li { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; padding: 5px 0; font-size: 13px; line-height: 1.6; }
+.useful-topics-list .confidence-badge { font-size: 10px; }
+.extra-topics-list { padding-left: 18px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+.problem-solution, .problem-hint { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+.problem-hint + .useful-topics { margin-top: 12px; }
+.problem-solution > summary, .problem-hint > summary { cursor: pointer; padding: 8px 0; font-size: 13px; font-weight: 600; line-height: 1.6; }
+.problem-solution > summary[aria-disabled="true"] { color: var(--muted); cursor: default; }
+.solution-lock-icon { margin-inline-start: 0.4em; }
+.solution-lock-icon svg { width: 1.3em; height: 1.3em; vertical-align: -0.25em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.solution-lock-note { margin-inline-start: 17px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.solution-lock-note ul { margin: 4px 0 0; padding: 0; list-style: none; }
+.solution-lock-note li { display: flex; align-items: center; gap: 8px; padding-block: 2px; }
+.solution-lock-note li > a { min-width: 0; overflow-wrap: anywhere; }
+.solution-lock-note .confidence-control { flex: none; }
+.solution-copy { margin-top: 8px; }
+@media (max-width: 520px) { .pset-problem-row { margin: 0 3px; } .problem-body { padding-inline: 5px; } .problem-title { display: block; margin-left: 16px; } .problem-scope-badge { margin-left: 16px; } }

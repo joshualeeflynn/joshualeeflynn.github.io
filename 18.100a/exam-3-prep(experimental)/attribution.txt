@@ -1,0 +1,18 @@
+Exam 3 dependency map — MIT 18.100A, Fall 2026
+
+Coverage follows the selected course lectures, starting with continuous functions on closed
+intervals. The practice material follows the Fall 2026 assignments and solutions.
+
+The working source notes originate from:
+MIT OpenCourseWare, 18.100A Real Analysis, Fall 2020, Dr. Casey Rodriguez.
+https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/
+License: Creative Commons Attribution-NonCommercial-ShareAlike.
+https://ocw.mit.edu/terms/
+
+This prototype presents the mathematical statements and concise complete proofs, and adds
+dependency descriptions. Adapted educational content retains
+the source's Attribution-NonCommercial-ShareAlike terms. This attribution does not
+assert a license over the instructor's independent course materials or over the
+application code.
+
+No affiliation or endorsement beyond the original course/source attribution is implied.

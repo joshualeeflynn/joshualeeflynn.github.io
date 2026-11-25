@@ -53,8 +53,13 @@
         },
         {
           id: "18-100a-exam-prep",
-          label: "exam-prep(experimental)/",
+          label: "exam-2-prep(experimental)/",
           href: "/18.100a/exam-prep(experimental)/"
+        },
+        {
+          id: "18-100a-exam-3-prep",
+          label: "exam-3-prep(experimental)/",
+          href: "/18.100a/exam-3-prep(experimental)/"
         }
       ]
     },

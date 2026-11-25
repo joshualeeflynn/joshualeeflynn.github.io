@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Explore how the results covered so far for MIT 18.100A Exam 3 depend on each other.">
+  <title>The big picture · Exam 3 · 18.100A</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="confidence.css">
+  <link rel="stylesheet" href="overview.css">
+  <script src="data.js" defer></script>
+  <script src="psets-data.js" defer></script>
+  <script src="practice-data.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="confidence.js" defer></script>
+  <script src="confidence-controls.js" defer></script>
+  <script src="overview-model.js" defer></script>
+  <script src="math.js" defer></script>
+  <script src="overview.js" defer></script>
+</head>
+<body class="overview-page">
+  <a class="skip-link" href="#overview-main">Skip to the full map</a>
+  <header class="masthead">
+    <div class="course-mark">18.100A</div>
+    <div class="masthead-title">Exam 3 <span aria-hidden="true">/</span> dependency map</div>
+    <div class="masthead-actions">
+      <nav class="page-nav" aria-label="Map pages"><a href="index.html#resume">Topics</a><a href="overview.html" aria-current="page">Big picture</a><a href="checklist.html#resume">Checklist</a><a href="psets.html">Psets</a><a href="practice.html#resume">Practice</a></nav>
+      <button id="reset-confidence" class="reset-confidence" type="button" title="Mark every topic and problem Unsure">Reset Confidence</button>
+    </div>
+  </header>
+  <p id="math-status" class="math-status" role="status" hidden></p>
+  <main id="overview-main" tabindex="-1">
+    <header class="overview-intro">
+      <p class="eyebrow">Exam 3 · Lectures covered so far</p>
+      <h1>The big picture</h1>
+      <p class="overview-lead">Follow the ideas from earlier tools to the results that use them. Every topic appears once; shared prerequisites can branch into several arguments.</p>
+      <p id="overview-count" class="overview-count"></p>
+    </header>
+    <noscript><p>Enable JavaScript to display the dependency map.</p></noscript>
+    <div id="overview-error" role="alert" hidden></div>
+    <section class="overview-toolbar" aria-label="Map controls">
+      <label for="find-topic">Find a topic <select id="find-topic"><option value="">Choose a topic…</option></select></label>
+      <label class="overview-checkbox"><input id="show-all-lines" type="checkbox" checked> Show all connections</label>
+      <div class="overview-legend" aria-label="Connection legend"><span><i class="line-sample" aria-hidden="true"></i>Proof use</span><span><i class="line-sample definition-line" aria-hidden="true"></i>Definition / meaning</span></div>
+    </section>
+    <section id="selection-bar" class="selection-bar" aria-labelledby="selection-title">
+      <div class="selection-top">
+        <div><h2 id="selection-title">Select a topic to trace its connections</h2><p id="selection-summary">All topics stay visible. Earlier tools are highlighted in green; later results in blue.</p></div>
+        <div class="selection-actions"><a id="open-result" class="primary-button" hidden>View topic ↗</a><button id="clear-selection" class="text-button" type="button" disabled>Clear selection</button></div>
+      </div>
+      <div id="overview-confidence" class="overview-confidence" hidden>
+        <div id="selected-confidence"></div>
+        <p id="confidence-save-status" class="confidence-note" role="status"></p>
+      </div>
+      <details id="selection-details" hidden><summary>Statement, proof, and direct connections</summary><div class="selection-body"><div id="selected-statement" class="math-copy"></div><p id="selected-expectation"></p><details id="selected-proof-section"><summary>Proof</summary><div id="selected-proof" class="math-copy proof-copy"></div></details><div id="selected-connections"></div></div></details>
+    </section>
+    <p class="level-explanation">Arrows point down from prerequisite to result. Levels follow the recorded dependencies, not lecture order or difficulty. Topics sharing a level do not depend on one another in this map. Badges show your confidence; green and blue topic highlights trace the selected topic’s connections.</p>
+    <div id="overview-graph" class="overview-graph" aria-label="All topics, arranged in dependency levels">
+      <svg id="overview-lines" aria-hidden="true"><defs><marker id="overview-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><g id="overview-edge-paths"></g></svg>
+      <div id="overview-levels"></div>
+    </div>
+  </main>
+  <div id="overview-announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
